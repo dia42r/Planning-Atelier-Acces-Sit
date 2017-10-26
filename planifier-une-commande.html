@@ -18,7 +18,7 @@
             <li>planning atelier
                 <ul>
                     <li class="lis"><a href="consulter-le-planning.html">Consulter le planning</a></li>
-                    <li class="lis"><a href="#">Listes des commandes</a></li>
+                    <li class="lis"><a href="">Listes des commandes</a></li>
                     <li class="lis"><a href="planifier-une-commande.html">Planifier une commandes</a></li>
                     <li class="lis"><a href="#">Afficher le status d'une commande</a></li>
                 </ul>
@@ -40,7 +40,27 @@
         </ul>
     </nav>
 </header>
-<main></main>
+<main id="main">
+    <!--<h1>Connectez-vous</h1>-->
+    <form action="connexion.php" method="get">
+        <div class="group">
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Pseudo</label>
+        </div>
+        <div class="group">
+            <input type="text" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Mot de passe</label>
+        </div>
+
+        <div>
+            <button type="submit" data-wipe="GO GO GO GO GO GO !!!">Connecte toi maintenant</button>
+        </div>
+    </form>
+</main>
 <footer>
     <ul>
         <a href="http://clestophe.com/"><li>clestophe</li></a>
