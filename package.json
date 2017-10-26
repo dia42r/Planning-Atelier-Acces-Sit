@@ -1,0 +1,22 @@
+{
+  "name": "plannig-atelier-acces-sit",
+  "version": "1.0.0",
+  "description": "Planning Atelier pour acces-sit",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benImran/Planning-Atelier-Acces-Sit.git"
+  },
+  "author": "Benchaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benImran/Planning-Atelier-Acces-Sit/issues"
+  },
+  "homepage": "https://github.com/benImran/Planning-Atelier-Acces-Sit#readme"
+}
