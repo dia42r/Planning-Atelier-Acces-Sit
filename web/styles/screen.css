@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900');
+@import url('https://fonts.googleapis.com/css?family=Playball');
+
 *,
 *:before,
 *:after
@@ -81,12 +84,12 @@ nav ul li.lis {
     border: 1px solid #000000;
     text-transform: none;
     background: #777777;
+    font-size: 12px;
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 13px;
 }
 
 nav .uls ul {
@@ -94,6 +97,7 @@ nav .uls ul {
     visibility: hidden;
     left: 0;
     width: 100%;
+    z-index: 99999;
 }
 
 nav ul li:hover ul {
@@ -118,30 +122,169 @@ main {
     margin: 0;
 }
 
+#main-consulter-planning .content-info {
+    width: 81%;
+    height: auto;
+    margin: 3% auto 3%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
 #main-consulter-planning h1 {
     text-transform: uppercase;
-    width: 80%;
+    width: 35%;
     text-align: left;
-    /*background: red;*/
     font-size: 20px;
-    /*font-style: oblique;*/
-    margin: 5% auto ;
 }
 
-.container {
-    background-color: white;
-    border: 2px solid green;
-    color: green;
+.input-date-debut {
+    margin-left: 2%;
+}
+
+.input-date-fin {
+    margin-right: 3%;
+}
+
+
+.srch_wrpr {
+    width: 30%;
+    position: relative;
+    right: -2%;
+}
+.srch_sb_cnt {
+    width: 31px;
+    height: 31px;
+    background: transparent linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     position: absolute;
+    top: 50%;
+    right: 0;
     transform: translate(-50%, -50%);
-    left: 50%;top: 50%;
-    width: 400px;
-    padding: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out 0s;
+
 }
 
+.sech_txt_inpt {
+    opacity: 0;
+    height: 50px;
+    left: 10px;
+    border-radius: 30px;
+    border: 0;
+    width: 94%;
+    padding: 0 60px 0 15px;
+    background-color: transparent;
+    color: #c9046b;
+    font-size: 15px;
+    transition: all 0.4s ease-in-out 0s;
+}
 
+.sech_txt_inpt:focus {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
+.sech_txt_inpt:focus, .srch_btn:focus {
+    outline: none;
+}
+.sech_txt_inpt, .srch_btn {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.fa {
+    margin-left: 80%;
+}
 
+.fa:before {
+    margin-left: -23px;
+}
+
+.srch_btn {
+    width: 70px;
+    height: 70px;
+    right: 0;
+    background: #ffffff;
+    border:0;
+    transition: all 0.4s ease-in-out 0s;
+    font-size: 26px;
+    cursor: pointer;
+    color: #c9046b;
+}
+
+.srch_btn:after {
+    position: absolute;
+    content: '\f00d';
+    font-family: fontAwesome;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    right: 3px;
+    height: 30px;
+    width: 30px;
+    font-size: 23px;
+    z-index: -1;
+    visibility: hidden;
+}
+
+input.checkbox {
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    opacity: 0.0;
+    right: -7px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease-in-out 0s;
+    cursor: pointer;
+}
+
+input.checkbox:checked {
+    width: 33px;
+    height: 33px;
+    right: 35%;
+    transform: translate(-50%, -60%);
+}
+
+input.checkbox:checked ~ .srch_sb_cnt {
+    width: 100%;
+    border-radius: 40px;
+    background-color: #333;
+    overflow: visible;
+}
+
+input.checkbox:checked ~ .srch_sb_cnt .srch_btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-size: 20px;
+    background: #c9046b;
+    color: #ffffff;
+}
+
+input.checkbox:checked ~ .srch_sb_cnt .sech_txt_inpt {
+    opacity: 1;
+}
+
+input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {
+    transform: translateY(-50%) rotate(90deg);
+    right: -35px;
+    visibility: visible;
+    transition: all .6s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition-delay: 0.5s;
+    color: #c9046b;
+
+}
+
+.form-date {
+    width: 81%;
+    background: blue;
+    margin: 0 auto 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 /*======================Main Planifier une commande===========*/
 
@@ -149,17 +292,11 @@ main {
     margin: 0;
 }
 
-/*#main h1 {*/
-    /*margin-top: 16%;*/
-    /*text-align: center;*/
-    /*color: #c9046b;*/
-/*}*/
-
 #main form {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 17% 0 12%;
+    margin: 10% 0 12%;
 }
 
 #main .group {
@@ -176,16 +313,6 @@ main {
     border-bottom:1px solid #777777;
 }
 
-/*#main form .submit {*/
-    /*cursor: pointer;*/
-    /*color: #ffffff;*/
-    /*border-bottom: none;*/
-    /*background: #777777;*/
-/*}*/
-
-/*#main form .submit:hover {*/
-    /*background: #c9046b ;*/
-/*}*/
 
 #main form input:focus {
     outline:none;
@@ -200,8 +327,6 @@ form .group label {
     left:5px;
     top:10px;
     transition:0.2s ease all;
-    -moz-transition:0.2s ease all;
-    -webkit-transition:0.2s ease all;
 }
 
 #main form input:focus ~ label, input:valid ~ label {
@@ -224,8 +349,6 @@ form .group label {
     position:absolute;
     background:#c9046b;
     transition:0.2s ease all;
-    -moz-transition:0.2s ease all;
-    -webkit-transition:0.2s ease all;
 }
 
 #main .bar:before {
@@ -236,7 +359,6 @@ form .group label {
     right:50%;
 }
 
-/* active state */
 #main form input:focus ~ .bar:before, input:focus ~ .bar:after {
     width:50%;
 }
