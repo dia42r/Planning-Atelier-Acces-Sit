@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Planning Atelier</title>
+    <link rel="stylesheet" href="web/styles/screen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <a href="home.html">
+        <img class="clestophe" src="web/img-layout/logo-vecto-clestophe.png" alt="logo-clestophe">
+    </a>
+    <a href="home.html">
+        <img class="acces" src="web/img-layout/logo%20acces-sit-hd.png" alt="logo-acces">
+    </a>
+    <nav>
+        <ul class="uls">
+            <li>planning atelier
+                <ul>
+                    <a href="consulter-le-planning.html"><li class="lis">Consulter le planning</li></a>
+                    <a href="#"><li class="lis">Listes des commandes</li></a>
+                    <a href="planifier-une-commande.html"><li class="lis">Planifier une commandes</li></a>
+                    <a href="#"><li class="lis">Afficher le status d'une commande</li></a>
+                </ul>
+            </li>
+            <li>planning tâches et acteurs
+                <ul>
+                    <a href="#"><li class="lis">Consulter le planning par tâches</li></a>
+                    <a href="#"><li class="lis">Consulter le planning par acteurs</li></a>
+                    <a href="#"><li class="lis">Gestion des acteurs</li></a>
+                    <a href="#"><li class="lis">Saisie des temps</li></a>
+                    <a href="#"><li class="lis">Récapitulatif par CAT</li></a>
+                </ul>
+            <li>planning livraison / enlèvements
+                <ul>
+                    <a href="#"><li class="lis">Consulter le planning livraison</li></a>
+                    <a href="#"><li class="lis">Enregistrer une demande</li></a>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="main-consulter-planning">
+    <section class="content-info">
+        <h1>calendrier planning atelier</h1>
+        <div class="srch_wrpr">
+            <input type="checkbox" name="" class="checkbox">
+            <div class="srch_sb_cnt">
+                <input type="text" name="text_bar" id="" class="sech_txt_inpt" placeholder="Recherche...">
+                <button type="submit" class="srch_btn">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="form-date">
+        <p>Du</p>
+        <form class="input-date-debut" action="">
+            <input type="date">
+        </form>
+        <p>Au</p>
+        <form class="input-date-fin" action="">
+            <input type="date">
+        </form>
+    </div>
+</main>
+<footer>
+    <ul>
+        <a href="http://clestophe.com/"><li>clestophe</li></a>
+        <a href="http://acces-sit.com/"><li>acces-sit</li></a>
+        <a href="http://bache-plus.fr/"><li>bache-plus</li></a>
+    </ul>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="web/js/main.js"></script>
+</body>
+</html>
