@@ -29,7 +29,14 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    planning.entity.calendar_event:
+        class: PlanningBundle\Listener\LoadDataListener
+#        arguments: ['mois'    , new \]
+        tags:
+                - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: 'loadData' }
+
     # add more services, or override services that need manual wiring
     # PlanningBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
