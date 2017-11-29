@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <main id="main">
+        <!--<h1>Connectez-vous</h1>-->
+        <form action="connexion.php" method="get">
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Pseudo</label>
+            </div>
+            <div class="group">
+                <input type="text" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Mot de passe</label>
+            </div>
+
+            <div>
+                <button type="submit" data-wipe="GO GO GO GO GO GO !!!">Connecte toi maintenant</button>
+            </div>
+        </form>
+    </main>
+{% endblock %}
