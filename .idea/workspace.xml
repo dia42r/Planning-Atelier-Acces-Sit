@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="524919a7-5cc3-46a3-853d-d91c36eae37a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/views/pages/home.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PlanningBundle/Controller/PlanningController.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Resources/views/pages/page-acceuil.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanningBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/PlanningBundle/Resources/views/Default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css" afterPath="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,8 +51,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="120">
+              <caret line="7" column="67" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="67" />
               <folding>
                 <element signature="e#482#508#0#Twig" expanded="true" />
                 <element signature="e#594#620#0#Twig" expanded="true" />
@@ -64,36 +64,26 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="4">
+              <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
               <folding>
                 <element signature="e#45#104#0#PHP" expanded="true" />
-                <element signature="e#336#366#1#PHP" expanded="true" />
-                <marker date="1511885875207" expanded="true" signature="533:571" ph="pages/planifier-une-commande" />
-                <marker date="1511885875207" expanded="false" signature="736:773" ph="pages/consulter-le-planning" />
+                <element signature="e#332#362#1#PHP" expanded="true" />
+                <marker date="1511943911850" expanded="true" signature="529:567" ph="pages/planifier-une-commande" />
+                <marker date="1511943911850" expanded="true" signature="732:769" ph="pages/consulter-le-planning" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="planifier-une-commande.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="planifier-une-commande.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
               <folding>
-                <marker date="1511943280219" expanded="false" signature="12:26" ph="base" />
+                <marker date="1511943763658" expanded="false" signature="12:26" ph="base" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-acceuil.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-acceuil.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -101,12 +91,23 @@
       <file leaf-file-name="consulter-le-planning.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="114" selection-end-line="16" selection-end-column="114" />
+            <state relative-caret-position="165">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-                <element signature="e#65#106#0#Twig" expanded="true" />
+                <element signature="e#70#96#0#Twig" expanded="true" />
+                <element signature="e#150#191#0#Twig" expanded="true" />
+                <element signature="e#247#273#0#Twig" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fullcalendar.min.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,8 +125,8 @@
       <file leaf-file-name="_footer.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_footer.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,6 +148,7 @@
     <findStrings>
       <find>jquer</find>
       <find>body</find>
+      <find>.fc-icon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/public/js/fullcalendar.default-settings.js" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/CalendarEvent.php" />
         <option value="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.print.css" />
-        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/home.html.twig" />
         <option value="$PROJECT_DIR$/web/bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js" />
         <option value="$PROJECT_DIR$/web/bundles/planning/js/fullcalendar.default-settings.js" />
@@ -191,12 +192,13 @@
         <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/PlanningController.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/partials/_footer.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/page-acceuil.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
+        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css" />
       </list>
     </option>
   </component>
@@ -443,17 +445,18 @@
       <workItem from="1510646030143" duration="447000" />
       <workItem from="1511345802982" duration="11632000" />
       <workItem from="1511774235423" duration="14578000" />
-      <workItem from="1511884582371" duration="2308000" />
+      <workItem from="1511884582371" duration="4320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121442000" />
+    <option name="totallyTimeSpent" value="123454000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18739903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18739903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38352272" sideWeight="0.5129241" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18336026" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -678,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -797,6 +793,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4">
+          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding>
+            <element signature="e#45#104#0#PHP" expanded="true" />
+            <element signature="e#332#362#1#PHP" expanded="true" />
+            <marker date="1511943911850" expanded="true" signature="529:567" ph="pages/planifier-une-commande" />
+            <marker date="1511943911850" expanded="true" signature="732:769" ph="pages/consulter-le-planning" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="67" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="67" />
+          <folding>
+            <element signature="e#482#508#0#Twig" expanded="true" />
+            <element signature="e#594#620#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
@@ -805,64 +833,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#482#508#0#Twig" expanded="true" />
-            <element signature="e#594#620#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_footer.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="114" lean-forward="true" selection-start-line="16" selection-start-column="114" selection-end-line="16" selection-end-column="114" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-            <element signature="e#65#106#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-acceuil.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#45#104#0#PHP" expanded="true" />
-            <element signature="e#336#366#1#PHP" expanded="true" />
-            <marker date="1511885875207" expanded="true" signature="533:571" ph="pages/planifier-une-commande" />
-            <marker date="1511885875207" expanded="false" signature="736:773" ph="pages/consulter-le-planning" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
           <folding>
-            <marker date="1511943280219" expanded="false" signature="12:26" ph="base" />
+            <marker date="1511943763658" expanded="false" signature="12:26" ph="base" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="e#70#96#0#Twig" expanded="true" />
+            <element signature="e#150#191#0#Twig" expanded="true" />
+            <element signature="e#247#273#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="49" lean-forward="false" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

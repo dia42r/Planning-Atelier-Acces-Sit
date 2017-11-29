@@ -8,11 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller
 {
     /**
-     * @Route("/popo", name="premiere-page")
+     * @Route("/", name="premiere-page")
      */
     public function indexAction()
     {
-        return $this->render('pages/page-acceuil.html.twig');
+        return $this->render('pages/page-accueil.html.twig');
     }
 
     /**

@@ -1,10 +1,19 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
+{% block header %}
+    {% include "partials/_header.html.twig" %}
+{% endblock %}
 
 {% block body %}
     {% include '@FullCalendar/Calendar/calendar.html.twig' %}
 {% endblock %}
 
+{% block footer %}
+    {% include "partials/_footer.html.twig" %}
+{% endblock %}
+
+
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
 {% endblock %}
 
