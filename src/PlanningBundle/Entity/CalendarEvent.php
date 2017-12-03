@@ -41,6 +41,6 @@ class CalendarEvent extends FullCalendarEvent
      */
     public function toArray()
     {
-        return $this->startDate;
+
     }
 }

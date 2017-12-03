@@ -1,0 +1,5 @@
+PlanningBundle\Entity\User:
+    user_{1..1}:
+        username: ben
+        plainPassword: ben
+        roles: ['ROLE_ADMIN']

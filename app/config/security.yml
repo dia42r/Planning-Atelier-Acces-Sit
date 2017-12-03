@@ -1,11 +1,12 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
-
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        planning:
+            entity: { class: PlanningBundle\Entity\User, property: username }
+    encoders:
+        PlanningBundle\Entity\User: bcrypt
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,7 +15,12 @@ security:
             security: false
 
         main:
+            guard:
+                authenticators:
+                    - app.security.login_form_authenticator
             anonymous: ~
+            logout:
+                path: /deconnexion
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +28,9 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+    access_control:
+        - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/planification, roles: ROLE_ADMIN }
+

@@ -35,6 +35,16 @@ services:
         tags:
                 - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: 'loadData' }
 
+    app.security.login_form_authenticator:
+        class: PlanningBundle\Security\LoginFormAuthenticator
+        autowire: true
+
+    app.doctrine.hash_password_listener:
+            class: PlanningBundle\Listener\HashPasswordListener
+            autowire: true
+            tags:
+                - { name: doctrine.event_subscriber }
+
     # add more services, or override services that need manual wiring
     # PlanningBundle\Service\ExampleService:
     #     arguments:

@@ -114,8 +114,12 @@ nav li a:hover {
     color: #ffffff;
 }
 /*============================Main========================*/
-main {
-    margin-top: 28%;
+main h1 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin:10% auto;
+    width: 58%;
 }
 /*========================Main Consulter le plannig==============*/
 #main-consulter-planning {
@@ -286,7 +290,7 @@ input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {
     justify-content: space-around;
 }
 
-/*======================Main Planifier une commande===========*/
+/*======================Main Connexion===========*/
 
 #main {
     margin: 0;
@@ -424,6 +428,13 @@ form .group label {
     text-indent: 0;
     transition: 0s 0.8s ease-in-out;
 }
+
+.checkpass {
+    width: 20%;
+
+}
+
+
 
 /*======================Footer=======================*/
 
