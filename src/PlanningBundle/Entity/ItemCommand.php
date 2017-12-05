@@ -22,8 +22,7 @@ class ItemCommand
     private $id;
 
     /**
-     * @var string
-     *
+     * @ORM\OneToOne(targetEntity="PlanningProductType.php", inversedBy="itemCommand")
      * @ORM\Column(name="referenceArticle", type="string", length=70, unique=true)
      */
     private $referenceArticle;

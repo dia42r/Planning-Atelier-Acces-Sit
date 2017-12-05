@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * PlanningTypeProduct
  *
  * @ORM\Table(name="planning_type_product")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\PlanningTypeProductRepository")
+ * @ORM\Entity(repositoryClass="PlanningProductTypeRepository")
  */
-class PlanningTypeProduct
+class PlanningProductType
 {
     /**
      * @var int
@@ -29,9 +29,10 @@ class PlanningTypeProduct
     private $name;
 
     /**
-     * @ORM\Column(name="referenceArticle",type="string", length=70)
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\ItemCommand", inversedBy="referenceArticle")
+     * @ORM\Column(name="itemCommand",type="string", length=70)
      */
-    private $referenceArticle;
+    private $itemCommand;
 
     /**
      * Get id
@@ -48,7 +49,7 @@ class PlanningTypeProduct
      *
      * @param string $name
      *
-     * @return PlanningTypeProduct
+     * @return PlanningProductType
      */
     public function setName($name)
     {
@@ -70,18 +71,20 @@ class PlanningTypeProduct
     /**
      * @return mixed
      */
-    public function getReferenceArticle()
+    public function getItemCommand()
     {
-        return $this->referenceArticle;
+        return $this->itemCommand;
     }
 
     /**
-     * @param mixed $referenceArticle
+     * @param mixed $itemCommand
      */
-    public function setReferenceArticle($referenceArticle)
+    public function setItemCommand($itemCommand)
     {
-        $this->referenceArticle = $referenceArticle;
+        $this->itemCommand = $itemCommand;
         return $this;
     }
+
+
 }
 

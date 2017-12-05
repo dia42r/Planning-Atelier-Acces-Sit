@@ -41,7 +41,7 @@ class PlanningProductActor
     /**
      * @var string
      *
-     * @ORM\Column(name="idFirstActor", type="string", length=30)
+     * @ORM\Column(name="idFirstActor", type="integer")
      */
     private $idFirstActor;
 
