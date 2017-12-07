@@ -27,6 +27,14 @@
 /*==========================HEADER===========================*/
 body {
     font-family: 'Open Sans', sans-serif;
+    background: url("https://timedotcom.files.wordpress.com/2016/04/white-walkers-game-of-thrones.jpg?quality=85") no-repeat;
+    background-size: cover;
+}
+
+h2 {
+    font-size: 20px;
+    font-family: AppleGothic;
+    font-weight: 500;
 }
 
 header {
@@ -440,7 +448,6 @@ form .group label {
 #main-planification-commande h2 {
     width: 30%;
     margin: 5% 10%;
-
 }
 
 #main-planification-commande .ebp {
@@ -486,6 +493,28 @@ form .group label {
     background: #aaaaaa;
 }
 
+
+/*=======================Main Planning Taches et Acteurs==============*/
+
+#mainselected {
+    width: 80%;
+    margin: 5% auto 30%;
+    display: block;
+    height: auto;
+}
+
+#mainselected .sectionselected {
+    display: flex;
+    align-items: center;
+}
+
+#mainselected #selectTask {
+    margin-left: 2%;
+    height: 30px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: AppleGothic;
+}
 /*======================Footer=======================*/
 
 footer {

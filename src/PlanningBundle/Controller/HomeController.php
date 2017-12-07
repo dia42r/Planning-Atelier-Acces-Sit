@@ -30,4 +30,20 @@ class HomeController extends Controller
     {
         return $this->render('pages/consulter-le-planning.html.twig');
     }
+
+    /**
+     * @Route("/consultation-par-taches", name="consultation-taches")
+     */
+    public function consultationParTaches()
+    {
+        return $this->render('pages/consulter-planning-par-taches.html.twig');
+    }
+
+    /**
+     * @Route("/consultation-par-acteurs", name="consultation-acteurs")
+     */
+    public function consultationParActeurs()
+    {
+        return $this->render('pages/consulter-planning-par-acteurs.html.twig');
+    }
 }
