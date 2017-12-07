@@ -1,6 +1,60 @@
 {% extends "base.html.twig" %}
 {% block body %}
-  <button>
-    <a href="{{ path('security_logout') }}">Deconnexion</a>
-  </button>
+    <main id="main-planification-commande">
+
+        <h2>Listes et état des commandes </h2>
+        <button class="ebp">Import EBP</button>
+        <button>
+            <a href="{{ path('security_logout') }}">Deconnexion</a>
+        </button>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <th colspan="3px">Commande (n°CAT)</th>
+                <th class="ths" colspan="3px">Status</th>
+                <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
+                <th class="ths" colspan="3px" >Date planifié</th>
+                <th class="ths" colspan="3px" >Date fin de fabrication</th>
+            </tr>
+            </thead>
+
+            <tbody> <!-- Corps du tableau -->
+            <tr class="trgrey">
+                <td class="tbodytd" colspan="3px">CAT2017001521 <a href=""><img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt=""></a></td>
+                <td colspan="3px">non planifié</td>
+                <td colspan="3px">20/10/2017</td>
+                <td colspan="3px"></td>
+                <td colspan="3px"></td>
+            </tr>
+            <tr>
+                <td class="tbodytd" colspan="3px">CAT2017001522 <a href=""><img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt=""></a></td>
+                <td colspan="3px">planifié</td>
+                <td colspan="3px">21/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+            </tr>
+            <tr class="trgrey">
+                <td class="tbodytd tdimg" colspan="3px">CAT2017001523 <img src="{{ asset('img-layout/hourglass.png') }}" alt=""> <a href=""><img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt=""></a></td>
+                <td colspan="3px">planifié partiellement</td>
+                <td colspan="3px">23/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+            </tr>
+            <tr>
+                <td class="tbodytd" colspan="3px">CAT2017001524 <a href=""><img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt=""></a></td>
+                <td colspan="3px">planifié</td>
+                <td colspan="3px">21/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+            </tr>
+            <tr class="trgrey">
+                <td class="tbodytd" colspan="3px">CAT2017001525 <a href=""><img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt=""></a></td>
+                <td colspan="3px">planifié</td>
+                <td colspan="3px">21/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+                <td colspan="3px">19/10/2017</td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
 {% endblock %}

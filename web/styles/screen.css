@@ -429,12 +429,62 @@ form .group label {
     transition: 0s 0.8s ease-in-out;
 }
 
-.checkpass {
+
+/*========================Main Planification Commande========================*/
+
+#main-planification-commande {
+    width: 100%;
+    /*background: red;*/
+}
+
+#main-planification-commande h2 {
+    width: 30%;
+    margin: 5% 10%;
+
+}
+
+#main-planification-commande .ebp {
+    padding: 1% 2%;
+    cursor: pointer;
+    margin: 2% 13%;
+}
+
+#main-planification-commande table {
+    margin: 0 auto 7%;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#main-planification-commande .ths {
+    text-align: right;
+}
+
+#main-planification-commande .tbodytd, thead th {
+    text-align: left;
+}
+
+#main-planification-commande td, th {
+    border: 1px solid black;
+    text-align: right;
+}
+
+#main-planification-commande .checkpass {
     width: 20%;
 
 }
 
+#main-planification-commande .tdimg img, .edit-img {
+    width: 9%;
+    float: right;
+    margin: 0 2%;
+}
+#main-planification-commande tr {
+    height: 30px;
+}
 
+#main-planification-commande .trgrey {
+    background: #aaaaaa;
+}
 
 /*======================Footer=======================*/
 
