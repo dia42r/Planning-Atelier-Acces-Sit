@@ -218,4 +218,3 @@ class ItemCommand
         return $this->comment;
     }
 }
-

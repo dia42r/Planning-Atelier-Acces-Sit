@@ -84,4 +84,3 @@ class PlanningTypeProduct
         return $this;
     }
 }
-

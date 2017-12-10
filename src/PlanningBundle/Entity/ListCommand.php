@@ -187,4 +187,3 @@ class ListCommand
         return $this->validDate;
     }
 }
-

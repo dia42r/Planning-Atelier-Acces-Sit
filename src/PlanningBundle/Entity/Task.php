@@ -5,12 +5,12 @@ namespace PlanningBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Actor
+ * Task
  *
- * @ORM\Table(name="actor")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ActorRepository")
+ * @ORM\Table(name="task")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\TaskRepository")
  */
-class Actor
+class Task
 {
     /**
      * @var int
@@ -24,16 +24,9 @@ class Actor
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=30)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="job", type="string", length=50)
-     */
-    private $job;
 
 
     /**
@@ -51,7 +44,7 @@ class Actor
      *
      * @param string $name
      *
-     * @return Actor
+     * @return Task
      */
     public function setName($name)
     {
@@ -69,28 +62,5 @@ class Actor
     {
         return $this->name;
     }
-
-    /**
-     * Set job
-     *
-     * @param string $job
-     *
-     * @return Actor
-     */
-    public function setJob($job)
-    {
-        $this->job = $job;
-
-        return $this;
-    }
-
-    /**
-     * Get job
-     *
-     * @return string
-     */
-    public function getJob()
-    {
-        return $this->job;
-    }
 }
+
