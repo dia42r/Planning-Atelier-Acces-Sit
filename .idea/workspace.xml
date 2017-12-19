@@ -2,10 +2,262 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="524919a7-5cc3-46a3-853d-d91c36eae37a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Plannig-Atelier-Acces-Sit.iml" afterPath="$PROJECT_DIR$/.idea/Plannig-Atelier-Acces-Sit.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MCD_planning.mcd" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/strip-bom" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/LICENSE" afterPath="$PROJECT_DIR$/node_modules/array-slice/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/README.md" afterPath="$PROJECT_DIR$/node_modules/array-slice/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/index.js" afterPath="$PROJECT_DIR$/node_modules/array-slice/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/package.json" afterPath="$PROJECT_DIR$/node_modules/array-slice/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/defaults/test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/test/field.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/test/method.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/find-index/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/find-index/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/find-index/last.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/find-index/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gaze/LICENSE-MIT" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gaze/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gaze/lib/gaze.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gaze/lib/helper.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gaze/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/LICENSE" afterPath="$PROJECT_DIR$/node_modules/glob-stream/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/glob-stream/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/glob-stream/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/glob-stream/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/LICENSE" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/README.md" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/index.js" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/package.json" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/test/fixtures/test.coffee" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/test/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/README.md" afterPath="$PROJECT_DIR$/node_modules/glob/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/common.js" afterPath="$PROJECT_DIR$/node_modules/glob/common.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/glob.js" afterPath="$PROJECT_DIR$/node_modules/glob/glob.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/package.json" afterPath="$PROJECT_DIR$/node_modules/glob/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/sync.js" afterPath="$PROJECT_DIR$/node_modules/glob/sync.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/.jshintrc" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/Gruntfile.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/LICENSE-MIT" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/lib/globule.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/examples/g.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/examples/usr-local.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/glob.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/00-setup.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/bash-comparison.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/bash-results.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/cwd-test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/mark.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/nocase-nomagic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/pause-resume.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/root-nomount.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/root.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/zz-cleanup.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/graceful-fs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/test/open.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/test/ulimit.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/inherits.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/minimatch.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/basic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/brace-expand.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/caching.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/defaults.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/extglob-ending-with-state-char.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/css/baz.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/css/qux.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deep.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deeper/deeper.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deeper/deepest/deepest.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/js/bar.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/js/foo.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/globule_test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/LICENSE" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/README.md" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/fs.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/fs.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/graceful-fs.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/graceful-fs.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/polyfills.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/polyfills.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/max-open.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/open.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/readdir-sort.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/write-then-read.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" afterPath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/bash" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/fish" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/powershell" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/zsh" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/gulp.1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/lib/completion.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/lib/taskTree.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/gulp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ini/ini.js" afterPath="$PROJECT_DIR$/node_modules/ini/ini.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ini/package.json" afterPath="$PROJECT_DIR$/node_modules/ini/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/interpret/README.md" afterPath="$PROJECT_DIR$/node_modules/interpret/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/interpret/index.js" afterPath="$PROJECT_DIR$/node_modules/interpret/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/interpret/package.json" afterPath="$PROJECT_DIR$/node_modules/interpret/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/LICENSE.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.compat.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.compat.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.underscore.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.underscore.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/CONTRIBUTORS" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/README.md" afterPath="$PROJECT_DIR$/node_modules/lru-cache/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/lib/lru-cache.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/package.json" afterPath="$PROJECT_DIR$/node_modules/lru-cache/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/basic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/foreach.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/memory-leak.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/serialize.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/natives/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/natives/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/natives/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/lib/runTask.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/index.js" afterPath="$PROJECT_DIR$/node_modules/ordered-read-streams/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/package.json" afterPath="$PROJECT_DIR$/node_modules/ordered-read-streams/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/test/main.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/bench.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/sigmund.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/test/basic.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/test/tests.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/cli.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/index.js" afterPath="$PROJECT_DIR$/node_modules/strip-bom/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/package.json" afterPath="$PROJECT_DIR$/node_modules/strip-bom/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/readme.md" afterPath="$PROJECT_DIR$/node_modules/strip-bom/readme.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/unique-stream/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/unique-stream/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/unique-stream/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/test/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/LICENSE" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeBuffer.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeBuffer.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeDir.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeDir.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeStream.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/bufferFile.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/bufferFile.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/readDir.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/readDir.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/streamFile.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/streamFile.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getStats.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/.travis.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/clone.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/test.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/.npmignore" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/.npmignore" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/LICENSE" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/duplex.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/duplex.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_duplex.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_duplex.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_passthrough.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_passthrough.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_readable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_readable.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_transform.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_transform.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_writable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_writable.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/passthrough.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/passthrough.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/readable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/readable.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/transform.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/transform.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/writable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/writable.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/.npmignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/LICENSE" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/through2.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/README.md" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/index.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/inspectStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/inspectStream.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isBuffer.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isBuffer.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isStream.js" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/package.json" />
+      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/package.json" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
+      <change beforePath="$PROJECT_DIR$/web/js/password.js" afterPath="$PROJECT_DIR$/web/js/password.js" />
       <change beforePath="$PROJECT_DIR$/web/styles/screen.css" afterPath="$PROJECT_DIR$/web/styles/screen.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,60 +286,25 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="625">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
-                <element signature="e#945#992#1#PHP" expanded="true" />
-                <element signature="e#1170#1218#1#PHP" expanded="true" />
+                <element signature="e#45#104#0#PHP" expanded="true" />
+                <element signature="e#530#560#1#PHP" expanded="true" />
+                <element signature="e#1220#1260#1#PHP" expanded="true" />
+                <element signature="e#1423#1462#1#PHP" expanded="true" />
+                <element signature="e#1637#1684#1#PHP" expanded="true" />
+                <element signature="e#1862#1910#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="screen.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/styles/screen.css">
+      <file leaf-file-name="php.ini" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consulter-planning-par-acteurs.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MCD.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MCD.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="consulter-le-planning.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/consulter-le-planning.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="60" column="15" lean-forward="false" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+            <state relative-caret-position="304">
+              <caret line="546" column="0" lean-forward="false" selection-start-line="546" selection-start-column="0" selection-end-line="546" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,6 +319,7 @@
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="TWIG" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -111,7 +329,15 @@
       <find>body</find>
       <find>.fc-icon</find>
       <find>h2</find>
+      <find>var</find>
+      <find>sql</find>
+      <find>sqlsrv</find>
+      <find>pelc</find>
+      <find>connect</find>
     </findStrings>
+    <replaceStrings>
+      <replace>let</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -119,12 +345,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Listener/LoadDataListener.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/public/js/calendar.custaum.settings.js" />
-        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.print.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pages/home.html.twig" />
-        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js" />
-        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/js/fullcalendar/gcal.js" />
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/app/Resources/views/partials/footer.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/partials/header.html.twig" />
@@ -136,7 +356,6 @@
         <option value="$PROJECT_DIR$/web/bundles/planning/js/fullcalendar.default-settings.js" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/public/js/fullcalendar.default-settings.js" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/CalendarEvent.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -152,7 +371,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/web/js/password.js" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/ListCommand.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Repository/ItemCommandRepository.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/Actor.php" />
@@ -166,10 +384,18 @@
         <option value="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
         <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-taches.html.twig" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/web/scss/styles.scss" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/web/scss/tools/_reset.scss" />
         <option value="$PROJECT_DIR$/web/styles/screen.css" />
+        <option value="$PROJECT_DIR$/web/js/password.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
+        <option value="$PROJECT_DIR$/info.php" />
+        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini" />
       </list>
     </option>
   </component>
@@ -280,6 +506,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -382,102 +631,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="partials" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="security" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="styles" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -485,7 +638,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Guard/Authenticator/AbstractFormLoginAuthenticator.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/AuthenticationException.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/planning/js/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/PasswordType.php" />
@@ -509,6 +662,14 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="info.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Planning-Atelier-Acces-Sit/info.php" />
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.info.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -537,12 +698,14 @@
       <workItem from="1511960114208" duration="2014000" />
       <workItem from="1511962906897" duration="29000" />
       <workItem from="1511962984258" duration="57000" />
-      <workItem from="1511963062941" duration="45545000" />
+      <workItem from="1511963062941" duration="53078000" />
+      <workItem from="1513086673494" duration="248000" />
+      <workItem from="1513166969585" duration="21679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171099000" />
+    <option name="totallyTimeSpent" value="200559000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -555,25 +718,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1987076" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20516963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38352272" sideWeight="0.5129241" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18336026" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34801137" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34801137" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24289773" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -607,173 +769,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="41" column="40" lean-forward="false" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Guard/Authenticator/AbstractFormLoginAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="23" column="57" lean-forward="true" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/CalendarEventRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/Security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/PasswordType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Listener/HashPasswordListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-          <folding>
-            <element signature="e#45#76#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/AuthenticationException.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="77" column="20" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/planifier-une-commande.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="7" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="62" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="105" column="73" lean-forward="false" selection-start-line="105" selection-start-column="73" selection-end-line="105" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/jquery/dist/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="8280" column="0" lean-forward="false" selection-start-line="8280" selection-start-column="0" selection-end-line="8280" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/jquery/src/selector-native.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="225" column="4" lean-forward="false" selection-start-line="225" selection-start-column="4" selection-end-line="225" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/CalendarEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/ItemCommandRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,41 +780,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductPropertyValue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductProperty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-434">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#871#897#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductPropertyValue.php" />
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductProperty.php" />
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Actor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-351">
           <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,15 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductActor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -847,15 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,22 +823,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCD_planning.mcd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MCD_planning.mcd" />
     <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations/Version20171205124025.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <marker date="1512477625528" expanded="true" signature="567:647" ph="ALTER TABLE planning_product_actor... " />
-            <marker date="1512477625528" expanded="true" signature="956:1068" ph="ALTER TABLE planning_product_actor... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,20 +835,114 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MCD.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/consulter-le-planning.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="60" column="15" lean-forward="false" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/ui/_.scss" />
+    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/tools/_mixins.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/tools/_fonts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/tools/_reset.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/ui/_header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/ui/_footer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/tools/_variable.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductActor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -917,26 +954,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/consulter-le-planning.html">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="60" column="15" lean-forward="false" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="15">
+          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/styles/screen.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="450">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/password.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -945,87 +996,149 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding>
+            <element signature="e#618#644#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="e#871#897#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="37" column="93" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="93" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="25" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="113">
+          <caret line="1149" column="9" lean-forward="false" selection-start-line="1149" selection-start-column="9" selection-end-line="1149" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="420">
           <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
+    <entry file="phar://$PROJECT_DIR$/go-pear.phar/.phar/stub.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-          <folding>
-            <element signature="e#1070#1090#0#Twig" expanded="false" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCD.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="250" column="9" lean-forward="false" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-taches.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="30">
+          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
+            <element signature="e#435#461#0#Twig" expanded="false" />
+            <element signature="e#516#557#0#Twig" expanded="false" />
+            <element signature="e#613#639#0#Twig" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mssql/mssql.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="625">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
-            <element signature="e#945#992#1#PHP" expanded="true" />
-            <element signature="e#1170#1218#1#PHP" expanded="true" />
+            <element signature="e#45#104#0#PHP" expanded="true" />
+            <element signature="e#530#560#1#PHP" expanded="true" />
+            <element signature="e#1220#1260#1#PHP" expanded="true" />
+            <element signature="e#1423#1462#1#PHP" expanded="true" />
+            <element signature="e#1637#1684#1#PHP" expanded="true" />
+            <element signature="e#1862#1910#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/sqlsrv/sqlsrv.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="892" column="9" lean-forward="false" selection-start-line="892" selection-start-column="9" selection-end-line="892" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/styles/screen.css">
+    <entry file="file://$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+        <state relative-caret-position="304">
+          <caret line="546" column="0" lean-forward="false" selection-start-line="546" selection-start-column="0" selection-end-line="546" selection-end-column="0" />
           <folding />
         </state>
       </provider>

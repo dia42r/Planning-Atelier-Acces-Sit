@@ -27,8 +27,8 @@
 /*==========================HEADER===========================*/
 body {
     font-family: 'Open Sans', sans-serif;
-    background: url("https://timedotcom.files.wordpress.com/2016/04/white-walkers-game-of-thrones.jpg?quality=85") no-repeat;
-    background-size: cover;
+    /*background: url("https://timedotcom.files.wordpress.com/2016/04/white-walkers-game-of-thrones.jpg?quality=85") no-repeat;*/
+    /*background-size: cover;*/
 }
 
 h2 {
@@ -45,7 +45,7 @@ header {
 header img {
     margin: 3% 0 1% 50%;
     transform: translateX(-50%);
-    width:7%;
+    width: 7%;
 }
 
 header img.acces {
@@ -126,7 +126,7 @@ main h1 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     font-size: 40px;
     font-weight: bold;
-    margin:10% auto;
+    margin: 10% auto;
     width: 58%;
 }
 /*========================Main Consulter le plannig==============*/
