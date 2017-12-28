@@ -1,3 +1,13 @@
+ben:
+    resource: "@BenBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+sql_srv:
+    resource: "@SqlSrvBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 planning:
     resource: "@PlanningBundle/Controller/"
     type:     annotation

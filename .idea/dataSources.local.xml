@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="62902152-1344-4ac7-9ce6-ef6efd50b36d">
+      <database-info product="Microsoft SQL Server" version="10.00.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 6.0 for SQL Server" driver-version="6.0.8112.100">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <introspection-schemas>E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4:dbo</introspection-schemas>
+    </data-source>
+    <data-source name="benben@localhost" uuid="6f909840-5876-4079-aabe-6a5dea05aa2d">
+      <database-info product="MySQL" version="5.6.35" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>*:benben</introspection-schemas>
+    </data-source>
+  </component>
+</project>

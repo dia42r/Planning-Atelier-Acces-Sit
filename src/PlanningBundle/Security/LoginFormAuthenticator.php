@@ -4,10 +4,11 @@
 namespace PlanningBundle\Security;
 
 
-use PlanningBundle\PlanningBundle;
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\ORM\Mapping\Entity;
 use PlanningBundle\Entity\User;
+use PlanningBundle\PlanningBundle;
 use PlanningBundle\Form\LoginForm;
-use PlanningBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,6 +23,10 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+/**
+ * Class LoginFormAuthenticator
+ * @package PlanningBundle\Security
+ */
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
@@ -48,7 +53,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     /**
      * LoginFormAuthenticator constructor.
      */
-    public function __construct(FormFactoryInterface $formFactory, EntityManager $em, RouterInterface $router, UserPasswordEncoder $passwordEncoder)
+    public function __construct(FormFactoryInterface $formFactory, RouterInterface $router, UserPasswordEncoder $passwordEncoder, $em)
     {
         $this->formFactory = $formFactory;
         $this->em = $em;
@@ -56,6 +61,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $this->passwordEncoder = $passwordEncoder;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed|null
+     */
     public function getCredentials(Request $request)
     {
         $isLoginSubmit = $request->getPathInfo() == "/connexion" && $request->isMethod("POST");
@@ -77,7 +86,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         $username = $credentials["username"];
 
-        return $this->em->getRepository("PlanningBundle:User")
+
+      return  $this->em->getRepository(User::class, 'default')
             ->findOneBy(["username" => $username]);
     }
 

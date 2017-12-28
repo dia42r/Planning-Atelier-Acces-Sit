@@ -38,6 +38,7 @@ services:
     app.security.login_form_authenticator:
         class: PlanningBundle\Security\LoginFormAuthenticator
         autowire: true
+        arguments: ['@form.factory','@router','@security.password_encoder','@doctrine.orm.default_entity_manager' ]
 
     app.doctrine.hash_password_listener:
             class: PlanningBundle\Listener\HashPasswordListener
