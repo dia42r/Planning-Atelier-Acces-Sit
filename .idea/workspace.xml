@@ -2,294 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="524919a7-5cc3-46a3-853d-d91c36eae37a" name="Default" comment="">
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/.idea/Plannig-Atelier-Acces-Sit.iml" afterPath="$PROJECT_DIR$/.idea/Plannig-Atelier-Acces-Sit.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/MCD_Abdoul.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/MCD_benchaa.jpg" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/strip-bom" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/LICENSE" afterPath="$PROJECT_DIR$/node_modules/array-slice/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/README.md" afterPath="$PROJECT_DIR$/node_modules/array-slice/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/index.js" afterPath="$PROJECT_DIR$/node_modules/array-slice/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/array-slice/package.json" afterPath="$PROJECT_DIR$/node_modules/array-slice/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defaults/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/test/field.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/deprecated/test/method.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/end-of-stream/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/end-of-stream/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/find-index/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/find-index/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/find-index/last.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/find-index/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gaze/LICENSE-MIT" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gaze/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gaze/lib/gaze.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gaze/lib/helper.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gaze/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/LICENSE" afterPath="$PROJECT_DIR$/node_modules/glob-stream/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/glob-stream/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/glob-stream/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/glob-stream/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/LICENSE" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/README.md" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/index.js" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/package.json" afterPath="$PROJECT_DIR$/node_modules/glob-watcher/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/test/fixtures/test.coffee" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob-watcher/test/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob/README.md" afterPath="$PROJECT_DIR$/node_modules/glob/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob/common.js" afterPath="$PROJECT_DIR$/node_modules/glob/common.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob/glob.js" afterPath="$PROJECT_DIR$/node_modules/glob/glob.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob/package.json" afterPath="$PROJECT_DIR$/node_modules/glob/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob/sync.js" afterPath="$PROJECT_DIR$/node_modules/glob/sync.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/glob2base/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/.jshintrc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/Gruntfile.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/LICENSE-MIT" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/lib/globule.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/examples/g.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/examples/usr-local.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/glob.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/00-setup.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/bash-comparison.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/bash-results.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/cwd-test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/mark.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/nocase-nomagic.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/pause-resume.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/root-nomount.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/root.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/glob/test/zz-cleanup.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/graceful-fs.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/test/open.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/graceful-fs/test/ulimit.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/inherits.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/inherits/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/minimatch.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/basic.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/brace-expand.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/caching.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/defaults.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/node_modules/minimatch/test/extglob-ending-with-state-char.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/css/baz.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/css/qux.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deep.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deeper/deeper.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/deep/deeper/deepest/deepest.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/js/bar.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/fixtures/expand/js/foo.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/globule/test/globule_test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/LICENSE" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/README.md" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/fs.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/fs.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/graceful-fs.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/graceful-fs.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/polyfills.js" afterPath="$PROJECT_DIR$/node_modules/graceful-fs/polyfills.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/max-open.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/open.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/readdir-sort.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/graceful-fs/test/write-then-read.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/gulp/CHANGELOG.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/LICENSE" afterPath="$PROJECT_DIR$/node_modules/gulp/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/README.md" afterPath="$PROJECT_DIR$/node_modules/gulp/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" afterPath="$PROJECT_DIR$/node_modules/gulp/bin/gulp.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/bash" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/fish" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/powershell" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/completion/zsh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/gulp.1" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/index.js" afterPath="$PROJECT_DIR$/node_modules/gulp/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/lib/completion.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/lib/taskTree.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gulp/package.json" afterPath="$PROJECT_DIR$/node_modules/gulp/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ini/ini.js" afterPath="$PROJECT_DIR$/node_modules/ini/ini.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ini/package.json" afterPath="$PROJECT_DIR$/node_modules/ini/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/interpret/README.md" afterPath="$PROJECT_DIR$/node_modules/interpret/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/interpret/index.js" afterPath="$PROJECT_DIR$/node_modules/interpret/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/interpret/package.json" afterPath="$PROJECT_DIR$/node_modules/interpret/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/LICENSE.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.compat.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.compat.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.underscore.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/dist/lodash.underscore.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/CONTRIBUTORS" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/README.md" afterPath="$PROJECT_DIR$/node_modules/lru-cache/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/lib/lru-cache.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/package.json" afterPath="$PROJECT_DIR$/node_modules/lru-cache/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/basic.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/foreach.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/memory-leak.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lru-cache/test/serialize.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/natives/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/natives/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/natives/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/lib/runTask.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/orchestrator/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/index.js" afterPath="$PROJECT_DIR$/node_modules/ordered-read-streams/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/package.json" afterPath="$PROJECT_DIR$/node_modules/ordered-read-streams/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ordered-read-streams/test/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sequencify/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/bench.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/sigmund.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sigmund/test/basic.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/stream-consume/test/tests.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/cli.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/index.js" afterPath="$PROJECT_DIR$/node_modules/strip-bom/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/package.json" afterPath="$PROJECT_DIR$/node_modules/strip-bom/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/strip-bom/readme.md" afterPath="$PROJECT_DIR$/node_modules/strip-bom/readme.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/unique-stream/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/index.js" afterPath="$PROJECT_DIR$/node_modules/unique-stream/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/unique-stream/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/unique-stream/test/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/LICENSE" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeBuffer.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeBuffer.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeDir.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeDir.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/dest/writeContents/writeStream.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/bufferFile.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/bufferFile.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/readDir.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/readDir.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/streamFile.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getContents/streamFile.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/getStats.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/lib/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/.travis.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/clone.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/clone/test.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/.npmignore" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/.npmignore" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/LICENSE" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/LICENSE" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/duplex.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/duplex.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_duplex.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_duplex.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_passthrough.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_passthrough.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_readable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_readable.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_transform.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_transform.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_writable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_writable.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/passthrough.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/passthrough.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/readable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/readable.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/transform.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/transform.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/writable.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/readable-stream/writable.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/.npmignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/LICENSE" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/through2/through2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/README.md" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/README.md" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/index.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/index.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/inspectStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/inspectStream.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isBuffer.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isBuffer.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isStream.js" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/lib/isStream.js" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/node_modules/vinyl/package.json" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vinyl-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/vinyl-fs/package.json" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
-      <change beforePath="$PROJECT_DIR$/web/js/password.js" afterPath="$PROJECT_DIR$/web/js/password.js" />
-      <change beforePath="$PROJECT_DIR$/web/styles/screen.css" afterPath="$PROJECT_DIR$/web/styles/screen.css" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/MCD.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change beforePath="$PROJECT_DIR$/app/DoctrineMigrations2/Version20171227190526.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change beforePath="$PROJECT_DIR$/app/config/mig.yml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/BenBundle.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/Controller/DefaultController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/Entity/User.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/Repository/UserRepository.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/Resources/config/services.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/BenBundle/Resources/views/Default/index.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/Actor.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/Actor.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/CalendarEvent.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/CalendarEvent.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/ItemCommand.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/ItemCommand.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/ListCommand.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/ListCommand.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductActor.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/PlanningProductActor.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductType.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/PlanningProductType.php" />
+      <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php" />
       <change beforePath="$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php" afterPath="$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Controller/DefaultController.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/Customer.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/Item.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/ItemFamily.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/ItemSubFamily.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/SaleDocument.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/SaleDocumentLine.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/Task.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Resources/config/services.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/Resources/views/Default/index.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/SqlSrvBundle/SqlSrvBundle.php" afterPath="" />
->>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -303,66 +34,135 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" type="feb32156:DbDataSourceImpl" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4: database" type="bdf80c8a:MssqlImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" type="feb32156:DbDataSourceImpl" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4: database" type="bdf80c8a:MssqlImplModel$Database" />
+        <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" type="feb32156:DbDataSourceImpl" />
+        <item name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4: database" type="bdf80c8a:MssqlImplModel$Database" />
+        <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< Updated upstream
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="90">
+              <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding>
-                <element signature="e#45#104#0#PHP" expanded="true" />
-                <element signature="e#530#560#1#PHP" expanded="true" />
-                <element signature="e#1220#1260#1#PHP" expanded="true" />
-                <element signature="e#1423#1462#1#PHP" expanded="true" />
-                <element signature="e#1637#1684#1#PHP" expanded="true" />
-                <element signature="e#1862#1910#1#PHP" expanded="true" />
+                <element signature="e#509#539#1#PHP" expanded="true" />
+                <element signature="e#705#745#1#PHP" expanded="true" />
+                <element signature="e#908#947#1#PHP" expanded="true" />
+                <element signature="e#1122#1169#1#PHP" expanded="true" />
               </folding>
-=======
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
->>>>>>> Stashed changes
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< Updated upstream
-      <file leaf-file-name="php.ini" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="546" column="0" lean-forward="false" selection-start-line="546" selection-start-column="0" selection-end-line="546" selection-end-column="0" />
-=======
-      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="46" column="53" lean-forward="false" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+            <state relative-caret-position="185">
+              <caret line="133" column="24" lean-forward="true" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f909840-5876-4079-aabe-6a5dea05aa2d/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/security.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="34" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="22" selection-end-column="34" />
->>>>>>> Stashed changes
+            <state relative-caret-position="67">
+              <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginForm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+              <folding>
+                <element signature="e#39#79#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" column="65" lean-forward="false" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1713">
+              <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+              <folding>
+                <element signature="e#41#73#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -374,10 +174,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="TWIG" />
         <option value="SCSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -399,43 +199,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="6d806f22de5e78a34781e61c8e1d563a80724e40" />
-      </map>
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< Updated upstream
-        <option value="$PROJECT_DIR$/home.html" />
-        <option value="$PROJECT_DIR$/app/Resources/views/partials/footer.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/partials/header.html.twig" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/PlanningController.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/partials/_footer.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pages/page-acceuil.html.twig" />
-        <option value="$PROJECT_DIR$/web/bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css" />
-        <option value="$PROJECT_DIR$/web/bundles/planning/js/fullcalendar.default-settings.js" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Resources/public/js/fullcalendar.default-settings.js" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/CalendarEvent.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-=======
->>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/src/PlanningBundle/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/Security.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Doctrine/HashPasswordListener.php" />
-<<<<<<< Updated upstream
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Listener/HashPasswordListener.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
-=======
->>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/ListCommand.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Repository/ItemCommandRepository.php" />
@@ -443,17 +219,11 @@
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProduct.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/ItemCommand.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductActor.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductType.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/User.php" />
-<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
-=======
->>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-taches.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/web/scss/styles.scss" />
@@ -463,10 +233,6 @@
         <option value="$PROJECT_DIR$/web/js/password.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig" />
         <option value="$PROJECT_DIR$/info.php" />
-<<<<<<< Updated upstream
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini" />
-=======
         <option value="$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/Cynthia.html" />
         <option value="$PROJECT_DIR$/Cynthia.html" />
@@ -474,28 +240,20 @@
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/Item.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/SaleDocument.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/SaleDocumentLine.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
         <option value="$PROJECT_DIR$/../../conf/php7.1.1/php.ini" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/Customer.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/SqlSrvBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/app/config/mig.yml" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Listener/HashPasswordListener.php" />
         <option value="$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml" />
-        <option value="$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/composer.json" />
->>>>>>> Stashed changes
+        <option value="$PROJECT_DIR$/src/SqlSrvBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/config/mig.yml" />
       </list>
     </option>
   </component>
@@ -564,9 +322,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="874" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -581,10 +338,16 @@
           <State>
             <id>Invalid elementsCSS</id>
           </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>UnusedPHP</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>CssInvalidFunction</id>
+            <id>PhpUnusedPrivateFieldInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -624,6 +387,38 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="DoctrineMigrations2" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SqlSrvBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SqlSrvBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SqlSrvBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Customer" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -633,186 +428,8 @@
         <subPane subId="Project Files">
           <expand>
             <path>
-<<<<<<< Updated upstream
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-=======
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="partials" type="2a2b976b:PhpTreeStructureProvider$1" />
->>>>>>> Stashed changes
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-            </path>
-            <path>
-<<<<<<< Updated upstream
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="config" type="cbb8eebc:String" user="config" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="Resources" type="cbb8eebc:String" user="Resources" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="Resources" type="cbb8eebc:String" user="Resources" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="Resources" type="cbb8eebc:String" user="Resources" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="pages" type="cbb8eebc:String" user="pages" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="app" type="cbb8eebc:String" user="app" />
-              <item name="Resources" type="cbb8eebc:String" user="Resources" />
-              <item name="views" type="cbb8eebc:String" user="views" />
-              <item name="partials" type="cbb8eebc:String" user="partials" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-=======
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DataFixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DataFixtures" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ORM" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Listener" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Planning-Atelier-Acces-Sit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Planning-Atelier-Acces-Sit" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PlanningBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
->>>>>>> Stashed changes
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="PlanningBundle" type="cbb8eebc:String" user="PlanningBundle" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="PlanningBundle" type="cbb8eebc:String" user="PlanningBundle" />
-              <item name="Controller" type="cbb8eebc:String" user="Controller" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="PlanningBundle" type="cbb8eebc:String" user="PlanningBundle" />
-              <item name="Entity" type="cbb8eebc:String" user="Entity" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="web" type="cbb8eebc:String" user="web" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="web" type="cbb8eebc:String" user="web" />
-              <item name="bundles" type="cbb8eebc:String" user="bundles" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="web" type="cbb8eebc:String" user="web" />
-              <item name="bundles" type="cbb8eebc:String" user="bundles" />
-              <item name="planning" type="cbb8eebc:String" user="planning" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Planning-Atelier-Acces-Sit" type="cbb8eebc:String" user="Planning-Atelier-Acces-Sit" />
-              <item name="web" type="cbb8eebc:String" user="web" />
-              <item name="bundles" type="cbb8eebc:String" user="bundles" />
-              <item name="planning" type="cbb8eebc:String" user="planning" />
-              <item name="js" type="cbb8eebc:String" user="js" />
             </path>
           </expand>
           <select />
@@ -827,25 +444,21 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Guard/Authenticator/AbstractFormLoginAuthenticator.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/AuthenticationException.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/planning/js/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/PasswordType.php" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;SQL Server (Microsoft)&#10;SQL Server (jTds)" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/app/config/parameters.yml&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Security/Guard/Authenticator/AbstractFormLoginAuthenticator.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/AuthenticationException.php&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/planning/js/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/web/bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js&#10;/Applications/MAMP/htdocs/Planning-Atelier-Acces-Sit/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/PasswordType.php" />
   </component>
   <component name="RecentsManager">
-<<<<<<< Updated upstream
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PlanningBundle/Listener" />
-    </key>
-=======
->>>>>>> Stashed changes
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PlanningBundle/Repository" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/PlanningBundle/Entity" />
-      <recent name="$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer" />
       <recent name="$PROJECT_DIR$/app/config" />
       <recent name="$PROJECT_DIR$/src/SqlSrvBundle/Entity" />
       <recent name="$PROJECT_DIR$/src/PlanningBundle/Entity/Main" />
+      <recent name="$PROJECT_DIR$/src/PlanningBundle/Entity/Customer" />
+      <recent name="$PROJECT_DIR$/src/PlanningBundle/Entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/config" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/src/PlanningBundle/Repository" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -863,9 +476,8 @@
   <component name="RunManager">
     <configuration name="info.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Planning-Atelier-Acces-Sit/info.php" />
     <recent_temporary>
-      <list size="2">
+      <list size="1">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.info.php" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.info.php" />
       </list>
     </recent_temporary>
   </component>
@@ -898,16 +510,16 @@
       <workItem from="1511962984258" duration="57000" />
       <workItem from="1511963062941" duration="53078000" />
       <workItem from="1513086673494" duration="248000" />
-      <workItem from="1513166969585" duration="21679000" />
+      <workItem from="1513166969585" duration="43149000" />
+      <workItem from="1514128082847" duration="1125000" />
+      <workItem from="1514133921909" duration="4883000" />
+      <workItem from="1514280873128" duration="1383000" />
+      <workItem from="1514284527806" duration="21431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="200559000" />
-=======
-    <option name="totallyTimeSpent" value="253240000" />
->>>>>>> Stashed changes
+    <option name="totallyTimeSpent" value="250851000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,145 +532,70 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
-<<<<<<< Updated upstream
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20516963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-=======
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14054927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
->>>>>>> Stashed changes
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2180937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38352272" sideWeight="0.5129241" order="7" side_tool="true" content_ui="tabs" />
-<<<<<<< Updated upstream
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18336026" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34801137" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06542811" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
->>>>>>> Stashed changes
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60653406" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38352272" sideWeight="0.5129241" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60653406" sideWeight="0.48707592" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2180937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24289773" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38352272" sideWeight="0.5129241" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.60653406" sideWeight="0.48707592" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2180937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24289773" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39914772" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2528409" sideWeight="0.503231" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2528409" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/ItemCommandRepository.php">
+    <entry file="file://$PROJECT_DIR$/consulter-le-planning.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="900">
+          <caret line="60" column="15" lean-forward="false" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_footer.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/ItemRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductPropertyValue.php" />
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningTypeProductProperty.php" />
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Actor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/ItemCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/ListCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1069,123 +606,112 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/PlanningProductType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#7#47#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCD_planning.mcd" />
-    <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations/Version20171205124025.php">
-=======
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/PlanningProductActor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/SaleDocument.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
->>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Customer/SaleDocumentLine.php">
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/SaleDocumentLine.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1113">
           <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
->>>>>>> Stashed changes
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home.html">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/Actor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="25" column="6" lean-forward="false" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/consulter-le-planning.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="60" column="15" lean-forward="false" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-=======
     <entry file="file://$PROJECT_DIR$/MCD_planning.mcd" />
     <entry file="file://$PROJECT_DIR$/MCD.jpg" />
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Customer/ItemSubFamily.php">
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/ItemSubFamily.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="20" column="63" lean-forward="false" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/web/scss/ui/_.scss" />
-    <entry file="file://$PROJECT_DIR$/web/js/main.js">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-taches.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/tools/_mixins.scss">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
+        <state relative-caret-position="404">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-          <folding />
->>>>>>> Stashed changes
+        <state relative-caret-position="240">
+          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/tools/_fonts.scss">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="154">
+          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Listener/LoadDataListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-83">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/web/scss/tools/_reset.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/ui/_header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-=======
     <entry file="file://$PROJECT_DIR$/MCD_Abdoul.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1194,232 +720,98 @@
     <entry file="file://$PROJECT_DIR$/MCD_benchaa.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
->>>>>>> Stashed changes
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/ui/_footer.scss">
+    <entry file="file://$PROJECT_DIR$/../../conf/php7.1.1/php.ini" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/sqlsrv/sqlsrv.php">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
         <state relative-caret-position="144">
           <caret line="1032" column="9" lean-forward="false" selection-start-line="1032" selection-start-column="9" selection-end-line="1032" selection-end-column="9" />
->>>>>>> Stashed changes
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/styles.scss">
+    <entry file="file://$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="326">
+          <caret line="545" column="19" lean-forward="false" selection-start-line="545" selection-start-column="19" selection-end-line="545" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scss/tools/_variable.scss">
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="51" lean-forward="false" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Customer/Item.php">
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/Item.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-578">
           <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-acteurs.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="37" lean-forward="false" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductActor.php">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/ItemCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="59" column="4" lean-forward="false" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Customer/ItemFamily.php">
+        <state relative-caret-position="-394">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/ItemFamily.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-78">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/PlanningProductType.php">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="378">
-          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/User.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/62902152-1344-4ac7-9ce6-ef6efd50b36d/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-=======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Customer/Customer.php">
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Entity/Customer/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
->>>>>>> Stashed changes
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/styles/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/password.js">
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-=======
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="37" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-=======
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f909840-5876-4079-aabe-6a5dea05aa2d/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Repository/CustomerRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations2/Version20171205124025.php" />
-    <entry file="file://$PROJECT_DIR$/app/config/mig.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
->>>>>>> Stashed changes
           <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="16" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding>
-            <element signature="e#618#644#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="13" lean-forward="true" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#871#897#0#PHP" expanded="false" />
-          </folding>
-=======
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Http/Authentication/AuthenticationUtils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding />
->>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="-173">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="1149" column="9" lean-forward="false" selection-start-line="1149" selection-start-column="9" selection-end-line="1149" selection-end-column="9" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1429,254 +821,149 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> Stashed changes
+        <state relative-caret-position="165">
+          <caret line="11" column="64" lean-forward="false" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/page-accueil.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
->>>>>>> Stashed changes
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="phar://$PROJECT_DIR$/go-pear.phar/.phar/stub.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
->>>>>>> Stashed changes
+        <state relative-caret-position="15">
+          <caret line="1" column="30" lean-forward="false" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/MCD.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info.php">
+    <entry file="file://$PROJECT_DIR$/src/SqlSrvBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/planifier-une-commande.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+        <state relative-caret-position="135">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
+            <element signature="e#315#353#1#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="23" column="60" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Listener/LoadDataListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="48" lean-forward="true" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="250" column="9" lean-forward="false" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-planning-par-taches.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/pages/consulter-le-planning.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="90">
+          <caret line="7" column="35" lean-forward="false" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
-            <element signature="e#435#461#0#Twig" expanded="false" />
-            <element signature="e#516#557#0#Twig" expanded="false" />
-            <element signature="e#613#639#0#Twig" expanded="false" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Listener/HashPasswordListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="1" />
-          <folding>
-            <element signature="e#45#76#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#79#0#PHP" expanded="false" />
+            <element signature="e#509#539#1#PHP" expanded="true" />
+            <element signature="e#705#745#1#PHP" expanded="true" />
+            <element signature="e#908#947#1#PHP" expanded="true" />
+            <element signature="e#1122#1169#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="e#45#79#0#PHP" expanded="false" />
-            <marker date="1514470131408" expanded="true" signature="350:1025" ph="//..." />
-            <marker date="1514470131408" expanded="false" signature="872:896" ph="security/login" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="18" column="65" lean-forward="false" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/DataFixtures/ORM/user.yml">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Form/LoginForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <folding>
+            <element signature="e#39#79#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Security/LoginFormAuthenticator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="1" />
+        <state relative-caret-position="195">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="e#45#95#0#PHP" expanded="false" />
-            <element signature="e#2535#2556#1#PHP" expanded="false" />
->>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mssql/mssql.php">
+    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Entity/Main/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+        <state relative-caret-position="-1713">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#41#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
->>>>>>> Stashed changes
+        <state relative-caret-position="196">
+          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/partials/_header.html.twig">
+        <state relative-caret-position="67">
+          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f909840-5876-4079-aabe-6a5dea05aa2d/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DoctrineMigrations2/Version20171205124025.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/mig.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/PlanningBundle/Controller/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#104#0#PHP" expanded="true" />
-            <element signature="e#530#560#1#PHP" expanded="true" />
-            <element signature="e#1220#1260#1#PHP" expanded="true" />
-            <element signature="e#1423#1462#1#PHP" expanded="true" />
-            <element signature="e#1637#1684#1#PHP" expanded="true" />
-            <element signature="e#1862#1910#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/sqlsrv/sqlsrv.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="892" column="9" lean-forward="false" selection-start-line="892" selection-start-column="9" selection-end-line="892" selection-end-column="9" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="46" column="53" lean-forward="false" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
->>>>>>> Stashed changes
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/../../bin/php/php7.1.1/conf/php.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="546" column="0" lean-forward="false" selection-start-line="546" selection-start-column="0" selection-end-line="546" selection-end-column="0" />
-=======
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="34" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="22" selection-end-column="34" />
->>>>>>> Stashed changes
+        <state relative-caret-position="185">
+          <caret line="133" column="24" lean-forward="true" selection-start-line="133" selection-start-column="15" selection-end-line="133" selection-end-column="51" />
           <folding />
         </state>
       </provider>

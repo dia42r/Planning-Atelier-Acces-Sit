@@ -7,7 +7,6 @@ namespace PlanningBundle\Security;
 use PlanningBundle\PlanningBundle;
 use PlanningBundle\Entity\Main\User;
 use PlanningBundle\Form\LoginForm;
-use PlanningBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,6 +21,10 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
+/**
+ * Class LoginFormAuthenticator
+ * @package PlanningBundle\Security
+ */
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
@@ -56,6 +59,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         $this->passwordEncoder = $passwordEncoder;
     }
 
+    /**
+     * @param Request $request
+     * @return mixed|null
+     */
     public function getCredentials(Request $request)
     {
         $isLoginSubmit = $request->getPathInfo() == "/connexion" && $request->isMethod("POST");
