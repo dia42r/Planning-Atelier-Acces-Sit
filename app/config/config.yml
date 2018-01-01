@@ -4,7 +4,6 @@ imports:
     - { resource: services.yml }
     - { resource: "@PlanningBundle/Resources/config/services.yml" }
     - { resource: "@SqlSrvBundle/Resources/config/services.yml" }
-    - { resource: "@BenBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -41,30 +40,6 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
-# Doctrine Configuration
-#doctrine:
-#    dbal:
-#        default_connection: default
-#        connections:
-#            default:
-#                driver: pdo_mysql
-#                host: '%database_host%'
-#                port: '%database_port%'
-#                dbname: '%database_name%'
-#                user: '%database_user%'
-#                password: '%database_password%'
-#                charset: UTF8
-#                # if using pdo_sqlite as your database driver:
-#                #   1. add the path in parameters.yml
-#                #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
-#                #   2. Uncomment database_path in parameters.yml.dist
-#                #   3. Uncomment next line:
-#                #path: '%database_path%'
-#
-#    orm:
-#        auto_generate_proxy_classes: '%kernel.debug%'
-#        naming_strategy: doctrine.orm.naming_strategy.underscore
-#        auto_mapping: true
 doctrine:
     dbal:
         default_connection: default
@@ -77,7 +52,6 @@ doctrine:
                 user: '%database_user%'
                 password: '%database_password%'
                 charset: UTF8
-
             customer:
                 driver: pdo_sqlsrv
                 host: '%database_host2%'
@@ -85,14 +59,6 @@ doctrine:
                 dbname: '%database_name2%'
                 user: '%database_user2%'
                 password: '%database_password2%'
-                charset: UTF8
-            benben:
-                driver: pdo_mysql
-                host: '%database_host%'
-                port: '%database_port%'
-                dbname: 'benben'
-                user: '%database_user%'
-                password: '%database_password%'
                 charset: UTF8
 
     orm:
@@ -110,13 +76,6 @@ doctrine:
                 connection: customer
                 mappings:
                     SqlSrvBundle: ~
-            benben:
-                connection: benben
-                mappings:
-                    BenBundle: ~
-
-
-
 
 
 # Swiftmailer Configuration

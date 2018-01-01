@@ -140,7 +140,6 @@ class Customer
         return $this->saleDocuments;
     }
 
-
     /**
      * Get id
      *
