@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PlanningBundle\Entity;
+namespace PlanningBundle\Entity\Main;
 
 
 use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;

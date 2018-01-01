@@ -4,7 +4,7 @@
 namespace PlanningBundle\Listener;
 
 
-use PlanningBundle\Entity\User;
+use PlanningBundle\Entity\Main\User;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;

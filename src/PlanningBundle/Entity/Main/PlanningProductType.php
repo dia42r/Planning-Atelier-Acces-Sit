@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity;
+namespace PlanningBundle\Entity\Main;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,7 +29,7 @@ class PlanningProductType
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\ItemCommand", inversedBy="referenceArticle")
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\ItemCommand", inversedBy="referenceArticle")
      * @ORM\Column(name="itemCommand",type="string", length=70)
      */
     private $itemCommand;

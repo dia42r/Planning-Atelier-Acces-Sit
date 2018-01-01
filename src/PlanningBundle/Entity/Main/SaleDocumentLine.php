@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity;
+namespace PlanningBundle\Entity\Main;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -65,14 +65,14 @@ class SaleDocumentLine
 
     /**
      * Many SaleDocumentLines have One SaleDocument
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\SaleDocument", inversedBy="saleDocumentLines")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Main\SaleDocument", inversedBy="saleDocumentLines")
      * @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      */
     private $saleDocument;
 
     /**
      * One SaleDocumentLine has One Item
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Item")
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Item")
      * @ORM\JoinColumn(name="item_id", referencedColumnName="id")
      */
     private $item;

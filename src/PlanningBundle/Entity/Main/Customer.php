@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity;
+namespace PlanningBundle\Entity\Main;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -128,7 +128,7 @@ class Customer
 
     /**
      * One Customer has many SaleDocument
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\SaleDocument", mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\SaleDocument", mappedBy="customer")
      */
     private $saleDocuments;
 

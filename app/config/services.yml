@@ -29,6 +29,22 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    # makes classes in src/SqlSrvBundle available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    SqlSrvBundle\:
+        resource: '../../src/SqlSrvBundle/*'
+        # you can exclude directories or files
+        # but if a service is unused, it's removed anyway
+        exclude: '../../src/SqlSrvBundle/{Entity,Repository,Tests}'
+
+    # controllers are imported separately to make sure they're public
+    # and have a tag that allows actions to type-hint services
+    SqlSrvBundle\Controller\:
+        resource: '../../src/SqlSrvBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+
     planning.entity.calendar_event:
         class: PlanningBundle\Listener\LoadDataListener
 #        arguments: ['mois'    , new \]
@@ -41,10 +57,10 @@ services:
         arguments: ['@form.factory','@router','@security.password_encoder','@doctrine.orm.default_entity_manager' ]
 
     app.doctrine.hash_password_listener:
-        class: PlanningBundle\Listener\HashPasswordListener
-        autowire: true
-        tags:
-            - { name: doctrine.event_subscriber }
+            class: PlanningBundle\Listener\HashPasswordListener
+            autowire: true
+            tags:
+                - { name: doctrine.event_subscriber }
 
     # add more services, or override services that need manual wiring
     # PlanningBundle\Service\ExampleService:

@@ -1,16 +1,16 @@
 <?php
 
-namespace PlanningBundle\Entity;
+namespace PlanningBundle\Entity\Main;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ItemFamily
+ * ItemSubFamily
  *
- * @ORM\Table(name="item_family")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ItemFamilyRepository")
+ * @ORM\Table(name="item_sub_family")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ItemSubFamilyRepository")
  */
-class ItemFamily
+class ItemSubFamily
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class ItemFamily
      *
      * @param string $caption
      *
-     * @return ItemFamily
+     * @return ItemSubFamily
      */
     public function setCaption($caption)
     {

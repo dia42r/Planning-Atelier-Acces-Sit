@@ -3,6 +3,7 @@
 namespace PlanningBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use PlanningBundle\Entity\Main\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class HomeController extends Controller
@@ -20,7 +21,11 @@ class HomeController extends Controller
      */
     public function planificationAction()
     {
-        return $this->render('pages/planifier-une-commande.html.twig');
+        $commandes = $this->getDoctrine()->getRepository(SaleDocument::class)->findAll();
+
+        return $this->render('pages/planifier-une-commande.html.twig', array(
+            'commandes' => $commandes,
+        ));
     }
 
     /**
