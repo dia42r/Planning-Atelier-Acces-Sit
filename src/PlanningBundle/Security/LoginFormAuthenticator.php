@@ -5,7 +5,7 @@ namespace PlanningBundle\Security;
 
 
 use PlanningBundle\PlanningBundle;
-use PlanningBundle\Entity\User;
+use PlanningBundle\Entity\Main\User;
 use PlanningBundle\Form\LoginForm;
 use PlanningBundle\Repository\UserRepository;
 use Doctrine\ORM\EntityManager;
@@ -48,7 +48,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     /**
      * LoginFormAuthenticator constructor.
      */
-    public function __construct(FormFactoryInterface $formFactory, EntityManager $em, RouterInterface $router, UserPasswordEncoder $passwordEncoder)
+    public function __construct(FormFactoryInterface $formFactory, RouterInterface $router, UserPasswordEncoder $passwordEncoder, $em)
     {
         $this->formFactory = $formFactory;
         $this->em = $em;
@@ -76,8 +76,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $username = $credentials["username"];
-
-        return $this->em->getRepository("PlanningBundle:User")
+        return  $this->em->getRepository(User::class)
             ->findOneBy(["username" => $username]);
     }
 

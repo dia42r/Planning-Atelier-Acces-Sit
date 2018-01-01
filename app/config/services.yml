@@ -38,12 +38,13 @@ services:
     app.security.login_form_authenticator:
         class: PlanningBundle\Security\LoginFormAuthenticator
         autowire: true
+        arguments: ['@form.factory','@router','@security.password_encoder','@doctrine.orm.default_entity_manager' ]
 
     app.doctrine.hash_password_listener:
-            class: PlanningBundle\Listener\HashPasswordListener
-            autowire: true
-            tags:
-                - { name: doctrine.event_subscriber }
+        class: PlanningBundle\Listener\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
 
     # add more services, or override services that need manual wiring
     # PlanningBundle\Service\ExampleService:

@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new PlanningBundle\PlanningBundle(),
             new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new SqlSrvBundle\SqlSrvBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
