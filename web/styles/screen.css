@@ -121,7 +121,9 @@ nav .lis:hover {
 nav li a:hover {
     color: #ffffff;
 }
+
 /*============================Main========================*/
+
 main h1 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     font-size: 40px;
@@ -129,7 +131,9 @@ main h1 {
     margin: 10% auto;
     width: 58%;
 }
+
 /*========================Main Consulter le plannig==============*/
+
 #main-consulter-planning {
     margin: 0;
 }
@@ -436,7 +440,6 @@ form .group label {
     text-indent: 0;
     transition: 0s 0.8s ease-in-out;
 }
-
 
 /*========================Main Planification Commande========================*/
 

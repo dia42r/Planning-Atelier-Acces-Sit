@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="8c19184d-2b12-44ab-925e-6c09d4556344">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://192.168.1.7\EBP:53150;database=E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4</jdbc-url>
-      <driver-properties>
-        <property name="applicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
     <data-source source="LOCAL" name="calendar@localhost" uuid="a7f970db-c4d8-4257-9db3-9382bb00921c">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -22,6 +13,15 @@
         <property name="characterEncoding" value="utf8" />
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="7b82b4f0-16cf-4c03-9b00-88f3ae646351">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://192.168.1.7\EBP:53150;database=E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4</jdbc-url>
+      <driver-properties>
+        <property name="applicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
   </component>

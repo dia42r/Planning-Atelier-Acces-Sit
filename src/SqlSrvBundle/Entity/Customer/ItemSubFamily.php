@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Main;
+namespace SqlSrvBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ItemSubFamily
  *
  * @ORM\Table(name="item_sub_family")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ItemSubFamilyRepository")
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\ItemSubFamilyRepository")
  */
 class ItemSubFamily
 {

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace SqlSrvBundle\Repository;
 
 /**
@@ -11,5 +10,4 @@ namespace SqlSrvBundle\Repository;
  */
 class CustomerRepository extends \Doctrine\ORM\EntityRepository
 {
-
 }

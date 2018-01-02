@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Main;
+namespace SqlSrvBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Task
  *
  * @ORM\Table(name="task")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\TaskRepository")
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\TaskRepository")
  */
 class Task
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Main;
+namespace SqlSrvBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * SaleDocument
  *
  * @ORM\Table(name="sale_document")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentRepository")
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\SaleDocumentRepository")
  */
 class SaleDocument
 {
@@ -37,13 +37,13 @@ class SaleDocument
 
     /**
      * One SaleDocument has many SaleDocumentLines
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\SaleDocumentLine", mappedBy="saleDocument")
+     * @ORM\OneToMany(targetEntity="SqlSrvBundle\Entity\Customer\SaleDocumentLine", mappedBy="saleDocument")
      */
     private $saleDocumentLines;
 
     /**
      * Many SaleDocument have One Customer
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Main\Customer", inversedBy="saleDocuments")
+     * @ORM\ManyToOne(targetEntity="SqlSrvBundle\Entity\Customer\Customer", inversedBy="saleDocuments")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;

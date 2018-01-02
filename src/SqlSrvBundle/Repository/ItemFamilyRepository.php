@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Repository;
+namespace SqlSrvBundle\Repository;
 
 /**
  * ItemFamilyRepository

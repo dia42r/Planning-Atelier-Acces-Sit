@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Main;
+namespace SqlSrvBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * SaleDocumentLine
  *
  * @ORM\Table(name="sale_document_line")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentLineRepository")
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\SaleDocumentLineRepository")
  */
 class SaleDocumentLine
 {
@@ -65,17 +65,31 @@ class SaleDocumentLine
 
     /**
      * Many SaleDocumentLines have One SaleDocument
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Main\SaleDocument", inversedBy="saleDocumentLines")
+     * @ORM\ManyToOne(targetEntity="SqlSrvBundle\Entity\Customer\SaleDocument", inversedBy="saleDocumentLines")
      * @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      */
     private $saleDocument;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=255, nullable=true)
+     */
+    private $comment;
+
+    /**
      * One SaleDocumentLine has One Item
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Item")
+     * @ORM\OneToOne(targetEntity="SqlSrvBundle\Entity\Customer\Item")
      * @ORM\JoinColumn(name="item_id", referencedColumnName="id")
      */
     private $item;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=30)
+     */
+    private $status;
 
     /**
      * Get id
@@ -86,8 +100,6 @@ class SaleDocumentLine
     {
         return $this->id;
     }
-
-
     /**
      * Set documentId
      *
@@ -111,6 +123,7 @@ class SaleDocumentLine
     {
         return $this->documentId;
     }
+
 
     /**
      * Set description
@@ -246,6 +259,41 @@ class SaleDocumentLine
     public function getItem()
     {
         return $this->item;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+        return $this;
     }
 }
 

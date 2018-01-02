@@ -1,11 +1,7 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <main id="main-planification-commande">
-        <h2>Listes et état des commandes </h2>
-        <button class="ebp">Import EBP</button>
-        <button>
-            <a href="{{ path('security_logout') }}">Deconnexion</a>
-        </button>
+    <section id="main-planification-commande">
+        <h2>Listes des commandes </h2>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
@@ -35,6 +31,6 @@
             {% endfor %}
             </tbody>
         </table>
-    </main>
+    </section>
 
 {% endblock %}

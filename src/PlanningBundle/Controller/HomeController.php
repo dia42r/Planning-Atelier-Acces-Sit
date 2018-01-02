@@ -2,8 +2,10 @@
 
 namespace PlanningBundle\Controller;
 
+
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use PlanningBundle\Entity\Main\SaleDocument;
+use SqlSrvBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class HomeController extends Controller
@@ -21,11 +23,14 @@ class HomeController extends Controller
      */
     public function planificationAction()
     {
-        $commandes = $this->getDoctrine()->getRepository(SaleDocument::class)->findAll();
+        $commandes = $this->getDoctrine()->getRepository(SaleDocument::class,'customer')
+            ->findAll();
 
-        return $this->render('pages/planifier-une-commande.html.twig', array(
+        return $this->render('pages/planifier-une-commande.html.twig', [
+
             'commandes' => $commandes,
-        ));
+
+        ]);
     }
 
     /**
@@ -34,6 +39,20 @@ class HomeController extends Controller
     public function consultationAction()
     {
         return $this->render('pages/consulter-le-planning.html.twig');
+    }
+
+    /**
+     * @Route("/listes", name="listes-commandes")
+     */
+    public function listeCommandes()
+    {
+        $commandes = $this->getDoctrine()->getRepository(SaleDocument::class, 'customer')
+            ->findAll();
+
+        return $this->render('pages/listes-des-commandes.html.twig', [
+
+            'commandes' => $commandes,
+        ]);
     }
 
     /**

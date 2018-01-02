@@ -2,7 +2,6 @@
 
 namespace SqlSrvBundle\Controller;
 
-use PlanningBundle\Entity\Main\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
