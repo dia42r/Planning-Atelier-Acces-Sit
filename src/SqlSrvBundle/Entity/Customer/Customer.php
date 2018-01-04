@@ -533,5 +533,37 @@ class Customer
 //    {
 //        return $this->saleDocuments;
 //    }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->saleDocuments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add saleDocument.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument
+     *
+     * @return Customer
+     */
+    public function addSaleDocument(\SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument)
+    {
+        $this->saleDocuments[] = $saleDocument;
+
+        return $this;
+    }
+
+    /**
+     * Remove saleDocument.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeSaleDocument(\SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument)
+    {
+        return $this->saleDocuments->removeElement($saleDocument);
+    }
+}

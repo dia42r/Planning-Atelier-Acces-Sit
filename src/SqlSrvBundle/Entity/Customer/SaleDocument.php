@@ -198,5 +198,51 @@ class SaleDocument
     {
         return $this->documentNumber;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->saleDocumentLines = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add saleDocumentLine.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     *
+     * @return SaleDocument
+     */
+    public function addSaleDocumentLine(\SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    {
+        $this->saleDocumentLines[] = $saleDocumentLine;
+
+        return $this;
+    }
+
+    /**
+     * Remove saleDocumentLine.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeSaleDocumentLine(\SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    {
+        return $this->saleDocumentLines->removeElement($saleDocumentLine);
+    }
+
+    /**
+     * Set customer.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\Customer|null $customer
+     *
+     * @return SaleDocument
+     */
+    public function setCustomer(\SqlSrvBundle\Entity\Customer\Customer $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+}

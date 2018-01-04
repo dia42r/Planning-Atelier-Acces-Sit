@@ -13,22 +13,19 @@
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {% for commande in commandes %}
+            {#{% for commande in commandes %}#}
                 {# TODO: if current date - docDate < 6M #}
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
-                        CAT{{ commande.documentNumber }}
-                        <a href="">
-                            <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
-                        </a>
+                        {{ commandes.documentnumber }}
                     </td>
-                    <td colspan="3px">{{ commande.status }}</td>
-                    <td colspan="3px">{{ commande.documentDate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commande.documentWishDate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commande.documentValidDate|date('Y/m/d') }}</td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px">{{ commandes.documentdate|date('Y/m/d') }}</td>
+                    <td colspan="3px">{{ commandes.deliverydate|date('Y/m/d') }}</td>
+                    <td colspan="3px">{{ commandes.validitydate|date('Y/m/d') }}</td>
                 </tr>
                 {# TODO: endif #}
-            {% endfor %}
+            {#{% endfor %}#}
             </tbody>
         </table>
     </section>

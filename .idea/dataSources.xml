@@ -15,11 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="7b82b4f0-16cf-4c03-9b00-88f3ae646351">
+    <data-source source="LOCAL" name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="12bb6df5-2ff3-407d-a0af-1c7541ce3101">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://192.168.1.7\EBP:53150;database=E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://192.168.1.7\EBP;database=E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4</jdbc-url>
       <driver-properties>
         <property name="applicationName" value="DataGrip" />
       </driver-properties>

@@ -78,6 +78,7 @@ doctrine:
                     SqlSrvBundle: ~
 
 
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'

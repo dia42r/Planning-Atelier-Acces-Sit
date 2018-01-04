@@ -11,28 +11,28 @@
             <tr>
                 <th colspan="3px">Commande (n°CAT)</th>
                 <th class="ths" colspan="3px">Status</th>
+                <th class="ths" colspan="3px" >Enregistré le</th>
                 <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
-                <th class="ths" colspan="3px" >Date planifié</th>
-                <th class="ths" colspan="3px" >Date fin de fabrication</th>
+                <th class="ths" colspan="3px" >Date validée</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {% for commande in commandes %}
+            {#{% for commande in commandes %}#}
                 {# TODO: if current date - docDate < 6M #}
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
-                        CAT{{ commande.documentNumber }}
+                        {{ commandes.documentnumber }}
                         <a href="">
                             <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td colspan="3px">{{ commande.status }}</td>
-                    <td colspan="3px">{{ commande.documentDate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commande.documentWishDate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commande.documentValidDate|date('Y/m/d') }}</td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px">{{ commandes.documentdate|date('Y/m/d') }}</td>
+                    <td colspan="3px">{{ commandes.deliverydate|date('Y/m/d') }}</td>
+                    <td colspan="3px"></td>
                 </tr>
                 {# TODO: endif #}
-            {% endfor %}
+            {#{% endfor %}#}
             </tbody>
         </table>
     </main>

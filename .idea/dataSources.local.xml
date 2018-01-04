@@ -5,14 +5,14 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
       <introspection-schemas>*:calendar</introspection-schemas>
     </data-source>
-    <data-source name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="7b82b4f0-16cf-4c03-9b00-88f3ae646351">
+    <data-source name="E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4@192.168.1.7" uuid="12bb6df5-2ff3-407d-a0af-1c7541ce3101">
       <database-info product="Microsoft SQL Server" version="10.00.1600" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 6.0 for SQL Server" driver-version="6.0.8112.100">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
-      <user-name>sa</user-name>
+      <user-name>ben</user-name>
       <introspection-schemas>E.D.S_0895452f-b7c1-4c00-a316-c6a6d0ea4bf4:dbo</introspection-schemas>
     </data-source>
   </component>

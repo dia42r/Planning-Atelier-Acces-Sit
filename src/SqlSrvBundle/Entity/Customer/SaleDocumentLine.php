@@ -295,5 +295,32 @@ class SaleDocumentLine
         $this->comment = $comment;
         return $this;
     }
-}
 
+    /**
+     * Set saleDocument.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\SaleDocument|null $saleDocument
+     *
+     * @return SaleDocumentLine
+     */
+    public function setSaleDocument(\SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument = null)
+    {
+        $this->saleDocument = $saleDocument;
+
+        return $this;
+    }
+
+    /**
+     * Set item.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\Item|null $item
+     *
+     * @return SaleDocumentLine
+     */
+    public function setItem(\SqlSrvBundle\Entity\Customer\Item $item = null)
+    {
+        $this->item = $item;
+
+        return $this;
+    }
+}

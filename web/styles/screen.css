@@ -134,17 +134,21 @@ main h1 {
 
 /*========================Main Consulter le plannig==============*/
 
-#main-consulter-planning {
-    margin: 0;
-}
+/*#main-consulter-planning {*/
+    /*margin: 0;*/
+/*}*/
 
-#main-consulter-planning .content-info {
+/*#main-consulter-planning .content-info {*/
+    /*width: 81%;*/
+    /*height: auto;*/
+    /*margin: 3% auto 3%;*/
+
+/*}*/
+
+#calendar-holder {
     width: 81%;
-    height: auto;
     margin: 3% auto 3%;
-    display: flex;
-    justify-content: space-between;
-
+    height: auto;
 }
 
 #main-consulter-planning h1 {

@@ -63,4 +63,3 @@ class ItemFamily
         return $this->caption;
     }
 }
-

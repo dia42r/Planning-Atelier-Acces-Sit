@@ -156,5 +156,32 @@ class Item
     {
         return $this->itemSubFamily;
     }
-}
 
+    /**
+     * Set itemFamily.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\itemFamily|null $itemFamily
+     *
+     * @return Item
+     */
+    public function setItemFamily(\SqlSrvBundle\Entity\Customer\itemFamily $itemFamily = null)
+    {
+        $this->itemFamily = $itemFamily;
+
+        return $this;
+    }
+
+    /**
+     * Set itemSubFamily.
+     *
+     * @param \SqlSrvBundle\Entity\Customer\itemSubFamily|null $itemSubFamily
+     *
+     * @return Item
+     */
+    public function setItemSubFamily(\SqlSrvBundle\Entity\Customer\itemSubFamily $itemSubFamily = null)
+    {
+        $this->itemSubFamily = $itemSubFamily;
+
+        return $this;
+    }
+}
