@@ -3,31 +3,34 @@
     <section id="main-planification-commande">
         <h2>Listes des commandes </h2>
         <table>
+            <div class="navigation list-pag">
+                {{ knp_pagination_render(pagination) }}
+            </div>
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th colspan="3px">Commande (n°CAT)</th>
-                <th class="ths" colspan="3px">Status</th>
+                <th class="ths" colspan="3px">Statut</th>
                 <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
                 <th class="ths" colspan="3px" >Date planifié</th>
                 <th class="ths" colspan="3px" >Date fin de fabrication</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {#{% for commande in commandes %}#}
-                {# TODO: if current date - docDate < 6M #}
+            {% for commande in pagination %}
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
-                        {{ commandes.documentnumber }}
+                        {{ commande.documentnumber }}
                     </td>
                     <td colspan="3px"></td>
-                    <td colspan="3px">{{ commandes.documentdate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commandes.deliverydate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commandes.validitydate|date('Y/m/d') }}</td>
+                    <td colspan="3px">{{ commande.deliverydate|date('d/m/y') }}</td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px"></td>
                 </tr>
-                {# TODO: endif #}
-            {#{% endfor %}#}
+            {% endfor %}
             </tbody>
         </table>
+        <div class="navigation list-pag">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     </section>
-
 {% endblock %}

@@ -1029,7 +1029,6 @@ class Saledocumentline
 
     /**
      * @var string
-     *
      * @ORM\Column(name="DocumentId", type="guid", nullable=false)
      */
     private $documentid;

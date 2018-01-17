@@ -2,39 +2,45 @@
 {% block body %}
     <main id="main-planification-commande">
         <h2>Listes et état des commandes </h2>
-        <button class="ebp">Import EBP</button>
-        <button>
-            <a href="{{ path('security_logout') }}">Deconnexion</a>
-        </button>
+        <div class="pag-plan">
+            <button class="ebp">Import EBP</button>
+            <button class="ebp2">
+                <a href="{{ path('security_logout') }}">Deconnexion</a>
+            </button>
+            <div class="navigation">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th colspan="3px">Commande (n°CAT)</th>
-                <th class="ths" colspan="3px">Status</th>
+                <th class="ths" colspan="3px">Statut</th>
                 <th class="ths" colspan="3px" >Enregistré le</th>
                 <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
                 <th class="ths" colspan="3px" >Date validée</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {#{% for commande in commandes %}#}
-                {# TODO: if current date - docDate < 6M #}
+            {% for commande in pagination %}
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
-                        {{ commandes.documentnumber }}
-                        <a href="">
+                        {{ commande.documentnumber }}
+                        <a href="{{ path('details-commandes') }}">
                             <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                         </a>
                     </td>
                     <td colspan="3px"></td>
-                    <td colspan="3px">{{ commandes.documentdate|date('Y/m/d') }}</td>
-                    <td colspan="3px">{{ commandes.deliverydate|date('Y/m/d') }}</td>
+                    <td colspan="3px">{{ commande.documentdate|date('d/m/y') }}</td>
+                    <td colspan="3px">{{ commande.deliverydate|date('d/m/y') }}</td>
                     <td colspan="3px"></td>
                 </tr>
-                {# TODO: endif #}
-            {#{% endfor %}#}
+            {% endfor %}
             </tbody>
         </table>
+        <div class="navigation nav-pag">
+            {{ knp_pagination_render(pagination) }}
+        </div>
     </main>
 
 {% endblock %}

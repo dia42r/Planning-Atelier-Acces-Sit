@@ -10,4 +10,11 @@ namespace SqlSrvBundle\Repository;
  */
 class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 {
+//    public function findDetails()
+//    {
+//        $d = $this->createQueryBuilder('dd')
+//            ->select("dd.documentId","dd.description","dd.quantity")
+//            ->where()
+//    }
+
 }

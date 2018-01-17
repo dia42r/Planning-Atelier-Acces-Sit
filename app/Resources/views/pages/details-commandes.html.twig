@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <section id="section-details-commandes">
+        <h2>Détails de la commandes</h2>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <th colspan="3px">Réference article</th>
+                <th class="ths" colspan="3px">Description article</th>
+                <th class="ths" colspan="3px" >Quantité</th>
+                <th class="ths" colspan="3px" >Action</th>
+                <th class="ths" colspan="3px" >Statut</th>
+                <th class="ths" colspan="3px" >Fin de fabrication</th>
+                <th class="ths" colspan="3px" >Commentaire</th>
+            </tr>
+            </thead>
+            <tbody> <!-- Corps du tableau -->
+            {#{% for detail in details %}#}
+                <tr class="trgrey">
+                    <td class="tbodytd" colspan="3px"></td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px">
+                        <a href="">
+                            <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
+                        </a>
+                    </td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px"></td>
+                    <td colspan="3px"></td>
+                </tr>
+            </tbody>
+            {#{% endfor %}#}
+        </table>
+    </section>
+{% endblock %}
