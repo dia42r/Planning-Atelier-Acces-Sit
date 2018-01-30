@@ -94,4 +94,3 @@ class Actor
         return $this->job;
     }
 }
-

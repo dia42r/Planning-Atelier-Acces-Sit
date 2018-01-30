@@ -5,32 +5,34 @@
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th colspan="3px">Réference article</th>
-                <th class="ths" colspan="3px">Description article</th>
-                <th class="ths" colspan="3px" >Quantité</th>
-                <th class="ths" colspan="3px" >Action</th>
-                <th class="ths" colspan="3px" >Statut</th>
-                <th class="ths" colspan="3px" >Fin de fabrication</th>
-                <th class="ths" colspan="3px" >Commentaire</th>
+                <th>Réference article</th>
+                <th class="ths">Description article</th>
+                <th class="ths">Quantité</th>
+                <th class="ths">Action</th>
+                <th class="ths">Statut</th>
+                <th class="ths">Fin de fabrication</th>
+                <th class="ths">Commentaire</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {#{% for detail in details %}#}
+            {% for detail in details %}
                 <tr class="trgrey">
-                    <td class="tbodytd" colspan="3px"></td>
-                    <td colspan="3px"></td>
-                    <td colspan="3px"></td>
-                    <td colspan="3px">
-                        <a href="">
+                    <td class="tbodytd">{{ detail.itemid }}</td>
+                    <td>{{ detail.descriptionclear }}</td>
+                    <td>{{ detail.quantity|number_format }}</td>
+                    <td>
+                        <a href="{{ path('planification-produits') }}">
                             <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td colspan="3px"></td>
-                    <td colspan="3px"></td>
-                    <td colspan="3px"></td>
+                    <td class="plan">NON PLANIFIE</td>
+                    <td></td>
+                    <td></td>
                 </tr>
+            {% endfor %}
             </tbody>
-            {#{% endfor %}#}
         </table>
+        {#<p>Date de départ de la commnande : {{ deliverydate }} </p>#}
+        <button>Validée</button>
     </section>
 {% endblock %}

@@ -10,11 +10,19 @@ namespace SqlSrvBundle\Repository;
  */
 class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 {
-//    public function findDetails()
-//    {
-//        $d = $this->createQueryBuilder('dd')
-//            ->select("dd.documentId","dd.description","dd.quantity")
-//            ->where()
-//    }
+    public function findDetails()
+    {
+//        $limitdate= new \DateTime('-1 months');
+
+        $d = $this->createQueryBuilder('d')
+        ->select('d.itemid,d.id,d.quantity,d.caption,d.documentid')
+            ->setMaxResults(500)
+//            ->where("d.id = '42E765E0-E216-42BE-9BE6-A39609322A5A'")
+        ->getQuery();
+
+        return $d->getResult();
+    }
+
+
 
 }

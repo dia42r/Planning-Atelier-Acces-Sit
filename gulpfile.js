@@ -46,7 +46,7 @@ function js() {
         .pipe(gulpif(!isProd, sourcemaps.write('.')))
         .pipe(gulp.dest('dist/js'))
         .pipe(sync.stream());
-};
+}
 
 /**
  * IMAGES

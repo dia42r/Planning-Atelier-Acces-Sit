@@ -4021,7 +4021,7 @@ class Saledocument
     /**
      * Set shippingvatid.
      *
-     * @param string $shippingvatid
+     * @param string $shippingvat$
      *
      * @return Saledocument
      */

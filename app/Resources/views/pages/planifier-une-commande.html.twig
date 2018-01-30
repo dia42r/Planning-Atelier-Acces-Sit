@@ -15,9 +15,10 @@
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th colspan="3px">Commande (n°CAT)</th>
+                <td class="ths" colspan="3px"><strong>Client</strong></td>
                 <th class="ths" colspan="3px">Statut</th>
                 <th class="ths" colspan="3px" >Enregistré le</th>
-                <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
+                <th class="ths" colspan="2px">Date départ atelier souhaiter</th>
                 <th class="ths" colspan="3px" >Date validée</th>
             </tr>
             </thead>
@@ -26,13 +27,15 @@
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
                         {{ commande.documentnumber }}
-                        <a href="{{ path('details-commandes') }}">
+                        <a href="{{ path('details-commandes', {'id': commande.id }) }}">
+                        {#<a href="{{ path('details-commandes') }}">#}
                             <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td colspan="3px"></td>
+                    <td colspan="3px">{{ commande.customername }}</td>
+                    <td colspan="3px">Non planifié</td>
                     <td colspan="3px">{{ commande.documentdate|date('d/m/y') }}</td>
-                    <td colspan="3px">{{ commande.deliverydate|date('d/m/y') }}</td>
+                    <td colspan="2px">{{ commande.deliverydate|date('d/m/y') }}</td>
                     <td colspan="3px"></td>
                 </tr>
             {% endfor %}

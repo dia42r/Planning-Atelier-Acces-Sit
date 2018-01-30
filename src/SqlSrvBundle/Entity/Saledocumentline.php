@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Saledocumentline
  *
  * @ORM\Table(name="SaleDocumentLine", indexes={@ORM\Index(name="SaleDocumentLineDocumentIndex", columns={"DocumentId", "LineOrder"}), @ORM\Index(name="SaleDocumentLineItemIdIndex", columns={"ItemId"}), @ORM\Index(name="SaleDocumentLineDealIdIndex", columns={"DealId"}), @ORM\Index(name="SaleDocumentLineParentLineIdIndex", columns={"ParentLineId"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\SaleDocumentLineRepository")
  */
 class Saledocumentline
 {

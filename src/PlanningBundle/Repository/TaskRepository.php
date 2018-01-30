@@ -1,6 +1,6 @@
 <?php
 
-namespace SqlSrvBundle\Repository;
+namespace PlanningBundle\Repository;
 
 /**
  * TaskRepository

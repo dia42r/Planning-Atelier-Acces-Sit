@@ -10,4 +10,12 @@ namespace SqlSrvBundle\Repository;
  */
 class ItemRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findItems()
+    {
+        $it = $this->createQueryBuilder('i')
+            ->select('i.id, i.caption, i.descom')
+            ->getQuery();
+
+        return $it->getResult();
+    }
 }

@@ -1,14 +1,11 @@
 <?php
-
-namespace SqlSrvBundle\Entity\Customer;
-
+namespace PlanningBundle\Entity\Customer;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Customer
  *
  * @ORM\Table(name="customer",schema="customer")
- * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\CustomerRepository")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\CustomerRepository")
  */
 class Customer
 {
@@ -20,118 +17,101 @@ class Customer
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var int
      *
      * @ORM\Column(name="customerId", type="integer")
      */
     private $customerId;
-
     /**
      * @var string
      *
      * @ORM\Column(name="civility", type="string", length=50)
      */
     private $civility;
-
     /**
      * @var string
      *
      * @ORM\Column(name="siren", type="string", length=255, unique=true)
      */
     private $siren;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddress1", type="string", length=255)
      */
     private $mainDeliveryAddress1;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddress2", type="string", length=255)
      */
     private $mainDeliveryAddress2;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddressCity", type="string", length=255)
      */
     private $mainDeliveryAddressCity;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddressZipCode", type="string", length=255)
      */
     private $mainDeliveryAddressZipCode;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddressState", type="string", length=60)
      */
     private $mainDeliveryAddressState;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainDeliveryAddressCountry", type="string", length=40)
      */
     private $mainDeliveryAddressCountry;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddress1", type="string", length=255)
      */
     private $mainInvoicingAddress1;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddress2", type="string", length=255)
      */
     private $mainInvoicingAddress2;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddressCity", type="string", length=50)
      */
     private $mainInvoicingAddressCity;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddressZipCode", type="string", length=255)
      */
     private $mainInvoicingAddressZipCode;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddressState", type="string", length=50)
      */
     private $mainInvoicingAddressState;
-
     /**
      * @var string
      *
      * @ORM\Column(name="mainInvoicingAddressCountry", type="string", length=50)
      */
     private $mainInvoicingAddressCountry;
-
     /**
      * One Customer has many SaleDocument
-     * @ORM\OneToMany(targetEntity="SqlSrvBundle\Entity\Customer\SaleDocument", mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocument", mappedBy="customer")
      */
     private $saleDocuments;
-
     /**
      * @return mixed
      */
@@ -139,7 +119,6 @@ class Customer
     {
         return $this->saleDocuments;
     }
-
     /**
      * Get id
      *
@@ -149,7 +128,6 @@ class Customer
     {
         return $this->id;
     }
-
     /**
      * Set customerId
      *
@@ -160,10 +138,8 @@ class Customer
     public function setCustomerId($customerId)
     {
         $this->customerId = $customerId;
-
         return $this;
     }
-
     /**
      * Get customerId
      *
@@ -173,7 +149,6 @@ class Customer
     {
         return $this->customerId;
     }
-
     /**
      * Set civility
      *
@@ -184,10 +159,8 @@ class Customer
     public function setCivility($civility)
     {
         $this->civility = $civility;
-
         return $this;
     }
-
     /**
      * Get civility
      *
@@ -197,7 +170,6 @@ class Customer
     {
         return $this->civility;
     }
-
     /**
      * Set siren
      *
@@ -208,10 +180,8 @@ class Customer
     public function setSiren($siren)
     {
         $this->siren = $siren;
-
         return $this;
     }
-
     /**
      * Get siren
      *
@@ -221,7 +191,6 @@ class Customer
     {
         return $this->siren;
     }
-
     /**
      * Set mainDeliveryAddress1
      *
@@ -232,10 +201,8 @@ class Customer
     public function setMainDeliveryAddress1($mainDeliveryAddress1)
     {
         $this->mainDeliveryAddress1 = $mainDeliveryAddress1;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddress1
      *
@@ -245,7 +212,6 @@ class Customer
     {
         return $this->mainDeliveryAddress1;
     }
-
     /**
      * Set mainDeliveryAddress2
      *
@@ -256,10 +222,8 @@ class Customer
     public function setMainDeliveryAddress2($mainDeliveryAddress2)
     {
         $this->mainDeliveryAddress2 = $mainDeliveryAddress2;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddress2
      *
@@ -269,7 +233,6 @@ class Customer
     {
         return $this->mainDeliveryAddress2;
     }
-
     /**
      * Set mainDeliveryAddressCity
      *
@@ -280,10 +243,8 @@ class Customer
     public function setMainDeliveryAddressCity($mainDeliveryAddressCity)
     {
         $this->mainDeliveryAddressCity = $mainDeliveryAddressCity;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddressCity
      *
@@ -293,7 +254,6 @@ class Customer
     {
         return $this->mainDeliveryAddressCity;
     }
-
     /**
      * Set mainDeliveryAddressZipCode
      *
@@ -304,10 +264,8 @@ class Customer
     public function setMainDeliveryAddressZipCode($mainDeliveryAddressZipCode)
     {
         $this->mainDeliveryAddressZipCode = $mainDeliveryAddressZipCode;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddressZipCode
      *
@@ -317,7 +275,6 @@ class Customer
     {
         return $this->mainDeliveryAddressZipCode;
     }
-
     /**
      * Set mainDeliveryAddressState
      *
@@ -328,10 +285,8 @@ class Customer
     public function setMainDeliveryAddressState($mainDeliveryAddressState)
     {
         $this->mainDeliveryAddressState = $mainDeliveryAddressState;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddressState
      *
@@ -341,7 +296,6 @@ class Customer
     {
         return $this->mainDeliveryAddressState;
     }
-
     /**
      * Set mainDeliveryAddressCountry
      *
@@ -352,10 +306,8 @@ class Customer
     public function setMainDeliveryAddressCountry($mainDeliveryAddressCountry)
     {
         $this->mainDeliveryAddressCountry = $mainDeliveryAddressCountry;
-
         return $this;
     }
-
     /**
      * Get mainDeliveryAddressCountry
      *
@@ -365,7 +317,6 @@ class Customer
     {
         return $this->mainDeliveryAddressCountry;
     }
-
     /**
      * Set mainInvoicingAddress1
      *
@@ -376,10 +327,8 @@ class Customer
     public function setMainInvoicingAddress1($mainInvoicingAddress1)
     {
         $this->mainInvoicingAddress1 = $mainInvoicingAddress1;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddress1
      *
@@ -389,7 +338,6 @@ class Customer
     {
         return $this->mainInvoicingAddress1;
     }
-
     /**
      * Set mainInvoicingAddress2
      *
@@ -400,10 +348,8 @@ class Customer
     public function setMainInvoicingAddress2($mainInvoicingAddress2)
     {
         $this->mainInvoicingAddress2 = $mainInvoicingAddress2;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddress2
      *
@@ -413,7 +359,6 @@ class Customer
     {
         return $this->mainInvoicingAddress2;
     }
-
     /**
      * Set mainInvoicingAddressCity
      *
@@ -424,10 +369,8 @@ class Customer
     public function setMainInvoicingAddressCity($mainInvoicingAddressCity)
     {
         $this->mainInvoicingAddressCity = $mainInvoicingAddressCity;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddressCity
      *
@@ -437,7 +380,6 @@ class Customer
     {
         return $this->mainInvoicingAddressCity;
     }
-
     /**
      * Set mainInvoicingAddressZipCode
      *
@@ -448,10 +390,8 @@ class Customer
     public function setMainInvoicingAddressZipCode($mainInvoicingAddressZipCode)
     {
         $this->mainInvoicingAddressZipCode = $mainInvoicingAddressZipCode;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddressZipCode
      *
@@ -461,7 +401,6 @@ class Customer
     {
         return $this->mainInvoicingAddressZipCode;
     }
-
     /**
      * Set mainInvoicingAddressState
      *
@@ -472,10 +411,8 @@ class Customer
     public function setMainInvoicingAddressState($mainInvoicingAddressState)
     {
         $this->mainInvoicingAddressState = $mainInvoicingAddressState;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddressState
      *
@@ -485,7 +422,6 @@ class Customer
     {
         return $this->mainInvoicingAddressState;
     }
-
     /**
      * Set mainInvoicingAddressCountry
      *
@@ -496,10 +432,8 @@ class Customer
     public function setMainInvoicingAddressCountry($mainInvoicingAddressCountry)
     {
         $this->mainInvoicingAddressCountry = $mainInvoicingAddressCountry;
-
         return $this;
     }
-
     /**
      * Get mainInvoicingAddressCountry
      *
@@ -509,7 +443,6 @@ class Customer
     {
         return $this->mainInvoicingAddressCountry;
     }
-
 //    /**
 //     * Set saleDocuments
 //     *
@@ -540,29 +473,26 @@ class Customer
     {
         $this->saleDocuments = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
     /**
      * Add saleDocument.
      *
-     * @param \SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument
+     * @param \PlanningBundle\Entity\Customer\SaleDocument $saleDocument
      *
      * @return Customer
      */
-    public function addSaleDocument(\SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument)
+    public function addSaleDocument(\PlanningBundle\Entity\Customer\SaleDocument $saleDocument)
     {
         $this->saleDocuments[] = $saleDocument;
-
         return $this;
     }
-
     /**
      * Remove saleDocument.
      *
-     * @param \SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument
+     * @param \PlanningBundle\Entity\Customer\SaleDocument $saleDocument
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeSaleDocument(\SqlSrvBundle\Entity\Customer\SaleDocument $saleDocument)
+    public function removeSaleDocument(\PlanningBundle\Entity\Customer\SaleDocument $saleDocument)
     {
         return $this->saleDocuments->removeElement($saleDocument);
     }

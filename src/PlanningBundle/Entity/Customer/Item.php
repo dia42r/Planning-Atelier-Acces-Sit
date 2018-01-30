@@ -1,6 +1,6 @@
 <?php
 
-namespace SqlSrvBundle\Entity\Customer;
+namespace PlanningBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,16 +8,16 @@ use Doctrine\ORM\Mapping as ORM;
  * Item
  *
  * @ORM\Table(name="item")
- * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\ItemRepository")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ItemRepository")
  */
 class Item
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string", unique=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -31,28 +31,28 @@ class Item
     /**
      * @var string
      *
-     * @ORM\Column(name="desComm", type="string", length=255)
+     * @ORM\Column(name="desComm", type="string", length=255, nullable=true)
      */
     private $desComm;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="note", type="string", length=255)
+     * @ORM\Column(name="note", type="string", length=255, nullable=true)
      */
     private $note;
 
 
     /**
      * One Item has One Family
-     * @ORM\OneToOne(targetEntity="itemFamily")
+     * @ORM\OneToOne(targetEntity="ItemFamily")
      * @ORM\JoinColumn(name="family_id", referencedColumnName="id")
      */
     private $itemFamily;
 
     /**
      * One Item has One SubFamily
-     * @ORM\OneToOne(targetEntity="itemSubFamily")
+     * @ORM\OneToOne(targetEntity="ItemSubFamily")
      * @ORM\JoinColumn(name="itemSubfamily_id", referencedColumnName="id")
      *
      */
@@ -66,6 +66,15 @@ class Item
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
     }
 
 
@@ -160,11 +169,11 @@ class Item
     /**
      * Set itemFamily.
      *
-     * @param \SqlSrvBundle\Entity\Customer\itemFamily|null $itemFamily
+     * @param \PlanningBundle\Entity\Customer\itemFamily|null $itemFamily
      *
      * @return Item
      */
-    public function setItemFamily(\SqlSrvBundle\Entity\Customer\itemFamily $itemFamily = null)
+    public function setItemFamily(\PlanningBundle\Entity\Customer\itemFamily $itemFamily = null)
     {
         $this->itemFamily = $itemFamily;
 
@@ -174,11 +183,11 @@ class Item
     /**
      * Set itemSubFamily.
      *
-     * @param \SqlSrvBundle\Entity\Customer\itemSubFamily|null $itemSubFamily
+     * @param \PlanningBundle\Entity\Customer\itemSubFamily|null $itemSubFamily
      *
      * @return Item
      */
-    public function setItemSubFamily(\SqlSrvBundle\Entity\Customer\itemSubFamily $itemSubFamily = null)
+    public function setItemSubFamily(\PlanningBundle\Entity\Customer\itemSubFamily $itemSubFamily = null)
     {
         $this->itemSubFamily = $itemSubFamily;
 

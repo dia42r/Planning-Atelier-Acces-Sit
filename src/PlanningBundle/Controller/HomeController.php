@@ -4,6 +4,8 @@ namespace PlanningBundle\Controller;
 
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;;
+
+use SqlSrvBundle\Entity\Item;
 use SqlSrvBundle\Entity\Saledocument;
 use SqlSrvBundle\Entity\Saledocumentline;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -51,16 +53,28 @@ class HomeController extends Controller
 
 
     /**
-     * @Route("/details", name="details-commandes")
+     * @Route("/details/{id}", name="details-commandes")
      */
-    public function detailCommandes()
+    public function detailCommandes($id)
     {
-//        $details = $this->getDoctrine()->getRepository(Saledocumentline::class, 'customer')
-//            ->findAll();
-//
+        $details = $this->getDoctrine()->getRepository(Saledocumentline::class, 'customer')
+            ->findBy([
+                'documentid' => $id,
+                ]
+            );
+
+
         return $this->render('pages/details-commandes.html.twig', [
-//            'details' => $details
+            'details' => $details,
         ]);
+    }
+
+    /**
+     * @Route("/planification_produits", name="planification-produits")
+     */
+    public function planificationProduits()
+    {
+        return $this->render('pages/planification-produit.html.twig');
     }
 
     /**

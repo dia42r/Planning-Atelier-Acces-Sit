@@ -9,10 +9,11 @@
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th colspan="3px">Commande (n°CAT)</th>
+                <th class="ths customer-name" colspan="3px">Client</th>
                 <th class="ths" colspan="3px">Statut</th>
-                <th class="ths" colspan="3px" >Date départ atelier souhaiter</th>
-                <th class="ths" colspan="3px" >Date planifié</th>
-                <th class="ths" colspan="3px" >Date fin de fabrication</th>
+                <th class="ths" colspan="3px">Date départ atelier souhaiter</th>
+                <th class="ths" colspan="3px">Date planifié</th>
+                <th class="ths" colspan="3px">Date fin de fabrication</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
@@ -21,7 +22,8 @@
                     <td class="tbodytd" colspan="3px">
                         {{ commande.documentnumber }}
                     </td>
-                    <td colspan="3px"></td>
+                    <td colspan="3px" class="customer-name">{{ commande.customername }}</td>
+                    <td colspan="3px">Non planifié</td>
                     <td colspan="3px">{{ commande.deliverydate|date('d/m/y') }}</td>
                     <td colspan="3px"></td>
                     <td colspan="3px"></td>

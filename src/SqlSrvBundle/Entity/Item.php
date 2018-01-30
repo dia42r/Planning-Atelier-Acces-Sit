@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Item
  *
  * @ORM\Table(name="Item", indexes={@ORM\Index(name="Item_UniqueId_Index", columns={"UniqueId"}), @ORM\Index(name="ItemReplacementItemIdIndex", columns={"ReplacementItem"}), @ORM\Index(name="ItemRangeItemIdIndex", columns={"ParentRangeItemId"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\ItemRepository")
  */
 class Item
 {

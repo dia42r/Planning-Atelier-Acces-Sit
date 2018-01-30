@@ -1,16 +1,16 @@
 <?php
 
-namespace SqlSrvBundle\Entity\Customer;
+namespace PlanningBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ItemFamily
+ * Task
  *
- * @ORM\Table(name="item_family")
- * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\ItemFamilyRepository")
+ * @ORM\Table(name="task")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\TaskRepository")
  */
-class ItemFamily
+class Task
 {
     /**
      * @var int
@@ -24,9 +24,9 @@ class ItemFamily
     /**
      * @var string
      *
-     * @ORM\Column(name="caption", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=50)
      */
-    private $caption;
+    private $name;
 
 
     /**
@@ -40,26 +40,26 @@ class ItemFamily
     }
 
     /**
-     * Set caption
+     * Set name
      *
-     * @param string $caption
+     * @param string $name
      *
-     * @return ItemFamily
+     * @return Task
      */
-    public function setCaption($caption)
+    public function setName($name)
     {
-        $this->caption = $caption;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get caption
+     * Get name
      *
      * @return string
      */
-    public function getCaption()
+    public function getName()
     {
-        return $this->caption;
+        return $this->name;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace SqlSrvBundle\Entity\Customer;
+namespace PlanningBundle\Entity\Customer;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,16 +8,16 @@ use Doctrine\ORM\Mapping as ORM;
  * SaleDocument
  *
  * @ORM\Table(name="sale_document")
- * @ORM\Entity(repositoryClass="SqlSrvBundle\Repository\SaleDocumentRepository")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentRepository")
  */
 class SaleDocument
 {
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -31,19 +31,19 @@ class SaleDocument
     /**
      * @var int
      *
-     * @ORM\Column(name="documentNumber", type="integer", unique=true)
+     * @ORM\Column(name="documentNumber", type="string", length=255, unique=true)
      */
     private $documentNumber;
 
     /**
      * One SaleDocument has many SaleDocumentLines
-     * @ORM\OneToMany(targetEntity="SqlSrvBundle\Entity\Customer\SaleDocumentLine", mappedBy="saleDocument")
+     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saleDocument")
      */
     private $saleDocumentLines;
 
     /**
      * Many SaleDocument have One Customer
-     * @ORM\ManyToOne(targetEntity="SqlSrvBundle\Entity\Customer\Customer", inversedBy="saleDocuments")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\Customer", inversedBy="saleDocuments")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
@@ -52,7 +52,7 @@ class SaleDocument
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=40)
+     * @ORM\Column(name="status", type="string", length=40, nullable=true)
      */
     private $status;
 
@@ -61,9 +61,10 @@ class SaleDocument
     /**
      * @var string
      *
-     * @ORM\Column(name="documentWishDate", type="date")
+     * @ORM\Column(name="documentWishDate", type="date", nullable=true)
      */
     private $documentWishDate;
+
 
     /**
      * @return string
@@ -152,6 +153,15 @@ class SaleDocument
     }
 
     /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
      * Set documentDate
      *
      * @param \DateTime $documentDate
@@ -209,11 +219,11 @@ class SaleDocument
     /**
      * Add saleDocumentLine.
      *
-     * @param \SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
      *
      * @return SaleDocument
      */
-    public function addSaleDocumentLine(\SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function addSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
     {
         $this->saleDocumentLines[] = $saleDocumentLine;
 
@@ -223,11 +233,11 @@ class SaleDocument
     /**
      * Remove saleDocumentLine.
      *
-     * @param \SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeSaleDocumentLine(\SqlSrvBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function removeSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
     {
         return $this->saleDocumentLines->removeElement($saleDocumentLine);
     }
@@ -235,11 +245,11 @@ class SaleDocument
     /**
      * Set customer.
      *
-     * @param \SqlSrvBundle\Entity\Customer\Customer|null $customer
+     * @param \PlanningBundle\Entity\Customer\Customer|null $customer
      *
      * @return SaleDocument
      */
-    public function setCustomer(\SqlSrvBundle\Entity\Customer\Customer $customer = null)
+    public function setCustomer(\PlanningBundle\Entity\Customer\Customer $customer = null)
     {
         $this->customer = $customer;
 

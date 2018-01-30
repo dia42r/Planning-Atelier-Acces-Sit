@@ -176,4 +176,3 @@ class User implements UserInterface
         // TODO: Implement getSalt() method.
     }
 }
-
