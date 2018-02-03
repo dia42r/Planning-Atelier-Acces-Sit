@@ -12,7 +12,24 @@
                 <option value="">Thierry</option>
                 <option value="">Mohammed</option>
                 <option value="">Daye</option>
+                <option value="">Pierre</option>
             </select>
         </section>
     </main>
+
+    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+    {% endblock %}
+
+
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+    {% endblock %}
 {% endblock %}

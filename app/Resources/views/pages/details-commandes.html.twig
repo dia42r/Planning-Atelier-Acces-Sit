@@ -1,13 +1,16 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <section id="section-details-commandes">
-        <h2>Détails de la commandes</h2>
+        <h2>Détails de la commandes
+            {{ saledocument.documentnumber }}
+        </h2>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th>Réference article</th>
                 <th class="ths">Description article</th>
                 <th class="ths">Quantité</th>
+                <th class="ths">Date départ atelier souhaiter</th>
                 <th class="ths">Action</th>
                 <th class="ths">Statut</th>
                 <th class="ths">Fin de fabrication</th>
@@ -16,23 +19,28 @@
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for detail in details %}
-                <tr class="trgrey">
-                    <td class="tbodytd">{{ detail.itemid }}</td>
-                    <td>{{ detail.descriptionclear }}</td>
-                    <td>{{ detail.quantity|number_format }}</td>
-                    <td>
-                        <a href="{{ path('planification-produits') }}">
-                            <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
-                        </a>
-                    </td>
-                    <td class="plan">NON PLANIFIE</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {% if detail.item == true %}
+                    <tr class="trgrey">
+                        <td class="tbodytd">{{ detail.item.id }}</td>
+                        <td>{{ detail.description }}</td>
+                        <td>{{ detail.quantity|number_format }}</td>
+                        <td>{{ detail.deliverydate|date('d-m-y') }}</td>
+                        <td>
+                            <a href="{{ path('planification-produits') }}">
+                                <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
+                            </a>
+                        </td>
+                        <td class="plan">NON PLANIFIE</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>
-        {#<p>Date de départ de la commnande : {{ deliverydate }} </p>#}
-        <button>Validée</button>
+        {#{% for detail in details %}#}
+        {#<p>Date de départ de la commande : {{ detail.deliverydate|date('d-m-y') }} </p>#}
+        {#{% endfor %}#}
+        <button>valider</button>
     </section>
 {% endblock %}

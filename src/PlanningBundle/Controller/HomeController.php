@@ -57,15 +57,18 @@ class HomeController extends Controller
      */
     public function detailCommandes($id)
     {
-        $details = $this->getDoctrine()->getRepository(Saledocumentline::class, 'customer')
-            ->findBy([
-                'documentid' => $id,
-                ]
-            );
+        $saledocument = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')
+            ->find($id);
 
+        $details = $this->getDoctrine()->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
+            ->findDoc($id);
 
+//        dump($details);
+//        die;
         return $this->render('pages/details-commandes.html.twig', [
             'details' => $details,
+            'saledocument' => $saledocument
+//            'det' => $det
         ]);
     }
 

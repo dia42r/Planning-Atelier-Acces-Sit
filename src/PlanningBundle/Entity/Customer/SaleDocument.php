@@ -31,7 +31,7 @@ class SaleDocument
     /**
      * @var int
      *
-     * @ORM\Column(name="documentNumber", type="string", length=255, unique=true)
+     * @ORM\Column(name="documentnumber", type="string", length=255, unique=true)
      */
     private $documentNumber;
 

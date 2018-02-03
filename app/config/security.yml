@@ -21,6 +21,7 @@ security:
             anonymous: ~
             logout:
                 path: /deconnexion
+                delete_cookies:
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate

@@ -1308,7 +1308,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="259" name="documentNumber">
+    <column id="314" parent="259" name="documentnumber">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
@@ -1334,8 +1334,8 @@
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="319" parent="259" name="UNIQ_C61D66DC72A5808C">
-      <ColNames>documentNumber</ColNames>
+    <index id="319" parent="259" name="UNIQ_C61D66DC750985BA">
+      <ColNames>documentnumber</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="320" parent="259" name="IDX_C61D66DC9395C3F3">
@@ -1346,9 +1346,9 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="322" parent="259" name="UNIQ_C61D66DC72A5808C">
-      <ColNames>documentNumber</ColNames>
-      <UnderlyingIndexName>UNIQ_C61D66DC72A5808C</UnderlyingIndexName>
+    <key id="322" parent="259" name="UNIQ_C61D66DC750985BA">
+      <ColNames>documentnumber</ColNames>
+      <UnderlyingIndexName>UNIQ_C61D66DC750985BA</UnderlyingIndexName>
     </key>
     <column id="323" parent="260" name="id">
       <Position>1</Position>

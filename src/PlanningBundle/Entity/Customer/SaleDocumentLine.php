@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * SaleDocumentLine
  *
  * @ORM\Table(name="sale_document_line", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_5727BE815EB52FD5", columns={"documentId"})}, indexes={@ORM\Index(name="IDX_5727BE81DBBCE3DC", columns={"saleDocument_id"}), @ORM\Index(name="UNIQ_5727BE81126F525E", columns={"item_id"})})
- * @ORM\Entity(repositoryClass="SaleDocumentlineRepository")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentLineRepository")
  */
 class SaleDocumentLine
 {
@@ -90,7 +90,7 @@ class SaleDocumentLine
     /**
      * @var \PlanningBundle\Entity\Customer\SaleDocument
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocument")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocument",inversedBy="saleDocumentLines")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      * })
@@ -117,7 +117,6 @@ class SaleDocumentLine
         $this->id = $id;
         return $this;
     }
-
 
 
     /**

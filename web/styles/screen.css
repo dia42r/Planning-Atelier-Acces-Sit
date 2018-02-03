@@ -34,7 +34,7 @@ h2 {
     font-family: AppleGothic;
     font-weight: 500;
     width: 31%;
-    margin: 5% 10%;
+    margin: 5% 5%;
     text-transform: uppercase;
 }
 
@@ -140,8 +140,8 @@ main h1 {
 /*========================Main Consulter le plannig==============*/
 
 #calendar-holder {
-    width: 100%;
-    margin: 3% auto 3%;
+    width: 90%;
+    margin: 8% auto 3%;
     height: auto;
 }
 
@@ -176,7 +176,6 @@ main h1 {
     transform: translate(-50%, -50%);
     overflow: hidden;
     transition: all 0.4s ease-in-out 0s;
-
 }
 
 .sech_txt_inpt {
@@ -201,12 +200,14 @@ main h1 {
 .sech_txt_inpt:focus, .srch_btn:focus {
     outline: none;
 }
+
 .sech_txt_inpt, .srch_btn {
     position: absolute;
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
 }
+
 .fa {
     margin-left: 80%;
 }
@@ -311,6 +312,11 @@ input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {
     align-items: center;
     flex-direction: column;
     margin: 10% 0 12%;
+}
+
+.invalid {
+    margin: 2% 0;
+    text-align: center;
 }
 
 #main .group {
@@ -449,7 +455,7 @@ form .group label {
 #main-planification-commande .ebp {
     padding: 1% 2%;
     cursor: pointer;
-    margin-left: 10%;
+    margin-left: 5%;
     font-size: 15px;
 }
 
@@ -481,7 +487,6 @@ form .group label {
 #main-planification-commande.tbodytd thead th, #section-details-commandes.tbodytd, thead th {
     text-align: left;
     font-size: 15px;
-
 }
 
 #main-planification-commande td, th , #section-details-commandes td, th {
@@ -491,7 +496,6 @@ form .group label {
 
 #main-planification-commande .checkpass {
     width: 20%;
-
 }
 
 #main-planification-commande .edit-img {
@@ -509,7 +513,7 @@ form .group label {
 }
 
 .navigation {
-    margin-right: 10%;
+    margin-right: 5%;
 }
 
 .pagination {
@@ -561,17 +565,124 @@ form .group label {
     width: 12%;
 }
 
+#section-details-commandes p {
+    margin: 0 10%;
+    font-size: 20px;
+    font-family: AppleGothic;
+    font-weight: 500;
+}
 
+#section-details-commandes button {
+    margin: 5% 10%;
+    padding: 2% 2%;
+    cursor: pointer;
+    background: #c9046b ;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+#section-details-commandes h2 {
+    margin: 5%;
+    width: 100%;
+}
 /*========================= Planif Produits ============================*/
 
-#planif-produits {
+#planif-produits .entete {
+    margin-left: 5%;
 
 }
+
+#planif-produits .entete h2 {
+    margin-left: 1%;
+    margin-bottom: 0;
+}
+
+#planif-produits .entete p {
+    margin: 1%;
+    font-size: 20px;
+    font-family: AppleGothic;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#planif-produits .detail_container {
+    margin: 5% 8% 7% 6%;
+}
+
+#planif-produits ul.tabs {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 32px;
+    /*border-bottom: 1px solid #333;*/
+    width: 91.6%;
+}
+
+#planif-produits ul.tabs li {
+    margin: 0;
+    cursor: pointer;
+    padding: 0 2%;
+    line-height: 31px;
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background-color: #c9046b;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+#planif-produits .tab_last {
+    border-right: 1px solid #333;
+}
+
+#planif-produits ul.tabs li:hover {
+    background-color: #aaaaaa;
+    color: #333;
+}
+
+#planif-produits ul.tabs li.active {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #fff;
+    display: block;
+}
+
+#planif-produits .tab_container {
+    border: 1px solid #333;
+    width: 90%;
+    background: #fff;
+    overflow: auto;
+}
+
+#planif-produits .tab_drawer_heading, .tab_content {
+    display: none;
+}
+
+#planif-produits .tab_content {
+    margin: 3% 2% 2%;
+    display: block;
+}
+
+#planif-produits .tab_content input.time {
+    margin: 0 2% 0 5%;
+}
+
+#planif-produits .tab_content_container {
+    display: flex;
+    width: 90%;
+}
+
+#planif-produits .tabo {
+    margin-bottom: 4%;
+}
+
+
 /*=======================Main Planning Taches et Acteurs==============*/
 
 #mainselected {
     width: 80%;
-    margin: 5% auto 30%;
+    margin: 2% auto 10%;
     display: block;
     height: auto;
 }
@@ -581,12 +692,21 @@ form .group label {
     align-items: center;
 }
 
-#mainselected #selectTask {
-    margin-left: 2%;
-    height: 30px;
+#mainselected, #selectTask {
+    margin: 0 0 14px;
+    /*height: 30px;*/
     font-weight: 500;
     font-size: 20px;
     font-family: AppleGothic;
+}
+
+#mainselected h2 {
+    margin: 6% 5% 7%;
+    width: 41%;
+}
+
+#mainselected #calendar-holder {
+    margin: 5% 10%;
 }
 /*======================Footer=======================*/
 

@@ -15,8 +15,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $test = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')->findSafeDoc();
+        $test = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')
+            ->findSafeDoc();
         $em = $this->container->get('doctrine.orm.default_entity_manager');
+
 
 
         $batchSize = 20;
@@ -52,7 +54,8 @@ class DefaultController extends Controller
     {
 
 //
-        $test = $this->getDoctrine()->getRepository(Saledocumentline::class, 'customer')->findDetails();
+        $test = $this->getDoctrine()->getRepository(Saledocumentline::class, 'customer')
+            ->findDetails();
         $em = $this->container->get('doctrine.orm.default_entity_manager');
 //        die("ok");
 
@@ -62,9 +65,12 @@ class DefaultController extends Controller
 //            dump($key);
 //            dump($safe);
 //            die;
-            $safedocument = $em->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)->find($safe['documentid']);
+            $safedocument = $em->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
+                ->find($safe['documentid']);
+
             if ($safe['itemid'] != null) {
-                $item = $em->getRepository(\PlanningBundle\Entity\Customer\Item::class)->find($safe['itemid']);
+                $item = $em->getRepository(\PlanningBundle\Entity\Customer\Item::class)
+                    ->find($safe['itemid']);
             }
             else {
                 $item = null;
@@ -76,7 +82,7 @@ class DefaultController extends Controller
             $safedocumentline->setId($safe['id']);
             $safedocumentline->setSaleDocument($safedocument);
             $safedocumentline->setItem($item);
-            $safedocumentline->setDescription($safe['description']);
+            $safedocumentline->setDescription($safe['descriptionclear']);
             $safedocumentline->setQuantity($safe['quantity']);
 
             $em->persist($safedocumentline);

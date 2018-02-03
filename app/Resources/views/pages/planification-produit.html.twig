@@ -1,10 +1,113 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <section id="planif-produits">
-        <div>
-        <h2>Planifier un produit</h2>
-        <p>Détail de la </p>
-
+        <div class="entete">
+            <h2>planifier un produit</h2>
+            <p>détail de la CATBLABLA</p>
         </div>
+        <div class="detail_container">
+            <ul class="tabs">
+                <li class="active" rel="tab1">Dessin</li>
+                <li rel="tab2">Menuiserie</li>
+                <li rel="tab3">Mousse</li>
+                <li rel="tab4">Coupe</li>
+                <li rel="tab4">Couture</li>
+                <li rel="tab4">Grosse Couture</li>
+                <li rel="tab4">Soudure</li>
+                <li rel="tab4">Garnissage</li>
+                <li rel="tab4">Emballage</li>
+            </ul>
+            <div class="tab_container">
+                {#<h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>#}
+                <div id="tab1" class="tab_content">
+                    <form action="">
+                    <div class="tab_content_container tabo">
+                        <p>Temps prévisionel de planification couture dessin : </p>
+                        <input class="time" type="time">
+                        <input class="subm" type="submit" value="Valider">
+                    </div>
+                    </form>
+                </div>
+                {#<h3 class="tab_drawer_heading" rel="tab2">Tab 2</h3>#}
+                <div id="tab2" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification menuiserie : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                {#<h3 class="tab_drawer_heading" rel="tab3">Tab 3</h3>#}
+                <div id="tab3" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification mousse : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                {#<h3 class="tab_drawer_heading" rel="tab4">Tab 4</h3>#}
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification coupe : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification couture : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification grosse coupe : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification soudure : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification garnissage : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+                <div id="tab4" class="tab_content">
+                    <form action="">
+                        <div class="tab_content_container tabo">
+                            <p>Temps prévisionel de planification emballage : </p>
+                            <input class="time" type="time">
+                            <input class="subm" type="submit" value="Valider">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% block javascripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
     </section>
 {% endblock %}
