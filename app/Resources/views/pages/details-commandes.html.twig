@@ -22,11 +22,11 @@
                 {% if detail.item == true %}
                     <tr class="trgrey">
                         <td class="tbodytd">{{ detail.item.id }}</td>
-                        <td>{{ detail.description }}</td>
+                        <td>{{ detail.description}}</td>
                         <td>{{ detail.quantity|number_format }}</td>
                         <td>{{ detail.deliverydate|date('d-m-y') }}</td>
                         <td>
-                            <a href="{{ path('planification-produits') }}">
+                            <a href="{{ path('planification-produits', {'id': detail.id}) }}">
                                 <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                             </a>
                         </td>

@@ -17,6 +17,7 @@ class SaleDocumentRepository extends EntityRepository
         // Nouvelle Date -> Corespondant à la date la la plus éloigné du document que l'on souhaite récupéré
         $limitdate= new \DateTime('-2 months');
 
+
         // Query Builder
         $q = $this->createQueryBuilder("s")
             ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername') // Données selectionnés

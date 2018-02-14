@@ -81,9 +81,15 @@ class DefaultController extends Controller
 
             $safedocumentline->setId($safe['id']);
             $safedocumentline->setSaleDocument($safedocument);
+            $safedocumentline->setDocumentid($safe['documentid']);
             $safedocumentline->setItem($item);
             $safedocumentline->setDescription($safe['descriptionclear']);
             $safedocumentline->setQuantity($safe['quantity']);
+
+            dump($safedocumentline);
+            dump($safedocument);
+            die("att je croi que je pense avoir trv la slc");
+
 
             $em->persist($safedocumentline);
             if (($key % $batchSize) === 0) {
@@ -139,4 +145,5 @@ class DefaultController extends Controller
         die;
         return $this->render('SqlSrvBundle:Default:index.html.twig');
     }
+
 }

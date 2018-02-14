@@ -24,7 +24,7 @@ class SaleDocumentLine
     /**
      * @var string|null
      *
-     * @ORM\Column(name="documentId", type="string", length=255, nullable=true)
+     * @ORM\Column(name="documentId", type="string", length=255, nullable=true, unique=false)
      */
     private $documentid;
 
@@ -342,7 +342,7 @@ class SaleDocumentLine
      *
      * @return SaleDocumentLine
      */
-    public function setSaledocument(\PlanningBundle\Entity\Customer\SaleDocument $saledocument = null)
+    public function setSaledocument($saledocument)
     {
         $this->saledocument = $saledocument;
 

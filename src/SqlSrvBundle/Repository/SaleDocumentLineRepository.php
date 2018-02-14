@@ -20,4 +20,5 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $d->getResult();
     }
+
 }

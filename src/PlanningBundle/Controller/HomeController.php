@@ -3,11 +3,10 @@
 namespace PlanningBundle\Controller;
 
 
+use PlanningBundle\Entity\Customer\SaleDocumentLine;
+use PlanningBundle\Entity\Customer\Task;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;;
-
-use SqlSrvBundle\Entity\Item;
 use SqlSrvBundle\Entity\Saledocument;
-use SqlSrvBundle\Entity\Saledocumentline;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -34,7 +33,8 @@ class HomeController extends Controller
      */
     public function planificationAction(Request $request)
     {
-        $commandes = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')
+        $commandes = $this->getDoctrine()
+            ->getRepository(Saledocument::class, 'customer')
             ->findSafeDoc();
 
         $paginator = $this->get('knp_paginator');
@@ -57,10 +57,12 @@ class HomeController extends Controller
      */
     public function detailCommandes($id)
     {
-        $saledocument = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')
+        $saledocument = $this->getDoctrine()
+            ->getRepository(Saledocument::class, 'customer')
             ->find($id);
 
-        $details = $this->getDoctrine()->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
+        $details = $this->getDoctrine()
+            ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
             ->findDoc($id);
 
 //        dump($details);
@@ -75,9 +77,20 @@ class HomeController extends Controller
     /**
      * @Route("/planification_produits", name="planification-produits")
      */
-    public function planificationProduits()
+    public function planificationProduits($id)
     {
-        return $this->render('pages/planification-produit.html.twig');
+        $saledocument = $this->getDoctrine()
+            ->getRepository(Saledocument::class, 'customer')
+            ->find($id);
+
+//        $task = $this->getDoctrine()
+//            ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
+//            ->findTask($id);
+
+        return $this->render('pages/planification-produit.html.twig', [
+            'saledocument' => $saledocument,
+//            'task'         => $task
+        ]);
     }
 
     /**
@@ -85,7 +98,8 @@ class HomeController extends Controller
      */
     public function listeCommandes(Request $request)
     {
-        $commandes = $this->getDoctrine()->getRepository(Saledocument::class, 'customer')
+        $commandes = $this->getDoctrine()
+            ->getRepository(Saledocument::class, 'customer')
             ->findSafeDoc();
 
         $paginator = $this->get('knp_paginator');

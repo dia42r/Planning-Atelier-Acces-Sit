@@ -160,12 +160,12 @@ main h1 {
     margin-right: 3%;
 }
 
-
 .srch_wrpr {
     width: 30%;
     position: relative;
     right: -2%;
 }
+
 .srch_sb_cnt {
     width: 31px;
     height: 31px;
@@ -445,6 +445,12 @@ form .group label {
     transition: 0s 0.8s ease-in-out;
 }
 
+.invalid {
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+
 /*========================Main Planification Commande========================*/
 
 #main-planification-commande, #section-details-commandes {
@@ -486,7 +492,7 @@ form .group label {
 
 #main-planification-commande.tbodytd thead th, #section-details-commandes.tbodytd, thead th {
     text-align: left;
-    font-size: 15px;
+    /*font-size: 15px;*/
 }
 
 #main-planification-commande td, th , #section-details-commandes td, th {
