@@ -1,12 +1,14 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <main id="main-planification-commande">
-        <h2>Listes et état des commandes </h2>
-        <div class="pag-plan">
-            <button class="ebp">Import EBP</button>
+        <div class="planif-button-h2">
+            <h2>Listes et état des commandes </h2>
             <button class="ebp2">
                 <a href="{{ path('security_logout') }}">Deconnexion</a>
             </button>
+        </div>
+        <div class="pag-plan">
+            <button class="ebp">Import EBP</button>
             <div class="navigation">
                 {{ knp_pagination_render(pagination) }}
             </div>

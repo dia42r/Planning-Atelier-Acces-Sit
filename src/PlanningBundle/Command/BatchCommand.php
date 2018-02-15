@@ -123,7 +123,8 @@ class BatchCommand extends ContainerAwareCommand
             $em->clear();
             $progress->finish();
 
-        }elseif ($input->getArgument('sql') == 3){
+        }
+        elseif ($input->getArgument('sql') == 3){
             $test = $this->getContainer()
                 ->get('doctrine.orm.customer_entity_manager')
                 ->getRepository(Saledocumentline::class)
@@ -156,7 +157,7 @@ class BatchCommand extends ContainerAwareCommand
                     $item = null;
                 }
 
-                if ($safedocument != null){
+                if ($safedocument != null) {
 
                     $safedocumentline = new \PlanningBundle\Entity\Customer\SaleDocumentLine();
 
@@ -169,9 +170,9 @@ class BatchCommand extends ContainerAwareCommand
                     $safedocumentline->setQuantity($safe['quantity']);
 
                     $em->persist($safedocumentline);
-                }else{
+                }
+                else {
                     dump('non CAT');
-
                 }
                 $progress->advance();
 

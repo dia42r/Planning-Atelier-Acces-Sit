@@ -24,6 +24,7 @@ class SecurityController extends Controller
         $form = $this->createForm(LoginForm::class, [
             '_username' => $lastUsername
         ]);
+
         return $this->render(
             'security/login.html.twig',
             [

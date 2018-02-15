@@ -3,25 +3,36 @@
     <section id="planif-produits">
         <div class="entete">
             <h2>planifier un produit</h2>
-            <p>détail de la {{ saledocument.documentnumber }}</p>
+            <form>
+                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
+            </form>
         </div>
+        <div class="pp">
+            <p>détail de la {{ saledocumentline.saledocument.documentNumber }}</p>
+        </div>
+        <span class="span-item-sale">
+            <p>Ref : {{ saledocumentline.item.id}}</p>
+            <p>{{ saledocumentline.description }}</p>
+            <p>Quantité : {{ saledocumentline.quantity }}</p>
+        </span>
+
         <div class="detail_container">
             <ul class="tabs">
                 <li class="active" rel="tab1">Dessin</li>
                 <li rel="tab2">Menuiserie</li>
                 <li rel="tab3">Mousse</li>
                 <li rel="tab4">Coupe</li>
-                <li rel="tab4">Couture</li>
-                <li rel="tab4">Grosse Couture</li>
-                <li rel="tab4">Soudure</li>
-                <li rel="tab4">Garnissage</li>
-                <li rel="tab4">Emballage</li>
+                <li rel="tab5">Couture</li>
+                <li rel="tab6">Grosse Couture</li>
+                <li rel="tab7">Soudure</li>
+                <li rel="tab8">Garnissage</li>
+                <li rel="tab9">Emballage</li>
             </ul>
             <div class="tab_container">
                 {#<h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>#}
                 <div id="tab1" class="tab_content">
                     <form action="">
-                    <div class="tab_content_container tabo">
+                        <div class="tab_content_container tabo">
                         <p>Temps prévisionel de planification couture dessin : </p>
                         <input class="time" type="time">
                         <input class="subm" type="submit" value="Valider">
@@ -58,7 +69,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="tab4" class="tab_content">
+                <div id="tab5" class="tab_content">
                     <form action="">
                         <div class="tab_content_container tabo">
                             <p>Temps prévisionel de planification couture : </p>
@@ -67,16 +78,16 @@
                         </div>
                     </form>
                 </div>
-                <div id="tab4" class="tab_content">
+                <div id="tab6" class="tab_content">
                     <form action="">
                         <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification grosse coupe : </p>
+                            <p>Temps prévisionel de planification grosse couture : </p>
                             <input class="time" type="time">
                             <input class="subm" type="submit" value="Valider">
                         </div>
                     </form>
                 </div>
-                <div id="tab4" class="tab_content">
+                <div id="tab7" class="tab_content">
                     <form action="">
                         <div class="tab_content_container tabo">
                             <p>Temps prévisionel de planification soudure : </p>
@@ -85,7 +96,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="tab4" class="tab_content">
+                <div id="tab8" class="tab_content">
                     <form action="">
                         <div class="tab_content_container tabo">
                             <p>Temps prévisionel de planification garnissage : </p>
@@ -94,7 +105,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="tab4" class="tab_content">
+                <div id="tab9" class="tab_content">
                     <form action="">
                         <div class="tab_content_container tabo">
                             <p>Temps prévisionel de planification emballage : </p>
@@ -104,6 +115,10 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="area">
+            <label for="comment">Commentaire :</label>
+            <textarea name="" id="" cols="60" rows="5"></textarea>
         </div>
         {% block javascripts %}
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,9 +1,14 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <section id="section-details-commandes">
-        <h2>Détails de la commandes
-            {{ saledocument.documentnumber }}
-        </h2>
+        <div class="details-button-h2">
+            <h2>Détails de la commandes
+                {{ saledocument.documentnumber }}
+            </h2>
+            <form>
+                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
+            </form>
+        </div>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
@@ -19,7 +24,7 @@
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for detail in details %}
-                {% if detail.item == true %}
+                {#{% if detail.item == true %}#}
                     <tr class="trgrey">
                         <td class="tbodytd">{{ detail.item.id }}</td>
                         <td>{{ detail.description}}</td>
@@ -34,13 +39,15 @@
                         <td></td>
                         <td></td>
                     </tr>
-                {% endif %}
+                {#{% endif %}#}
             {% endfor %}
             </tbody>
         </table>
         {#{% for detail in details %}#}
         {#<p>Date de départ de la commande : {{ detail.deliverydate|date('d-m-y') }} </p>#}
         {#{% endfor %}#}
-        <button>valider</button>
+        <div class="valid">
+            <button class="button-val" >valider</button>
+        </div>
     </section>
 {% endblock %}

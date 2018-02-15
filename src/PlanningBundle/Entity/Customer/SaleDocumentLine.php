@@ -80,7 +80,7 @@ class SaleDocumentLine
     /**
      * @var \PlanningBundle\Entity\Customer\Item
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\Item")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\Item", inversedBy="saledocumentLine")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="item_id", referencedColumnName="id")
      * })

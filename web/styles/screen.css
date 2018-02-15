@@ -317,6 +317,9 @@ input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {
 .invalid {
     margin: 2% 0;
     text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
 }
 
 #main .group {
@@ -423,11 +426,13 @@ form .group label {
     color: #F1F1F2;
     background: #c9046b;
 }
+
 [data-wipe]:before {
     left: 0;
     text-indent: 18px;
     width: 0;
 }
+
 [data-wipe]:after {
     padding-left: inherit;
     padding-right: inherit;
@@ -435,21 +440,18 @@ form .group label {
     text-indent: calc(-100% - 36px);
     transition: 0.8s ease-in-out;
 }
+
 [data-wipe]:hover:before {
     width: 100%;
     transition: width 0.8s ease-in-out;
 }
+
 [data-wipe]:hover:after {
     left: 0;
     text-indent: 0;
     transition: 0s 0.8s ease-in-out;
 }
 
-.invalid {
-    font-weight: bold;
-    font-size: 20px;
-    color: red;
-}
 
 /*========================Main Planification Commande========================*/
 
@@ -458,30 +460,41 @@ form .group label {
 }
 
 
-#main-planification-commande .ebp {
-    padding: 1% 2%;
+#main-planification-commande .ebp, .ebp2 {
     cursor: pointer;
     margin-left: 5%;
-    font-size: 15px;
+    padding: 7px;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px #999;
+    background: #c9046b ;
+    text-transform: uppercase;
+}
+
+#main-planification-commande .ebp:active, .ebp2:active {
+    background-color: #aaaaaa;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 #main-planification-commande .ebp2 {
-    padding: 1% 2%;
-    cursor: pointer;
-    margin-right: auto;
-    font-size: 15px;
+    margin-right: 5%;
 }
 
 
 #main-planification-commande .ebp2 a {
     text-decoration: none;
-    color: #000000;
-    padding: 14px;
+    color: #ffffff;
 }
 
 
 #main-planification-commande table, #section-details-commandes table {
-    margin: 5% auto 5%;
+    margin: 3% auto 5%;
     border-collapse: collapse;
     width: 90%;
 }
@@ -516,6 +529,12 @@ form .group label {
 
 #main-planification-commande .trgrey, #section-details-commandes .trgrey {
     background: #aaaaaa;
+}
+
+#main-planification-commande .planif-button-h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navigation {
@@ -578,29 +597,62 @@ form .group label {
     font-weight: 500;
 }
 
-#section-details-commandes button {
-    margin: 5% 10%;
-    padding: 2% 2%;
-    cursor: pointer;
-    background: #c9046b ;
-    color: #ffffff;
-    text-transform: uppercase;
-}
-
 #section-details-commandes h2 {
     margin: 5%;
     width: 100%;
 }
+
+#section-details-commandes .details-button-h2 {
+    display: flex;
+    align-items: center;
+}
+
+.button-page, .button-val {
+    padding: 7px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px #999;
+    background: #c9046b ;
+    text-transform: uppercase;
+}
+
+.button-page:active {
+    background-color: #aaaaaa;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#section-details-commandes .valid {
+    margin-left: 5%;
+}
+
+#section-details-commandes form {
+    margin-right: 5%;
+}
+
 /*========================= Planif Produits ============================*/
 
 #planif-produits .entete {
     margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
 }
 
 #planif-produits .entete h2 {
-    margin-left: 1%;
-    margin-bottom: 0;
+    margin: 2% 1%;
+    /*margin-bottom: 0;*/
+}
+
+#planif-produits form {
+    margin-right: 5%;
 }
 
 #planif-produits .entete p {
@@ -612,7 +664,7 @@ form .group label {
 }
 
 #planif-produits .detail_container {
-    margin: 5% 8% 7% 6%;
+    margin: 5% 8% 1% 6%;
 }
 
 #planif-produits ul.tabs {
@@ -683,6 +735,29 @@ form .group label {
     margin-bottom: 4%;
 }
 
+#planif-produits .pp p {
+    font-size: 20px;
+    font-family: AppleGothic;
+    font-weight: 500;
+    width: 31%;
+    margin: 0 6%;
+    text-transform: uppercase;
+}
+
+#planif-produits .area {
+    margin: 1% 45vw;
+    width: 100%;
+}
+
+#planif-produits .span-item-sale {
+    display: flex;
+    justify-content: space-between;
+    margin: 2% 6%;
+    border: 2px solid #000000;
+    padding: 1%;
+    font-size: 12px;
+    width: 85%;
+}
 
 /*=======================Main Planning Taches et Acteurs==============*/
 
@@ -738,4 +813,3 @@ footer ul a {
     text-decoration: none;
     color: #c9046b;
 }
-

@@ -3,6 +3,7 @@
 namespace PlanningBundle\Controller;
 
 
+use PlanningBundle\Entity\Customer\Item;
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
 use PlanningBundle\Entity\Customer\Task;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;;
@@ -74,22 +75,24 @@ class HomeController extends Controller
         ]);
     }
 
+
     /**
-     * @Route("/planification_produits", name="planification-produits")
+     * @Route("/planification_produits/{id}", name="planification-produits")
      */
     public function planificationProduits($id)
     {
-        $saledocument = $this->getDoctrine()
-            ->getRepository(Saledocument::class, 'customer')
-            ->find($id);
+//        $item = $this->getDoctrine()
+//            ->getRepository(Item::class)
+//            ->find($id);
 
-//        $task = $this->getDoctrine()
-//            ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
-//            ->findTask($id);
+        $saledocumentline = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->findItem($id);
+
+
 
         return $this->render('pages/planification-produit.html.twig', [
-            'saledocument' => $saledocument,
-//            'task'         => $task
+            'saledocumentline'     => $saledocumentline[0],
         ]);
     }
 
