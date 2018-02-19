@@ -2,12 +2,11 @@
 
 namespace PlanningBundle\Controller;
 
-
 use PlanningBundle\Entity\Customer\Item;
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
 use PlanningBundle\Entity\Customer\Task;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;;
-use SqlSrvBundle\Entity\Saledocument;
+use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +19,6 @@ class HomeController extends Controller
     {
         return $this->render('pages/page-accueil.html.twig');
     }
-
     /**
      * @Route("/consultation", name="consultation-planning")
      */
@@ -28,44 +26,39 @@ class HomeController extends Controller
     {
         return $this->render('pages/consulter-le-planning.html.twig');
     }
-
     /**
      * @Route("/planification", name="planifier-une-commande")
      */
     public function planificationAction(Request $request)
     {
         $commandes = $this->getDoctrine()
-            ->getRepository(Saledocument::class, 'customer')
-            ->findSafeDoc();
-
+            ->getRepository(SaleDocument::class)
+//            ->findSafeDoc();
+            ->findBy([],['documentNumber' => 'desc']);
+//        dump($commandes);
+//        die;
         $paginator = $this->get('knp_paginator');
-
         $pagination = $paginator->paginate(
             $commandes,
             $request->query->getInt('page', 1),
             30
         );
-
         return $this->render('pages/planifier-une-commande.html.twig', [
             'commandes' => $commandes,
             "pagination"=> $pagination
         ]);
     }
-
-
     /**
      * @Route("/details/{id}", name="details-commandes")
      */
     public function detailCommandes($id)
     {
         $saledocument = $this->getDoctrine()
-            ->getRepository(Saledocument::class, 'customer')
+            ->getRepository(SaleDocument::class)
             ->find($id);
-
         $details = $this->getDoctrine()
             ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
             ->findDoc($id);
-
 //        dump($details);
 //        die;
         return $this->render('pages/details-commandes.html.twig', [
@@ -74,8 +67,6 @@ class HomeController extends Controller
 //            'det' => $det
         ]);
     }
-
-
     /**
      * @Route("/planification_produits/{id}", name="planification-produits")
      */
@@ -84,41 +75,32 @@ class HomeController extends Controller
 //        $item = $this->getDoctrine()
 //            ->getRepository(Item::class)
 //            ->find($id);
-
         $saledocumentline = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
-
-
-
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
         ]);
     }
-
     /**
      * @Route("/listes", name="listes-commandes")
      */
     public function listeCommandes(Request $request)
     {
         $commandes = $this->getDoctrine()
-            ->getRepository(Saledocument::class, 'customer')
+            ->getRepository(SaleDocument::class)
             ->findSafeDoc();
-
         $paginator = $this->get('knp_paginator');
-
         $pagination = $paginator->paginate(
             $commandes,
             $request->query->getInt('page', 1),
             30
         );
-
         return $this->render('pages/listes-des-commandes.html.twig', [
             'commandes' => $commandes,
             "pagination"=> $pagination
         ]);
     }
-
     /**
      * @Route("/consultation-par-taches", name="consultation-taches")
      */
@@ -126,7 +108,6 @@ class HomeController extends Controller
     {
         return $this->render('pages/consulter-planning-par-taches.html.twig');
     }
-
     /**
      * @Route("/consultation-par-acteurs", name="consultation-acteurs")
      */

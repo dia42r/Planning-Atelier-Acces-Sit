@@ -24,7 +24,7 @@ class SaleDocument
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="documentDate", type="datetime")
+     * @ORM\Column(name="documentdate", type="datetime")
      */
     private $documentDate;
 
@@ -47,6 +47,53 @@ class SaleDocument
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
+
+    /**
+     * @ORM\Column(name="customerName",type="string")
+     */
+    private $customerName;
+
+
+    /**
+     * @ORM\Column(name="numberPrefix" , type="string" , length=20)
+     */
+    private $numberPrefix;
+
+    /**
+     * @return mixed
+     */
+    public function getNumberPrefix()
+    {
+        return $this->numberPrefix;
+    }
+
+    /**
+     * @param mixed $numberPrefix
+     */
+    public function setNumberPrefix($numberPrefix)
+    {
+        $this->numberPrefix = $numberPrefix;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerName()
+    {
+        return $this->customerName;
+    }
+
+    /**
+     * @param mixed $customerName
+     */
+    public function setCustomerName($customerName)
+    {
+        $this->customerName = $customerName;
+        return $this;
+    }
+
+
 
 
     /**

@@ -59,7 +59,7 @@ class BatchCommand extends ContainerAwareCommand
             $batchSize = 20;
             foreach ($test as $key => $safe ) {
 //            dump($key);
-//            dump($safe['id'],$safe['documentnumber'],$safe['documentdate'],$safe['deliverydate']);
+//            dump($safe);
 //            die;
                 $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
 
@@ -67,6 +67,8 @@ class BatchCommand extends ContainerAwareCommand
                 $safedocument->setDocumentNumber($safe['documentnumber']);
                 $safedocument->setDocumentDate($safe['documentdate']);
                 $safedocument->setDocumentWishDate($safe['deliverydate']);
+                $safedocument->setCustomerName($safe['customername']);
+                $safedocument->setNumberPrefix($safe['numberprefix']);
 
                 $em->persist($safedocument);
                 $progress->advance();

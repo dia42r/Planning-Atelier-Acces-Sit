@@ -26,6 +26,7 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 
         return $q->getResult();
     }
+
     public function findItem($id)
     {
         // Création d'une requete personnalisé Query Builder
@@ -54,15 +55,15 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 //        return $q->getResult();
 //    }
 
-    public function findTask($id)
-    {
-        $f = $this->createQueryBuilder('f')
-            ->select('f') // Selection des alias dont on a besoin
-            ->join("f.saledocument","b")
-            ->where("b.id = :docid") // En pointant vers la bonne donnée
-            ->setParameter('docid',$id)
-            ->getQuery();
-
-        return $f->getResult();
-    }
+//    public function findTask($id)
+//    {
+//        $f = $this->createQueryBuilder('f')
+//            ->select('f') // Selection des alias dont on a besoin
+//            ->join("f.saledocument","b")
+//            ->where("b.id = :docid") // En pointant vers la bonne donnée
+//            ->setParameter('docid',$id)
+//            ->getQuery();
+//
+//        return $f->getResult();
+//    }
 }

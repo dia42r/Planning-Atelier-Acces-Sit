@@ -28,15 +28,15 @@
             {% for commande in pagination %}
                 <tr class="trgrey">
                     <td class="tbodytd" colspan="3px">
-                        {{ commande.documentnumber }}
+                        {{ commande.documentNumber }}
                         <a href="{{ path('details-commandes', {'id': commande.id }) }}">
                             <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td colspan="3px">{{ commande.customername }}</td>
+                    <td colspan="3px">{{ commande.customerName }}</td>
                     <td colspan="3px">Non planifié</td>
-                    <td colspan="3px">{{ commande.documentdate|date('d/m/y') }}</td>
-                    <td colspan="2px">{{ commande.deliverydate|date('d/m/y') }}</td>
+                    <td colspan="3px">{{ commande.documentDate|date('d/m/y') }}</td>
+                    <td colspan="2px">{{ commande.documentWishDate|date('d/m/y') }}</td>
                     <td colspan="3px"></td>
                 </tr>
             {% endfor %}

@@ -218,39 +218,39 @@ class Item
         return $this->itemSubFamily;
     }
 
-    /**
-     * Add saledocumentLine.
-     *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-     *
-     * @return Item
-     */
-    public function addSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-    {
-        $this->saledocumentLine[] = $saledocumentLine;
+//    /**
+//     * Add saledocumentLine.
+//     *
+//     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
+//     *
+//     * @return Item
+//     */
+//    public function addSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
+//    {
+//        $this->saledocumentLine[] = $saledocumentLine;
+//
+//        return $this;
+//    }
 
-        return $this;
-    }
-
-    /**
-     * Remove saledocumentLine.
-     *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-    {
-        return $this->saledocumentLine->removeElement($saledocumentLine);
-    }
-
-    /**
-     * Get saledocumentLine.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSaledocumentLine()
-    {
-        return $this->saledocumentLine;
-    }
+//    /**
+//     * Remove saledocumentLine.
+//     *
+//     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
+//     *
+//     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+//     */
+//    public function removeSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
+//    {
+//        return $this->saledocumentLine->removeElement($saledocumentLine);
+//    }
+//
+//    /**
+//     * Get saledocumentLine.
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getSaledocumentLine()
+//    {
+//        return $this->saledocumentLine;
+//    }
 }

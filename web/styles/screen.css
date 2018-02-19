@@ -622,7 +622,7 @@ form .group label {
     text-transform: uppercase;
 }
 
-.button-page:active {
+.button-page:active, .button-val:active {
     background-color: #aaaaaa;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
@@ -635,6 +635,12 @@ form .group label {
 #section-details-commandes form {
     margin-right: 5%;
 }
+
+#section-details-commandes th:nth-child(1), th:nth-child(4) {
+    width: 12%;
+    text-align: center;
+}
+
 
 /*========================= Planif Produits ============================*/
 
