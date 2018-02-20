@@ -4,7 +4,6 @@ namespace PlanningBundle\Controller;
 
 use PlanningBundle\Entity\Customer\Item;
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
-use PlanningBundle\Entity\Customer\Task;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;;
 use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,11 +37,13 @@ class HomeController extends Controller
 //        dump($commandes);
 //        die;
         $paginator = $this->get('knp_paginator');
+
         $pagination = $paginator->paginate(
             $commandes,
             $request->query->getInt('page', 1),
             30
         );
+
         return $this->render('pages/planifier-une-commande.html.twig', [
             'commandes' => $commandes,
             "pagination"=> $pagination
@@ -56,11 +57,13 @@ class HomeController extends Controller
         $saledocument = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
             ->find($id);
+
         $details = $this->getDoctrine()
-            ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
+            ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
 //        dump($details);
 //        die;
+
         return $this->render('pages/details-commandes.html.twig', [
             'details' => $details,
             'saledocument' => $saledocument
@@ -78,10 +81,12 @@ class HomeController extends Controller
         $saledocumentline = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
+
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
         ]);
     }
+
     /**
      * @Route("/listes", name="listes-commandes")
      */
@@ -89,18 +94,23 @@ class HomeController extends Controller
     {
         $commandes = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
-            ->findSafeDoc();
+            ->findBy([],['documentNumber' => 'desc']);
+//            ->findSafeDoc();
+
         $paginator = $this->get('knp_paginator');
+
         $pagination = $paginator->paginate(
             $commandes,
             $request->query->getInt('page', 1),
             30
         );
+
         return $this->render('pages/listes-des-commandes.html.twig', [
             'commandes' => $commandes,
             "pagination"=> $pagination
         ]);
     }
+
     /**
      * @Route("/consultation-par-taches", name="consultation-taches")
      */
@@ -108,6 +118,7 @@ class HomeController extends Controller
     {
         return $this->render('pages/consulter-planning-par-taches.html.twig');
     }
+
     /**
      * @Route("/consultation-par-acteurs", name="consultation-acteurs")
      */

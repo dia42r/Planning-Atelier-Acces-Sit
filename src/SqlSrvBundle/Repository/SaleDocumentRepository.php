@@ -15,10 +15,10 @@ class SaleDocumentRepository extends EntityRepository
     public function findSafeDoc()
     {
         // Nouvelle Date -> Corespondant à la date la la plus éloigné du document que l'on souhaite récupéré
-        $limitdate= new \DateTime('-2 months');
-
-
-        // Query Builder
+        $limitdate= new \DateTime('-10 days');
+//
+//
+//         Query Builder
         $q = $this->createQueryBuilder("s")
             ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix') // Données selectionnés
             ->where("s.numberprefix = :prefix") // I: premier param a checké  @Param prefix

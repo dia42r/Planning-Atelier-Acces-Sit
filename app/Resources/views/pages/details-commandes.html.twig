@@ -13,39 +13,34 @@
             <thead> <!-- En-tête du tableau -->
             <tr>
                 <th>Réference article</th>
-                <th class="ths">Description article</th>
-                <th class="ths">Quantité</th>
-                <th class="ths">Date départ atelier souhaiter</th>
-                <th class="ths">Action</th>
-                <th class="ths">Statut</th>
-                <th class="ths">Fin de fabrication</th>
-                <th class="ths">Commentaire</th>
+                <th>Description article</th>
+                <th>Quantité</th>
+                <th>Date départ atelier souhaiter</th>
+                <th>Action</th>
+                <th>Statut</th>
+                <th>Fin de fabrication</th>
+                <th>Commentaire</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for detail in details %}
-                {#{% if detail.item == true %}#}
-                    <tr class="trgrey">
-                        <td class="tbodytd">{{ detail.item.id }}</td>
-                        <td>{{ detail.description}}</td>
-                        <td>{{ detail.quantity|number_format }}</td>
-                        <td>{{ detail.deliverydate|date('d-m-y') }}</td>
-                        <td>
-                            <a href="{{ path('planification-produits', {'id': detail.id}) }}">
-                                <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
-                            </a>
-                        </td>
-                        <td class="plan">NON PLANIFIE</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                {#{% endif %}#}
+                <tr class="trgrey">
+                    <td class="tbodytd">{{ detail.item.id }}</td>
+                    <td>{{ detail.description}}</td>
+                    <td>{{ detail.quantity|number_format }}</td>
+                    <td>{{ detail.deliverydate|date('d-m-y') }}</td>
+                    <td>
+                        <a href="{{ path('planification-produits', {'id': detail.id}) }}">
+                            <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
+                        </a>
+                    </td>
+                    <td class="plan">NON PLANIFIE</td>
+                    <td></td>
+                    <td></td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
-        {#{% for detail in details %}#}
-        {#<p>Date de départ de la commande : {{ detail.deliverydate|date('d-m-y') }} </p>#}
-        {#{% endfor %}#}
         <div class="valid">
             <button class="button-val" >valider</button>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Customer;
+namespace PlanningBundle\Entity\Main;
 
 use Doctrine\ORM\Mapping as ORM;
 

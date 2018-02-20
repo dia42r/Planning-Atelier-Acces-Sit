@@ -38,6 +38,21 @@ h2 {
     text-transform: uppercase;
 }
 
+th, td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+tr {
+    height: 30px;
+}
+
+table {
+    margin: 3% auto 5%;
+    border-collapse: collapse;
+    width: 90%;
+}
+
 .fc-toolbar h2 {
     width: 100%;
 }
@@ -493,26 +508,6 @@ form .group label {
 }
 
 
-#main-planification-commande table, #section-details-commandes table {
-    margin: 3% auto 5%;
-    border-collapse: collapse;
-    width: 90%;
-}
-
-#main-planification-commande .ths ,#section-details-commandes .ths {
-    text-align: center;
-}
-
-#main-planification-commande.tbodytd thead th, #section-details-commandes.tbodytd, thead th {
-    text-align: left;
-    /*font-size: 15px;*/
-}
-
-#main-planification-commande td, th , #section-details-commandes td, th {
-    border: 1px solid black;
-    text-align: center;
-}
-
 #main-planification-commande .checkpass {
     width: 20%;
 }
@@ -523,9 +518,6 @@ form .group label {
     margin: 0 2%;
 }
 
-#main-planification-commande tr, #section-details-commandes tr {
-    height: 30px;
-}
 
 #main-planification-commande .trgrey, #section-details-commandes .trgrey {
     background: #aaaaaa;
@@ -536,6 +528,7 @@ form .group label {
     align-items: center;
     justify-content: space-between;
 }
+
 
 .navigation {
     margin-right: 5%;
@@ -582,11 +575,13 @@ form .group label {
 #section-details-commandes .edit-img {
     width: 60%;
 }
-.customer-name {
+
+
+#main-planification-commande .customer-name {
     width: 0;
 }
 
-.plan {
+#section-details-commandes .plan {
     width: 12%;
 }
 
@@ -607,7 +602,7 @@ form .group label {
     align-items: center;
 }
 
-.button-page, .button-val {
+#section-details-commandes .button-page, .button-val {
     padding: 7px;
     font-size: 10px;
     cursor: pointer;
@@ -638,7 +633,6 @@ form .group label {
 
 #section-details-commandes th:nth-child(1), th:nth-child(4) {
     width: 12%;
-    text-align: center;
 }
 
 
@@ -763,6 +757,27 @@ form .group label {
     padding: 1%;
     font-size: 12px;
     width: 85%;
+}
+
+#planif-produits .button-page {
+    padding: 7px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px #999;
+    background: #c9046b ;
+    text-transform: uppercase;
+}
+
+#planif-produits .button-page:active {
+    background-color: #aaaaaa;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 /*=======================Main Planning Taches et Acteurs==============*/
