@@ -1,18 +1,18 @@
-let babelify = require('babelify');
-let browserify = require('browserify')
-let buffer = require('vinyl-buffer');
-let concat = require('gulp-concat');
-let del = require('del');
-let gulp = require('gulp');
-let imagemin = require('gulp-imagemin');
-let gulpif = require('gulp-if');
-let minifyCSS = require('gulp-csso');
-let pug = require('gulp-pug');
-let sass = require('gulp-sass');
-let source = require('vinyl-source-stream');
-let sourcemaps = require('gulp-sourcemaps');
-let sync = require('browser-sync').create();
-let uglify = require('gulp-uglify');
+const babelify = require('babelify');
+const browserify = require('browserify')
+const buffer = require('vinyl-buffer');
+const concat = require('gulp-concat');
+const del = require('del');
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const gulpif = require('gulp-if');
+const minifyCSS = require('gulp-csso');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const source = require('vinyl-source-stream');
+const sourcemaps = require('gulp-sourcemaps');
+const sync = require('browser-sync').create();
+const uglify = require('gulp-uglify');
 
 let isProd = process.env.NODE_ENV === 'production';
 
@@ -75,16 +75,15 @@ function clean() {
     return del(['dist']);
 }
 
-gulp.task('build', gulp.series(clean, gulp.parallel(templates, scss, js, images, fonts)));
+gulp.task('build', gulp.series(clean, gulp.parallel(scss, js, images, fonts)));
 
-gulp.task('default', gulp.parallel(templates, scss, js, images, fonts, function(done) {
+gulp.task('default', gulp.parallel(scss, js, images, fonts, function(done) {
     sync.init({
         server: {
             baseDir: './dist'
         }
     });
 
-    gulp.watch('src/**/*.pug', templates);
     gulp.watch('src/**/*.scss', scss);
     gulp.watch('src/**/*.js', js);
 

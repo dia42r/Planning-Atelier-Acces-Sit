@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class BatchCommand extends ContainerAwareCommand
@@ -28,6 +27,7 @@ class BatchCommand extends ContainerAwareCommand
                 'Who do you want to greet?'
             );
     }
+
     /**
      * {@inheritdoc}
      */
@@ -37,20 +37,26 @@ class BatchCommand extends ContainerAwareCommand
             'Start',
             '====='
         ]);
-        if ($input->getArgument('sql') == 1){
+
+        if ($input->getArgument('sql') == 1) {
+
             $test = $this->getContainer()
                 ->get('doctrine.orm.customer_entity_manager')
                 ->getRepository(Saledocument::class)
                 ->findSafeDoc();
+
             $em = $this->getContainer()
                 ->get('doctrine.orm.default_entity_manager');
+
             $output->writeln([
                 'ready go',
                 '========'
             ]);
+
             $progress = new ProgressBar($output, count($test));
-// starts and displays the progress bar
+            // starts and displays the progress bar
             $progress->start();
+
             $batchSize = 20;
             foreach ($test as $key => $safe ) {
 //            dump($key);
@@ -63,7 +69,9 @@ class BatchCommand extends ContainerAwareCommand
                 $safedocument->setDocumentWishDate($safe['deliverydate']);
                 $safedocument->setCustomerName($safe['customername']);
                 $safedocument->setNumberPrefix($safe['numberprefix']);
+
                 $em->persist($safedocument);
+
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
                     var_dump('ok');
@@ -112,6 +120,7 @@ class BatchCommand extends ContainerAwareCommand
             $progress->finish();
         }
         elseif ($input->getArgument('sql') == 3){
+
             $test = $this->getContainer()
                 ->get('doctrine.orm.customer_entity_manager')
                 ->getRepository(Saledocumentline::class)

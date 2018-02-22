@@ -330,7 +330,7 @@ input.checkbox:checked ~ .srch_sb_cnt .srch_btn:after {
 }
 
 .invalid {
-    margin: 2% 0;
+    margin: 6% 0;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
