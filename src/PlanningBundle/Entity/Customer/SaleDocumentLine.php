@@ -24,7 +24,7 @@ class SaleDocumentLine
     /**
      * @var string|null
      *
-     * @ORM\Column(name="documentId", type="string", length=255, nullable=true, unique=false)
+     * @ORM\Column(name="documentId", type="string", length=255, nullable=true)
      */
     private $documentid;
 

@@ -3,6 +3,9 @@
 namespace PlanningBundle\Controller;
 
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
+use PlanningBundle\Entity\Main\Actor;
+use PlanningBundle\Entity\Main\ActorCompetence;
+use PlanningBundle\Entity\Main\Competence;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -74,6 +77,13 @@ class HomeController extends Controller
             "pagination"=> $pagination
         ]);
     }
+
+
+    public function searchAction(Request $request)
+    {
+
+    }
+
     /**
      * @Route("/details/{id}", name="details-commandes")
      */
@@ -105,8 +115,13 @@ class HomeController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
 
+        $competences = $this->getDoctrine()
+            ->getRepository(Competence::class)
+            ->findAll();
+
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
+            'competences'          => $competences,
         ]);
     }
 
@@ -124,5 +139,21 @@ class HomeController extends Controller
     public function consultationParActeurs()
     {
         return $this->render('pages/consulter-planning-par-acteurs.html.twig');
+    }
+
+    /**
+     * @Route("/actor", name="get_actor")
+     */
+    public function getActorAction(Request $request)
+    {
+        $hour    = $request->get('time');
+        $skillId = $request->get('skill');
+        $Allactors = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+        dump($Allactors);
+        dump($hour);
+        dump($skillId);
+        die;
     }
 }

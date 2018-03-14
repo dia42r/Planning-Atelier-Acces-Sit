@@ -1,0 +1,23 @@
+footer {
+  margin: 5% auto;
+  width: 100%;
+  height: 30px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    li {
+      text-transform: uppercase;
+      font-family: $Luciana;
+
+      a {
+        color: $pink-pink;
+      }
+    }
+  }
+}
+
+
+

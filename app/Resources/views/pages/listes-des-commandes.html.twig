@@ -8,25 +8,25 @@
             </div>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th colspan="3px">Commande (n°CAT)</th>
-                <th class="ths customer-name" colspan="3px">Client</th>
-                <th class="ths" colspan="3px">Statut</th>
-                <th class="ths" colspan="3px">Date départ atelier souhaiter</th>
-                <th class="ths" colspan="3px">Date planifié</th>
-                <th class="ths" colspan="3px">Date fin de fabrication</th>
+                <th>Commande (n°CAT)</th>
+                <th class="ths customer-name">Client</th>
+                <th class="ths">Statut</th>
+                <th class="ths">Date départ atelier souhaiter</th>
+                <th class="ths">Date planifié</th>
+                <th class="ths">Date fin de fabrication</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for commande in pagination %}
                 <tr class="trgrey">
-                    <td colspan="3px">
+                    <td>
                         {{ commande.documentNumber }}
                     </td>
-                    <td colspan="3px" class="customer-name">{{ commande.customerName }}</td>
-                    <td colspan="3px">Non planifié</td>
-                    <td colspan="3px">{{ commande.documentWishDate|date('d/m/y') }}</td>
-                    <td colspan="3px"></td>
-                    <td colspan="3px"></td>
+                    <td class="customer-name">{{ commande.customerName }}</td>
+                    <td>Non planifié</td>
+                    <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -1,4 +1,16 @@
+//SECURITY
+@import "security/login";
+
 //PAGES
+@import "pages/planification-produits";
+@import "pages/consulter-le-planning";
+@import "pages/consulter-le-planning-par-acteur";
+@import "pages/consulter-le-planning-par-taches";
+@import "pages/details-commandes";
+@import "pages/listes-commandes";
+@import "pages/planifier-une-commande";
+@import "pages/page-accueil";
+
 
 //TOOLS
 @import "tools/fonts";

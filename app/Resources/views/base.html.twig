@@ -6,7 +6,9 @@
     <title>{% block title %}Planning Atelier{% endblock %}</title>
     <meta aria-roledescription="planning">
     <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('img-layout/logo-vecto-clestophe.png') }}" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo-vecto-clestophe.png') }}" />
 </head>
 <body>
 {% block header %}
@@ -16,6 +18,9 @@
 {% block footer %}
     {% include "partials/_footer.html.twig" %}
 {% endblock %}
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

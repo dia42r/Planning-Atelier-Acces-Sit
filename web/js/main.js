@@ -1,21 +1,11 @@
-// tabbed content
-// http://www.entheosweb.com/tutorials/css/tabs.asp
-$(".tab_content").hide();
-$(".tab_content:first").show();
+if ($("ul.tabs li")) {
+    $("ul.tabs li").click(function () {
+        let skill = $(this).attr('data-skill');
+        $('.tab_container').hide();
+        $('.tab_container[data-skill='+skill+']').show();
+        $("ul.tabs li").removeClass('active');
+        $(this).addClass('active');
+    });
+    $("ul.tabs li:first-child").trigger('click');
+}
 
-/* if in tab mode */
-$("ul.tabs li").click(function() {
-
-    $(".tab_content").hide();
-    let activeTab = $(this).attr("rel");
-    $("#"+activeTab).fadeIn();
-
-    $("ul.tabs li").removeClass("active");
-    $(this).addClass("active");
-
-    $(".tab_drawer_heading").removeClass("d_active");
-    $(".tab_drawer_heading[rel^='"+activeTab+"']").addClass("d_active");
-
-});
-
-$('ul.tabs li').last().addClass("tab_last");

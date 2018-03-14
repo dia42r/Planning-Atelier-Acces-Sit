@@ -18,111 +18,37 @@
 
         <div class="detail_container">
             <ul class="tabs">
-                <li class="active" rel="tab1">Dessin</li>
-                <li rel="tab2">Menuiserie</li>
-                <li rel="tab3">Mousse</li>
-                <li rel="tab4">Coupe</li>
-                <li rel="tab5">Couture</li>
-                <li rel="tab6">Grosse Couture</li>
-                <li rel="tab7">Soudure</li>
-                <li rel="tab8">Garnissage</li>
-                <li rel="tab9">Emballage</li>
+                {% for competence  in competences %}
+                    <li rel="tab" data-skill="{{ competence.id }}">{{ competence.name }}</li>
+                {% endfor %}
             </ul>
-            <div class="tab_container">
-                {#<h3 class="d_active tab_drawer_heading" rel="tab1">Tab 1</h3>#}
-                <div id="tab1" class="tab_content">
-                    <form action="">
+            {% for competence  in competences %}
+            <div class="tab_container" data-skill="{{ competence.id }}">
+                <div id="tab" class="tab_content">
+                    <form action="{{ path('get_actor') }}">
                         <div class="tab_content_container tabo">
-                        <p>Temps prévisionel de planification couture dessin : </p>
-                        <input class="time" type="time">
-                        <input class="subm" type="submit" value="Valider">
-                    </div>
-                    </form>
-                </div>
-                {#<h3 class="tab_drawer_heading" rel="tab2">Tab 2</h3>#}
-                <div id="tab2" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification menuiserie : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                {#<h3 class="tab_drawer_heading" rel="tab3">Tab 3</h3>#}
-                <div id="tab3" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification mousse : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                {#<h3 class="tab_drawer_heading" rel="tab4">Tab 4</h3>#}
-                <div id="tab4" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification coupe : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                <div id="tab5" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification couture : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                <div id="tab6" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification grosse couture : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                <div id="tab7" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification soudure : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                <div id="tab8" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification garnissage : </p>
-                            <input class="time" type="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
-                </div>
-                <div id="tab9" class="tab_content">
-                    <form action="">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification emballage : </p>
-                            <input class="time" type="time">
+                            <p>Temps prévisionel de planification : </p>
+                            <input class="skill" type="hidden" name="skill" value="{{ competence.id }}">
+                            <input class="time" type="time" name="time">
                             <input class="subm" type="submit" value="Valider">
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-        <div class="area">
-            <label for="comment">Commentaire :</label>
-            <textarea name="" id="" cols="60" rows="5"></textarea>
-        </div>
-        {% block javascripts %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-        {% endblock %}
+            {% endfor %}
+            <div class="area">
+                <div class="lab-area">
+                    <label for="comment">Commentaire :</label>
+                    <textarea name="" id="" cols="60" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div style="width: 100%; text-align: right;">
+                <input style="background: hotpink" type="submit" value="Valider">
+            </div>
+            {% block javascripts %}
+                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            {% endblock %}
     </section>
 {% endblock %}

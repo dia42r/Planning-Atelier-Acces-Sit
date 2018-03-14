@@ -1,0 +1,45 @@
+body {
+  font-family: $Open;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: $Apple;
+  font-weight: 500;
+  width: 31%;
+  margin: 5%;
+  text-transform: uppercase;
+}
+
+th, td {
+  text-align: center;
+  border: 1px solid $black;
+}
+
+tr {
+  height: 30px;
+}
+
+table {
+  margin: 3% auto 5%;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.fc-toolbar h2 {
+  width: 100%;
+}
+
+#calendar-holder {
+  width: 90%;
+  margin: 8% auto 3%;
+  height: auto;
+}

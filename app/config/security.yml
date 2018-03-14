@@ -8,6 +8,10 @@ security:
     encoders:
         PlanningBundle\Entity\Main\User: bcrypt
 
+#    role_hierarchy:
+#            ROLE_ADMIN:       ROLE_USER
+#            ROLE_SUPER_ADMIN: ROLE_ADMIN
+
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:

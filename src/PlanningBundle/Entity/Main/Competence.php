@@ -29,16 +29,6 @@ class Competence
     private $name;
 
     /**
-     * Many Competence have One Actor
-     * @ORM\ManyToOne(targetEntity="Actor", inversedBy="competence_actor")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="actor_competences_id", referencedColumnName="id")
-     * })
-     */
-    private $actor_competences;
-
-
-    /**
      * Get id.
      *
      * @return int
@@ -72,27 +62,4 @@ class Competence
         return $this->name;
     }
 
-    /**
-     * Set actorCompetences.
-     *
-     * @param \PlanningBundle\Entity\Main\Actor|null $actorCompetences
-     *
-     * @return Competence
-     */
-    public function setActorCompetences(\PlanningBundle\Entity\Main\Actor $actorCompetences = null)
-    {
-        $this->actor_competences = $actorCompetences;
-
-        return $this;
-    }
-
-    /**
-     * Get actorCompetences.
-     *
-     * @return \PlanningBundle\Entity\Main\Actor|null
-     */
-    public function getActorCompetences()
-    {
-        return $this->actor_competences;
-    }
 }

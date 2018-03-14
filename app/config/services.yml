@@ -62,6 +62,10 @@ services:
             tags:
                 - { name: doctrine.event_subscriber }
 
+    twig.extension.intl:
+            class: Twig_Extensions_Extension_Intl
+            tags:
+                - { name: twig.extension }
     # add more services, or override services that need manual wiring
     # PlanningBundle\Service\ExampleService:
     #     arguments:

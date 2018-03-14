@@ -4,40 +4,40 @@
         <div class="planif-button-h2">
             <h2>Listes et état des commandes </h2>
             <button class="ebp2">
-                <a href="{{ path('security_logout') }}">Deconnexion</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="link" href="{{ path('security_logout') }}">Déconnexion</a>
+                {% endif %}
             </button>
         </div>
-        <div class="pag-plan">
-            <button class="ebp">Import EBP</button>
-            <div class="navigation">
-                {{ knp_pagination_render(pagination) }}
-            </div>
+        <div class="navigation nav-pag">
+            {{ knp_pagination_render(pagination) }}
         </div>
+
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th colspan="3px">Commande (n°CAT)</th>
-                <td colspan="3px"><strong>Client</strong></td>
-                <th colspan="3px">Statut</th>
-                <th colspan="3px" >Enregistré le</th>
-                <th colspan="2px">Date départ atelier souhaiter</th>
-                <th colspan="3px" >Date validée</th>
+                <th>Commande (n°CAT)</th>
+                <th>Client</th>
+                <th>Statut</th>
+                <th>Enregistré le</th>
+                <th>Date départ atelier souhaiter</th>
+                <th>Date validée</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for commande in pagination %}
                 <tr class="trgrey">
-                    <td colspan="3px">
+                    <td>
                         {{ commande.documentNumber }}
                         <a href="{{ path('details-commandes', {'id': commande.id }) }}">
-                            <img class="edit-img" src="{{ asset('img-layout/logo-edit.png') }}" alt="">
+                            <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td colspan="3px">{{ commande.customerName }}</td>
-                    <td colspan="3px">Non planifié</td>
-                    <td colspan="3px">{{ commande.documentDate|date('d/m/y') }}</td>
-                    <td colspan="2px">{{ commande.documentWishDate|date('d/m/y') }}</td>
-                    <td colspan="3px"></td>
+                    <td >{{ commande.customerName }}</td>
+                    <td>Non planifié</td>
+                    <td>{{ commande.documentDate|date('d/m/y') }}</td>
+                    <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
+                    <td></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -46,5 +46,11 @@
             {{ knp_pagination_render(pagination) }}
         </div>
     </main>
+
+    {% block javascripts %}
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="{{ asset('js/search.js') }}" ></script>
+    {% endblock %}
 
 {% endblock %}

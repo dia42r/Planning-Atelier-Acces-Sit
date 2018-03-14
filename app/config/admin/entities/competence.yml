@@ -1,0 +1,10 @@
+easy_admin:
+    entities:
+        Competence:
+            class: PlanningBundle\Entity\Main\Competence
+            list:
+                fields:
+                    - name
+            form:
+                fields:
+                    - name

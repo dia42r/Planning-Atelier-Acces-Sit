@@ -1,0 +1,103 @@
+#main-planification-commande {
+  width: 100%;
+
+  .ebp2 {
+    cursor: pointer;
+    margin-left: 5%;
+    padding: 7px;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px #999;
+    background: #c9046b ;
+    text-transform: uppercase;
+
+    &:active {
+      background-color: #aaaaaa;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+  }
+}
+
+
+#main-planification-commande .ebp2 {
+  margin-right: 5%;
+}
+
+
+#main-planification-commande .ebp2 a {
+  color: #ffffff;
+  padding: 10% 0 10%;
+}
+
+
+#main-planification-commande .checkpass {
+  width: 20%;
+}
+
+
+#main-planification-commande .edit-img {
+  width: 12%;
+  float: right;
+  margin: 0 2%;
+}
+
+
+#main-planification-commande .trgrey, #section-details-commandes .trgrey {
+  background: #aaaaaa;
+}
+
+#main-planification-commande .planif-button-h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  margin-right: 5%;
+}
+
+.pagination {
+  width: 100%;
+  font-size: 15px;
+}
+
+.pagination a {
+  color: #F1F1F2;
+  border: 1px solid black;
+  padding: 8px 16px;
+  transition: background-color .3s;
+}
+
+.pagination a:hover {
+  background-color: #c9046b;
+}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+#main-planification-commande .nav-pag, .list-pag {
+  text-align: right;
+}
+
+#section-details-commandes .edit-img {
+  width: 60%;
+}
+
+
+#main-planification-commande .customer-name {
+  width: 0;
+}
