@@ -130,7 +130,14 @@ class HomeController extends Controller
      */
     public function consultationParTaches()
     {
-        return $this->render('pages/consulter-planning-par-taches.html.twig');
+        $tasks = $this->getDoctrine()
+            ->getRepository(Competence::class)
+            ->findAll();
+
+        return $this->render('pages/consulter-planning-par-taches.html.twig', [
+            "tasks" => $tasks
+        ]);
+
     }
 
     /**
@@ -138,7 +145,13 @@ class HomeController extends Controller
      */
     public function consultationParActeurs()
     {
-        return $this->render('pages/consulter-planning-par-acteurs.html.twig');
+        $actors = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+
+        return $this->render('pages/consulter-planning-par-acteurs.html.twig', [
+                "actors" => $actors
+            ]);
     }
 
     /**

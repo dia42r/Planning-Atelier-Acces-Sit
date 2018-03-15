@@ -1,0 +1,22 @@
+easy_admin:
+    entities:
+        Actor:
+            class: PlanningBundle\Entity\Main\Actor
+            list:
+                title: "Actors Workshops"
+                fields:
+                    - enabled
+                    - name
+            new:
+                title:  'Ajouter un nouvel acteur'
+                form_options: { validation_groups: ['Default', 'Actor'] }
+
+            edit:
+                title:  "Modifier l'Acteur"
+                form_options: { validation_groups: ['Default', 'Actor'] }
+
+            show:
+                title:  "Acteur"
+                form_options: { validation_groups: ['Default', 'Actor'] }
+
+

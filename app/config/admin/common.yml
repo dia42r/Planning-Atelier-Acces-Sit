@@ -1,12 +1,23 @@
 easy_admin:
-    site_name: '<img src="" /> E.D.S'
+    site_name: '<img src="../img/logo-vecto-clestophe.png" /><em style="font-size: 80%;">E.D.S</em>'
     design:
+        assets:
+            css:
+                - 'https://example.org/css/admin3.css'
+
+        menu:
+            - { label: 'Users', entity: 'User', icon: 'users' }
+            - { label: 'Competence', entity: 'Competence', icon: 'tasks' }
+            - { label: 'Actor', entity: 'Actor', icon: 'user-plus' }
         brand_color: '#c9046b'
         color_scheme: 'light'
         form_theme: 'vertical'
 
+        assets:
+            favicon: '../img/logo-vecto-clestophe.png'
+
     list:
         actions:
-            - { name: 'show', icon: 'search', label: '' }
-            - { name: 'edit', icon: 'pencil', label: '' }
-            - { name: 'delete', icon: 'remove', label: ''}
+            - { name: 'show',   icon: 'eye', label: '' }
+            - { name: 'edit',   icon: 'edit', label: '' }
+            - { name: 'delete', icon: 'trash', label: '' }

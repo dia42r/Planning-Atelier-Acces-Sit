@@ -2,9 +2,19 @@ easy_admin:
     entities:
         Competence:
             class: PlanningBundle\Entity\Main\Competence
+            form_theme: 'vertical'
             list:
+                title: "List of Competence"
                 fields:
                     - name
-            form:
-                fields:
-                    - name
+            new:
+                title:  'Ajouter une nouvelle Compétence'
+                form_options: { validation_groups: ['Default', 'Competence'] }
+
+            edit:
+                title:  "Modifier la Compétence"
+                form_options: { validation_groups: ['Default', 'Competence'] }
+
+            show:
+                title: "Compétence"
+

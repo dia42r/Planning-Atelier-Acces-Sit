@@ -4,13 +4,11 @@
         <section class="sectionselected">
             <h2>Consulter le planning par tâches : </h2>
             <select name="" id="selectTask">
-                <option value="">Planning menuiserie</option>
-                <option value="">Planning dessin</option>
-                <option value="">Planning mousse</option>
-                <option value="">Planning couture</option>
-                <option value="">Planning garnissage</option>
-                <option value="">Planning emballage</option>
-                <option value="">Planning expédition</option>
+                {% for task in tasks  %}
+                    {#{% if task.enabled == 1 %}#}
+                        <option value="">{{ task.name }}</option>
+                    {#{% endif %}#}
+                {% endfor %}
             </select>
         </section>
     </main>

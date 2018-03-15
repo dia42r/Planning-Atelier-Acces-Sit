@@ -28,6 +28,29 @@ class Actor
      */
     private $name;
 
+    /**
+     * @var boolean
+     * @ORM\Column(type="boolean")
+     */
+    private $enabled;
+
+    /**
+     * @return bool
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+        return $this;
+    }
+
 
     /**
      * Get id
