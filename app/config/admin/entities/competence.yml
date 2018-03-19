@@ -7,6 +7,10 @@ easy_admin:
                 title: "List of Competence"
                 fields:
                     - name
+            form:
+                fields:
+                    - { type: 'tab' , label: 'Information', icon: 'user' }
+                    - name
             new:
                 title:  'Ajouter une nouvelle Compétence'
                 form_options: { validation_groups: ['Default', 'Competence'] }

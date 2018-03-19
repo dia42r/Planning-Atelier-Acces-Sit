@@ -5,8 +5,15 @@ easy_admin:
             list:
                 title: "Actors Workshops"
                 fields:
-                    - enabled
                     - name
+                    - enabled
+
+            form:
+                fields:
+                    - { type: 'tab' , label: 'Information', icon: 'user' }
+                    - name
+                    - enabled
+
             new:
                 title:  'Ajouter un nouvel acteur'
                 form_options: { validation_groups: ['Default', 'Actor'] }

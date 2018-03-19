@@ -6,11 +6,17 @@ easy_admin:
                 title: "Authorized Administrator"
                 fields:
                     - username
-#                    - password
 
             form:
                 fields:
+#                    - { type: 'tab' , label: 'Information' }
+                    - { type: 'group', label: 'Information', css_class: 'col-sm-6', icon: 'user' }
                     - username
+                    - plainPassword
+                    - { type: 'group' , label: 'Roles', css_class: 'col-sm-6',  icon: 'user-plus' }
+#                    - { type: 'group' , label: 'Roles', css_class: 'col-sm-6' }
+                    - roles
+
 #                    - { property: 'roles', type: 'collection' }
 
                     # if administrators are allowed to edit users' passwords and roles, add this:
@@ -28,4 +34,9 @@ easy_admin:
                 fields:
                     - { property: 'plainPassword', type_options: { required: true } }
                 form_options: { validation_groups: ['Registration'] }
+
+            show:
+                title: 'Administrateur'
+                fields:
+                    - username
 

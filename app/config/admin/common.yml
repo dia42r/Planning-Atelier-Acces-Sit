@@ -4,6 +4,7 @@ easy_admin:
         assets:
             css:
                 - 'https://example.org/css/admin3.css'
+            favicon: '../img/logo-vecto-clestophe.png'
 
         menu:
             - { label: 'Users', entity: 'User', icon: 'users' }
@@ -13,8 +14,6 @@ easy_admin:
         color_scheme: 'light'
         form_theme: 'vertical'
 
-        assets:
-            favicon: '../img/logo-vecto-clestophe.png'
 
     list:
         actions:
