@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Competence
 {
+    public function __construct()
+    {
+        $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -27,6 +32,12 @@ class Competence
      * @ORM\Column(name="name", type="string", length=60, unique=true)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", inversedBy="competence")
+     * @ORM\JoinTable(name="actor_competence")
+     */
+    private $actor;
 
     /**
      * Get id.
@@ -60,6 +71,49 @@ class Competence
     public function getName()
     {
         return $this->name;
+    }
+
+
+    /**
+     * Add actor.
+     *
+     * @param \PlanningBundle\Entity\Main\Actor $actor
+     *
+     * @return Competence
+     */
+    public function addActor(\PlanningBundle\Entity\Main\Actor $actor)
+    {
+        $this->actor[] = $actor;
+
+        return $this;
+    }
+
+    /**
+     * Remove actor.
+     *
+     * @param \PlanningBundle\Entity\Main\Actor $actor
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeActor(\PlanningBundle\Entity\Main\Actor $actor)
+    {
+        return $this->actor->removeElement($actor);
+    }
+
+    /**
+     * Get actor.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActor()
+    {
+        return $this->actor;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+
     }
 
 }

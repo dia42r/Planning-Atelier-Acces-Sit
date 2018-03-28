@@ -7,18 +7,24 @@ easy_admin:
                 title: "List of Competence"
                 fields:
                     - name
+                    - actor
             form:
                 fields:
-                    - { type: 'tab' , label: 'Information', icon: 'user' }
+                    - { type: 'group' , label: 'Information', icon: 'tasks' }
                     - name
+                    - actor
             new:
                 title:  'Ajouter une nouvelle Compétence'
                 form_options: { validation_groups: ['Default', 'Competence'] }
 
             edit:
                 title:  "Modifier la Compétence"
+                fileds:
+                    - actor
                 form_options: { validation_groups: ['Default', 'Competence'] }
 
             show:
                 title: "Compétence"
+                fields:
+                    - actor
 

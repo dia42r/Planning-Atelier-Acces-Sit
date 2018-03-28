@@ -96,8 +96,6 @@ class HomeController extends Controller
         $details = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
-//        dump($details);
-//        die;
 
         return $this->render('pages/details-commandes.html.twig', [
             'details' => $details,
@@ -119,6 +117,12 @@ class HomeController extends Controller
             ->getRepository(Competence::class)
             ->findAll();
 
+        $actors = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+
+        dump($actors);
+        die;
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
             'competences'          => $competences,

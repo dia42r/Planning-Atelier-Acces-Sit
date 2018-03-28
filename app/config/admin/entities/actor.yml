@@ -5,14 +5,19 @@ easy_admin:
             list:
                 title: "Actors Workshops"
                 fields:
-                    - name
                     - enabled
+                    - name
+                    - competence
 
             form:
                 fields:
-                    - { type: 'tab' , label: 'Information', icon: 'user' }
+                    - { type: 'group' , label: 'Information', css_class: 'col-sm-6', icon: 'user' }
+#                    - id
                     - name
                     - enabled
+                    - { type: 'group', label: 'Tasks', css_class: 'col-sm-6', icon: 'tasks' }
+                    - competence
+                    - { property: 'deg', type: 'PlanningBundle\Form\Type\DegType' }
 
             new:
                 title:  'Ajouter un nouvel acteur'
@@ -24,6 +29,9 @@ easy_admin:
 
             show:
                 title:  "Acteur"
+                fileds:
+                    - competence
                 form_options: { validation_groups: ['Default', 'Actor'] }
+
 
 
