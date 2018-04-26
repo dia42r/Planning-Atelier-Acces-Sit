@@ -10,15 +10,18 @@
 </head>
 <body>
 {% block header %}
-   {% include "partials/_header.html.twig" %}
+    {% include "partials/_header.html.twig" %}
 {% endblock %}
 {% block body %}{% endblock %}
 {% block footer %}
     {% include "partials/_footer.html.twig" %}
 {% endblock %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock %}
-<script src="{{ asset('js/main.js') }}"></script>
+
+{% block deg_widget %}
+{% endblock %}
 </body>
 </html>

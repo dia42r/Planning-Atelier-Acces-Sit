@@ -3,7 +3,7 @@
     <section id="planif-produits">
         <div class="entete">
             <h2>planifier un produit</h2>
-            <form>
+            <form class="entete__form">
                 <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
             </form>
         </div>
@@ -22,33 +22,77 @@
                     <li rel="tab" data-skill="{{ competence.id }}">{{ competence.name }}</li>
                 {% endfor %}
             </ul>
-            {% for competence  in competences %}
-            <div class="tab_container" data-skill="{{ competence.id }}">
-                <div id="tab" class="tab_content">
-                    <form action="{{ path('get_actor') }}">
-                        <div class="tab_content_container tabo">
-                            <p>Temps prévisionel de planification : </p>
-                            <input class="skill" type="hidden" name="skill" value="{{ competence.id }}">
-                            <input class="time" type="time" name="time">
-                            <input class="subm" type="submit" value="Valider">
-                        </div>
-                    </form>
+            <div class="tab_container" data-skill="0"></div>
+        </div>
+        <div id="tab" class="tab_content">
+            <form action="{{ path('set_plannification') }}">
+                <div class="tab_content_container tabo">
+                    <p class="tab_content_container-para">Temps prévisionel de planification : </p>
+                    <input class="skill" type="hidden" name="skill" value="1">
+                    <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
+                    <input class="time" type="time" name="time">
+                    <button id="valide-time">Validez votre temps</button>
+                    <input class="time" type="date" name="datePlanif">
+                    <input class="time" type="date" name="dateStart">
+                    <input class="time" type="date" name="dateEnd">
                 </div>
-            </div>
-            {% endfor %}
-            <div class="area">
-                <div class="lab-area">
-                    <label for="comment">Commentaire :</label>
-                    <textarea name="" id="" cols="60" rows="5"></textarea>
+                <div class="tab_content__container-area">
+                    <textarea name="comment" id="" cols="70" rows="6" placeholder="Saissisez votre commentaire"></textarea>
                 </div>
-            </div>
-
-            <div style="width: 100%; text-align: right;">
-                <input style="background: hotpink" type="submit" value="Valider">
-            </div>
-            {% block javascripts %}
-                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-            {% endblock %}
+                <div class="button__subm-form">
+                    <div class="tab__content_label">
+                        <input type="checkbox">
+                        <label for="">Mettre en attente</label>
+                    </div>
+                    <input class="subm" type="submit" value="Valider">
+                </div>
+                <div id="actor"></div>
+            </form>
+        </div>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            const $bb = document.getElementById('valide-time');
+            const $actor = document.getElementById('actor');
+            const $skill = document.querySelector('li.active');
+            //
+            // console.log($skill.getAttribute("data-skill"));
+
+
+            $bb.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("ok");
+                $.ajax({
+                    url: "{{ app.request.getSchemeAndHttpHost() ~ path('get_actor') }}",
+                    method: "GET",
+                }).done( function( datas ) {
+                    data = JSON.parse(datas);
+                    const $selectActor = document.createElement("SELECT");
+                    $selectActor.setAttribute('name',"actor");
+
+                    for ( let i = 0; i < data.length; i++ ) {
+
+                        let $opt = document.createElement("OPTION");
+                        $opt.setAttribute('value',data[i].id);
+                        let t = document.createTextNode(data[i].name);
+                        $opt.appendChild(t);
+                        $selectActor.appendChild($opt)
+                    }
+
+                    $actor.appendChild($selectActor)
+                    // Create a <p> element
+
+                });
+            });
+        })
+    </script>
 {% endblock %}

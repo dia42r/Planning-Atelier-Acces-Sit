@@ -1,6 +1,9 @@
 <?php
+
 namespace PlanningBundle\Entity\Customer;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Customer
  *

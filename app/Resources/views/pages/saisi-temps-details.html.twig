@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <section id="saisi-de-temps-details">
+        <div class="details-button-h2">
+            <h2>saisie temps pour la :
+                {{ art.documentnumber }}
+            </h2>
+            <form>
+                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
+            </form>
+        </div>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <th>Réference article</th>
+                <th>Description article</th>
+                <th>Quantité</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody> <!-- Corps du tableau -->
+            {% for detail in details %}
+                <tr class="trgrey">
+                    <td class="tbodytd">{{ detail.item.id }}</td>
+                    <td>{{ detail.description}}</td>
+                    <td>{{ detail.quantity|number_format }}</td>
+                    <td>
+                        <a href="{{ path('saisie-temps-articles', {'id': detail.id}) }}">
+                            <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

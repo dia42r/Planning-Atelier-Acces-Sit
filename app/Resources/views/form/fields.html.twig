@@ -1,6 +1,24 @@
-{# app/Resources/views/form/fields.html.twig #}
-{% block deg_widget %}
-    {% spaceless %}
-        <h1>LOL</h1>
-    {% endspaceless %}
-{% endblock %}
+{#{% extends "base.html.twig" %}#}
+{#{% block deg_widget %}#}
+    {#{% spaceless %}#}
+        {#<script>#}
+            {#let _id = $('.id_actor input[type="number"]').val();#}
+            {#$('.id_actor').hide();#}
+            {#let url = "{{ path('get_current_actor') }}";#}
+            {#$.ajax({#}
+                {#url: url,#}
+                {#data: { id: _id } ,#}
+                {#dataType: "json",#}
+                {#method: "GET",#}
+            {#}).done(function( data ) {#}
+                {#$(data).each(function (i) {#}
+                    {#let input = '<div class="form-group field-text">'+#}
+                        {#'<label class="control-label" for="actor_deg_'+data[i].id+'">'+data[i].name+'</label>'+#}
+                        {#'<input type="number" id="actor_deg_'+data[i].id+'" name="actor[deg]['+data[i].id+']" class="form-control">'+#}
+                        {#'</div>';#}
+                    {#$('.deg_type .field-deg').append(input);#}
+                {#})#}
+            {#});#}
+        {#</script>#}
+    {#{% endspaceless %}#}
+{#{% endblock %}#}

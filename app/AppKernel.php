@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new SqlSrvBundle\SqlSrvBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Jrk\LevenshteinBundle\JrkLevenshteinBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
 
         ];
 

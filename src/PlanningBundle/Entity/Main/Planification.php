@@ -65,14 +65,14 @@ class Planification
 
     /**
      * @var \PlanningBundle\Entity\Main\Actor
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Actor")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor")
      * @ORM\JoinColumn(name="actor_id", referencedColumnName="id")
      */
     private $actor;
 
     /**
      * @var \PlanningBundle\Entity\Customer\SaleDocumentLine
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
      * @ORM\JoinColumn(name="sale_document_line_id", referencedColumnName="id")
      */
     private $saleDocumentLine;

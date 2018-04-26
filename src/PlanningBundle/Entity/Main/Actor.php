@@ -1,9 +1,159 @@
 <?php
+//
+//namespace PlanningBundle\Entity\Main;
+//
+//use Doctrine\ORM\Mapping as ORM;
+//
+///**
+// * Actor
+// *
+// * @ORM\Table(name="actor")
+// * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ActorRepository")
+// */
+//class Actor
+//{
+//    public function __construct()
+//    {
+//        $this->competence = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
+//    /**
+//     * @var int
+//     *
+//     * @ORM\Column(name="id", type="integer")
+//     * @ORM\Id
+//     * @ORM\GeneratedValue(strategy="AUTO")
+//     */
+//    private $id;
+//
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="name", type="string", length=30)
+//     */
+//    private $name;
+//
+//    /**
+//     * @var boolean
+//     * @ORM\Column(type="boolean")
+//     */
+//    private $enabled = false;
+//
+//    /**
+//     * One Actor has many Competences
+//     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\Competence", mappedBy="actor_competences")
+//     */
+//    private $competence_actor;
+//
+//
+//    /**
+//     * @return bool
+//     */
+//    public function isEnabled()
+//    {
+//        return $this->enabled;
+//    }
+//
+//    /**
+//     * @param bool $enabled
+//     */
+//    public function setEnabled($enabled)
+//    {
+//        $this->enabled = $enabled;
+//        return $this;
+//    }
+//
+//
+//    /**
+//     * Get id
+//     *
+//     * @return int
+//     */
+//    public function getId()
+//    {
+//        return $this->id;
+//    }
+//
+//    /**
+//     * Set name
+//     *
+//     * @param string $name
+//     *
+//     * @return Actor
+//     */
+//    public function setName($name)
+//    {
+//        $this->name = $name;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get name
+//     *
+//     * @return string
+//     */
+//    public function getName()
+//    {
+//        return $this->name;
+//    }
+//
+//
+//    /**
+//     * Get enabled.
+//     *
+//     * @return bool
+//     */
+//    public function getEnabled()
+//    {
+//        return $this->enabled;
+//    }
+//
+//
+//    public function __toString()
+//    {
+//        return (string) $this->name;
+//    }
+//
+//
+//    /**
+//     * Add competenceActor.
+//     *
+//     * @param \PlanningBundle\Entity\Main\Competence $competenceActor
+//     *
+//     * @return Actor
+//     */
+//    public function addCompetenceActor(\PlanningBundle\Entity\Main\Competence $competenceActor)
+//    {
+//        $this->competence_actor[] = $competenceActor;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove competenceActor.
+//     *
+//     * @param \PlanningBundle\Entity\Main\Competence $competenceActor
+//     *
+//     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+//     */
+//    public function removeCompetenceActor(\PlanningBundle\Entity\Main\Competence $competenceActor)
+//    {
+//        return $this->competence_actor->removeElement($competenceActor);
+//    }
+//
+//    /**
+//     * Get competenceActor.
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getCompetenceActor()
+//    {
+//        return $this->competence_actor;
+//    }
+//}
 
 namespace PlanningBundle\Entity\Main;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Actor
  *
@@ -44,11 +194,6 @@ class Actor
      */
     private $competence;
 
-    /**
-     * @var array
-     * @ORM\Column(type="array", nullable=true)
-     */
-    private $deg;
 
     /**
      * @return bool
@@ -57,7 +202,6 @@ class Actor
     {
         return $this->enabled;
     }
-
     /**
      * @param bool $enabled
      */
@@ -66,8 +210,6 @@ class Actor
         $this->enabled = $enabled;
         return $this;
     }
-
-
     /**
      * Get id
      *
@@ -77,7 +219,6 @@ class Actor
     {
         return $this->id;
     }
-
     /**
      * Set name
      *
@@ -88,10 +229,8 @@ class Actor
     public function setName($name)
     {
         $this->name = $name;
-
         return $this;
     }
-
     /**
      * Get name
      *
@@ -101,9 +240,6 @@ class Actor
     {
         return $this->name;
     }
-
-
-
     /**
      * Get enabled.
      *
@@ -113,7 +249,6 @@ class Actor
     {
         return $this->enabled;
     }
-
     /**
      * Add competence.
      *
@@ -124,10 +259,8 @@ class Actor
     public function addCompetence(\PlanningBundle\Entity\Main\Competence $competence)
     {
         $this->competence[] = $competence;
-
         return $this;
     }
-
     /**
      * Remove competence.
      *
@@ -139,7 +272,6 @@ class Actor
     {
         return $this->competence->removeElement($competence);
     }
-
     /**
      * Get competence.
      *
@@ -150,34 +282,8 @@ class Actor
         return $this->competence;
     }
 
-    /**
-     * Set deg
-     *
-     * @param array $deg
-     *
-     * @return Actor
-     */
-    public function setDeg($deg)
-    {
-        $this->deg = $deg;
-
-        return $this;
-    }
-
-    /**
-     * Get deg
-     *
-     * @return array
-     */
-    public function getDeg()
-    {
-        return $this->deg;
-    }
-
-
     public function __toString()
     {
         return (string) $this->name;
     }
-
 }

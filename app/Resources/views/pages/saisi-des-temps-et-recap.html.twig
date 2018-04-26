@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <main id="saisi-de-temps">
+        <h2>saisie des temps</h2>
+        <div class="navigation nav-pag">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <th>Commande (n°CAT)</th>
+                <th>Client</th>
+                <th>Statut</th>
+                <th>Date validée</th>
+                <th>CAT terminée</th>
+                <th>Saisie des temps</th>
+            </tr>
+            </thead>
+            <tbody> <!-- Corps du tableau -->
+            {% for saisi in pagination %}
+            <tr class="trgrey">
+                <td>
+                    {{ saisi.documentNumber }}
+                    {#<a href="{{ path('details-commandes', {'id': commande.id }) }}">#}
+                    {#<img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">#}
+                    {#</a>#}
+                </td>
+                <td >
+                    {{ saisi.customerName }}
+                </td>
+                <td>Non planifié</td>
+                <td>
+                    {#{{ commande.documentDate|date('d/m/y') }}#}
+                </td>
+                <td>
+                    {#{{ commande.documentWishDate|date('d/m/y') }}#}
+                </td>
+                <td>
+                    <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
+                        Saisir temps
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation nav-pag">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </main>
+{% endblock %}
+

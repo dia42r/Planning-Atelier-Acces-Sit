@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <section id="saisi-de-temps-par-articles">
+        <div class="details-button-h2">
+            <h2>saisie temps par articles
+                {#{{ art.documentnumber }}#}
+            </h2>
+            <form>
+                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
+            </form>
+        </div>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <th>Réference article</th>
+                <th>Description article</th>
+                <th>Quantité</th>
+            </tr>
+            </thead>
+            <tbody> <!-- Corps du tableau -->
+            <tr class="trgrey">
+                <td class="tbodytd">{{ saledocumentline.item.id}}</td>
+                <td>{{ saledocumentline.description }}</td>
+                <td>{{ saledocumentline.quantity }}</td>
+            </tr>
+            </tbody>
+        <form action="">
+        </table>
+        <table class="table-2">
+            <thead>
+            <tr>
+                <th>Ateliers</th>
+                <th>Temps prévisionnel</th>
+                <th>Temps réalisé</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="trgrey">
+                <td>Dessin</td>
+                <td>1:00</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trgrey">
+                <td>Garnissage</td>
+                <td>1:00</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trgrey">
+                <td>Menuiserie</td>
+                <td>1:00</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trgrey">
+                <td>Couture</td>
+                <td>1:00</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="trgrey">
+                <td>Total</td>
+                <td></td>
+                <td>08:20</td>
+            </tr>
+            </tbody>
+        </table>
+        <input class="table-2-submit" type="submit">
+
+        </form>
+    </section>
+{% endblock %}

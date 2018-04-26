@@ -29,18 +29,6 @@ class ActorCompetence
      */
     private $date;
 
-    /**
-     * @var
-     * @ORM\Column(name="degres", type="integer")
-     *
-     * @Assert\Range(
-     *      min = 1,
-     *      max = 4,
-     *      minMessage = "You must be at least {{ limit }}cm tall to enter",
-     *      maxMessage = "You cannot be taller than {{ limit }}cm to enter"
-     * )
-     */
-    private $degres;
 
     /**
      * @var \PlanningBundle\Entity\Main\Actor
@@ -110,7 +98,7 @@ class ActorCompetence
      *
      * @return ActorCompetence
      */
-    public function setActor(\PlanningBundle\Entity\Main\Actor $actor = null)
+    public function setActor($actor)
     {
         $this->actor = $actor;
 
@@ -134,7 +122,7 @@ class ActorCompetence
      *
      * @return ActorCompetence
      */
-    public function setCompetence(\PlanningBundle\Entity\Main\Competence $competence = null)
+    public function setCompetence($competence)
     {
         $this->competence = $competence;
 

@@ -2,6 +2,16 @@
 {% block body %}
     <section id="main-planification-commande">
         <h2>Listes des commandes </h2>
+        {#{{ form_start(form)}}#}
+
+        {#{{ form_end(form) }}#}
+        <div>
+            {#{{ render(controller(#}
+                {#'PlanningBundle:Searchbar:searchbar'#}
+            {#)) }}#}
+        </div>
+
+
         <table>
             <div class="navigation list-pag">
                 {{ knp_pagination_render(pagination) }}
@@ -12,7 +22,7 @@
                 <th class="ths customer-name">Client</th>
                 <th class="ths">Statut</th>
                 <th class="ths">Date départ atelier souhaiter</th>
-                <th class="ths">Date planifié</th>
+                <th class="ths">Date validée</th>
                 <th class="ths">Date fin de fabrication</th>
             </tr>
             </thead>

@@ -6,10 +6,18 @@ use PlanningBundle\Entity\Customer\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Actor;
 use PlanningBundle\Entity\Main\ActorCompetence;
 use PlanningBundle\Entity\Main\Competence;
+use PlanningBundle\Entity\Main\Planification;
+use PlanningBundle\Entity\Main\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
@@ -30,10 +38,49 @@ class HomeController extends Controller
     }
 
     /**
+     * @Route("/listes/{search}", name="search_result")
+     * @Method({"GET", "POST"})
+     */
+    public function searchAction(Request $request)
+    {
+//        $search = null;
+        $form = $this->createFormBuilder(null)
+            ->add('Rechercher', TextType::class, ['constraints' => new Length(['min' => 3]), 'attr' => ['placeholder' => 'Rechercher une CAT']])
+            ->add('send', SubmitType::class, ['label' => 'Envoyer'])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $form['Rechercher']->getData();
+            return $this->redirectToRoute('search_result');
+        }
+
+        return $this->render('partials/_searchbar.html.twig', [
+            'form'   =>   $form->createView()
+        ]);
+    }
+
+
+    /**
      * @Route("/listes", name="listes-commandes")
      */
-    public function listeCommandes(Request $request)
+    public function listeCommandesAction(Request $request)
     {
+        $form = $this->createFormBuilder(null)
+            ->add('Rechercher', TextType::class, ['constraints' => new Length(['min' => 3]), 'attr' => ['placeholder' => 'Rechercher une CAT']])
+            ->add('send', SubmitType::class, ['label' => 'Envoyer'])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $form['Rechercher']->getData();
+            return $this->redirectToRoute('search_result');
+        }
+
         $commandes = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
             ->findBy([],['documentNumber' => 'desc']);
@@ -49,8 +96,10 @@ class HomeController extends Controller
 
         return $this->render('pages/listes-des-commandes.html.twig', [
             'commandes' => $commandes,
-            "pagination"=> $pagination
+            "pagination"=> $pagination,
+            'form'      => $form
         ]);
+
     }
 
     /**
@@ -58,12 +107,14 @@ class HomeController extends Controller
      */
     public function planificationAction(Request $request)
     {
+        $log = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->findAll();
+
         $commandes = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
-//            ->findSafeDoc();
             ->findBy([],['documentNumber' => 'desc']);
-//        dump($commandes);
-//        die;
+
         $paginator = $this->get('knp_paginator');
 
         $pagination = $paginator->paginate(
@@ -74,15 +125,13 @@ class HomeController extends Controller
 
         return $this->render('pages/planifier-une-commande.html.twig', [
             'commandes' => $commandes,
-            "pagination"=> $pagination
+            'pagination'=> $pagination,
+            'log'       => $log
         ]);
     }
 
 
-    public function searchAction(Request $request)
-    {
 
-    }
 
     /**
      * @Route("/details/{id}", name="details-commandes")
@@ -117,12 +166,6 @@ class HomeController extends Controller
             ->getRepository(Competence::class)
             ->findAll();
 
-        $actors = $this->getDoctrine()
-            ->getRepository(Actor::class)
-            ->findAll();
-
-        dump($actors);
-        die;
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
             'competences'          => $competences,
@@ -159,18 +202,132 @@ class HomeController extends Controller
     }
 
     /**
-     * @Route("/actor", name="get_actor")
+     * @Route("/saisi-des-temps", name="saisis-temps")
      */
-    public function getActorAction(Request $request)
+    public function saisisTemps(Request $request)
     {
-        $hour    = $request->get('time');
-        $skillId = $request->get('skill');
-        $Allactors = $this->getDoctrine()
+        $time = $this->getDoctrine()
+            ->getRepository(SaleDocument::class)
+            ->findBy([], ['documentNumber' => 'desc']);
+
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $time,
+            $request->query->getInt('page', 1),
+            30
+        );
+
+        return $this->render('pages/saisi-des-temps-et-recap.html.twig',[
+            'time'       => $time,
+            'pagination' => $pagination
+        ]);
+
+    }
+
+    /**
+     * @Route("/saisis-des-temps/{id}", name="saisie-temps-detail")
+     */
+    public function saisieTempsDetails($id)
+    {
+        $art = $this->getDoctrine()
+            ->getRepository(SaleDocument::class)
+            ->find($id);
+
+        $details = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->findDoc($id);
+
+        return $this->render('pages/saisi-temps-details.html.twig', [
+            'details' => $details,
+            'art' => $art
+        ]);
+    }
+
+
+    /**
+     * @Route("/saisie-des-temps-articles/{id}", name="saisie-temps-articles")
+     */
+    public function saisiTempsArticles($id)
+    {
+        $saledocumentline = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->findItem($id);
+
+        return $this->render('pages/saisie-des-temps-par-articles.html.twig', [
+            'saledocumentline'     => $saledocumentline[0],
+        ]);
+    }
+
+
+    /**
+     * @Route("/planaction", name="set_plannification")
+     */
+    public function setPlanAction(Request $request)
+    {
+
+//        $serializer = $this->container->get('jms_serializer');
+        $time        = $request->get('time');
+
+        $time = new \DateTime($time);
+//           $time = $time->format("H:i");
+        $skillId     = $request->get('skill');
+        $actorid       = $request->get('actor');
+        $actor       = $this->getDoctrine()->getRepository(Actor::class)->find($actorid);
+        $datePlanif  = $request->get('datePlanif');
+        $datePlanif = new \DateTime( $datePlanif);
+//        $datePlanif = $datePlanif->format("d-m-Y");
+        $dateStart   = $request->get('dateStart');
+        $dateStart = new \DateTime($dateStart);
+//        $dateStart = $dateStart->format("d-m-Y");
+        $dateEnd     = $request->get('dateEnd');
+        $dateEnd     = new \DateTime($dateEnd);
+//        $dateEnd     = $dateEnd->format("d-m-Y");
+        $comment     = $request->get('comment');
+        $saleDocLineid = $request->get('saleDocLine');
+        $saleDocLine = $this->getDoctrine()->getRepository(SaleDocumentLine::class)->find($saleDocLineid);
+        $em          = $this->container->get('doctrine.orm.entity_manager');
+
+        $planif = new Planification();
+
+        $planif->setActor($actor);
+        $planif->setComment($comment);
+        $planif->setCompetences($skillId);
+        $planif->setDatePlanif($datePlanif);
+        $planif->setEndDate($dateEnd);
+        $planif->setStartingDate($dateStart);
+        $planif->setSaleDocumentLine($saleDocLine);
+        $planif->setTimePlanif($time);
+
+        $em->persist($planif);
+        $em->flush();
+
+        $this->redirectToRoute('details-commandes',['id' => $saleDocLine]);
+    }
+
+    /**
+     * @Route("/actor", name="get_actor")
+     * @return Response
+     */
+    public function getActorsAction()
+    {
+        $serializer = $this->container->get('jms_serializer');
+
+        $actors = $this->getDoctrine()
             ->getRepository(Actor::class)
             ->findAll();
-        dump($Allactors);
-        dump($hour);
-        dump($skillId);
-        die;
+        $data = $serializer->serialize($actors, 'json');
+
+        return new Response($data);
+
+//        $hour    = $request->get('time');
+//        $skillId = $request->get('skill');
+//        $Allactors = $this->getDoctrine()
+//            ->getRepository(Actor::class)
+//            ->findAll();
+//        dump($Allactors);
+//        dump($hour);
+//        dump($skillId);
+//        die;
     }
 }

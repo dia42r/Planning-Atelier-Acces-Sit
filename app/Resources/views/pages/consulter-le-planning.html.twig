@@ -1,27 +1,18 @@
-{% block header %}
-    {% include "partials/_header.html.twig" %}
-{% endblock %}
-
+{% extends "base.html.twig" %}
 
 {% block body %}
     {% include '@FullCalendar/Calendar/calendar.html.twig' %}
-{% endblock %}
 
-{% block footer %}
-    {% include "partials/_footer.html.twig" %}
-{% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+    {% endblock %}
 
-
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
-{% endblock %}
-
-
-{% block javascripts %}
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+    {% endblock %}
 {% endblock %}

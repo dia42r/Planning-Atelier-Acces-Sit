@@ -58,21 +58,21 @@ class Item
      */
     private $itemSubFamily;
 
-    // ...
-//    /**
-//     * One Product has Many Features.
-//     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", mappedBy="item")
-//     */
-//    private $saledocumentLine;
+
+    /**
+     * One Product has Many Features.
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", mappedBy="item")
+     */
+    private $saledocumentLine;
 
 
-//    /**
-//     * Constructor
-//     */
-//    public function __construct()
-//    {
-//        $this->saledocumentLine = new \Doctrine\Common\Collections\ArrayCollection();
-//    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->saledocumentLine = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set id.
@@ -218,39 +218,39 @@ class Item
         return $this->itemSubFamily;
     }
 
-//    /**
-//     * Add saledocumentLine.
-//     *
-//     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-//     *
-//     * @return Item
-//     */
-//    public function addSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-//    {
-//        $this->saledocumentLine[] = $saledocumentLine;
-//
-//        return $this;
-//    }
+    /**
+     * Add saledocumentLine.
+     *
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
+     *
+     * @return Item
+     */
+    public function addSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
+    {
+        $this->saledocumentLine[] = $saledocumentLine;
 
-//    /**
-//     * Remove saledocumentLine.
-//     *
-//     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-//     *
-//     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-//     */
-//    public function removeSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-//    {
-//        return $this->saledocumentLine->removeElement($saledocumentLine);
-//    }
-//
-//    /**
-//     * Get saledocumentLine.
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getSaledocumentLine()
-//    {
-//        return $this->saledocumentLine;
-//    }
+        return $this;
+    }
+
+    /**
+     * Remove saledocumentLine.
+     *
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
+    {
+        return $this->saledocumentLine->removeElement($saledocumentLine);
+    }
+
+    /**
+     * Get saledocumentLine.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSaledocumentLine()
+    {
+        return $this->saledocumentLine;
+    }
 }

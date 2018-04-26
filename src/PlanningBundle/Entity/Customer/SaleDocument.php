@@ -37,7 +37,7 @@ class SaleDocument
 
     /**
      * One SaleDocument has many SaleDocumentLines
-     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saleDocument")
+     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saledocument")
      */
     private $saleDocumentLines;
 

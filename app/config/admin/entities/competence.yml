@@ -10,9 +10,11 @@ easy_admin:
                     - actor
             form:
                 fields:
-                    - { type: 'group' , label: 'Information', icon: 'tasks' }
+                    - { type: 'group' , label: 'Information', css_class: 'col-sm-6', icon: 'user' }
                     - name
+                    - { type: 'group', label: 'Actor', css_class: 'col-sm-6', icon: 'user-plus' }
                     - actor
+
             new:
                 title:  'Ajouter une nouvelle Compétence'
                 form_options: { validation_groups: ['Default', 'Competence'] }
