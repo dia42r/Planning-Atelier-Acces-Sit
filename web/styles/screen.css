@@ -593,7 +593,7 @@ form .group label {
 
 #planif-produits .tab_content__container-area {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 2% 0;
 }
 
@@ -779,6 +779,12 @@ footer ul li {
 
 footer ul a {
     color: #c9046b;
+}
+
+#planif-produits #actor select {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: AppleGothic;
 }
 
 

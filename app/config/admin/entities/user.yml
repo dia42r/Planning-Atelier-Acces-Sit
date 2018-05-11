@@ -6,7 +6,6 @@ easy_admin:
                 title: "Authorized Administrator"
                 fields:
                     - username
-                    - enabled
 
             form:
                 fields:
@@ -14,7 +13,6 @@ easy_admin:
                     - { type: 'group', label: 'Information', css_class: 'col-sm-6', icon: 'user' }
                     - username
                     - plainPassword
-                    - enabled
                     - { type: 'group' , label: 'Roles', css_class: 'col-sm-6',  icon: 'user-plus' }
 #                    - { type: 'group' , label: 'Roles', css_class: 'col-sm-6' }
                     - roles
@@ -41,5 +39,4 @@ easy_admin:
                 title: 'Administrateur'
                 fields:
                     - username
-                    - enabled
 

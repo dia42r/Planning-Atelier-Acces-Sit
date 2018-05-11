@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
 
     /**
-     * @Route("/listes/{search}", name="search_result")
+     * @Route("/search", name="search_result")
      * @Method({"GET", "POST"})
      */
     public function searchAction(Request $request)
@@ -146,9 +146,14 @@ class HomeController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
 
+        $planif = $this->getDoctrine()
+            ->getRepository(Planification::class)
+            ->findAll();
+
         return $this->render('pages/details-commandes.html.twig', [
             'details' => $details,
-            'saledocument' => $saledocument
+            'saledocument' => $saledocument,
+            'planif'       => $planif
 //            'det' => $det
         ]);
     }
@@ -266,14 +271,23 @@ class HomeController extends Controller
     public function setPlanAction(Request $request)
     {
 
+        $end = $this->getDoctrine()
+            ->getRepository(Planification::class)
+            ->findAll();
+
 //        $serializer = $this->container->get('jms_serializer');
         $time        = $request->get('time');
 
         $time = new \DateTime($time);
 //           $time = $time->format("H:i");
         $skillId     = $request->get('skill');
+        $skill       = $this->getDoctrine()
+            ->getRepository(Competence::class)
+            ->find($skillId);
         $actorid       = $request->get('actor');
-        $actor       = $this->getDoctrine()->getRepository(Actor::class)->find($actorid);
+        $actor       = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->find($actorid);
         $datePlanif  = $request->get('datePlanif');
         $datePlanif = new \DateTime( $datePlanif);
 //        $datePlanif = $datePlanif->format("d-m-Y");
@@ -285,24 +299,33 @@ class HomeController extends Controller
 //        $dateEnd     = $dateEnd->format("d-m-Y");
         $comment     = $request->get('comment');
         $saleDocLineid = $request->get('saleDocLine');
-        $saleDocLine = $this->getDoctrine()->getRepository(SaleDocumentLine::class)->find($saleDocLineid);
-        $em          = $this->container->get('doctrine.orm.entity_manager');
+        $saleDocLine = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->find($saleDocLineid);
+
+        $em       = $this->container->get('doctrine.orm.entity_manager');
 
         $planif = new Planification();
 
-        $planif->setActor($actor);
+        $planif->addActor($actor);
         $planif->setComment($comment);
-        $planif->setCompetences($skillId);
+        $planif->setCompetences($skill->getName());
         $planif->setDatePlanif($datePlanif);
         $planif->setEndDate($dateEnd);
         $planif->setStartingDate($dateStart);
-        $planif->setSaleDocumentLine($saleDocLine);
+        $planif->addSaleDocumentLine($saleDocLine);
         $planif->setTimePlanif($time);
+
+//        dump($saleDocLine);
+//        die;
 
         $em->persist($planif);
         $em->flush();
 
-        $this->redirectToRoute('details-commandes',['id' => $saleDocLine]);
+       return $this->redirectToRoute('details-commandes',[
+           'id' => $saleDocLine->getDocumentid(),
+           'end' => $end
+       ]);
     }
 
     /**

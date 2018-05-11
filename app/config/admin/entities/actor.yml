@@ -12,7 +12,7 @@ easy_admin:
             form:
                 fields:
                     - { type: 'group' , label: 'Information', css_class: 'col-sm-6', icon: 'user' }
-                    - { property: 'id', css_class: 'id_actor' }
+#                    - { property: 'id', css_class: 'id_actor' }
                     - name
                     - enabled
                     - { type: 'group', label: 'Tasks', css_class: 'col-sm-6', icon: 'tasks' }
@@ -20,7 +20,10 @@ easy_admin:
 
             new:
                 title:  'Ajouter un nouvel acteur'
+                fileds:
+                    - competence
                 form_options: { validation_groups: ['Default', 'Actor'] }
+
 
             edit:
                 title:  "Modifier l'Acteur"

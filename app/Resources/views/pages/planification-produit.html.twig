@@ -30,14 +30,15 @@
                     <p class="tab_content_container-para">Temps prévisionel de planification : </p>
                     <input class="skill" type="hidden" name="skill" value="1">
                     <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
-                    <input class="time" type="time" name="time">
+                    <input class="time" type="time" name="time" required>
                     <button id="valide-time">Validez votre temps</button>
                     <input class="time" type="date" name="datePlanif">
                     <input class="time" type="date" name="dateStart">
                     <input class="time" type="date" name="dateEnd">
                 </div>
                 <div class="tab_content__container-area">
-                    <textarea name="comment" id="" cols="70" rows="6" placeholder="Saissisez votre commentaire"></textarea>
+                    <div id="actor"></div>
+                    <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
                 </div>
                 <div class="button__subm-form">
                     <div class="tab__content_label">
@@ -46,7 +47,6 @@
                     </div>
                     <input class="subm" type="submit" value="Valider">
                 </div>
-                <div id="actor"></div>
             </form>
         </div>
     </section>
@@ -70,7 +70,7 @@
             $bb.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log("ok");
+                // console.log("ok");
                 $.ajax({
                     url: "{{ app.request.getSchemeAndHttpHost() ~ path('get_actor') }}",
                     method: "GET",

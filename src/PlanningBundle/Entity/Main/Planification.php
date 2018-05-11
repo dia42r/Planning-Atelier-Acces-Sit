@@ -78,6 +78,16 @@ class Planification
     private $saleDocumentLine;
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->saleDocumentLine = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id.
      *
@@ -187,7 +197,7 @@ class Planification
     /**
      * Set endDate.
      *
-     * @param string $endDate
+     * @param \DateTime $endDate
      *
      * @return Planification
      */
@@ -201,7 +211,7 @@ class Planification
     /**
      * Get endDate.
      *
-     * @return string
+     * @return \DateTime
      */
     public function getEndDate()
     {
@@ -233,23 +243,35 @@ class Planification
     }
 
     /**
-     * Set actor.
+     * Add actor.
      *
-     * @param \PlanningBundle\Entity\Main\Actor|null $actor
+     * @param \PlanningBundle\Entity\Main\Actor $actor
      *
      * @return Planification
      */
-    public function setActor(\PlanningBundle\Entity\Main\Actor $actor = null)
+    public function addActor(\PlanningBundle\Entity\Main\Actor $actor)
     {
-        $this->actor = $actor;
+        $this->actor[] = $actor;
 
         return $this;
     }
 
     /**
+     * Remove actor.
+     *
+     * @param \PlanningBundle\Entity\Main\Actor $actor
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeActor(\PlanningBundle\Entity\Main\Actor $actor)
+    {
+        return $this->actor->removeElement($actor);
+    }
+
+    /**
      * Get actor.
      *
-     * @return \PlanningBundle\Entity\Main\Actor|null
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getActor()
     {
@@ -257,23 +279,35 @@ class Planification
     }
 
     /**
-     * Set saleDocumentLine.
+     * Add saleDocumentLine.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine|null $saleDocumentLine
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
      *
      * @return Planification
      */
-    public function setSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine = null)
+    public function addSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
     {
-        $this->saleDocumentLine = $saleDocumentLine;
+        $this->saleDocumentLine[] = $saleDocumentLine;
 
         return $this;
     }
 
     /**
+     * Remove saleDocumentLine.
+     *
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    {
+        return $this->saleDocumentLine->removeElement($saleDocumentLine);
+    }
+
+    /**
      * Get saleDocumentLine.
      *
-     * @return \PlanningBundle\Entity\Customer\SaleDocumentLine|null
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSaleDocumentLine()
     {

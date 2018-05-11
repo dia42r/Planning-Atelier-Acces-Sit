@@ -19,9 +19,7 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
         ->join("s.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
         ->join("s.saledocument","b")
             ->where("b.id = :docid") // En pointant vers la bonne donnée
-////            ->andWhere("s.saledocument = :docnum")
             ->setParameter('docid',$id)
-//            ->setParameter('docnum', $documentnumber)
             ->getQuery();
 
         return $q->getResult();

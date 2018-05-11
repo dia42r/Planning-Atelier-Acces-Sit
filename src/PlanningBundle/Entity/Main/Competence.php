@@ -119,7 +119,9 @@
 //}
 
 namespace PlanningBundle\Entity\Main;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Competence
  *
@@ -128,10 +130,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Competence
 {
+
     public function __construct()
     {
         $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * @var int
      *
@@ -149,10 +153,11 @@ class Competence
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", inversedBy="competence")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", inversedBy="competence",cascade={"remove"})
      * @ORM\JoinTable(name="actor_competence")
      */
     private $actor;
+
     /**
      * Get id.
      *
@@ -162,6 +167,7 @@ class Competence
     {
         return $this->id;
     }
+
     /**
      * Set name.
      *
@@ -174,6 +180,7 @@ class Competence
         $this->name = $name;
         return $this;
     }
+
     /**
      * Get name.
      *
@@ -183,6 +190,7 @@ class Competence
     {
         return $this->name;
     }
+
     /**
      * Add actor.
      *
@@ -195,6 +203,7 @@ class Competence
         $this->actor[] = $actor;
         return $this;
     }
+
     /**
      * Remove actor.
      *
@@ -206,6 +215,7 @@ class Competence
     {
         return $this->actor->removeElement($actor);
     }
+
     /**
      * Get actor.
      *
@@ -215,6 +225,7 @@ class Competence
     {
         return $this->actor;
     }
+
     public function __toString()
     {
         return $this->name;

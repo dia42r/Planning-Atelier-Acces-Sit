@@ -49,11 +49,6 @@ class User implements UserInterface
      */
     private $roles = [];
 
-    /**
-     * @var boolean
-     * @ORM\Column(type="boolean")
-     */
-    private $enabled;
 
     /**
      * @return mixed
@@ -182,27 +177,4 @@ class User implements UserInterface
         // TODO: Implement getSalt() method.
     }
 
-    /**
-     * Set enabled.
-     *
-     * @param bool $enabled
-     *
-     * @return User
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled.
-     *
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
 }

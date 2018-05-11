@@ -153,7 +153,9 @@
 //}
 
 namespace PlanningBundle\Entity\Main;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Actor
  *
@@ -174,14 +176,12 @@ class Actor
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30)
      */
     private $name;
-
     /**
      * @var boolean
      * @ORM\Column(type="boolean")
@@ -189,7 +189,7 @@ class Actor
     private $enabled;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence", inversedBy="actor")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence",inversedBy="actor", cascade={"remove"})
      * @ORM\JoinTable(name="actor_competence")
      */
     private $competence;
@@ -281,7 +281,27 @@ class Actor
     {
         return $this->competence;
     }
-
+    /**
+     * Set deg
+     *
+     * @param array $deg
+     *
+     * @return Actor
+     */
+    public function setDeg($deg)
+    {
+        $this->deg = $deg;
+        return $this;
+    }
+    /**
+     * Get deg
+     *
+     * @return array
+     */
+    public function getDeg()
+    {
+        return $this->deg;
+    }
     public function __toString()
     {
         return (string) $this->name;
