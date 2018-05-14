@@ -5,12 +5,12 @@ namespace PlanningBundle\Entity\Main;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Planification
+ * SousPlanification
  *
- * @ORM\Table(name="main_planification")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\Main\PlanificationRepository")
+ * @ORM\Table(name="main_sous_planification")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\Main\SousPlanificationRepository")
  */
-class Planification
+class SousPlanification
 {
     /**
      * @var int
@@ -22,31 +22,18 @@ class Planification
     private $id;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_planif", type="datetime")
-     */
-    private $datePlanif;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="string", length=255)
+     * @ORM\Column(name="competences", type="string", length=50)
      */
-    private $comment;
+    private $competences;
 
     /**
-     * @var \PlanningBundle\Entity\Customer\SaleDocumentLine
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
-     * @ORM\JoinColumn(name="sale_document_line_id", referencedColumnName="id")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="time_planif", type="time")
      */
-    private $saleDocumentLine;
-
-    /**
-     * @var \PlanningBundle\Entity\Main\SousPlanification
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\SousPlanification", mappedBy="planif")
-     */
-    private $sousPlanif;
+    private $timePlanif;
 
     /**
      * @var \DateTime
@@ -65,12 +52,29 @@ class Planification
 
 
     /**
+     * @var \PlanningBundle\Entity\Main\Actor
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor")
+     * @ORM\JoinColumn(name="actor_id", referencedColumnName="id")
+     */
+    private $actor;
+
+
+    /**
+     * @var \PlanningBundle\Entity\Main\Planification
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Main\Planification",inversedBy="sousPlanif")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="planif_id", referencedColumnName="id")
+     * })
+     */
+    private $planif;
+
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->saleDocumentLine = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -84,35 +88,11 @@ class Planification
     }
 
     /**
-     * Set datePlanif.
-     *
-     * @param \DateTime $datePlanif
-     *
-     * @return Planification
-     */
-    public function setDatePlanif($datePlanif)
-    {
-        $this->datePlanif = $datePlanif;
-
-        return $this;
-    }
-
-    /**
-     * Get datePlanif.
-     *
-     * @return \DateTime
-     */
-    public function getDatePlanif()
-    {
-        return $this->datePlanif;
-    }
-
-    /**
      * Set competences.
      *
      * @param string $competences
      *
-     * @return Planification
+     * @return SousPlanification
      */
     public function setCompetences($competences)
     {
@@ -136,7 +116,7 @@ class Planification
      *
      * @param \DateTime $timePlanif
      *
-     * @return Planification
+     * @return SousPlanification
      */
     public function setTimePlanif($timePlanif)
     {
@@ -160,7 +140,7 @@ class Planification
      *
      * @param \DateTime $startingDate
      *
-     * @return Planification
+     * @return SousPlanification
      */
     public function setStartingDate($startingDate)
     {
@@ -184,7 +164,7 @@ class Planification
      *
      * @param \DateTime $endDate
      *
-     * @return Planification
+     * @return SousPlanification
      */
     public function setEndDate($endDate)
     {
@@ -204,35 +184,11 @@ class Planification
     }
 
     /**
-     * Set comment.
-     *
-     * @param string $comment
-     *
-     * @return Planification
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * Get comment.
-     *
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-    /**
      * Add actor.
      *
      * @param \PlanningBundle\Entity\Main\Actor $actor
      *
-     * @return Planification
+     * @return SousPlanification
      */
     public function addActor(\PlanningBundle\Entity\Main\Actor $actor)
     {
@@ -264,38 +220,26 @@ class Planification
     }
 
     /**
-     * Add saleDocumentLine.
+     * Set planif.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\Main\Planification|null $planif
      *
-     * @return Planification
+     * @return SousPlanification
      */
-    public function addSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function setPlanif(\PlanningBundle\Entity\Main\Planification $planif = null)
     {
-        $this->saleDocumentLine[] = $saleDocumentLine;
+        $this->planif = $planif;
 
         return $this;
     }
 
     /**
-     * Remove saleDocumentLine.
+     * Get planif.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     * @return \PlanningBundle\Entity\Main\Planification|null
      */
-    public function removeSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function getPlanif()
     {
-        return $this->saleDocumentLine->removeElement($saleDocumentLine);
-    }
-
-    /**
-     * Get saleDocumentLine.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSaleDocumentLine()
-    {
-        return $this->saleDocumentLine;
+        return $this->planif;
     }
 }

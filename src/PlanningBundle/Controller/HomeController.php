@@ -4,7 +4,6 @@ namespace PlanningBundle\Controller;
 
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Actor;
-use PlanningBundle\Entity\Main\ActorCompetence;
 use PlanningBundle\Entity\Main\Competence;
 use PlanningBundle\Entity\Main\Planification;
 use PlanningBundle\Entity\Main\User;
@@ -146,14 +145,14 @@ class HomeController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
 
-        $planif = $this->getDoctrine()
-            ->getRepository(Planification::class)
-            ->findAll();
+//        $planif = $this->getDoctrine()
+//            ->getRepository(Planification::class)
+//            ->findAll();
 
         return $this->render('pages/details-commandes.html.twig', [
             'details' => $details,
             'saledocument' => $saledocument,
-            'planif'       => $planif
+//            'planif'       => $planif
 //            'det' => $det
         ]);
     }

@@ -504,36 +504,28 @@ form .group label {
 
 /*========================= Planif Produits ============================*/
 
+#planif-produits .entete, .detail_container, .tab_content, .pp, .span-item-sale, .planif-produits-comments, .planif-produits-validate {
+    width: 88%;
+}
+
 #planif-produits .entete {
-    margin-left: 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 
 }
 
 #planif-produits .entete h2 {
-    margin: 2% 1%;
+    margin: 2% 0;
     font-weight: bold;
 }
 
-/*#planif-produits .entete p {*/
-    /*margin: 1%;*/
-    /*font-size: 20px;*/
-    /*font-family: AppleGothic;*/
-    /*font-weight: bold;*/
-    /*text-transform: uppercase;*/
-/*}*/
-
-/*#planif-produits .entete__form {*/
-    /*margin: 0 6%;*/
-    /*font-weight: bold;*/
-/*}*/
-
-#planif-produits .detail_container, .entete__form {
-    margin: 0 6%;
+#planif-produits .detail_container {
+    margin: 0 auto;
     font-weight: bold;
 }
+
 
 #planif-produits .tabs {
     display: flex;
@@ -569,21 +561,20 @@ form .group label {
 }
 
 #planif-produits .tab_container {
-    border: 2px solid #333;
     width: 100%;
     background: #fff;
     overflow: auto;
 }
 
 #planif-produits .tab_content {
-    width: 88%;
-    margin: 2% 6%;
+    margin: 2% auto;
     padding: 1%;
 }
 
 #planif-produits .tab_content_container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 #planif-produits .tab_content_container-para {
@@ -597,7 +588,7 @@ form .group label {
     margin: 2% 0;
 }
 
-#planif-produits .tab_content__container-area textarea {
+#planif-produits .planif-produits-comments textarea {
     font-size: 16px;
 }
 
@@ -653,12 +644,17 @@ form .group label {
     margin-right: 10px;
 }
 
+#planif-produits .pp {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+
+}
+
 #planif-produits .pp p {
     font-size: 20px;
     font-family: AppleGothic;
     font-weight: bold;
-    width: 31%;
-    margin: 0 6%;
     text-transform: uppercase;
 }
 
@@ -674,7 +670,7 @@ form .group label {
 #planif-produits .span-item-sale {
     display: flex;
     justify-content: space-between;
-    margin: 2% 6%;
+    margin: 2% auto;
     border: 2px solid #000000;
     padding: 1%;
     font-size: 11px;
@@ -700,6 +696,35 @@ form .group label {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+#planif-produits .planif-produits-comments, .planif-produits-validate {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+#planif-produits .tab_content .label-date {
+    width: 14%;
+}
+
+#planif-produits .tab_content .tab__content-time {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+#planif-produits .planif-produits-validate {
+    margin: 2% auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#planif-produits #actor select {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: AppleGothic;
+}
+
+
 
 
 /*=======================Main Planning Taches et Acteurs==============*/
@@ -781,11 +806,6 @@ footer ul a {
     color: #c9046b;
 }
 
-#planif-produits #actor select {
-    font-weight: bold;
-    font-size: 20px;
-    font-family: AppleGothic;
-}
 
 
 

@@ -27,18 +27,28 @@
         <div id="tab" class="tab_content">
             <form action="{{ path('set_plannification') }}">
                 <div class="tab_content_container tabo">
-                    <p class="tab_content_container-para">Temps prévisionel de planification : </p>
-                    <input class="skill" type="hidden" name="skill" value="1">
+                    <div class="tab__content-time">
+                        <p class="tab_content_container-para">Temps prévisionel de planification : </p>
+                        <input class="skill" type="hidden" name="skill" value="1">
+                        <input class="time" type="time" name="time" required>
+                        <button id="valide-time">Validez votre temps</button>
+                    </div>
                     <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
-                    <input class="time" type="time" name="time" required>
-                    <button id="valide-time">Validez votre temps</button>
-                    <input class="time" type="date" name="datePlanif">
-                    <input class="time" type="date" name="dateStart">
-                    <input class="time" type="date" name="dateEnd">
+                    <div class="label-date">
+                        <label for="">Date de Planification</label>
+                        <input class="time" type="date" name="datePlanif">
+                    </div>
+                    <div class="label-date">
+                        <label for="">Date de début</label>
+                        <input class="time" type="date" name="dateStart">
+                    </div>
+                    <div class="label-date">
+                        <label for="">Date de fin</label>
+                        <input class="time" type="date" name="dateEnd">
+                    </div>
                 </div>
                 <div class="tab_content__container-area">
                     <div id="actor"></div>
-                    <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
                 </div>
                 <div class="button__subm-form">
                     <div class="tab__content_label">
@@ -49,6 +59,14 @@
                 </div>
             </form>
         </div>
+        <div class="planif-produits-comments">
+            <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
+        </div>
+        <form action="">
+            <div class="planif-produits-validate button__subm-form">
+                <input class="subm" type="submit" value="Valider la planification">
+            </div>
+        </form>
     </section>
 {% endblock %}
 
