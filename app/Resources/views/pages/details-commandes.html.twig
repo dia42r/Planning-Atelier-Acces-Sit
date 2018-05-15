@@ -3,7 +3,7 @@
     <section id="section-details-commandes">
         <div class="details-button-h2">
             <h2>Détails de la commandes
-                {{ saledocument.documentnumber }}
+                {{ saledocument.documentNumber }}
             </h2>
             <form>
                 <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
@@ -23,7 +23,7 @@
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
-            {% for detail in details %}
+            {% for detail in saledocument.saleDocumentLines %}
                 <tr class="trgrey">
                     <td class="tbodytd">{{ detail.item.id }}</td>
                     <td>{{ detail.description}}</td>
@@ -31,20 +31,21 @@
                     <td>{{ detail.deliverydate|date('d-m-y') }}</td>
                     <td>
                         <a href="{{ path('planification-produits', {'id': detail.id}) }}">
-                            <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
+                            <img style="width: 10%" class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td class="plan">NON PLANIFIE</td>
-                    <td></td>
+                    <td class="plan">{{ detail.status }}</td>
                     <td></td>
                     {#<td>{{ detail.planif.endDate|date }}</td>#}
-                    {#<td>{{ detail.planif.comment }}</td>#}
+                    <td>{{ detail.comment }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-        <div class="valid">
-            <button class="button-val" >valider</button>
-        </div>
+        <form action="{{ path('planifier-une-commande') }}">
+            <div class="valid">
+                <button class="button-val" >valider</button>
+            </div>
+        </form>
     </section>
 {% endblock %}

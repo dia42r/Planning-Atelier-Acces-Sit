@@ -75,7 +75,7 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="status", type="string", length=30, nullable=true)
      */
-    private $status;
+    private $status = "non planifié";
 
     /**
      * @var \PlanningBundle\Entity\Customer\Item
@@ -96,6 +96,13 @@ class SaleDocumentLine
      * })
      */
     private $saledocument;
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Planification")
+     * @ORM\JoinColumn(name="Planification_id", referencedColumnName="id")
+     */
+    private $planif;
 
 
 
@@ -357,5 +364,29 @@ class SaleDocumentLine
     public function getSaledocument()
     {
         return $this->saledocument;
+    }
+
+    /**
+     * Set planif.
+     *
+     * @param \PlanningBundle\Entity\Main\Planification|null $planif
+     *
+     * @return SaleDocumentLine
+     */
+    public function setPlanif(\PlanningBundle\Entity\Main\Planification $planif = null)
+    {
+        $this->planif = $planif;
+
+        return $this;
+    }
+
+    /**
+     * Get planif.
+     *
+     * @return \PlanningBundle\Entity\Main\Planification|null
+     */
+    public function getPlanif()
+    {
+        return $this->planif;
     }
 }

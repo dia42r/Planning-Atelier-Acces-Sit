@@ -24,21 +24,20 @@ class Planification
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_planif", type="datetime")
+     * @ORM\Column(name="date_planif", type="datetime", nullable=true)
      */
     private $datePlanif;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="comment", type="string", length=255)
+     * @ORM\Column(name="comment", type="string", nullable=true, length=255)
      */
     private $comment;
 
     /**
-     * @var \PlanningBundle\Entity\Customer\SaleDocumentLine
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
-     * @ORM\JoinColumn(name="sale_document_line_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
+     * @ORM\JoinColumn(name="SaleDocumentLine_id", referencedColumnName="id")
      */
     private $saleDocumentLine;
 
@@ -51,14 +50,14 @@ class Planification
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="starting_date", type="datetime")
+     * @ORM\Column(name="starting_date", type="datetime", nullable=true)
      */
     private $startingDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="end_date", type="datetime")
+     * @ORM\Column(name="end_date", type="datetime", nullable=true)
      */
     private $endDate;
 
@@ -107,53 +106,6 @@ class Planification
         return $this->datePlanif;
     }
 
-    /**
-     * Set competences.
-     *
-     * @param string $competences
-     *
-     * @return Planification
-     */
-    public function setCompetences($competences)
-    {
-        $this->competences = $competences;
-
-        return $this;
-    }
-
-    /**
-     * Get competences.
-     *
-     * @return string
-     */
-    public function getCompetences()
-    {
-        return $this->competences;
-    }
-
-    /**
-     * Set timePlanif.
-     *
-     * @param \DateTime $timePlanif
-     *
-     * @return Planification
-     */
-    public function setTimePlanif($timePlanif)
-    {
-        $this->timePlanif = $timePlanif;
-
-        return $this;
-    }
-
-    /**
-     * Get timePlanif.
-     *
-     * @return \DateTime
-     */
-    public function getTimePlanif()
-    {
-        return $this->timePlanif;
-    }
 
     /**
      * Set startingDate.
@@ -227,72 +179,62 @@ class Planification
         return $this->comment;
     }
 
+
+
     /**
-     * Add actor.
+     * Add sousPlanif.
      *
-     * @param \PlanningBundle\Entity\Main\Actor $actor
+     * @param \PlanningBundle\Entity\Main\SousPlanification $sousPlanif
      *
      * @return Planification
      */
-    public function addActor(\PlanningBundle\Entity\Main\Actor $actor)
+    public function addSousPlanif(\PlanningBundle\Entity\Main\SousPlanification $sousPlanif)
     {
-        $this->actor[] = $actor;
+        $this->sousPlanif[] = $sousPlanif;
 
         return $this;
     }
 
     /**
-     * Remove actor.
+     * Remove sousPlanif.
      *
-     * @param \PlanningBundle\Entity\Main\Actor $actor
+     * @param \PlanningBundle\Entity\Main\SousPlanification $sousPlanif
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeActor(\PlanningBundle\Entity\Main\Actor $actor)
+    public function removeSousPlanif(\PlanningBundle\Entity\Main\SousPlanification $sousPlanif)
     {
-        return $this->actor->removeElement($actor);
+        return $this->sousPlanif->removeElement($sousPlanif);
     }
 
     /**
-     * Get actor.
+     * Get sousPlanif.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getActor()
+    public function getSousPlanif()
     {
-        return $this->actor;
+        return $this->sousPlanif;
     }
 
     /**
-     * Add saleDocumentLine.
+     * Set saleDocumentLine.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine|null $saleDocumentLine
      *
      * @return Planification
      */
-    public function addSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function setSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine = null)
     {
-        $this->saleDocumentLine[] = $saleDocumentLine;
+        $this->saleDocumentLine = $saleDocumentLine;
 
         return $this;
-    }
-
-    /**
-     * Remove saleDocumentLine.
-     *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
-    {
-        return $this->saleDocumentLine->removeElement($saleDocumentLine);
     }
 
     /**
      * Get saleDocumentLine.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \PlanningBundle\Entity\Customer\SaleDocumentLine|null
      */
     public function getSaleDocumentLine()
     {

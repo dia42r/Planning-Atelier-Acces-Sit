@@ -12,4 +12,50 @@ use Doctrine\ORM\EntityRepository;
  */
 class SaleDocumentRepository extends EntityRepository
 {
+    public function findSaleDoc($id)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+        ->addSelect("b") // Selection des alias dont on a besoin
+        ->join("s.saleDocumentLines","b")
+            ->join("b.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
+
+            ->where("s.id = :docid") // En pointant vers la bonne donnée
+            ->setParameter('docid',$id)
+            ->getQuery();
+
+        return $q->getResult()[0];
+    }
+
+    public function findSaleDocCount($id)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+        ->Select("count(b)") // Selection des alias dont on a besoin
+        ->join("s.saleDocumentLines","b")
+            ->join("b.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
+
+            ->where("s.id = :docid") // En pointant vers la bonne donnée
+            ->setParameter('docid',$id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
+
+
+    public function findSaleDocCount2($id)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+        ->Select("count(b)") // Selection des alias dont on a besoin
+        ->join("s.saleDocumentLines","b")
+            ->join("b.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
+
+            ->where("s.id = :docid") // En pointant vers la bonne donnée
+            ->andWhere("b.status = 'Planifier'") // En pointant vers la bonne donnée
+            ->setParameter('docid',$id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
 }

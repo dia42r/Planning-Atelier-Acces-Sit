@@ -34,10 +34,10 @@
                         <button id="valide-time">Validez votre temps</button>
                     </div>
                     <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
-                    <div class="label-date">
-                        <label for="">Date de Planification</label>
-                        <input class="time" type="date" name="datePlanif">
-                    </div>
+                    {#<div class="label-date">#}
+                        {#<label for="">Date de Planification</label>#}
+                        {#<input class="time" type="date" name="datePlanif">#}
+                    {#</div>#}
                     <div class="label-date">
                         <label for="">Date de début</label>
                         <input class="time" type="date" name="dateStart">
@@ -59,12 +59,13 @@
                 </div>
             </form>
         </div>
-        <div class="planif-produits-comments">
-            <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
-        </div>
-        <form action="">
+        <form action="{{ path('set_plannificationtotal') }}">
+            <div class="planif-produits-comments">
+                <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
+            </div>
             <div class="planif-produits-validate button__subm-form">
                 <input class="subm" type="submit" value="Valider la planification">
+                <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
             </div>
         </form>
     </section>

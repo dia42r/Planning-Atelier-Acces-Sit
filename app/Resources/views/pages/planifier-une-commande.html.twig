@@ -32,8 +32,8 @@
                             <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td >{{ commande.customerName }}</td>
-                    <td>Non planifié</td>
+                    <td>{{ commande.customerName }}</td>
+                    <td>{{ commande.status }}</td>
                     <td>{{ commande.documentDate|date('d/m/y') }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
                     <td></td>

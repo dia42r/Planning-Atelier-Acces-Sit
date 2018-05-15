@@ -39,7 +39,7 @@ class SaleDocument
      * One SaleDocument has many SaleDocumentLines
      * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saledocument")
      */
-    private $saleDocumentLines;
+        private $saleDocumentLines;
 
     /**
      * Many SaleDocument have One Customer
@@ -101,7 +101,7 @@ class SaleDocument
      *
      * @ORM\Column(name="status", type="string", length=40, nullable=true)
      */
-    private $status;
+    private $status = 'Non planifié';
 
 
 
