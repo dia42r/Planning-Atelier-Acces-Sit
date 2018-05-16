@@ -75,7 +75,7 @@ class HomeController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ( $form->isSubmitted() && $form->isValid() ) {
 
             $form['Rechercher']->getData();
             return $this->redirectToRoute('search_result');
@@ -99,7 +99,6 @@ class HomeController extends Controller
             "pagination"=> $pagination,
             'form'      => $form
         ]);
-
     }
 
     /**
