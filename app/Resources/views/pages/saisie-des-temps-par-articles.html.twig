@@ -25,38 +25,30 @@
             </tr>
             </tbody>
         <form action="">
-        </table>
         <table class="table-2">
             <thead>
             <tr>
                 <th>Ateliers</th>
+                <td>Acteurs</td>
                 <th>Temps prévisionnel</th>
                 <th>Temps réalisé</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="trgrey">
-                <td>Dessin</td>
-                <td>1:00</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr class="trgrey">
-                <td>Garnissage</td>
-                <td>1:00</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr class="trgrey">
-                <td>Menuiserie</td>
-                <td>1:00</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr class="trgrey">
-                <td>Couture</td>
-                <td>1:00</td>
-                <td><input type="text"></td>
-            </tr>
+            {% for task in subtask %}
+                <tr class="trgrey">
+                    <td>{{ task.competences }}</td>
+                    <td>{{ task.actor.snapshot[0].name }}</td>
+                    <td>{{ task.timePlanif|date('H:i') }}</td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+            {% endfor %}
+
             <tr class="trgrey">
                 <td>Total</td>
+                <td></td>
                 <td></td>
                 <td>08:20</td>
             </tr>

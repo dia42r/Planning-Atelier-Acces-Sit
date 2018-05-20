@@ -38,7 +38,7 @@ class BatchCommand extends ContainerAwareCommand
             '====='
         ]);
 
-        if ($input->getArgument('sql') == 1) {
+        if ( $input->getArgument('sql') == 1 ) {
 
             $test = $this->getContainer()
                 ->get('doctrine.orm.customer_entity_manager')

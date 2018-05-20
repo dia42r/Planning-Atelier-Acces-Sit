@@ -10,4 +10,16 @@ namespace PlanningBundle\Repository\Main;
  */
 class SousPlanificationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllTasksBy($id)
+    {
+        $ben = $this->createQueryBuilder('g')
+//            ->addSelect('r.name as actor')
+            ->join('g.planif', 'p')
+            ->join('g.actor','r')
+            ->where('p.id = :id' )
+            ->setParameter('id', $id)
+            ->getQuery();
+
+       return $ben->getResult();
+    }
 }

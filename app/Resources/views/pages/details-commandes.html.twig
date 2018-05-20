@@ -17,6 +17,7 @@
                 <th>Quantité</th>
                 <th>Date départ atelier souhaiter</th>
                 <th>Action</th>
+                {#<td>Tâches</td>#}
                 <th>Statut</th>
                 <th>Fin de fabrication</th>
                 <th>Commentaire</th>
@@ -34,6 +35,11 @@
                             <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
+                    {#<td>#}
+                        {#<a href="{{ path('liste-taches', {'id': detail.id }) }}">#}
+                            {#<img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">#}
+                        {#</a>#}
+                    {#</td>#}
                     <td class="plan">{{ detail.status }}</td>
                     <td></td>
                     {#<td>{{ detail.planif.endDate|date }}</td>#}

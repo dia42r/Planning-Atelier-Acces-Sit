@@ -29,17 +29,15 @@ class SaleDocumentRepository extends EntityRepository
 
     public function findSaleDocCount($id)
     {
-        // Création d'une requete personnalisé Query Builder
-        $q = $this->createQueryBuilder("s") // Création d'un alias
-        ->Select("count(b)") // Selection des alias dont on a besoin
+        $q = $this->createQueryBuilder("s")
+        ->Select("count(b) as max")
         ->join("s.saleDocumentLines","b")
-            ->join("b.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
-
-            ->where("s.id = :docid") // En pointant vers la bonne donnée
+            ->join("b.item","i")
+            ->where("s.id = :docid")
             ->setParameter('docid',$id)
             ->getQuery();
 
-        return $q->getResult();
+        return $q->getResult()[0]['max'];
     }
 
 
@@ -47,15 +45,15 @@ class SaleDocumentRepository extends EntityRepository
     {
         // Création d'une requete personnalisé Query Builder
         $q = $this->createQueryBuilder("s") // Création d'un alias
-        ->Select("count(b)") // Selection des alias dont on a besoin
+        ->Select("count(b) as max") // Selection des alias dont on a besoin
         ->join("s.saleDocumentLines","b")
             ->join("b.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
 
             ->where("s.id = :docid") // En pointant vers la bonne donnée
-            ->andWhere("b.status = 'Planifier'") // En pointant vers la bonne donnée
+            ->andWhere("b.status = 'Planifié'") // En pointant vers la bonne donnée
             ->setParameter('docid',$id)
             ->getQuery();
 
-        return $q->getResult();
+        return $q->getResult()[0]['max'];
     }
 }

@@ -53,8 +53,8 @@ class SousPlanification
 
     /**
      * @var \PlanningBundle\Entity\Main\Actor
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor")
-     * @ORM\JoinColumn(name="actor_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", inversedBy="souplanif", fetch="EAGER")
+     * @ORM\JoinTable(name="sousplanification_actor")
      */
     private $actor;
 

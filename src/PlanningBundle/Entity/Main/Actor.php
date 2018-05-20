@@ -194,24 +194,22 @@ class Actor
      */
     private $competence;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\SousPlanification",mappedBy="actor")
+     * @ORM\JoinTable(name="sousplanification_actor")
+     */
+    private $souplanif;
+
+
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
+
+
 
     /**
-     * @return bool
-     */
-    public function isEnabled()
-    {
-        return $this->enabled;
-    }
-    /**
-     * @param bool $enabled
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-        return $this;
-    }
-    /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -219,8 +217,9 @@ class Actor
     {
         return $this->id;
     }
+
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -229,10 +228,12 @@ class Actor
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
+
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -240,6 +241,21 @@ class Actor
     {
         return $this->name;
     }
+
+    /**
+     * Set enabled.
+     *
+     * @param bool $enabled
+     *
+     * @return Actor
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
     /**
      * Get enabled.
      *
@@ -249,6 +265,7 @@ class Actor
     {
         return $this->enabled;
     }
+
     /**
      * Add competence.
      *
@@ -259,8 +276,10 @@ class Actor
     public function addCompetence(\PlanningBundle\Entity\Main\Competence $competence)
     {
         $this->competence[] = $competence;
+
         return $this;
     }
+
     /**
      * Remove competence.
      *
@@ -272,6 +291,7 @@ class Actor
     {
         return $this->competence->removeElement($competence);
     }
+
     /**
      * Get competence.
      *
@@ -281,29 +301,40 @@ class Actor
     {
         return $this->competence;
     }
+
     /**
-     * Set deg
+     * Add souplanif.
      *
-     * @param array $deg
+     * @param \PlanningBundle\Entity\Main\SousPlanification $souplanif
      *
      * @return Actor
      */
-    public function setDeg($deg)
+    public function addSouplanif(\PlanningBundle\Entity\Main\SousPlanification $souplanif)
     {
-        $this->deg = $deg;
+        $this->souplanif[] = $souplanif;
+
         return $this;
     }
+
     /**
-     * Get deg
+     * Remove souplanif.
      *
-     * @return array
+     * @param \PlanningBundle\Entity\Main\SousPlanification $souplanif
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function getDeg()
+    public function removeSouplanif(\PlanningBundle\Entity\Main\SousPlanification $souplanif)
     {
-        return $this->deg;
+        return $this->souplanif->removeElement($souplanif);
     }
-    public function __toString()
+
+    /**
+     * Get souplanif.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSouplanif()
     {
-        return (string) $this->name;
+        return $this->souplanif;
     }
 }

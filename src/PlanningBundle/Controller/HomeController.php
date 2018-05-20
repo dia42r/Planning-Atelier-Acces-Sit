@@ -130,8 +130,6 @@ class HomeController extends Controller
     }
 
 
-
-
     /**
      * @Route("/details/{id}", name="details-commandes")
      */
@@ -258,14 +256,26 @@ class HomeController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
 
+        $task = $this->getDoctrine()
+            ->getRepository(Planification::class)
+            ->findOneBy(['saleDocumentLine' => $id]);
+
+        $subtasks = $this->getDoctrine()
+            ->getRepository(SousPlanification::class)
+            ->findAllTasksBy($task->getId());
+
+//        dump($subtasks[0]->getActor()->getSnapshot()[0]->getName());
+//        die();
+
         return $this->render('pages/saisie-des-temps-par-articles.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
+            'subtask'              => $subtasks
         ]);
     }
 
 
     /**
-     * @Route("/planaction", name="set_plannification")
+     * @Route("/planaction", name="set_plannification")²
      */
     public function setPlanAction(Request $request)
     {
@@ -400,11 +410,18 @@ class HomeController extends Controller
         $saleDocument = $em->getRepository(SaleDocument::class)
             ->find($saleDocLine->getSaledocument()->getId());
 
+//        dump(($saleDoc == $saleDoc2 ));
+//        dump("-----------------");
+//        dump(($saleDoc ));
+//        dump("-----------------");
+//        dump(( $saleDoc2 ));
+//        die;
         if( $saleDoc == $saleDoc2 ) {
-            $saleDocument->setStatus('Planifié partiellement');
+            $saleDocument->setStatus('Planifié');
         }
         else {
-            $saleDocument->setStatus('Planifié');
+            $saleDocument->setStatus('Planifié partiellement');
+
         }
 
         $em->persist($saleDocument);
@@ -440,5 +457,24 @@ class HomeController extends Controller
 //        dump($hour);
 //        dump($skillId);
 //        die;
+    }
+
+
+    /**
+     * @Route("/saledocumentline-task/{id}", name="liste-taches")
+     */
+    public function TasksActions($id)
+    {
+        $task = $this->getDoctrine()
+            ->getRepository(Planification::class)
+            ->findOneBy(['saleDocumentLine' => $id]);
+
+        $subtasks = $this->getDoctrine()
+            ->getRepository(SousPlanification::class)
+            ->findAllTasksBy($task->getId());
+
+        dump($subtasks);
+        die;
+
     }
 }

@@ -28,7 +28,7 @@
                 <td >
                     {{ saisi.customerName }}
                 </td>
-                <td>Non planifié</td>
+                <td>{{ saisi.status }}</td>
                 <td>
                     {#{{ commande.documentDate|date('d/m/y') }}#}
                 </td>
@@ -36,9 +36,16 @@
                     {#{{ commande.documentWishDate|date('d/m/y') }}#}
                 </td>
                 <td>
+                    {% if saisi.status == 'Planifié' %}
+                        
                     <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
                         Saisir temps
                     </a>
+                        {% else %}
+                            <a href="#" style="background: #bbbbbb; cursor: default">
+                                Saisir temps
+                            </a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

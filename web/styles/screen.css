@@ -498,7 +498,7 @@ form .group label {
 }
 
 #section-details-commandes th:nth-child(1), th:nth-child(4) {
-    width: 20%;
+    width: 23%;
 }
 
 
@@ -577,9 +577,9 @@ form .group label {
     justify-content: space-between;
 }
 
-#planif-produits .tab_content_container-para {
+#planif-produits .tab_content_container-para, td {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 #planif-produits .tab_content__container-area {
@@ -698,9 +698,9 @@ form .group label {
 }
 
 #planif-produits .planif-produits-comments, .planif-produits-validate {
-display: flex;
-justify-content: flex-end;
-margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
 }
 
 #planif-produits .tab_content .label-date {
@@ -713,15 +713,15 @@ margin: 0 auto;
     width: 50%;
 }
 #planif-produits .planif-produits-validate {
-margin: 2% auto;
-display: flex;
-justify-content: flex-end;
+    margin: 2% auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #planif-produits #actor select {
-font-weight: bold;
-font-size: 20px;
-font-family: AppleGothic;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: AppleGothic;
 }
 
 
@@ -730,80 +730,80 @@ font-family: AppleGothic;
 /*=======================Main Planning Taches et Acteurs==============*/
 
 #mainselected {
-width: 80%;
-margin: 2% auto 10%;
-display: block;
-height: auto;
+    width: 80%;
+    margin: 2% auto 10%;
+    display: block;
+    height: auto;
 }
 
 #mainselected .sectionselected {
-display: flex;
-align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 #mainselected, #selectTask {
-margin: 0 0 14px;
-font-weight: 500;
-font-size: 20px;
-font-family: AppleGothic;
+    margin: 0 0 14px;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: AppleGothic;
 }
 
 #mainselected h2 {
-margin: 6% 5% 7%;
-width: 41%;
+    margin: 6% 5% 7%;
+    width: 41%;
 }
 
 #mainselected #calendar-holder {
-margin: 5% 10%;
+    margin: 5% 10%;
 }
 
 /*======================== Saisie Temps ===========*/
 
 #saisi-de-temps table td:last-child {
-height: 60px;
+    height: 60px;
 }
 
 #saisi-de-temps td:last-child a {
-border: 2px solid #000000;
-padding: 3%;
-background: red;
-color: #FFFFFF;
-box-shadow: 5px 5px 5px 2px #000000;
+    border: 2px solid #000000;
+    padding: 3%;
+    background: red;
+    color: #FFFFFF;
+    box-shadow: 5px 5px 5px 2px #000000;
 }
 
 #saisi-de-temps-par-articles .table-2 {
-width: 30%;
-margin: 3% 5%;
+    width: 30%;
+    margin: 3% 5%;
 }
 
 #saisi-de-temps-par-articles .table-2 input {
-border: 2px solid;
-width: 50%;
-height: 25px;
+    border: 2px solid;
+    width: 62%;
+    height: 25px;
 }
 
 /*======================Footer=======================*/
 
 footer {
-margin: 5% auto;
-width: 100%;
-height: 30px;
-font-weight: bold;
+    margin: 5% auto;
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
 }
 
 footer ul {
-display: flex;
-align-items: center;
-justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 footer ul li {
-text-transform: uppercase;
-font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
 }
 
 footer ul a {
-color: #c9046b;
+    color: #c9046b;
 }
 
 
