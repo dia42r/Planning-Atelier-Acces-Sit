@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "a4291f8afccd715c3974aaa58b8bc475",
@@ -1447,16 +1447,16 @@
         },
         {
             "name": "jms/serializer-bundle",
-            "version": "2.3.1",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "9dec7ab62248aa97f33cce70c301af15154f8f0b"
+                "reference": "507d2359857226b3188f6de96dae7e33584c1445"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/9dec7ab62248aa97f33cce70c301af15154f8f0b",
-                "reference": "9dec7ab62248aa97f33cce70c301af15154f8f0b",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/507d2359857226b3188f6de96dae7e33584c1445",
+                "reference": "507d2359857226b3188f6de96dae7e33584c1445",
                 "shasum": ""
             },
             "require": {
@@ -1483,7 +1483,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -1517,21 +1517,20 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-12-08T19:49:08+00:00"
+            "time": "2018-05-20T07:28:26+00:00"
         },
         {
             "name": "jrk/levenshtein-bundle",
-            "version": "1.0",
-            "target-dir": "Jrk/LevenshteinBundle",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jreziga/JrkLevenshteinBundle.git",
-                "reference": "0bb7592ef8a75b6c5ba5fb8033a0ef7496c0fa97"
+                "url": "https://github.com/jr-k/JrkLevenshteinBundle.git",
+                "reference": "be78d18e32a47e49d7fcfa223a1dd1e27ea90167"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jreziga/JrkLevenshteinBundle/zipball/0bb7592ef8a75b6c5ba5fb8033a0ef7496c0fa97",
-                "reference": "0bb7592ef8a75b6c5ba5fb8033a0ef7496c0fa97",
+                "url": "https://api.github.com/repos/jr-k/JrkLevenshteinBundle/zipball/be78d18e32a47e49d7fcfa223a1dd1e27ea90167",
+                "reference": "be78d18e32a47e49d7fcfa223a1dd1e27ea90167",
                 "shasum": ""
             },
             "require": {
@@ -1542,13 +1541,13 @@
             },
             "type": "symfony-bundle",
             "autoload": {
-                "psr-0": {
-                    "Jrk\\LevenshteinBundle": ""
+                "psr-4": {
+                    "Jrk\\LevenshteinBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GNU GPL v2"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1564,7 +1563,7 @@
                 "search",
                 "soundex"
             ],
-            "time": "2016-09-21T14:58:16+00:00"
+            "time": "2018-05-21T16:49:41+00:00"
         },
         {
             "name": "knplabs/knp-components",
@@ -1641,16 +1640,16 @@
         },
         {
             "name": "knplabs/knp-paginator-bundle",
-            "version": "v2.7.2",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "b94a409cf6507589a9697472909c0adaa0b76d06"
+                "reference": "f4ece5b347121b9fe13166264f197f90252d4bd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/b94a409cf6507589a9697472909c0adaa0b76d06",
-                "reference": "b94a409cf6507589a9697472909c0adaa0b76d06",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/f4ece5b347121b9fe13166264f197f90252d4bd2",
+                "reference": "f4ece5b347121b9fe13166264f197f90252d4bd2",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1698,7 @@
                 "paginator",
                 "symfony"
             ],
-            "time": "2018-01-30T08:43:41+00:00"
+            "time": "2018-05-16T12:15:58+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3777,16 +3776,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.4.9",
+            "version": "v3.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "7470518370113785f67a7fd8e6e1667661e88805"
+                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/7470518370113785f67a7fd8e6e1667661e88805",
-                "reference": "7470518370113785f67a7fd8e6e1667661e88805",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/63cdae00a75862fa543b765ba63d55f6b6397d0c",
+                "reference": "63cdae00a75862fa543b765ba63d55f6b6397d0c",
                 "shasum": ""
             },
             "require": {
@@ -3839,7 +3838,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-04-30T15:36:51+00:00"
+            "time": "2018-05-16T12:49:49+00:00"
         },
         {
             "name": "theofidry/alice-data-fixtures",
