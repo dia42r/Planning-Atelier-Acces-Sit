@@ -75,7 +75,7 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="status", type="string", length=30, nullable=true)
      */
-    private $status = "non planifié";
+    private $status = "Non planifié";
 
     /**
      * @var \PlanningBundle\Entity\Customer\Item

@@ -154,8 +154,8 @@ main h1 {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
     font-size: 40px;
     font-weight: bold;
-    margin: 10% auto;
-    width: 58%;
+    margin: 10% 0;
+    text-align: center;
 }
 
 /*========================Main Consulter le plannig==============*/

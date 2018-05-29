@@ -176,12 +176,14 @@ class Actor
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=30)
      */
     private $name;
+
     /**
      * @var boolean
      * @ORM\Column(type="boolean")
@@ -190,7 +192,7 @@ class Actor
 
     /**
      * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence",inversedBy="actor", cascade={"remove"})
-     * @ORM\JoinTable(name="actor_competence")
+     * @ORM\JoinTable(name="competence_actor")
      */
     private $competence;
 
@@ -200,23 +202,16 @@ class Actor
      */
     private $souplanif;
 
-
-    public function __toString()
-    {
-        return (string) $this->name;
-    }
-
-
-
     /**
      * Get id.
-     *
      * @return int
      */
     public function getId()
     {
         return $this->id;
     }
+
+
 
     /**
      * Set name.
@@ -337,4 +332,11 @@ class Actor
     {
         return $this->souplanif;
     }
+
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
+
+
 }
