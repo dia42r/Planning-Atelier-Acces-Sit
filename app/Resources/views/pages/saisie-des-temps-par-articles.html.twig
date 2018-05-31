@@ -24,38 +24,80 @@
                 <td>{{ saledocumentline.quantity }}</td>
             </tr>
             </tbody>
-        <form action="">
-        <table class="table-2">
-            <thead>
-            <tr>
-                <th>Ateliers</th>
-                <td>Acteurs</td>
-                <th>Temps prévisionnel</th>
-                <th>Temps réalisé</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for task in subtask %}
-                <tr class="trgrey">
-                    <td>{{ task.competences }}</td>
-                    <td>{{ task.actor.snapshot[0].name }}</td>
-                    <td>{{ task.timePlanif|date('H:i') }}</td>
-                    <td>
-                        <input type="text">
-                    </td>
-                </tr>
-            {% endfor %}
-
-            <tr class="trgrey">
-                <td>Total</td>
-                <td></td>
-                <td></td>
-                <td>08:20</td>
-            </tr>
-            </tbody>
         </table>
-        <input class="table-2-submit" type="submit">
+        <form action="{{ path('saisis-temps') }}">
+            <table class="table-2">
+                <thead>
+                <tr>
+                    <th>Ateliers</th>
+                    <td>Acteurs</td>
+                    <th>Temps prévisionnel</th>
+                    <th>Temps réalisé</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in subtask %}
+                    <tr class="trgrey">
+                        <td>{{ task.competences }}</td>
+                        <td>{{ task.actor.snapshot[0].name }}</td>
+                        <td>{{ task.timePlanif|date('H:i') }}</td>
+                        <td id="td-time" data-id="{{ task.id }}" >
+                            {% if task.timePrevis == null %}
+                                <input id="input-time" data-id="{{ task.id }}" type="time">
+                                <div style="color: red; cursor: pointer" id="button-time" data-id="{{ task.id }}">Valider</div>
+                            {% else %}
+                                {{ task.timePrevis|date("H:i") }}
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                <tr class="trgrey">
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" disabled value="00:00" ></td>
+                </tr>
+                </tbody>
+            </table>
+            <input class="table-2-submit" type="submit">
 
         </form>
     </section>
+
 {% endblock %}
+
+    {% block javascripts %}
+
+        <script type="text/javascript">
+
+            $(function () {
+
+                const $button = document.querySelectorAll('#button-time');
+
+                for(let i = 0 ; i < $button.length ; i++){
+
+                    $button[i].addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        let id     = this.getAttribute('data-id');
+                        let $input = document.querySelector("#input-time[data-id='"+id+"']");
+                        let $td    = document.querySelector("#td-time[data-id='"+id+"']");
+                        let time   = $input.value;
+
+                        $.ajax({
+                            url: "/time-valid/"+id,
+                            method: "POST",
+                            data:"time="+time
+                        }).done( function( datas ) {
+                            $td.innerHTML= datas;
+                        });
+                    })
+                }
+            })
+
+        </script>
+
+    {% endblock %}

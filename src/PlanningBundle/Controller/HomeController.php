@@ -91,24 +91,6 @@ class HomeController extends Controller
     }
 
 
-    /**
-     * @Route("/actor", name="get_actor")
-     * @return Response
-     */
-    public function getActorsAction()
-    {
-        $serializer = $this->container->get('jms_serializer');
-
-        $actors     = $this->getDoctrine()
-            ->getRepository(Actor::class)
-            ->findAll();
-
-        $data       = $serializer->serialize($actors, 'json');
-
-        return new Response($data);
-
-    }
-
 
     /**
      * @Route("/saledocumentline-task/{id}", name="liste-taches")
@@ -125,6 +107,23 @@ class HomeController extends Controller
 
         dump($subtasks);
         die;
+
+    }
+
+    /**
+     * @Route("/time-valid/{id}", name="temps-saisi")
+     */
+    public function TimeActions(Request $request, SousPlanification $sp)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $data = $request->request->get("time");
+        $data = new \DateTime("0000-00-00 ".$data.":00");
+        $sp->setTimePrevis($data);
+        $em->persist($sp);
+        $em->flush();
+
+       return new Response($data->format("H:i"));
+
 
     }
 }

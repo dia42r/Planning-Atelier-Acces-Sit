@@ -50,6 +50,13 @@ class SousPlanification
     private $endDate;
 
 
+    /**
+     * @var string
+     * @ORM\Column(name="time_previs", type="time")
+     */
+    private $timePrevis;
+
+
 
     /**
      * @var \PlanningBundle\Entity\Main\Actor
@@ -241,5 +248,29 @@ class SousPlanification
     public function getPlanif()
     {
         return $this->planif;
+    }
+
+    /**
+     * Set timePrevis.
+     *
+     * @param \DateTime $timePrevis
+     *
+     * @return SousPlanification
+     */
+    public function setTimePrevis($timePrevis)
+    {
+        $this->timePrevis = $timePrevis;
+
+        return $this;
+    }
+
+    /**
+     * Get timePrevis.
+     *
+     * @return \DateTime
+     */
+    public function getTimePrevis()
+    {
+        return $this->timePrevis;
     }
 }

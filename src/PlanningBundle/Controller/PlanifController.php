@@ -2,6 +2,7 @@
 
 namespace PlanningBundle\Controller;
 
+use function PHPSTORM_META\type;
 use PlanningBundle\Entity\Customer\SaleDocument;
 use PlanningBundle\Entity\Customer\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Actor;
@@ -12,6 +13,7 @@ use PlanningBundle\Entity\Main\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PlanifController extends Controller
 {
@@ -82,9 +84,6 @@ class PlanifController extends Controller
             'competences'          => $competences,
         ]);
     }
-
-
-
 
 
     /**
@@ -237,5 +236,26 @@ class PlanifController extends Controller
         return $this->redirectToRoute('details-commandes',[
             'id' => $saleDocLine->getDocumentid()
         ]);
+    }
+
+    /**
+     * @Route("/actor", name="get_actor")
+     * @return Response
+     */
+    public function getActorsAction()
+    {
+        $serializer = $this->container->get('jms_serializer');
+
+        $actors     = $this->getDoctrine()
+            ->getRepository(Actor::class)
+            ->findAll();
+
+//        dump(gettype($actors));
+//        die;
+        $data       = $serializer->serialize($actors, 'json');
+//        dump($data);
+//        die;
+
+        return new Response($data);
     }
 }

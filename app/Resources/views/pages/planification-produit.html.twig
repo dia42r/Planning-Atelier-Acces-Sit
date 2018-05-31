@@ -35,8 +35,8 @@
                     </div>
                     <input class="time" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
                     {#<div class="label-date">#}
-                        {#<label for="">Date de Planification</label>#}
-                        {#<input class="time" type="date" name="datePlanif">#}
+                    {#<label for="">Date de Planification</label>#}
+                    {#<input class="time" type="date" name="datePlanif">#}
                     {#</div>#}
                     <div class="label-date">
                         <label for="">Date de début</label>
@@ -72,8 +72,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script type="text/javascript">
 
@@ -82,10 +80,8 @@
             const $bb = document.getElementById('valide-time');
             const $actor = document.getElementById('actor');
             const $skill = document.querySelector('li.active');
-            //
+
             // console.log($skill.getAttribute("data-skill"));
-
-
             $bb.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -96,20 +92,20 @@
                 }).done( function( datas ) {
                     data = JSON.parse(datas);
                     const $selectActor = document.createElement("SELECT");
+                    console.log($selectActor);
                     $selectActor.setAttribute('name',"actor");
 
                     for ( let i = 0; i < data.length; i++ ) {
 
                         let $opt = document.createElement("OPTION");
                         $opt.setAttribute('value',data[i].id);
+
                         let t = document.createTextNode(data[i].name);
                         $opt.appendChild(t);
                         $selectActor.appendChild($opt)
                     }
-
                     $actor.appendChild($selectActor)
                     // Create a <p> element
-
                 });
             });
         })

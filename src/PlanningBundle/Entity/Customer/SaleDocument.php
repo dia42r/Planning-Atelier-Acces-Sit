@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * SaleDocument
- *
  * @ORM\Table(name="sale_document")
  * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentRepository")
  */
@@ -58,6 +57,13 @@ class SaleDocument
      * @ORM\Column(name="numberPrefix" , type="string" , length=20)
      */
     private $numberPrefix;
+
+
+    /**
+     *
+     * @ORM\Column(name="total_time", type="time")
+     */
+    private $totalTime;
 
     /**
      * @return mixed
@@ -301,5 +307,29 @@ class SaleDocument
         $this->customer = $customer;
 
         return $this;
+    }
+
+    /**
+     * Set totalTime.
+     *
+     * @param \DateTime $totalTime
+     *
+     * @return SaleDocument
+     */
+    public function setTotalTime($totalTime)
+    {
+        $this->totalTime = $totalTime;
+
+        return $this;
+    }
+
+    /**
+     * Get totalTime.
+     *
+     * @return \DateTime
+     */
+    public function getTotalTime()
+    {
+        return $this->totalTime;
     }
 }

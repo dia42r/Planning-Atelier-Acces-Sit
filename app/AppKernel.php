@@ -19,11 +19,10 @@ class AppKernel extends Kernel
             new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new SqlSrvBundle\SqlSrvBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Jrk\LevenshteinBundle\JrkLevenshteinBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

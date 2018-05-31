@@ -13,4 +13,3 @@ if ($("ul.tabs li")) {
     });
     $("ul.tabs li:first-child").trigger('click');
 }
-

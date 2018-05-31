@@ -198,7 +198,6 @@ class Actor
 
     /**
      * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\SousPlanification",mappedBy="actor")
-     * @ORM\JoinTable(name="sousplanification_actor")
      */
     private $souplanif;
 
