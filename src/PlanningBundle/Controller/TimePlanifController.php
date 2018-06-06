@@ -39,7 +39,7 @@ class TimePlanifController extends Controller
     /**
      * @Route("/saisis-des-temps/{id}", name="saisie-temps-detail")
      */
-    public function saisieTempsDetails($id)
+    public function saisieTempsDetails($id, Request $request)
     {
         $art = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
@@ -49,17 +49,37 @@ class TimePlanifController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
 
-        return $this->render('pages/saisi-temps-details.html.twig', [
+        if ( $request->isMethod("POST" )) {
+
+            $count = count($request->request);
+
+            for ($i=1; $i <= $count; $i++) {
+
+               $total[] = $request->request->get("total".$i);
+            }
+
+            $this->addFlash(
+                'notice',
+                'Your changes were saved!'
+            );
+
+          return $this->redirectToRoute('saisis-temps');
+
+//            $art->setTotalTime();
+        }
+            return $this->render('pages/saisi-temps-details.html.twig', [
             'details' => $details,
             'art' => $art
         ]);
+
+
     }
 
 
     /**
      * @Route("/saisie-des-temps-articles/{id}", name="saisie-temps-articles")
      */
-    public function saisiTempsArticles($id)
+    public function saisiTempsArticles($id, Request $request)
     {
         $saledocumentline = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
@@ -73,9 +93,28 @@ class TimePlanifController extends Controller
             ->getRepository(SousPlanification::class)
             ->findAllTasksBy($task->getId());
 
+
+
+        if ( $request->isMethod("POST" )) {
+
+            $em = $this->getDoctrine()->getManager();
+            $total = $request->request->get('total');
+
+            $total = new \DateTime("0000-01-00 ".$total);
+            $saledocumentline[0]->setTotalTime($total);
+
+            $em->persist($saledocumentline[0]);
+            $em->flush();
+
+            return $this->redirectToRoute('saisie-temps-detail', [
+                "id" => $saledocumentline[0]->getDocumentid()
+            ]);
+
+        }
+
         return $this->render('pages/saisie-des-temps-par-articles.html.twig', [
             'saledocumentline'     => $saledocumentline[0],
-            'subtask'              => $subtasks
+            'subtask'              => $subtasks,
         ]);
     }
 }

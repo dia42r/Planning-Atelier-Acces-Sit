@@ -1,5 +1,6 @@
 {% extends "base.html.twig" %}
 {% block body %}
+    <!--suppress ALL -->
     <section id="saisi-de-temps-details">
         <div class="details-button-h2">
             <h2>saisie temps pour la :
@@ -9,29 +10,61 @@
                 <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
             </form>
         </div>
-        <table>
-            <thead> <!-- En-tête du tableau -->
-            <tr>
-                <th>Réference article</th>
-                <th>Description article</th>
-                <th>Quantité</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody> <!-- Corps du tableau -->
-            {% for detail in details %}
-                <tr class="trgrey">
-                    <td class="tbodytd">{{ detail.item.id }}</td>
-                    <td>{{ detail.description}}</td>
-                    <td>{{ detail.quantity|number_format }}</td>
-                    <td>
-                        <a href="{{ path('saisie-temps-articles', {'id': detail.id}) }}">
-                            <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
-                        </a>
-                    </td>
+        <form action="" method="post">
+            <table>
+                <thead> <!-- En-tête du tableau -->
+                <tr>
+                    <th>Réference article</th>
+                    <th>Description article</th>
+                    <th>Quantité</th>
+                    <th>Action</th>
+                    <th>Total temps</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody> <!-- Corps du tableau -->
+                {% for detail in details %}
+                    <tr class="trgrey">
+                        <td class="tbodytd">{{ detail.item.id }}</td>
+                        <td>{{ detail.description}}</td>
+                        <td>{{ detail.quantity|number_format }}</td>
+                        <td>
+                            <a href="{{ path('saisie-temps-articles', {'id': detail.id}) }}">
+                                <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
+                            </a>
+                        </td>
+                        {% if detail.totalTime is not null %}
+                            <td>{{ detail.totalTime|date('H:i') }}</td>
+                            <input class="total" type="hidden" value="{{ detail.totalTime|date('H:i') }}" name="total{{ loop.index }}">
+
+                        {% else %}
+                            <td>Non-défini</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+            <span>
+             <input id="table-submit" class="table-2-submit validetotal" type="submit">
+            </span>
+
+        </form>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script type="text/javascript">
+        const saleNumber = {{ details|length }};
+        const $totalinput = document.querySelectorAll('.total');
+        const $submit =  document.querySelector('.validetotal');
+        // console.log($totalinput);
+        // console.log(saleNumber);
+
+        if(saleNumber == $totalinput.length) {
+            $submit.style.visibility = 'visible';
+        }
+    </script>
+
 {% endblock %}

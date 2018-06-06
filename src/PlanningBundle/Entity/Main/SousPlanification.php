@@ -52,7 +52,7 @@ class SousPlanification
 
     /**
      * @var string
-     * @ORM\Column(name="time_previs", type="time")
+     * @ORM\Column(name="time_previs", type="time", nullable=true)
      */
     private $timePrevis;
 

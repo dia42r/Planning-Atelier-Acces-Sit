@@ -18,7 +18,7 @@
 
         <div class="detail_container">
             <ul class="tabs">
-                {% for competence  in competences %}
+                {% for competence in competences %}
                     <li rel="tab" data-skill="{{ competence.id }}">{{ competence.name }}</li>
                 {% endfor %}
             </ul>
@@ -59,6 +59,7 @@
                 </div>
             </form>
         </div>
+
         <form action="{{ path('set_plannificationtotal') }}">
             <div class="planif-produits-comments">
                 <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
@@ -76,6 +77,8 @@
     <script type="text/javascript">
 
         $(function () {
+
+            alert('La tache {{ competences[8] }} vient d\'être sauvegardée');
 
             const $bb = document.getElementById('valide-time');
             const $actor = document.getElementById('actor');

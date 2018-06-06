@@ -105,6 +105,14 @@ class SaleDocumentLine
     private $planif;
 
 
+    /**
+     *
+     * @ORM\Column(name="total_time", type="time", nullable=true)
+     */
+    private $totalTime;
+
+
+
 
     /**
      * Get id.
@@ -388,5 +396,29 @@ class SaleDocumentLine
     public function getPlanif()
     {
         return $this->planif;
+    }
+
+    /**
+     * Set totalTime.
+     *
+     * @param \DateTime|null $totalTime
+     *
+     * @return SaleDocumentLine
+     */
+    public function setTotalTime($totalTime = null)
+    {
+        $this->totalTime = $totalTime;
+
+        return $this;
+    }
+
+    /**
+     * Get totalTime.
+     *
+     * @return \DateTime|null
+     */
+    public function getTotalTime()
+    {
+        return $this->totalTime;
     }
 }

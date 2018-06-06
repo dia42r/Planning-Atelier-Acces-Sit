@@ -10,4 +10,13 @@ namespace PlanningBundle\Repository;
  */
 class ActorRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findActor()
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("a") // Création d'un alias
+        ->select("a.name, a.id") // Selection des alias dont on a besoin
+        ->getQuery();
+
+        return $q->getResult();
+    }
 }

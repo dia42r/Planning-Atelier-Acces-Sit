@@ -248,7 +248,7 @@ class PlanifController extends Controller
 
         $actors     = $this->getDoctrine()
             ->getRepository(Actor::class)
-            ->findAll();
+            ->findActor();
 
 //        dump(gettype($actors));
 //        die;

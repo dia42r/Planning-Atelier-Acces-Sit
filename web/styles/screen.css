@@ -424,7 +424,7 @@ form .group label {
 }
 
 #section-details-commandes .edit-img {
-    width: 60%;
+    width: 45%;
 }
 
 
@@ -465,6 +465,7 @@ form .group label {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 95%;
 }
 
 #section-details-commandes .button-page, .button-val, #saisi-de-temps-details .button-page, #saisi-de-temps-par-articles .button-page {
@@ -491,11 +492,12 @@ form .group label {
 #section-details-commandes .valid {
     display: flex;
     justify-content: flex-end;
+    width: 95%;
 }
 
-#section-details-commandes form , #saisi-de-temps-details form, #saisi-de-temps-par-articles form{
-    margin-right: 5%;
-}
+/*#section-details-commandes form , #saisi-de-temps-details form, #saisi-de-temps-par-articles form{*/
+/*margin-right: 5%;*/
+/*}*/
 
 #section-details-commandes th:nth-child(1), th:nth-child(4) {
     width: 23%;
@@ -529,7 +531,8 @@ form .group label {
 
 #planif-produits .tabs {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
+
 }
 
 #planif-produits .tabs li {
@@ -667,6 +670,10 @@ form .group label {
     margin: 2% 15% 8%;
 }
 
+#table-submit {
+    visibility: hidden;
+}
+
 #planif-produits .span-item-sale {
     display: flex;
     justify-content: space-between;
@@ -782,6 +789,20 @@ form .group label {
     height: 25px;
 }
 
+#saisi-de-temps-par-articles #totale {
+    border: 2px solid;
+    width: 62%;
+    height: 29px;
+}
+
+#saisi-de-temps-details > form > span {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#saisi-de-temps-details > form > table > tbody > tr > td:nth-child(4) > a > img {
+    width: 8%;
+}
 /*======================Footer=======================*/
 
 footer {
@@ -808,6 +829,15 @@ footer ul a {
 
 
 
+
+.alert-top {
+    top:50px;
+    width:100%;
+    display:none;
+    text-align: center;
+    margin-bottom: 0;
+    padding:10px;
+}
 
 
 

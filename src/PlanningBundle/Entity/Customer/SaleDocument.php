@@ -61,7 +61,7 @@ class SaleDocument
 
     /**
      *
-     * @ORM\Column(name="total_time", type="time")
+     * @ORM\Column(name="total_time", type="time", nullable=true)
      */
     private $totalTime;
 

@@ -18,33 +18,36 @@
             </thead>
             <tbody> <!-- Corps du tableau -->
             {% for saisi in pagination %}
-            <tr class="trgrey">
-                <td>
-                    {{ saisi.documentNumber }}
-                </td>
-                <td >
-                    {{ saisi.customerName }}
-                </td>
-                <td>{{ saisi.status }}</td>
-                <td>
-                    {#{{ commande.documentDate|date('d/m/y') }}#}
-                </td>
-                <td>
-                    {#{{ commande.documentWishDate|date('d/m/y') }}#}
-                </td>
-                <td>
-                    {% if saisi.status == 'Planifié' %}
-                        
-                    <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
-                        Saisir temps
-                    </a>
+                <tr class="trgrey">
+                    <td>
+                        {{ saisi.documentNumber }}
+                    </td>
+                    <td >
+                        {{ saisi.customerName }}
+                    </td>
+                    <td>{{ saisi.status }}</td>
+                    <td>
+                        {#{{ commande.documentDate|date('d/m/y') }}#}
+                    </td>
+                    <td>
+                        {#{{ commande.documentWishDate|date('d/m/y') }}#}
+                    </td>
+                    <td>
+                        {% if saisi.totalTime == null %}
+                            {% if saisi.status == 'Planifié' %}
+                                <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
+                                    Saisir temps {{ saisi.totalTime }}
+                                </a>
+                            {% else %}
+                                <a href="#" style="background: #bbbbbb; cursor: default">
+                                    Saisir temps {{ saisi.totalTime }}
+                                </a>
+                            {% endif %}
                         {% else %}
-                            <a href="#" style="background: #bbbbbb; cursor: default">
-                                Saisir temps
-                            </a>
-                    {% endif %}
-                </td>
-            </tr>
+                            {{ saisi.totalTime }}
+                        {% endif %}
+                    </td>
+                </tr>
             {% endfor %}
             </tbody>
         </table>
