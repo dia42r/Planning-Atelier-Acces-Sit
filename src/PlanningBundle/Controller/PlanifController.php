@@ -88,6 +88,7 @@ class PlanifController extends Controller
 
     /**
      * @Route("/planaction", name="set_plannification")²
+     * @throws \Doctrine\ORM\ORMException
      */
     public function setPlanAction(Request $request)
     {
@@ -157,6 +158,11 @@ class PlanifController extends Controller
 //
         $em->persist($sousPlanif);
         $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'Your changes were saved!'.$skill->getName()
+        );
 
         return $this->redirectToRoute('planification-produits',[
             'id' => $saleDocLineid

@@ -50,24 +50,30 @@ class TimePlanifController extends Controller
             ->findDoc($id);
 
         if ( $request->isMethod("POST" )) {
-
+            $em = $this->getDoctrine()->getManager();
             $count = count($request->request);
+            $total = 0;
 
             for ($i=1; $i <= $count; $i++) {
 
-               $total[] = $request->request->get("total".$i);
+                $time = $request->request->get("total".$i);
+                $date = new \DateTime("0000-01-01 ".$time);
+                $hour = $date->format('H');
+                $minute = $date->format('i');
+
+                $total += $this->second($hour,$minute);
+
             }
+            $total = new \DateTime("0000-01-01 ".$this->temp($total));
+            $art->setTotalTime($total);
+            $em->persist($art);
+            $em->flush();
 
-            $this->addFlash(
-                'notice',
-                'Your changes were saved!'
-            );
-
-          return $this->redirectToRoute('saisis-temps');
+            return $this->redirectToRoute('saisis-temps');
 
 //            $art->setTotalTime();
         }
-            return $this->render('pages/saisi-temps-details.html.twig', [
+        return $this->render('pages/saisi-temps-details.html.twig', [
             'details' => $details,
             'art' => $art
         ]);
@@ -106,6 +112,7 @@ class TimePlanifController extends Controller
             $em->persist($saledocumentline[0]);
             $em->flush();
 
+
             return $this->redirectToRoute('saisie-temps-detail', [
                 "id" => $saledocumentline[0]->getDocumentid()
             ]);
@@ -116,5 +123,26 @@ class TimePlanifController extends Controller
             'saledocumentline'     => $saledocumentline[0],
             'subtask'              => $subtasks,
         ]);
+    }
+
+    public function second($hour, $minutes) {
+
+        $hour = intval($hour);
+        $minutes = intval($minutes);
+        $seconde = null;
+        return $seconde = ($hour * 3600)+($minutes * 60);
+    }
+
+    public function temp($second) {
+
+        $seconds = intval($second); // don't forget the second param
+        $hours   = floor($seconds / 3600);
+        $minutes = floor(($seconds - ($hours * 3600)) / 60);
+        $seconds = $seconds - ($hours * 3600) - ($minutes * 60);
+
+        if ($hours   < 10) {$hours   = "0".($hours);} else {$hours   = $hours;}
+        if ($minutes < 10) {$minutes = "0".$minutes;}
+        $time    = $hours.':'.$minutes;
+        return $time;
     }
 }

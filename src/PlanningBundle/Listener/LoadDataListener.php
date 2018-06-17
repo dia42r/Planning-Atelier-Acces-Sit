@@ -6,7 +6,7 @@ namespace PlanningBundle\Listener;
 
 use AncaRebeca\FullCalendarBundle\Event\CalendarEvent;
 use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;
-use PlanningBundle\Entity\CalendarEvent as MyCustomEvent;
+use PlanningBundle\Entity\Main\CalendarEvents as MyCustomEvent;
 
 class LoadDataListener
 {
@@ -24,7 +24,7 @@ class LoadDataListener
         //You may want do a custom query to populate the events
 
         $calendarEvent->addEvent(new MyCustomEvent('Event Title 1', new \DateTime()));
-        $calendarEvent->addEvent(new MyCustomEvent('Event Title 2', new \DateTime()));
+//        $calendarEvent->addEvent(new MyCustomEvent('Event Title 2', new \DateTime()));
 
     }
 }

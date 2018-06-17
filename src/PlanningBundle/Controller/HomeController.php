@@ -73,7 +73,6 @@ class HomeController extends Controller
         $commandes = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
             ->findBy([],['documentNumber' => 'desc']);
-//            ->findSafeDoc();
 
         $paginator = $this->get('knp_paginator');
 
@@ -123,7 +122,6 @@ class HomeController extends Controller
         $em->flush();
 
        return new Response($data->format("H:i"));
-
 
     }
 }

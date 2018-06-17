@@ -36,15 +36,17 @@
                         {% if saisi.totalTime == null %}
                             {% if saisi.status == 'Planifié' %}
                                 <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
-                                    Saisir temps {{ saisi.totalTime }}
+                                    Saisir temps
                                 </a>
                             {% else %}
                                 <a href="#" style="background: #bbbbbb; cursor: default">
-                                    Saisir temps {{ saisi.totalTime }}
+                                    Saisir temps
                                 </a>
                             {% endif %}
                         {% else %}
-                            {{ saisi.totalTime }}
+                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765">
+                                Voir les temps enregistrées
+                            </a>
                         {% endif %}
                     </td>
                 </tr>

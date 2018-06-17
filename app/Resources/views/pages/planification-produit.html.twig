@@ -3,6 +3,11 @@
     <section id="planif-produits">
         <div class="entete">
             <h2>planifier un produit</h2>
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <form class="entete__form">
                 <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
             </form>
@@ -78,8 +83,6 @@
 
         $(function () {
 
-            alert('La tache {{ competences[8] }} vient d\'être sauvegardée');
-
             const $bb = document.getElementById('valide-time');
             const $actor = document.getElementById('actor');
             const $skill = document.querySelector('li.active');
@@ -107,7 +110,7 @@
                         $opt.appendChild(t);
                         $selectActor.appendChild($opt)
                     }
-                    $actor.appendChild($selectActor)
+                    $actor.appendChild($selectActor);
                     // Create a <p> element
                 });
             });

@@ -47,6 +47,7 @@
                                 <div style="color: red; cursor: pointer" id="button-time" data-id="{{ task.id }}">Valider</div>
                             {% else %}
                                 {{ task.timePrevis|date("H:i") }}
+                                <input id="input-timehidden" class="input-time" data-id="{{ task.id }}" type="hidden" value="{{ task.timePrevis|date("H:i") }}">
                             {% endif %}
 
                         </td>
@@ -56,12 +57,12 @@
                 <tr class="trgrey">
                     <td>Total</td>
                     <td></td>
-                    <td></td>
+                    <td>A calculer</td>
                     {% if saledocumentline.totalTime is not null %}
-                    <td><input id="totale" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale"></td>
+                        <td><input id="totale" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale"></td>
                     {% else %}
-                    <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale"></td>
-                    <input id="total" type="hidden"  value="00:00" name="total">
+                        <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale"></td>
+                        <input id="total" type="hidden"  value="00:00" name="total">
                     {% endif %}
                 </tr>
                 </tbody>
@@ -82,10 +83,39 @@
 
                 const $button       = document.querySelectorAll('#button-time');
                 const $input_time   = document.querySelectorAll(".input-time");
+                const $input_timehidden   = document.querySelectorAll("#input-timehidden");
                 var   count_time    = $input_time.length;
                 const $table_submit = document.querySelector("#table-submit");
                 var   $inputTotal1  = document.querySelector("#total1");
                 var   $inputTotal   = document.querySelector("#total");
+                var $tdtime  = document.querySelectorAll("#td-time");
+
+
+
+                for( let i = 0 ; i < $input_timehidden.length ; i++ ) {
+                    let total      = $inputTotal1.value;
+                    let data = 0;
+                    d1  = new Date("2000-01-01T"+total+":00Z");
+                    if ($tdtime[i].contains($input_timehidden[i])) {
+
+                        data = $input_timehidden[i].value;
+                        d  = new Date("2000-01-01T"+data+":00Z");
+                        dh  = d.getHours();
+                        dm  = d.getMinutes();
+                        d1h = d1.getHours();
+                        d1m = d1.getMinutes();
+                        ds  = second(dh,dm);
+                        ds1 = second(d1h,d1m);
+                        ds  = ds + ds1;
+                        dt  = temp(ds);
+                        $inputTotal.value = dt;
+                        $inputTotal1.value = dt;
+                        count_time--;
+                        if ( count_time === 0 ) {
+                            $table_submit.style.visibility = "visible"
+                        }
+                    }
+                }
 
                 for( let i = 0 ; i < $button.length ; i++ ) {
 
@@ -105,22 +135,17 @@
                             method: "POST",
                             data:"time="+time
                         }).done( function( datas ) {
-                            d = new Date("2000-01-01T"+datas+":00Z");
-                            d1 = new Date("2000-01-01T"+total+":00Z");
-                            dh = d.getHours();
-                            dm = d.getMinutes();
+                            d   = new Date("2000-01-01T"+datas+":00Z");
+                            d1  = new Date("2000-01-01T"+total+":00Z");
+                            dh  = d.getHours();
+                            dm  = d.getMinutes();
                             d1h = d1.getHours();
                             d1m = d1.getMinutes();
-                            ds = second(dh,dm);
+                            ds  = second(dh,dm);
                             ds1 = second(d1h,d1m);
-                            ds = ds + ds1;
-                            dt = temp(ds);
-                            // // d2 = new Date(d2);
-                            console.log(datas);
-                            console.log(dt);
-                            // console.log(dt);
+                            ds  = ds + ds1;
+                            dt  = temp(ds);
                             $td.innerHTML= datas;
-                            // $td_total.innerHTML= dt;
                             $inputTotal.value = dt;
                             $inputTotal1.value = dt;
                             count_time--;
@@ -133,8 +158,6 @@
 
                 $inputTotal1.addEventListener('change', function () {
 
-                    console.log(count_time);
-                    console.log("1");
                     if ( count_time === 0 ) {
                         $table_submit.style.visibility = "visible"
                     }
@@ -142,8 +165,6 @@
 
                 $inputTotal.addEventListener('change', function () {
 
-                    console.log(count_time);
-                    console.log("0");
                     if ( count_time === 0 ) {
                         $table_submit.style.visibility = "visible"
                     }
@@ -158,7 +179,7 @@
                     hour = parseInt(hour);
                     minutes = parseInt(minutes);
                     let seconde = null;
-                   return seconde = (hour * 3600)+(minutes * 60);
+                    return seconde = (hour * 3600)+(minutes * 60);
                 }
 
                 function temp(second) {
@@ -167,8 +188,8 @@
                     var hours   = Math.floor(seconds / 3600);
                     var minutes = Math.floor((seconds - (hours * 3600)) / 60);
                     var seconds = seconds - (hours * 3600) - (minutes * 60);
-
-                    if (hours   < 10) {hours   = "0"+(hours -2);}else {hours   = hours-2;}
+                    hours -= 2;
+                    if (hours   < 10) {hours   = "0"+(hours)}
                     if (minutes < 10) {minutes = "0"+minutes;}
                     // if (seconds < 10) {seconds = "0"+seconds;}
                     var time    = hours+':'+minutes;

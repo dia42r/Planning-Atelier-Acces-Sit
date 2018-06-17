@@ -47,7 +47,6 @@ services:
 
     planning.entity.calendar_event:
         class: PlanningBundle\Listener\LoadDataListener
-#        arguments: ['mois'    , new \]
         tags:
                 - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: 'loadData' }
 

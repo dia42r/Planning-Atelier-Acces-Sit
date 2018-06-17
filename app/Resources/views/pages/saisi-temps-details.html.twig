@@ -35,13 +35,24 @@
                         {% if detail.totalTime is not null %}
                             <td>{{ detail.totalTime|date('H:i') }}</td>
                             <input class="total" type="hidden" value="{{ detail.totalTime|date('H:i') }}" name="total{{ loop.index }}">
-
                         {% else %}
                             <td>Non-défini</td>
                         {% endif %}
                     </tr>
                 {% endfor %}
 
+
+                <tr class="tr-total">
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    {% if art.totalTime is not null %}
+                        <td>{{ art.totalTime|date('H:i') }}</td>
+                    {% else %}
+                        <td class="totalnondef">Non-défini</td>
+                    {% endif %}
+                </tr>
                 </tbody>
             </table>
 
@@ -56,14 +67,19 @@
 {% block javascripts %}
 
     <script type="text/javascript">
+
         const saleNumber = {{ details|length }};
         const $totalinput = document.querySelectorAll('.total');
         const $submit =  document.querySelector('.validetotal');
-        // console.log($totalinput);
-        // console.log(saleNumber);
+        const $totalnondef =  document.querySelector('.totalnondef');
+        const $trtotal =  document.querySelector('.tr-total');
 
         if(saleNumber == $totalinput.length) {
             $submit.style.visibility = 'visible';
+        }
+
+        if(!$trtotal.contains($totalnondef)){
+            $submit.style.visibility = 'hidden';
         }
     </script>
 
