@@ -140,7 +140,7 @@ class TimePlanifController extends Controller
         $minutes = floor(($seconds - ($hours * 3600)) / 60);
         $seconds = $seconds - ($hours * 3600) - ($minutes * 60);
 
-        if ($hours   < 10) {$hours   = "0".($hours);} else {$hours   = $hours;}
+        $hours = $hours < 10 ? "0" . ($hours) : $hours;
         if ($minutes < 10) {$minutes = "0".$minutes;}
         $time    = $hours.':'.$minutes;
         return $time;

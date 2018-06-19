@@ -161,7 +161,7 @@ class PlanifController extends Controller
 
         $this->addFlash(
             'notice',
-            'Your changes were saved!'.$skill->getName()
+            'Féliciations ! '.'La tâche '.$skill->getName().' a bien était enregistrée'
         );
 
         return $this->redirectToRoute('planification-produits',[
@@ -173,6 +173,7 @@ class PlanifController extends Controller
 
     /**
      * @Route("/plantotalaction", name="set_plannificationtotal")
+     * @throws \Doctrine\ORM\ORMException
      */
     public function setPlanTotalAction(Request $request)
     {

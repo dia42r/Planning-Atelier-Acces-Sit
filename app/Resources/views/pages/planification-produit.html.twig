@@ -5,6 +5,7 @@
             <h2>planifier un produit</h2>
             {% for message in app.flashes('notice') %}
                 <div class="flash-notice">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                     {{ message }}
                 </div>
             {% endfor %}
@@ -91,14 +92,12 @@
             $bb.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                // console.log("ok");
                 $.ajax({
                     url: "{{ app.request.getSchemeAndHttpHost() ~ path('get_actor') }}",
                     method: "GET",
                 }).done( function( datas ) {
                     data = JSON.parse(datas);
                     const $selectActor = document.createElement("SELECT");
-                    console.log($selectActor);
                     $selectActor.setAttribute('name',"actor");
 
                     for ( let i = 0; i < data.length; i++ ) {

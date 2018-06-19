@@ -731,6 +731,36 @@ form .group label {
     font-family: AppleGothic;
 }
 
+/* The alert message box */
+.flash-notice {
+    padding: 14px;
+    background-color: #008000;
+    color: white;
+    margin-right: 60px;
+    text-align: center;
+    width: 75%;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+
 
 
 
@@ -776,6 +806,16 @@ form .group label {
     background: red;
     color: #FFFFFF;
     box-shadow: 5px 5px 5px 2px #000000;
+}
+
+#saisi-de-temps td:last-child p {
+    border: 2px solid #000000;
+    padding: 4%;
+    box-shadow: 5px 5px 5px 2px #000000;
+    color: #FFFFFF;
+    width: 100px;
+    margin: 0 auto;
+    cursor: default;
 }
 
 #saisi-de-temps-par-articles .table-2 {
@@ -826,6 +866,8 @@ footer ul li {
 footer ul a {
     color: #c9046b;
 }
+
+
 
 
 

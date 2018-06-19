@@ -11,9 +11,11 @@ use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\HttpFoundation\Response;
+use PlanningBundle\Entity\Main\CalendarEvents as MyCustomEvent;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,14 @@ class HomeController extends Controller
         return $this->render('pages/page-accueil.html.twig');
     }
 
+    /**
+     * @Route("/test", name="premiere-page")
+     */
+    public function indextestAction()
+    {
+//        $ob = new MyCustomEvent('Event Title 1', new \DateTime());
+        return new Response('[{id: "1", resourceId: "b", start: "2018-04-07T02:00:00", end: "2018-04-07T07:00:00", title: "event 1"}]');
+    }
 
     /**
      * @Route("/search", name="search_result")

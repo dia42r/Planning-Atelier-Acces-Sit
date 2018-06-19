@@ -39,9 +39,9 @@
                                     Saisir temps
                                 </a>
                             {% else %}
-                                <a href="#" style="background: #bbbbbb; cursor: default">
-                                    Saisir temps
-                                </a>
+                                {#<a href="#" style="background: #bbbbbb; cursor: default">#}
+                                    <p>Saisir temps</p>
+                                {#</a>#}
                             {% endif %}
                         {% else %}
                             <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765">

@@ -26,5 +26,6 @@ class LoadDataListener
         $calendarEvent->addEvent(new MyCustomEvent('Event Title 1', new \DateTime()));
 //        $calendarEvent->addEvent(new MyCustomEvent('Event Title 2', new \DateTime()));
 
+
     }
 }

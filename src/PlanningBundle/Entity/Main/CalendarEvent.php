@@ -8,11 +8,11 @@ use AncaRebeca\FullCalendarBundle\Model\FullCalendarEvent;
 use Doctrine\ORM\Mapping as ORM;
 
 
-///**
-// * Calend
-// *
-// * @ORM\Table(name="calendar_event")
-// * @ORM\Entity(repositoryClass="PlanningBundle\Repository\CalendarEventRepository")
+/**
+ * Calend
+ *
+ * @ORM\Table(name="calendar_event")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\CalendarEventRepository")
 // */
 class CalendarEvent extends FullCalendarEvent
 {
@@ -41,6 +41,6 @@ class CalendarEvent extends FullCalendarEvent
      */
     public function toArray()
     {
-
+        return $this->title;
     }
 }
