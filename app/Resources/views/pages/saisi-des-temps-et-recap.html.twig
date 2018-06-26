@@ -39,12 +39,10 @@
                                     Saisir temps
                                 </a>
                             {% else %}
-                                {#<a href="#" style="background: #bbbbbb; cursor: default">#}
-                                    <p>Saisir temps</p>
-                                {#</a>#}
+                                <p>Saisir temps</p>
                             {% endif %}
                         {% else %}
-                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765">
+                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765; padding: 4%; font-size: 9px">
                                 Voir les temps enregistrées
                             </a>
                         {% endif %}

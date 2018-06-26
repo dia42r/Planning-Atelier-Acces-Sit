@@ -153,10 +153,17 @@ class Competence
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", mappedBy="competence", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", mappedBy="competence",)
      * @ORM\JoinTable(name="competence_actor")
      */
     private $actor;
+
+    /**
+     * @ORM\Column(type="integer",unique=true, nullable=false )
+     */
+    private $position;
+
+
 
     /**
      * Get id.
@@ -229,5 +236,22 @@ class Competence
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param mixed $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+        return $this;
     }
 }

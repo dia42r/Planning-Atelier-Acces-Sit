@@ -27,14 +27,14 @@ class HomeController extends Controller
         return $this->render('pages/page-accueil.html.twig');
     }
 
-    /**
-     * @Route("/test", name="premiere-page")
-     */
-    public function indextestAction()
-    {
-//        $ob = new MyCustomEvent('Event Title 1', new \DateTime());
-        return new Response('[{id: "1", resourceId: "b", start: "2018-04-07T02:00:00", end: "2018-04-07T07:00:00", title: "event 1"}]');
-    }
+//    /**
+//     * @Route("/test", name="premiere-page")
+//     */
+//    public function indextestAction()
+//    {
+////        $ob = new MyCustomEvent('Event Title 1', new \DateTime());
+//        return new Response('[{id: "1", resourceId: "b", start: "2018-04-07T02:00:00", end: "2018-04-07T07:00:00", title: "event 1"}]');
+//    }
 
     /**
      * @Route("/search", name="search_result")

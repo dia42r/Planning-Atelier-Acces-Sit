@@ -8,12 +8,13 @@ easy_admin:
                 fields:
                     - name
                     - actor
+                    - position
             form:
                 fields:
                     - { type: 'group' , label: 'Information', css_class: 'col-sm-6', icon: 'user' }
                     - name
-                    - { type: 'group', label: 'Actor', css_class: 'col-sm-6', icon: 'user-plus' }
-                    - actor
+                    - { type: 'group', label: 'Position', css_class: 'col-sm-6', icon: 'position' }
+                    - position
 
             new:
                 title:  'Ajouter une nouvelle Compétence'
@@ -22,11 +23,11 @@ easy_admin:
             edit:
                 title:  "Modifier la Compétence"
                 fileds:
-                    - actor
+                    - position
                 form_options: { validation_groups: ['Default', 'Competence'] }
 
             show:
                 title: "Compétence"
                 fields:
-                    - actor
+                    - position
 

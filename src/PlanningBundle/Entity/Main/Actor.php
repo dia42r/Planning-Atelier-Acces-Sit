@@ -191,7 +191,7 @@ class Actor
     private $enabled;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence",inversedBy="actor", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence",inversedBy="actor")
      * @ORM\JoinTable(name="competence_actor")
      */
     private $competence;

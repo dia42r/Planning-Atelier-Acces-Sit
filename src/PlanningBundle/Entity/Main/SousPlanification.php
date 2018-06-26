@@ -57,7 +57,6 @@ class SousPlanification
     private $timePrevis;
 
 
-
     /**
      * @var \PlanningBundle\Entity\Main\Actor
      * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", inversedBy="souplanif", fetch="EAGER")
@@ -267,10 +266,15 @@ class SousPlanification
     /**
      * Get timePrevis.
      *
-     * @return \DateTime
+     * @return string
      */
     public function getTimePrevis()
     {
         return $this->timePrevis;
+    }
+
+    public function __toString()
+    {
+        return $this->getCompetences();
     }
 }

@@ -77,7 +77,7 @@ class PlanifController extends Controller
 
         $competences = $this->getDoctrine()
             ->getRepository(Competence::class)
-            ->findAll();
+            ->findBy([],['position'=>'ASC']);
 
         return $this->render('pages/planification-produit.html.twig', [
             'saledocumentline'     => $saledocumentline[0],

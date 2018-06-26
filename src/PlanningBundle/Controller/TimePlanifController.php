@@ -87,6 +87,7 @@ class TimePlanifController extends Controller
      */
     public function saisiTempsArticles($id, Request $request)
     {
+        $totalTime = 0;
         $saledocumentline = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
@@ -99,7 +100,12 @@ class TimePlanifController extends Controller
             ->getRepository(SousPlanification::class)
             ->findAllTasksBy($task->getId());
 
-
+        foreach ($subtasks as $subtask){
+            $h = $subtask->getTimePlanif()->format('H');
+            $m = $subtask->getTimePlanif()->format('i');
+            $totalTime += $this->second($h,$m);
+        }
+        $totalTime = $this->temp($totalTime);
 
         if ( $request->isMethod("POST" )) {
 
@@ -120,8 +126,9 @@ class TimePlanifController extends Controller
         }
 
         return $this->render('pages/saisie-des-temps-par-articles.html.twig', [
-            'saledocumentline'     => $saledocumentline[0],
-            'subtask'              => $subtasks,
+            'saledocumentline'      => $saledocumentline[0],
+            'subtask'               => $subtasks,
+            'totalPrev'             => $totalTime
         ]);
     }
 
@@ -129,7 +136,6 @@ class TimePlanifController extends Controller
 
         $hour = intval($hour);
         $minutes = intval($minutes);
-        $seconde = null;
         return $seconde = ($hour * 3600)+($minutes * 60);
     }
 
@@ -138,7 +144,6 @@ class TimePlanifController extends Controller
         $seconds = intval($second); // don't forget the second param
         $hours   = floor($seconds / 3600);
         $minutes = floor(($seconds - ($hours * 3600)) / 60);
-        $seconds = $seconds - ($hours * 3600) - ($minutes * 60);
 
         $hours = $hours < 10 ? "0" . ($hours) : $hours;
         if ($minutes < 10) {$minutes = "0".$minutes;}
