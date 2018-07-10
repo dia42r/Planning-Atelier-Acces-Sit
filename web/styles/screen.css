@@ -3,27 +3,25 @@
 
 *,
 *:before,
-*:after
-{
+*:after {
     box-sizing: border-box;
 }
+
 .clearfix:before,
-.clearfix:after
-{
+.clearfix:after {
     content: " ";
     display: table;
 }
 
-.clearfix:after
-{
+.clearfix:after {
     clear: both;
 }
 
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
+
 /*==========================HEADER===========================*/
 body {
     font-family: 'Open Sans', sans-serif;
@@ -31,7 +29,7 @@ body {
 
 h2 {
     font-size: 20px;
-    font-family: AppleGothic;
+    font-family: AppleGothic, sans-serif;
     font-weight: bold;
     width: 45%;
     margin: 5%;
@@ -52,6 +50,7 @@ table {
     border-collapse: collapse;
     width: 90%;
 }
+
 a {
     text-decoration: none;
 }
@@ -81,30 +80,26 @@ header img.acces {
     margin-top: 0;
 }
 
-
 nav {
     background-color: #c9046b;
     margin: 2% auto;
     width: 100%;
-    display: block;
     height: auto;
 }
 
-
 nav .uls {
-    display: flex;
     text-align: center;
     border: 1px solid #000000;
     box-shadow: 10px 5px 5px black;
+    width: 100%;
+    display: flex;
 }
-
 
 nav .uls li {
     text-transform: uppercase;
     font-weight: 800;
     font-size: 16px;
     padding: 10px;
-    cursor: pointer;
     position: relative;
     border-right: 1px solid #000000;
     width: 100%;
@@ -123,7 +118,9 @@ nav ul li.lis {
 }
 
 nav ul li a {
-    color: #ffffff;
+    padding: 10px 163px;
+    cursor: pointer;
+    color: #000000;
 }
 
 nav .uls ul {
@@ -166,7 +163,6 @@ main h1 {
     height: auto;
 }
 
-
 /*======================Main Connexion===========*/
 
 #main {
@@ -188,24 +184,22 @@ main h1 {
     margin: 10% 0 12%;
 }
 
-
 #main .group {
-    position:relative;
-    margin-bottom:45px;
+    position: relative;
+    margin-bottom: 45px;
 }
 
 #main input {
-    font-size:18px;
-    padding:10px 10px 10px 5px;
-    display:block;
-    width:300px;
-    border:none;
-    border-bottom:1px solid #777777;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    /*display: block;*/
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #777777;
 }
 
-
 #main form input:focus {
-    outline:none;
+    outline: none;
 }
 
 /*#main .checkpass #rounded {*/
@@ -218,62 +212,62 @@ main h1 {
 }
 
 form .group label {
-    color:#777777;
-    font-size:18px;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:5px;
-    top:10px;
-    transition:0.2s ease all;
+    color: #777777;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
 }
 
 #main form input:focus ~ label, input:valid ~ label {
-    top:-20px;
-    font-size:14px;
-    color:#c9046b;
+    top: -20px;
+    font-size: 14px;
+    color: #c9046b;
 }
 
 #main .bar {
-    position:relative;
-    display:block;
-    width:300px;
+    position: relative;
+    display: block;
+    width: 300px;
 }
 
 #main .bar:before, .bar:after {
-    content:'';
-    height:2px;
-    width:0;
-    bottom:1px;
-    position:absolute;
-    background:#c9046b;
-    transition:0.2s ease all;
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #c9046b;
+    transition: 0.2s ease all;
 }
 
 #main .bar:before {
-    left:50%;
+    left: 50%;
 }
 
 #main .bar:after {
-    right:50%;
+    right: 50%;
 }
 
 #main form input:focus ~ .bar:before, input:focus ~ .bar:after {
-    width:50%;
+    width: 50%;
 }
 
 #main .highlight {
-    position:absolute;
-    height:60%;
-    width:100px;
-    top:25%;
-    left:0;
-    pointer-events:none;
-    opacity:0.5;
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 #main form input:focus ~ .highlight {
-    animation:inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
 }
 
 [data-wipe] {
@@ -328,13 +322,11 @@ form .group label {
     transition: 0s 0.8s ease-in-out;
 }
 
-
 /*========================Main Planification Commande========================*/
 
 #main-planification-commande, #section-details-commandes {
     width: 100%;
 }
-
 
 #main-planification-commande .ebp2, .table-2-submit {
     cursor: pointer;
@@ -348,7 +340,7 @@ form .group label {
     border: none;
     border-radius: 6px;
     box-shadow: 0 5px #999;
-    background: #c9046b ;
+    background: #c9046b;
     text-transform: uppercase;
     margin-right: 5%;
 }
@@ -359,17 +351,14 @@ form .group label {
     transform: translateY(4px);
 }
 
-
 #main-planification-commande .ebp2 a {
     color: #ffffff;
     padding: 10% 0 10%;
 }
 
-
 #main-planification-commande .checkpass {
     width: 20%;
 }
-
 
 #main-planification-commande .edit-img {
     width: 12%;
@@ -377,8 +366,7 @@ form .group label {
     margin: 0 2%;
 }
 
-
-#main-planification-commande .trgrey, #section-details-commandes .trgrey, #saisi-de-temps .trgrey, #saisi-de-temps-details .trgrey, #saisi-de-temps-par-articles .trgrey,  #saisi-de-temps-par-articles .trgrey {
+#main-planification-commande .trgrey, #section-details-commandes .trgrey, #saisi-de-temps .trgrey, #saisi-de-temps-details .trgrey, #saisi-de-temps-par-articles .trgrey, #saisi-de-temps-par-articles .trgrey {
     background: #aaaaaaa6;
 }
 
@@ -418,15 +406,13 @@ form .group label {
     border-bottom-right-radius: 5px;
 }
 
-
-#main-planification-commande .nav-pag, .list-pag , #saisi-de-temps .nav-pag {
+#main-planification-commande .nav-pag, .list-pag, #saisi-de-temps .nav-pag {
     text-align: right;
 }
 
 #section-details-commandes .edit-img {
     width: 45%;
 }
-
 
 #main-planification-commande .customer-name {
     width: 0;
@@ -438,11 +424,6 @@ form .group label {
     background: #faf2cc;
 
 }
-
-
-
-
-
 
 /*===================Detail-commandes========================*/
 #section-details-commandes .plan {
@@ -479,7 +460,7 @@ form .group label {
     border: none;
     border-radius: 6px;
     box-shadow: 0 5px #999;
-    background: #c9046b ;
+    background: #c9046b;
     text-transform: uppercase;
 }
 
@@ -500,9 +481,8 @@ form .group label {
 /*}*/
 
 #section-details-commandes th:nth-child(1), th:nth-child(4) {
-    width: 23%;
+    width: 10%;
 }
-
 
 /*========================= Planif Produits ============================*/
 
@@ -528,7 +508,6 @@ form .group label {
     font-weight: bold;
 }
 
-
 #planif-produits .tabs {
     display: flex;
     /*align-items: center;*/
@@ -538,11 +517,10 @@ form .group label {
 #planif-produits .tabs li {
     margin: 0;
     width: 100%;
-    cursor: pointer;
     line-height: 31px;
     border-left: 1px solid #333;
-    background-color: #c9046b;
-    color: #ffffff;
+    background: #aaaaaaa6;
+    color: #333;
     position: relative;
     font-size: 10px;
     text-align: center;
@@ -552,14 +530,16 @@ form .group label {
     border-left: none;
 }
 
-#planif-produits .tabs li:hover {
-    background-color: #aaaaaaa6;
-    color: #333;
-}
+/*#planif-produits .tabs li:hover {*/
+    /*background-color: #aaaaaaa6;*/
+    /*color: #333;*/
+/*}*/
 
 #planif-produits .tabs li.active {
-    background-color: #fff;
-    color: #333;
+    /*background-color: #fff;*/
+    /*color: #333;*/
+    background-color: #C9046B;
+    color: #ffffff;
     display: block;
 }
 
@@ -594,7 +574,6 @@ form .group label {
 #planif-produits .planif-produits-comments textarea {
     font-size: 16px;
 }
-
 
 #planif-produits #valide-time {
     height: 22px;
@@ -637,10 +616,14 @@ form .group label {
     font-weight: bold;
 }
 
-#planif-produits .button__subm-form .tab__content_label {
-    margin-left: 6px;
+
+#planif-produits .tab__content_label label {
     text-transform: uppercase;
     font-weight: bold;
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: center;
+    color: #c9046b;
 }
 
 #planif-produits .tab__content_label input {
@@ -693,7 +676,7 @@ form .group label {
     color: #fff;
     border-radius: 6px;
     box-shadow: 0 5px #999;
-    background: #c9046b ;
+    background: #c9046b;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -719,6 +702,7 @@ form .group label {
     align-items: center;
     width: 50%;
 }
+
 #planif-produits .planif-produits-validate {
     margin: 2% auto;
     display: flex;
@@ -728,19 +712,19 @@ form .group label {
 #planif-produits #actor select {
     font-weight: bold;
     font-size: 20px;
-    font-family: AppleGothic;
+    font-family: AppleGothic, sans-serif;
 }
 
 /* The alert message box */
 .flash-notice {
-    padding: 14px;
+    text-align: center;
+    padding: 9px;
     background-color: #008000;
     color: white;
-    margin-right: 60px;
-    text-align: center;
-    width: 75%;
-    font-size: 14px;
-    border-radius: 8px;
+    margin-right: 105px;
+    width: 73%;
+    font-size: 13px;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 /* The close button */
@@ -760,16 +744,12 @@ form .group label {
     color: black;
 }
 
-
-
-
-
 /*=======================Main Planning Taches et Acteurs==============*/
 
 #mainselected {
     width: 80%;
     margin: 2% auto 10%;
-    display: block;
+    /*display: block;*/
     height: auto;
 }
 
@@ -782,12 +762,12 @@ form .group label {
     margin: 0 0 14px;
     font-weight: 500;
     font-size: 20px;
-    font-family: AppleGothic;
+    font-family: AppleGothic, sans-serif;
 }
 
 #mainselected h2 {
     margin: 6% 5% 7%;
-    width: 41%;
+    width: 45%;
 }
 
 #mainselected #calendar-holder {
@@ -843,12 +823,12 @@ form .group label {
 #saisi-de-temps-details > form > table > tbody > tr > td:nth-child(4) > a > img {
     width: 8%;
 }
+
 /*======================Footer=======================*/
 
 footer {
     margin: 5% auto;
     width: 100%;
-    height: 30px;
     font-weight: bold;
 }
 
@@ -868,6 +848,9 @@ footer ul a {
 }
 
 
+#planif-produits .tabs li{
+
+}
 
 
 

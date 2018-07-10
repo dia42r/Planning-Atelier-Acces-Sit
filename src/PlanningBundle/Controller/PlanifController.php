@@ -265,4 +265,23 @@ class PlanifController extends Controller
 
         return new Response($data);
     }
+
+    /**
+     * @Route("/ajax-date-fabric-end", name="ajax_date end fabric")
+     *
+     */
+    public function ajaxDateFabricAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $id = $request->request->get('id');
+        $dateNow = new \DateTime('now');
+        $saledocument = $em->getRepository(SaleDocument::class)
+            ->findOneBy(['documentNumber'=>$id]);
+
+        $saledocument->setDocumentEndDateFabric($dateNow);
+        $saledocument->setCatEnd(true);
+        $em->persist($saledocument);
+        $em->flush();
+
+        return new Response([],['status'=> 200]);
+    }
 }

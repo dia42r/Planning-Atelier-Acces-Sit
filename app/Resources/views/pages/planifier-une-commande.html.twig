@@ -20,7 +20,8 @@
                 <th>Statut</th>
                 <th>Enregistré le</th>
                 <th>Date départ atelier souhaiter</th>
-                <th>Date validée</th>
+                <th>Date de fin de fabrication planifiée</th>
+                <th>Date de fin de fabrication réelle</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
@@ -36,7 +37,14 @@
                     <td>{{ commande.status }}</td>
                     <td>{{ commande.documentDate|date('d/m/y') }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
-                    <td></td>
+                    <td>10/11/2018</td>
+                    <td>
+                        {% if commande.documentEndDateFabric is not null %}
+                            {{ commande.documentEndDateFabric|date('d/m/y') }}
+                        {% else %}
+                            Non defini
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

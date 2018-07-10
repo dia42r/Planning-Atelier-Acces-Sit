@@ -66,6 +66,12 @@ class SaleDocument
     private $totalTime;
 
     /**
+     *
+     * @ORM\Column(name="catEnd", type="boolean", nullable=false)
+     */
+    private $catEnd = false;
+
+    /**
      * @return mixed
      */
     public function getNumberPrefix()
@@ -92,15 +98,13 @@ class SaleDocument
 
     /**
      * @param mixed $customerName
+     * @return SaleDocument
      */
     public function setCustomerName($customerName)
     {
         $this->customerName = $customerName;
         return $this;
     }
-
-
-
 
     /**
      * @var string
@@ -118,6 +122,13 @@ class SaleDocument
      */
     private $documentWishDate;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="documentEndDateFabric", type="date", nullable=true)
+     */
+    private $documentEndDateFabric;
+
 
     /**
      * @return string
@@ -129,6 +140,7 @@ class SaleDocument
 
     /**
      * @param string $documentValidDate
+     * @return SaleDocument
      */
     public function setDocumentValidDate($documentValidDate)
     {
@@ -153,6 +165,7 @@ class SaleDocument
 
     /**
      * @param string $documentWishDate
+     * @return SaleDocument
      */
     public function setDocumentWishDate($documentWishDate)
     {
@@ -170,6 +183,7 @@ class SaleDocument
 
     /**
      * @param string $status
+     * @return SaleDocument
      */
     public function setStatus($status)
     {
@@ -207,6 +221,7 @@ class SaleDocument
 
     /**
      * @param int $id
+     * @return SaleDocument
      */
     public function setId($id)
     {
@@ -309,6 +324,8 @@ class SaleDocument
         return $this;
     }
 
+
+
     /**
      * Set totalTime.
      *
@@ -331,5 +348,49 @@ class SaleDocument
     public function getTotalTime()
     {
         return $this->totalTime;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDocumentEndDateFabric()
+    {
+        return $this->documentEndDateFabric;
+    }
+
+    /**
+     * @param string $documentEndDateFabric
+     * @return SaleDocument
+     */
+    public function setDocumentEndDateFabric( $documentEndDateFabric)
+    {
+        $this->documentEndDateFabric = $documentEndDateFabric;
+        return $this;
+    }
+
+
+
+    /**
+     * Set catEnd.
+     *
+     * @param bool $catEnd
+     *
+     * @return SaleDocument
+     */
+    public function setCatEnd($catEnd)
+    {
+        $this->catEnd = $catEnd;
+
+        return $this;
+    }
+
+    /**
+     * Get catEnd.
+     *
+     * @return bool
+     */
+    public function getCatEnd()
+    {
+        return $this->catEnd;
     }
 }

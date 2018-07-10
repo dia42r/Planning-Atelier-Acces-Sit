@@ -29,10 +29,17 @@
                     <td>
                         {#{{ commande.documentDate|date('d/m/y') }}#}
                     </td>
-                    <td>
-                        {#{{ commande.documentWishDate|date('d/m/y') }}#}
+                    <td id="catEnd">
+                        {% if saisi.catEnd %}
+                            &#10004
+                        {% else %}
+                            <input type="checkbox" class="cat-enf" data-id = "{{ saisi.documentNumber }}">
+                        {% endif %}
                     </td>
-                    <td>
+
+                    <td class="saisi-totaltime" data-id = "{{ saisi.documentNumber }}" data-saisi-totaltime = {% if saisi.totalTime == null %}0{% else %}1{% endif %}
+                    >
+
                         {% if saisi.totalTime == null %}
                             {% if saisi.status == 'Planifié' %}
                                 <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
@@ -42,7 +49,7 @@
                                 <p>Saisir temps</p>
                             {% endif %}
                         {% else %}
-                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765; padding: 4%; font-size: 9px">
+                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765; font-size: 9px">
                                 Voir les temps enregistrées
                             </a>
                         {% endif %}
@@ -55,5 +62,45 @@
             {{ knp_pagination_render(pagination) }}
         </div>
     </main>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            const $catEnd = document.querySelectorAll('.cat-enf');
+
+            for (let i = 0; i < $catEnd.length; i++) {
+
+                $catEnd[i].addEventListener('click', function () {
+                    let data_id = this.getAttribute('data-id');
+                    let $saisi_totaltime = document.querySelector(".saisi-totaltime[data-id='" + data_id + "']");
+                    console.log($saisi_totaltime);
+                    if (this.checked) {
+                        if (parseInt($saisi_totaltime.getAttribute('data-saisi-totaltime'))) {
+                            if (confirm("Voulez vous valider l'action")) {
+                                this.checked = true;
+                                $.ajax({
+                                    url:"{{ path('ajax_date end fabric') }}",
+                                    method:'POST',
+                                    data:{id: data_id}
+                                })
+                                    .done(function (result) {
+                                        const $atEnd = document.querySelector('#catEnd');
+                                        $catEnd.innerHTML = '&#10004';
+                                    })
+                            } else {
+                                this.checked = false
+                            }
+                        } else {
+                            swal("La saisie des temps n'est pas complète");
+                            this.checked = false
+
+                        }
+                    }
+                })
+            }
+        })
+    </script>
 {% endblock %}
 

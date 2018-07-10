@@ -44,7 +44,7 @@
                         <td>{{ task.timePlanif|date('H:i') }}</td>
                         <td id="td-time" data-id="{{ task.id }}" >
                             {% if task.timePrevis == null %}
-                                <input id="input-time" class="input-time" data-id="{{ task.id }}" type="time">
+                                <input id="input-time" class="input-time" data-id="{{ task.id }}" type="time" title="">
                                 <div style="color: red; cursor: pointer" id="button-time" data-id="{{ task.id }}">Valider</div>
                             {% else %}
                                 {{ task.timePrevis|date("H:i") }}
@@ -60,9 +60,9 @@
                     <td></td>
                     <td>{{ totalPrev }}</td>
                     {% if saledocumentline.totalTime is not null %}
-                        <td><input id="totale" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale"></td>
+                        <td><input id="totale" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale" title=""></td>
                     {% else %}
-                        <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale"></td>
+                        <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale" title=""></td>
                         <input id="total" type="hidden"  value="00:00" name="total">
                     {% endif %}
                 </tr>

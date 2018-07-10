@@ -30,4 +30,5 @@ easy_admin:
                 title: "Compétence"
                 fields:
                     - position
+                    - actor
 
