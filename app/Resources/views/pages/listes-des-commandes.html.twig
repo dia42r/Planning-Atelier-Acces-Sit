@@ -32,10 +32,16 @@
                         {{ commande.documentNumber }}
                     </td>
                     <td class="customer-name">{{ commande.customerName }}</td>
-                    <td>Non planifié</td>
+                    <td>{{ commande.status }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
                     <td></td>
-                    <td></td>
+                    <td>
+                        {% if commande.documentEndDateFabric is not null %}
+                            {{ commande.documentEndDateFabric|date('d/m/y') }}
+                        {% else %}
+                            Non-défini
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

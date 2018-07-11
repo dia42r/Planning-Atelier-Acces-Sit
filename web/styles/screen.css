@@ -776,6 +776,8 @@ form .group label {
 
 /*======================== Saisie Temps ===========*/
 
+
+
 #saisi-de-temps table td:last-child {
     height: 60px;
 }
@@ -815,13 +817,17 @@ form .group label {
     height: 29px;
 }
 
+#saisi-de-temps-par-articles #td-time {
+    width: 20%;
+}
+
 #saisi-de-temps-details > form > span {
     display: flex;
     justify-content: flex-end;
 }
 
 #saisi-de-temps-details > form > table > tbody > tr > td:nth-child(4) > a > img {
-    width: 8%;
+    width: 18%;
 }
 
 /*======================Footer=======================*/
@@ -846,13 +852,6 @@ footer ul li {
 footer ul a {
     color: #c9046b;
 }
-
-
-#planif-produits .tabs li{
-
-}
-
-
 
 
 
