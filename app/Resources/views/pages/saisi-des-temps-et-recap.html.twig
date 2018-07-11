@@ -27,7 +27,11 @@
                     </td>
                     <td>{{ saisi.status }}</td>
                     <td>
-                        {#{{ commande.documentDate|date('d/m/y') }}#}
+                        {% if saisi.documentEndDateFabric is not null %}
+                            {{ saisi.documentEndDateFabric|date('d/m/y') }}
+                        {% else %}
+                            Non-défini
+                        {% endif %}
                     </td>
                     <td id="catEnd">
                         {% if saisi.catEnd %}
@@ -78,7 +82,24 @@
                     console.log($saisi_totaltime);
                     if (this.checked) {
                         if (parseInt($saisi_totaltime.getAttribute('data-saisi-totaltime'))) {
-                            if (confirm("Voulez vous valider l'action")) {
+                            if (swal({
+                                title: "Voulez-vous valider votre CAT ?",
+                                text: "En validant vous ne pourrez revenir en arrière !",
+                                icon: "warning",
+                                buttons: true,
+                                dangerMode: true,
+                            })
+                                .then((add) => {
+                                    if (add) {
+                                        swal("Votre CAT a bien était validée", {
+                                            icon: "success",
+                                            buttons: ["Annuler", true],
+                                        });
+                                    } else {
+                                        swal("L'enregistrement a était annulé");
+                                    }
+                                })
+                        ) {
                                 this.checked = true;
                                 $.ajax({
                                     url:"{{ path('ajax_date end fabric') }}",
@@ -93,7 +114,10 @@
                                 this.checked = false
                             }
                         } else {
-                            swal("La saisie des temps n'est pas complète");
+                            swal({
+                                title : "La saisie des temps n'est pas complète",
+
+                            });
                             this.checked = false
 
                         }
