@@ -81,6 +81,7 @@ class SaleDocument
 
     /**
      * @param mixed $numberPrefix
+     * @return SaleDocument
      */
     public function setNumberPrefix($numberPrefix)
     {

@@ -27,14 +27,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
 h2 {
     font-size: 20px;
     font-family: AppleGothic, sans-serif;
     font-weight: bold;
-    width: 45%;
-    margin: 5%;
     text-transform: uppercase;
 }
+
 
 th, td {
     text-align: center;
@@ -49,6 +49,11 @@ table {
     margin: 3% auto 5%;
     border-collapse: collapse;
     width: 90%;
+}
+
+tbody {
+    background: rgba(170, 170, 170, 0.42);
+
 }
 
 a {
@@ -113,8 +118,12 @@ nav .uls li:nth-child(3) {
 nav ul li.lis {
     border: 1px solid #000000;
     text-transform: none;
-    background: #aaaaaaa6;
+    background: rgba(170, 170, 170, 0.42);
     font-size: 12px;
+}
+
+nav ul li.lis a:hover {
+    text-decoration: none;
 }
 
 nav ul li a {
@@ -328,7 +337,7 @@ form .group label {
     width: 100%;
 }
 
-#main-planification-commande .ebp2, .table-2-submit {
+#main-planification-commande .ebp2 {
     cursor: pointer;
     margin-left: 5%;
     padding: 7px;
@@ -366,14 +375,38 @@ form .group label {
     margin: 0 2%;
 }
 
-#main-planification-commande .trgrey, #section-details-commandes .trgrey, #saisi-de-temps .trgrey, #saisi-de-temps-details .trgrey, #saisi-de-temps-par-articles .trgrey, #saisi-de-temps-par-articles .trgrey {
-    background: #aaaaaaa6;
-}
-
 #main-planification-commande .planif-button-h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 90%;
+    margin: 5% auto;
+}
+
+#main-planification-commande .img-event {
+    width: 3%;
+    cursor: pointer;
+    margin-left: 55%;
+}
+
+#mainselected .planif-button-h2, #saisi-de-temps .planif-button-h2 {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 25px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5% auto;
+    width: 90%;
+}
+
+#saisi-de-temps-details .planif-button-h2, #saisi-de-temps-par-articles .planif-button-h2 {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 25px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5% auto;
+    width: 90%;
 }
 
 .navigation {
@@ -433,7 +466,7 @@ form .group label {
 #section-details-commandes p {
     margin: 0 10%;
     font-size: 20px;
-    font-family: AppleGothic;
+    font-family: AppleGothic, sans-serif;
     font-weight: 500;
 }
 
@@ -491,11 +524,11 @@ form .group label {
 }
 
 #planif-produits .entete {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    /* align-items: center; */
     justify-content: space-between;
     margin: 0 auto;
-
 }
 
 #planif-produits .entete h2 {
@@ -509,38 +542,32 @@ form .group label {
 }
 
 #planif-produits .tabs {
-    display: flex;
-    /*align-items: center;*/
-
+    display: grid;
+    grid-auto-flow: column;
 }
 
 #planif-produits .tabs li {
     margin: 0;
     width: 100%;
-    line-height: 31px;
+    line-height: 50px;
     border-left: 1px solid #333;
-    background: #aaaaaaa6;
     color: #333;
     position: relative;
-    font-size: 10px;
+    font-size: 13px;
     text-align: center;
+    cursor: default;
+
 }
 
 #planif-produits .tabs li:first-child {
     border-left: none;
 }
 
-/*#planif-produits .tabs li:hover {*/
-    /*background-color: #aaaaaaa6;*/
-    /*color: #333;*/
-/*}*/
-
 #planif-produits .tabs li.active {
-    /*background-color: #fff;*/
-    /*color: #333;*/
     background-color: #C9046B;
     color: #ffffff;
     display: block;
+    cursor: -webkit-grab;
 }
 
 #planif-produits .tab_container {
@@ -555,8 +582,8 @@ form .group label {
 }
 
 #planif-produits .tab_content_container {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: space-between;
 }
 
@@ -575,27 +602,65 @@ form .group label {
     font-size: 16px;
 }
 
-#planif-produits #valide-time {
-    height: 22px;
-    padding: 0 11px;
-    box-shadow: 5px 5px 8px 1px;
+#planif-produits #valide-time, #section-details-commandes #valide-time, #main-planification-commande #valide-time, #saisi-de-temps-details #valide-time, #saisi-de-temps-par-articles #valide-time {
+    /* height: 35px; */
+    /* width: auto; */
     cursor: pointer;
-    margin-left: 10px;
-    font-weight: bold;
-    font-size: 10px;
+    /* font-weight: bold; */
+    border-radius: 2px;
+    font-size: 13px;
+    border: none;
 }
+
+/* ALL BUTTONS */
+
+#planif-produits .buttonn, #section-details-commandes .buttonn, #main-planification-commande .buttonn, #saisi-de-temps-details .buttonn, #saisi-de-temps-par-articles .buttonn {
+    cursor: pointer;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 2px;
+    position: relative;
+    color: #000000;
+    display: flow-root;
+    border: 1px solid;
+}
+
+
+/* BUTTON 8 */
+
+#planif-produits #button-8, #section-details-commandes #button-8, #main-planification-commande #button-8, #saisi-de-temps-details #button-8, #saisi-de-temps-par-articles #button-8{
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#planif-produits #button-8:hover, #section-details-commandes #button-8:hover, #main-planification-commande #button-8:hover, #saisi-de-temps-details #button-8:hover, #saisi-de-temps-par-articles #button-8:hover{
+    -webkit-box-shadow: 0 0 10px #34495e;
+    box-shadow: 0 0 10px #34495e;
+}
+
 
 #planif-produits .time:nth-last-child(3) {
     margin-left: 14.9em;
 }
 
-#planif-produits .time {
-    margin-left: 1%;
-    font-size: 12px;
+#tab > form > div.tab_content_container.tabo > div.tab__content-time > div > input.time {
+    border-radius: 2px;
+    height: 35px;
+    font-size: 18px;
+    border: 1px solid;
 }
 
-#planif-produits .time, #valide-time, textarea, .tab_content, .tabs {
+#planif-produits .time, textarea, .tab_content, .tabs {
     border: 2px solid;
+}
+
+#planif-produits .container__submit {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 10px;
+
 }
 
 #planif-produits .button__subm-form {
@@ -605,15 +670,14 @@ form .group label {
 }
 
 #planif-produits .button__subm-form .subm {
-    padding: 5px;
-    font-size: 10px;
     cursor: pointer;
-    color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 5px #999;
-    background: #c9046b;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-size: 15px;
+    border-radius: 2px;
+    position: relative;
+    color: #000000;
+    display: flow-root;
+    padding: 7px;
+    border: 1px solid;
 }
 
 
@@ -639,7 +703,7 @@ form .group label {
 
 #planif-produits .pp p {
     font-size: 20px;
-    font-family: AppleGothic;
+    font-family: AppleGothic, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -664,8 +728,7 @@ form .group label {
     border: 2px solid #000000;
     padding: 1%;
     font-size: 11px;
-    color: #ffffffff;
-    background: #c9046b;
+    color: #000000;
     font-weight: bold;
 }
 
@@ -697,12 +760,6 @@ form .group label {
     width: 14%;
 }
 
-#planif-produits .tab_content .tab__content-time {
-    display: flex;
-    align-items: center;
-    width: 50%;
-}
-
 #planif-produits .planif-produits-validate {
     margin: 2% auto;
     display: flex;
@@ -719,12 +776,11 @@ form .group label {
 .flash-notice {
     text-align: center;
     padding: 9px;
-    background-color: #008000;
+    background-color: #cb006a;
     color: white;
-    margin-right: 105px;
-    width: 73%;
     font-size: 13px;
     border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
 }
 
 /* The close button */
@@ -744,31 +800,45 @@ form .group label {
     color: black;
 }
 
-/*=======================Main Planning Taches et Acteurs==============*/
+/*#planif-produits .tab_content-timechoice {*/
+    /*display: grid;*/
+    /*grid-auto-flow: column;*/
+    /*justify-content: space-between;*/
+/*}*/
 
-#mainselected {
-    width: 80%;
-    margin: 2% auto 10%;
-    /*display: block;*/
-    height: auto;
+#planif-produits .form-group-global {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 30px;
 }
 
-#mainselected .sectionselected {
+#planif-produits .form-group {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+#planif-produits .form-group label {
+    margin-bottom: 7px;
+}
+
+#planif-produits .tab_content_container-para {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+
+/*=======================Main Planning Taches et Acteurs==============*/
+
+
 #mainselected, #selectTask {
-    margin: 0 0 14px;
     font-weight: 500;
     font-size: 20px;
     font-family: AppleGothic, sans-serif;
+    /*margin-right: 50%;*/
 }
 
-#mainselected h2 {
-    margin: 6% 5% 7%;
-    width: 45%;
-}
+
 
 #mainselected #calendar-holder {
     margin: 5% 10%;
@@ -782,20 +852,40 @@ form .group label {
     height: 60px;
 }
 
-#saisi-de-temps td:last-child a {
-    border: 2px solid #000000;
-    padding: 4% 7%;
+/*#saisi-de-temps td:last-child a {*/
+    /*border: 2px solid #000000;*/
+    /*padding: 4% 7%;*/
+    /*background: red;*/
+    /*color: #FFFFFF;*/
+    /*box-shadow: 5px 5px 5px 2px #000000;*/
+/*}*/
+
+#saisi-de-temps .saisi-totaltime a {
+    cursor: pointer;
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 2px;
+    position: relative;
+    color: #ffffff;
     background: red;
-    color: #FFFFFF;
-    box-shadow: 5px 5px 5px 2px #000000;
+    border: 1px solid black;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
+
+#saisi-de-temps .saisi-totaltime a:hover {
+    -webkit-box-shadow: 0 0 10px #34495e;
+    box-shadow: 0 0 10px #34495e;
+}
+
+
 
 #saisi-de-temps td:last-child p {
     border: 2px solid #000000;
     padding: 4%;
-    box-shadow: 5px 5px 5px 2px #000000;
-    color: #FFFFFF;
-    width: 100px;
+    width: 60%;
     margin: 0 auto;
     cursor: default;
 }
@@ -821,9 +911,28 @@ form .group label {
     width: 20%;
 }
 
-#saisi-de-temps-details > form > span {
-    display: flex;
+#saisi-de-temps-details .input__subm {
+    display: grid;
     justify-content: flex-end;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#saisi-de-temps-details .input__subm input {
+    cursor: pointer;
+    padding: 8px 10px;
+    font-size: 15px;
+    border-radius: 2px;
+    color: #000000;
+    border: 1px solid black;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#saisi-de-temps-details .input__subm input:hover {
+    -webkit-box-shadow: 0 0 10px #34495e;
+    box-shadow: 0 0 10px #34495e;
 }
 
 #saisi-de-temps-details > form > table > tbody > tr > td:nth-child(4) > a > img {
@@ -853,6 +962,20 @@ footer ul a {
     color: #c9046b;
 }
 
+.swal-footer {
+    background-color: rgb(245, 248, 250);
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+}
 
+/*=========================datepicker==============================*/
 
+#saisi-de-temps .saisi-totaltime a:hover {
+    text-decoration: none;
+}
+
+.swal-text {
+    font-size: 25px;
+}
 

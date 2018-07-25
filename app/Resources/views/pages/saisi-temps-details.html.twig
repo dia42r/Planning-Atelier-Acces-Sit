@@ -2,23 +2,21 @@
 {% block body %}
     <!--suppress ALL -->
     <section id="saisi-de-temps-details">
-        <div class="details-button-h2">
+        <div class="planif-button-h2">
             <h2>saisie temps pour la :
                 {{ art.documentnumber }}
             </h2>
-            <form>
-                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
-            </form>
+            <input class="subm buttonn" type="button" id="button-8" value="Retour à la page précedente" onclick="history.go(-1)">
         </div>
         <form action="" method="post">
             <table>
                 <thead> <!-- En-tête du tableau -->
                 <tr>
-                    <th>Réference article</th>
-                    <th>Description article</th>
-                    <th>Quantité</th>
-                    <th>Action</th>
-                    <th>Total temps</th>
+                    <th class="ths">Réference article</th>
+                    <th class="ths">Description article</th>
+                    <th class="ths">Quantité</th>
+                    <th class="ths">Action</th>
+                    <th class="ths">Total temps</th>
                 </tr>
                 </thead>
                 <tbody> <!-- Corps du tableau -->
@@ -56,7 +54,7 @@
                 </tbody>
             </table>
 
-            <span>
+            <span class="input__subm">
              <input id="table-submit" class="table-2-submit validetotal" type="submit">
             </span>
 

@@ -1,15 +1,17 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <main id="mainselected">
-        <section class="sectionselected">
-            <h2>Consulter le planning par acteurs : </h2>
-            <select name="" id="selectTask">
-                {% for actor in actors  %}
-                    {% if actor.enabled == 1 %}
-                        <option value="">{{ actor.name }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select>
+        <section class="planif-button-h2">
+            {#<div class="planif-button-h2">#}
+                <h2>Consulter le planning par acteurs : </h2>
+                <select name="" id="selectTask" title="">
+                    {% for actor in actors  %}
+                        {% if actor.enabled == 1 %}
+                            <option value="">{{ actor.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            {#</div>#}
         </section>
     </main>
 

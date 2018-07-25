@@ -1,23 +1,17 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <section id="main-planification-commande">
-        <h2>Listes des commandes </h2>
-        {#{{ form_start(form)}}#}
-
-        {#{{ form_end(form) }}#}
-        <div>
-            {#{{ render(controller(#}
-            {#'PlanningBundle:Searchbar:searchbar'#}
-            {#)) }}#}
+        <div class="planif-button-h2">
+            <h2>Listes des commandes </h2>
+            <img onclick="searchClick()" class="img-event" style="width: 3%; cursor: pointer" src="{{ asset('img/magnifier.png') }}" alt="search">
         </div>
-
         <table>
             <div class="navigation list-pag">
                 {{ knp_pagination_render(pagination) }}
             </div>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th>Commande (n°CAT)</th>
+                <th class="ths">Commande (n°CAT)</th>
                 <th class="ths customer-name">Client</th>
                 <th class="ths">Statut</th>
                 <th class="ths">Date départ atelier souhaiter</th>
@@ -55,6 +49,47 @@
 
     {% block javascripts %}
         <script type="text/javascript">
-            alertify.alert('Ready!');
+            function searchClick() {
+                swal({
+                    text: 'Rechercher votre CAT',
+                    content: "input",
+                    button: {
+                        text: "Recherche!",
+                        closeModal: false,
+                    },
+                })
+                    .then(name => {
+                        if (!name) throw null;
+
+                        return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
+                    })
+                    .then(results => {
+                        return results.json();
+                    })
+                    .then(json => {
+                        const movie = json.results[0];
+
+                        if (!movie) {
+                            return swal("La CAT n'a pas été trouvée");
+                        }
+
+                        const name = movie.trackName;
+                        const imageURL = movie.artworkUrl100;
+
+                        swal({
+                            title: "Top result:",
+                            text: name,
+                            icon: imageURL,
+                        });
+                    })
+                    .catch(err => {
+                        if (err) {
+                            swal("Oh noes!", "The AJAX request failed!", "error");
+                        } else {
+                            swal.stopLoading();
+                            swal.close();
+                        }
+                    });
+            }
         </script>
     {% endblock %}

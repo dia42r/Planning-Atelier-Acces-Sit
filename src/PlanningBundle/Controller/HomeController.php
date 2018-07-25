@@ -121,12 +121,15 @@ class HomeController extends Controller
 
     /**
      * @Route("/time-valid/{id}", name="temps-saisi")
+     * @param Request $request
+     * @param SousPlanification $sp
+     * @return Response
      */
     public function TimeActions(Request $request, SousPlanification $sp)
     {
         $em = $this->getDoctrine()->getManager();
         $data = $request->request->get("time");
-        $data = new \DateTime("0000-00-00 ".$data.":00");
+        $data = new \DateTime("0000-01-01 ".$data.":00");
         $sp->setTimePrevis($data);
         $em->persist($sp);
         $em->flush();

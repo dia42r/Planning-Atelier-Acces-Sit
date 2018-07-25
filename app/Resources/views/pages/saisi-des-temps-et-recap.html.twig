@@ -1,19 +1,21 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <main id="saisi-de-temps">
-        <h2>saisie des temps</h2>
+        <div class="planif-button-h2">
+            <h2>saisie des temps</h2>
+        </div>
         <div class="navigation nav-pag">
             {{ knp_pagination_render(pagination) }}
         </div>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th>Commande (n°CAT)</th>
-                <th>Client</th>
-                <th>Statut</th>
-                <th>Date validée</th>
-                <th>CAT terminée</th>
-                <th>Saisie des temps</th>
+                <th class="ths">Commande (n°CAT)</th>
+                <th class="ths">Client</th>
+                <th class="ths">Statut</th>
+                <th class="ths">Date validée</th>
+                <th class="ths">CAT terminée</th>
+                <th class="ths">Saisie des temps</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
@@ -26,14 +28,14 @@
                         {{ saisi.customerName }}
                     </td>
                     <td>{{ saisi.status }}</td>
-                    <td>
+                    <td id="dateqEndqFab" data-id = "{{ saisi.documentNumber }}">
                         {% if saisi.documentEndDateFabric is not null %}
                             {{ saisi.documentEndDateFabric|date('d/m/y') }}
                         {% else %}
                             Non-défini
                         {% endif %}
                     </td>
-                    <td id="catEnd">
+                    <td id="catEnd" data-id = "{{ saisi.documentNumber }}">
                         {% if saisi.catEnd %}
                             &#10004
                         {% else %}
@@ -47,14 +49,15 @@
                         {% if saisi.totalTime == null %}
                             {% if saisi.status == 'Planifié' %}
                                 <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
+                                    {#<input class="subm buttonn" type="submit" id="button-8" value="Valider la planification">#}
                                     Saisir temps
                                 </a>
                             {% else %}
-                                <p>Saisir temps</p>
+                                <p onclick="timeClick()">Saisir temps</p>
                             {% endif %}
                         {% else %}
-                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765; font-size: 9px">
-                                Voir les temps enregistrées
+                            <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}" style="background: #00e765; font-size: 10px">
+                                Temps enregistrées
                             </a>
                         {% endif %}
                     </td>
@@ -79,10 +82,14 @@
                 $catEnd[i].addEventListener('click', function () {
                     let data_id = this.getAttribute('data-id');
                     let $saisi_totaltime = document.querySelector(".saisi-totaltime[data-id='" + data_id + "']");
+                    const $catEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
+                    const $dateqEndqFab = document.querySelector("#dateqEndqFab[data-id='" + data_id + "']");
+
                     console.log($saisi_totaltime);
                     if (this.checked) {
                         if (parseInt($saisi_totaltime.getAttribute('data-saisi-totaltime'))) {
-                            if (swal({
+                            let $this = this;
+                            swal({
                                 title: "Voulez-vous valider votre CAT ?",
                                 text: "En validant vous ne pourrez revenir en arrière !",
                                 icon: "warning",
@@ -90,29 +97,34 @@
                                 dangerMode: true,
                             })
                                 .then((add) => {
+                                    if (add != null) {
+                                        confirme = add;
+                                    }
                                     if (add) {
-                                        swal("Votre CAT a bien était validée", {
-                                            icon: "success",
-                                            buttons: ["Annuler", true],
-                                        });
+                                        this.checked = true;
+                                        $.ajax({
+                                            url:"{{ path('ajax_date end fabric') }}",
+                                            method:'POST',
+                                            data:{id: data_id}
+                                        })
+                                            .done(function (result) {
+                                                swal("Votre CAT a bien était validée", {
+                                                    icon: "success",
+                                                    // buttons: ["Annuler", true],
+                                                }).then((add) => {
+                                                    // const $atEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
+                                                    $($catEnd).html("&#10004");
+                                                    $($dateqEndqFab).html(result);
+                                                });
+                                                // const $atEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
+                                                console.log(result);
+                                            })
                                     } else {
                                         swal("L'enregistrement a était annulé");
+                                        this.checked = false
                                     }
-                                })
-                        ) {
-                                this.checked = true;
-                                $.ajax({
-                                    url:"{{ path('ajax_date end fabric') }}",
-                                    method:'POST',
-                                    data:{id: data_id}
-                                })
-                                    .done(function (result) {
-                                        const $atEnd = document.querySelector('#catEnd');
-                                        $catEnd.innerHTML = '&#10004';
-                                    })
-                            } else {
-                                this.checked = false
-                            }
+                                });
+
                         } else {
                             swal({
                                 title : "La saisie des temps n'est pas complète",
@@ -124,7 +136,18 @@
                     }
                 })
             }
-        })
+        });
+        
+        function timeClick() {
+            swal({
+                title: "La CAT doit avoir le statut 'Planifié' pour pouvoir accéder à la saisie des temps",
+                icon: "warning",
+                button: true,
+                dangerMode: true,
+            })
+        }
+
+
     </script>
 {% endblock %}
 

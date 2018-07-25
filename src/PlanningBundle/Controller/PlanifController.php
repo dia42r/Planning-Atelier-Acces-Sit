@@ -19,6 +19,8 @@ class PlanifController extends Controller
 {
     /**
      * @Route("/planification", name="planifier-une-commande")
+     * @param Request $request
+     * @return Response
      */
     public function planificationAction(Request $request)
     {
@@ -90,15 +92,13 @@ class PlanifController extends Controller
      * @Route("/planaction", name="set_plannification")²
      * @throws \Doctrine\ORM\ORMException
      */
-    public function setPlanAction(Request $request)
+    public function     setPlanAction(Request $request)
     {
         $em            = $this->container->get('doctrine.orm.entity_manager');
-        $saleDocLineid = $request->get('saleDocLine');
+        $saleDocLineid = $request->request->get('saledocumentlineid');
         $saleDocLine   = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->find($saleDocLineid);
-
-
         $planif        = $em->getRepository(Planification::class)
             ->findBy(['saleDocumentLine' => $saleDocLineid ]);
 
@@ -117,25 +117,26 @@ class PlanifController extends Controller
         }
 
         $serializer = $this->container->get('jms_serializer');
-        $time        = $request->get('time');
+
+        $time        = $request->request->get('timePrev');
 
         $time = new \DateTime($time);
 //           $time = $time->format("H:i");
-        $skillId     = $request->get('skill');
+        $skillId     = $request->request->get('dataSkill');
         $skill       = $this->getDoctrine()
             ->getRepository(Competence::class)
             ->find($skillId);
-        $actorid       = $request->get('actor');
+        $actorid       = $request->request->get('actor');
         $actor       = $this->getDoctrine()
             ->getRepository(Actor::class)
             ->find($actorid);
         $datePlanif  = $request->get('datePlanif');
         $datePlanif = new \DateTime( $datePlanif);
 //        $datePlanif = $datePlanif->format("d-m-Y");
-        $dateStart   = $request->get('dateStart');
+        $dateStart   = $request->request->get('dateStart');
         $dateStart = new \DateTime($dateStart);
 //        $dateStart = $dateStart->format("d-m-Y");
-        $dateEnd     = $request->get('dateEnd');
+        $dateEnd     = $request->request->get('dateEnd');
         $dateEnd     = new \DateTime($dateEnd);
 //        $dateEnd     = $dateEnd->format("d-m-Y");
         $comment     = $request->get('comment');
@@ -159,9 +160,11 @@ class PlanifController extends Controller
         $em->persist($sousPlanif);
         $em->flush();
 
+        return new Response('\'Féliciations ! \'.\'La tâche \'.$skill->getName().\' a bien été enregistrée\'');
+
         $this->addFlash(
             'notice',
-            'Féliciations ! '.'La tâche '.$skill->getName().' a bien était enregistrée'
+            'Féliciations ! '.'La tâche '.$skill->getName().' a bien été enregistrée'
         );
 
         return $this->redirectToRoute('planification-produits',[
@@ -249,31 +252,43 @@ class PlanifController extends Controller
      * @Route("/actor", name="get_actor")
      * @return Response
      */
-    public function getActorsAction()
+    public function getActorsAction(Request $request)
     {
         $serializer = $this->container->get('jms_serializer');
-
+        $skill = $request->query->get('skill');
         $actors     = $this->getDoctrine()
-            ->getRepository(Actor::class)
-            ->findActor();
+            ->getRepository(Competence::class)
+            ->find($skill);
 
-//        dump(gettype($actors));
+        $actors = $actors->getActor()->toArray();
+        $actorsTab = [];
+        $actorsTab2 = [];
+        foreach ($actors as $actor){
+            $actorsTab['id'] = $actor->getId();
+            $actorsTab['name'] = $actor->getName();
+            array_push($actorsTab2, $actorsTab);
+        }
+//        dump($request->query->get('skill'));
 //        die;
-        $data       = $serializer->serialize($actors, 'json');
-//        dump($data);
-//        die;
+        $data       = $serializer->serialize($actorsTab2, 'json');
+
 
         return new Response($data);
     }
 
     /**
      * @Route("/ajax-date-fabric-end", name="ajax_date end fabric")
-     *
+     * @param Request $request
+     * @return Response
      */
     public function ajaxDateFabricAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $id = $request->request->get('id');
+//        dump($id);
+//        die;
         $dateNow = new \DateTime('now');
+//        dump($dateNow);
+//        die();
         $saledocument = $em->getRepository(SaleDocument::class)
             ->findOneBy(['documentNumber'=>$id]);
 
@@ -282,6 +297,7 @@ class PlanifController extends Controller
         $em->persist($saledocument);
         $em->flush();
 
-        return new Response([],['status'=> 200]);
+        $date = $saledocument->getDocumentEndDateFabric();
+        return new Response($date->format("d/m/y"));
     }
 }

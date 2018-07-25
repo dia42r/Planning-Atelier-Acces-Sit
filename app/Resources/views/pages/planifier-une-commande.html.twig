@@ -3,9 +3,15 @@
     <main id="main-planification-commande">
         <div class="planif-button-h2">
             <h2>Listes et état des commandes </h2>
-            <button class="ebp2">
+            {#<button class="ebp2">#}
+                {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+                    {#<a class="link" href="{{ path('security_logout') }}">Déconnexion</a>#}
+                {#{% endif %}#}
+            {#</button>#}
+            <img onclick="searchClick()" class="img-event" src="{{ asset('img/magnifier.png') }}" alt="search">
+            <button class="six col" id="valide-time">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class="link" href="{{ path('security_logout') }}">Déconnexion</a>
+                    <a id="button-8" class="buttonn" href="{{ path('security_logout') }}">Déconnexion</a>
                 {% endif %}
             </button>
         </div>
@@ -15,13 +21,13 @@
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th>Commande (n°CAT)</th>
-                <th>Client</th>
-                <th>Statut</th>
-                <th>Enregistré le</th>
-                <th>Date départ atelier souhaiter</th>
-                <th>Date de fin de fabrication planifiée</th>
-                <th>Date de fin de fabrication réelle</th>
+                <th class="ths">Commande (n°CAT)</th>
+                <th class="ths">Client</th>
+                <th class="ths">Statut</th>
+                <th class="ths">Enregistré le</th>
+                <th class="ths">Date départ atelier souhaiter</th>
+                <th class="ths">Date de fin de fabrication planifiée</th>
+                <th class="ths">Date de fin de fabrication réelle</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
@@ -42,7 +48,7 @@
                         {% if commande.documentEndDateFabric is not null %}
                             {{ commande.documentEndDateFabric|date('d/m/y') }}
                         {% else %}
-                            Non defini
+                            Non-défini
                         {% endif %}
                     </td>
                 </tr>
@@ -58,6 +64,51 @@
         {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script type="text/javascript" src="{{ asset('js/search.js') }}" ></script>
-    {% endblock %}
+        <script type="text/javascript">
+            function searchClick() {
+                swal({
+                    text: 'Rechercher votre CAT',
+                    content: "input",
+                    button: {
+                        text: "Recherche!",
+                        closeModal: false,
+                    },
+                })
+                    .then(name => {
+                        if (!name) throw null;
+
+                        return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
+                    })
+                    .then(results => {
+                        return results.json();
+                    })
+                    .then(json => {
+                        const movie = json.results[0];
+
+                        if (!movie) {
+                            return swal("La CAT n'a pas été trouvée");
+                        }
+
+                        const name = movie.trackName;
+                        const imageURL = movie.artworkUrl100;
+
+                        swal({
+                            title: "Résultat de la recherche:",
+                            text: name,
+                            icon: imageURL,
+                        });
+                    })
+                    .catch(err => {
+                        if (err) {
+                            swal("Oh noes!", "The AJAX request failed!", "error");
+                        } else {
+                            swal.stopLoading();
+                            swal.close();
+                        }
+                    });
+            }
+        </script>
+
+{% endblock %}
 
 {% endblock %}

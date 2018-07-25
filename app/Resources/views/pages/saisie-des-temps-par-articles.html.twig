@@ -2,20 +2,16 @@
 {% set total = 0 %}
 {% block body %}
     <section id="saisi-de-temps-par-articles">
-        <div class="details-button-h2">
-            <h2>saisie temps par articles
-                {#{{ art.documentnumber }}#}
-            </h2>
-            <form>
-                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
-            </form>
+        <div class="planif-button-h2">
+            <h2>saisie temps par articles</h2>
+            <input class="subm buttonn" type="button" id="button-8" value="Retour à la page précedente" onclick="history.go(-1)">
         </div>
         <table>
             <thead> <!-- En-tête du tableau -->
             <tr>
-                <th>Réference article</th>
-                <th>Description article</th>
-                <th>Quantité</th>
+                <th class="ths">Réference article</th>
+                <th class="ths">Description article</th>
+                <th class="ths">Quantité</th>
             </tr>
             </thead>
             <tbody> <!-- Corps du tableau -->
@@ -30,10 +26,10 @@
             <table class="table-2">
                 <thead>
                 <tr>
-                    <th>Ateliers</th>
-                    <td>Acteurs</td>
-                    <th>Temps prévisionnel</th>
-                    <th>Temps réalisé</th>
+                    <th class="ths">Ateliers</th>
+                    <th class="ths">Acteurs</th>
+                    <th class="ths">Temps prévisionnel</th>
+                    <th class="ths">Temps réalisé</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,8 +55,8 @@
                     <td>Total</td>
                     <td></td>
                     <td>{{ totalPrev }}</td>
-                    {% if saledocumentline.totalTime is not null %}
-                        <td><input id="totale" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale" title=""></td>
+                    {% if saledocumentline.totalTime is not null and (saledocumentline.totalTime|date("H:i")) != "00:00" %}
+                        <td><input id="total1" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale" title=""></td>
                     {% else %}
                         <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale" title=""></td>
                         <input id="total" type="hidden"  value="00:00" name="total">
@@ -137,6 +133,7 @@
                         let time       = $input.value;
                         let total      = $inputTotal1.value;
 
+                        console.log(id);
                         $.ajax({
                             url: "/time-valid/"+id,
                             method: "POST",

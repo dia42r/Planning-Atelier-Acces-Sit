@@ -5,9 +5,9 @@
             <h2>Détails de la commandes
                 {{ saledocument.documentNumber }}
             </h2>
-            <form>
-                <input class="button-page" type="button" value="Retour à la page précedente" onclick="history.go(-1)">
-            </form>
+            <button class="six col" id="valide-time">
+                <input class="subm buttonn" type="button" id="button-8" value="Retour à la page précedente" onclick="history.go(-1)">
+            </button>
         </div>
         <table>
             <thead> <!-- En-tête du tableau -->
@@ -36,21 +36,30 @@
                         </a>
                     </td>
                     {#<td>#}
-                        {#<a href="{{ path('liste-taches', {'id': detail.id }) }}">#}
-                            {#<img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">#}
-                        {#</a>#}
+                    {#<a href="{{ path('liste-taches', {'id': detail.id }) }}">#}
+                    {#<img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">#}
+                    {#</a>#}
                     {#</td>#}
                     <td class="plan">{{ detail.status }}</td>
-                    <td></td>
+                    <td>Non-défini</td>
                     {#<td>{{ detail.planif.endDate|date }}</td>#}
-                    <td>{{ detail.comment }}</td>
+                    <td>
+                        {% if detail.comment is not null %}
+                            {{ detail.comment }}
+                        {% else %}
+                            Non-défini
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
         <form action="{{ path('planifier-une-commande') }}">
             <div class="valid">
-                <button class="button-val" >valider</button>
+                {#<button class="button-val">valider</button>#}
+                <button class="six col" id="valide-time">
+                    <input class="subm buttonn" type="button" id="button-8" value="Valider">
+                </button>
             </div>
         </form>
     </section>

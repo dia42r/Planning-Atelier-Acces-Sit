@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <main id="mainselected">
-        <section class="sectionselected">
+        <section class="planif-button-h2">
             <h2>Consulter le planning par tâches : </h2>
-            <select name="" id="selectTask">
+            <select name="" id="selectTask" title="">
                 {% for task in tasks  %}
                     {#{% if task.enabled == 1 %}#}
                         <option value="">{{ task.name }}</option>

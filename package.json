@@ -21,8 +21,6 @@
   "homepage": "https://github.com/benImran/Planning-Atelier-Acces-Sit#readme",
   "devDependencies": {},
   "dependencies": {
-    "bootbox": "^4.4.0",
-    "bootstrap": "^4.1.1",
     "jquery": "^3.2.1",
     "sweetalert": "^2.1.0"
   }
