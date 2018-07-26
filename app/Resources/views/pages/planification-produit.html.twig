@@ -113,7 +113,7 @@
             const li_skill = $("ul.tabs li");
             const $saledocumentlineid = "{{ saledocumentline.id }}";
             console.log(li_skill);
-            console.log($inputValider);
+
             if ($("ul.tabs li")) {
                 $("ul.tabs li").click(function () {
                     let skill = $(this).attr('data-skill');
@@ -128,6 +128,42 @@
                 });
                 $("ul.tabs li:first-child").trigger('click');
             }
+            {#var skilltab = [];#}
+            {#for(let i = 0; i < li_skill.length; i++){#}
+                {#let data_skill = li_skill.get(i).getAttribute("data-skill");#}
+                {#skilltab.push(data_skill);#}
+            {#}#}
+                {#$.ajax({#}
+                    {#url: "{{ path('set_plannification_check_skill') }}",#}
+                    {#method: "POST",#}
+                    {#data: {#}
+                        {#saledocumentlineid : $saledocumentlineid,#}
+                        {#dataSkills : skilltab#}
+                    {#}#}
+                {#})#}
+                    {#.done( function( datas ) {#}
+                        {#if(datas == 0){#}
+                            {#let data_skill = li_skill.get(0).getAttribute("data-skill");#}
+                            {#li_skill.get(0).classList.add("active");#}
+                                    {#$inputskill.setAttribute("value", data_skill);#}
+                        {#}#}
+                        {#// for(let i = 0; i < li_skill.length; i++){#}
+                        {#//     if(li_skill.get(i).classList.contains("active")){#}
+                        {#//         li_skill.get(i).classList.remove("active");#}
+                        {#//         li_skill.get(i+1).classList.add("active");#}
+                        {#//#}
+                        {#//         $inputskill.setAttribute("value", data_skill);#}
+                        {#//#}
+                        {#//         break#}
+                        {#//     }#}
+                        {#// }#}
+                        {#console.log(datas);#}
+                    {#});#}
+            // console.log(li_skill.get(0).classList.contains("active"));
+            // console.log($(li_skill.get(0)).hasClass("active"));
+            // console.log(li_skill.get(0).classList.item(0));
+            // console.log(li_skill.get(0).classList);
+            // console.log($inputValider);
 
 
             // console.log($skill.getAttribute("data-skill"));
@@ -153,6 +189,17 @@
                     }
                 })
                     .done( function( datas ) {
+                        alert(datas)
+                        for(let i = 0; i < li_skill.length; i++){
+                            if(li_skill.get(i).classList.contains("active")){
+                                li_skill.get(i).classList.remove("active");
+                                li_skill.get(i+1).classList.add("active");
+                                let data_skill = li_skill.get(i+1).getAttribute("data-skill");
+                                $inputskill.setAttribute("value", data_skill);
+
+                                break
+                            }
+                        }
                         console.log(datas);
                     });
             });

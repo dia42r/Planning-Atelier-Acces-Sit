@@ -89,9 +89,48 @@ class PlanifController extends Controller
 
 
     /**
-     * @Route("/planaction", name="set_plannification")²
+     * @Route("/planaction/check-skil", name="set_plannification_check_skill")²
      * @throws \Doctrine\ORM\ORMException
      */
+    public function     setPlanActionCheckSkill(Request $request){
+        $em            = $this->container->get('doctrine.orm.entity_manager');
+        $saleDocLineid = $request->request->get('saledocumentlineid');
+        $skilltab = $request->request->get('dataSkills');
+        $saleDocLine   = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->find($saleDocLineid);
+        $planif        = $em->getRepository(Planification::class)
+            ->findBy(['saleDocumentLine' => $saleDocLineid ]);
+
+        if( $planif ) {
+            $sousplanifs = $planif[0]->getSousPlanif()->toArray();
+            if (empty($sousplanifs)){
+
+                return new Response("0");
+            }else{
+                foreach ($sousplanifs as $sousplanif){
+                    for($i = 0; $i < count($skilltab); $i){
+                        $skill =$em->getRepository(Competence::class)->find($skilltab[$i]);
+                        dump($skill);
+                    }
+            dump($sousplanif->getCompetences());
+
+                }
+            }
+            die;
+        }else{
+            return new Response("0");
+
+        }
+//        dump(empty($planif[0]->getSousPlanif()->toArray()));
+//        die;
+    }
+
+
+     /**
+      * @Route("/planaction", name="set_plannification")²
+      * @throws \Doctrine\ORM\ORMException
+      */
     public function     setPlanAction(Request $request)
     {
         $em            = $this->container->get('doctrine.orm.entity_manager');
