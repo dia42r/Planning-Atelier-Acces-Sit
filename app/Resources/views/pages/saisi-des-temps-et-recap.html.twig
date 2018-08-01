@@ -45,7 +45,6 @@
 
                     <td class="saisi-totaltime" data-id = "{{ saisi.documentNumber }}" data-saisi-totaltime = {% if saisi.totalTime == null %}0{% else %}1{% endif %}
                     >
-
                         {% if saisi.totalTime == null %}
                             {% if saisi.status == 'Planifié' %}
                                 <a href="{{ path('saisie-temps-detail', {'id': saisi.id}) }}">
@@ -72,6 +71,7 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
         $(function () {
 
@@ -93,8 +93,10 @@
                                 title: "Voulez-vous valider votre CAT ?",
                                 text: "En validant vous ne pourrez revenir en arrière !",
                                 icon: "warning",
-                                buttons: true,
                                 dangerMode: true,
+                                buttons: ["Annuler", true],
+
+
                             })
                                 .then((add) => {
                                     if (add != null) {
@@ -108,7 +110,7 @@
                                             data:{id: data_id}
                                         })
                                             .done(function (result) {
-                                                swal("Votre CAT a bien était validée", {
+                                                swal("Votre CAT a bien été validée", {
                                                     icon: "success",
                                                     // buttons: ["Annuler", true],
                                                 }).then((add) => {
@@ -120,13 +122,18 @@
                                                 console.log(result);
                                             })
                                     } else {
-                                        swal("L'enregistrement a était annulé");
+                                        swal({
+                                            position: "top",
+                                            icon: "error",
+                                            title: "L'enregistrement a été annulé"
+                                        });
                                         this.checked = false
                                     }
                                 });
 
                         } else {
                             swal({
+                                icon: "info",
                                 title : "La saisie des temps n'est pas complète",
 
                             });
@@ -146,7 +153,6 @@
                 dangerMode: true,
             })
         }
-
 
     </script>
 {% endblock %}
