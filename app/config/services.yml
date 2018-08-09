@@ -29,6 +29,11 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    PlanningBundle\Service\:
+        resource: '../../src/PlanningBundle/Service'
+        public: true
+#        tags: ['controller.service_arguments']
+
     # makes classes in src/SqlSrvBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     SqlSrvBundle\:

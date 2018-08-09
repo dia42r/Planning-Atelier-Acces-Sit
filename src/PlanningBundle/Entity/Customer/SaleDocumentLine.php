@@ -111,6 +111,12 @@ class SaleDocumentLine
      */
     private $totalTime;
 
+    /**
+     *
+     * @ORM\Column(name="total_prev", type="time", nullable=true)
+     */
+    private $totalPrev;
+
 
 
 
@@ -421,4 +427,19 @@ class SaleDocumentLine
     {
         return $this->totalTime;
     }
+
+
+    public function getTotalPrev()
+    {
+        return $this->totalPrev;
+    }
+
+
+    public function setTotalPrev($totalPrev)
+    {
+        $this->totalPrev = $totalPrev;
+        return $this;
+    }
+
+
 }

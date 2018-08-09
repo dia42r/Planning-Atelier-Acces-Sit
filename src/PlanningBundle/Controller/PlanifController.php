@@ -82,7 +82,7 @@ class PlanifController extends Controller
             ->findBy([],['position'=>'ASC']);
 
         return $this->render('pages/planification-produit.html.twig', [
-            'saledocumentline'     => $saledocumentline[0],
+            'saledocumentline'     => $saledocumentline,
             'competences'          => $competences,
         ]);
     }
@@ -90,9 +90,10 @@ class PlanifController extends Controller
 
     /**
      * @Route("/planaction/check-skil", name="set_plannification_check_skill")²
-     * @throws \Doctrine\ORM\ORMException
+     * @param Request $request
+     * @return Response
      */
-    public function     setPlanActionCheckSkill(Request $request){
+    public function  setPlanActionCheckSkill(Request $request){
         $em            = $this->container->get('doctrine.orm.entity_manager');
         $saleDocLineid = $request->request->get('saledocumentlineid');
         $skilltab = $request->request->get('dataSkills');
@@ -102,22 +103,34 @@ class PlanifController extends Controller
         $planif        = $em->getRepository(Planification::class)
             ->findBy(['saleDocumentLine' => $saleDocLineid ]);
 
+
         if( $planif ) {
             $sousplanifs = $planif[0]->getSousPlanif()->toArray();
+
             if (empty($sousplanifs)){
 
                 return new Response("0");
             }else{
+                $position = 0;
                 foreach ($sousplanifs as $sousplanif){
-                    for($i = 0; $i < count($skilltab); $i){
-                        $skill =$em->getRepository(Competence::class)->find($skilltab[$i]);
-                        dump($skill);
+//                    dump($skilltab);
+//                    die;
+                    for($i = 0; $i < count($skilltab); $i++) {
+                        $skill = $em->getRepository(Competence::class)->findskill($skilltab[$i]);
+//                        dump($skill[0]['name']);
+//                        die;
+                        if($sousplanif->getCompetences() == $skill[0]['name']){
+                            if($position <= $i)
+                                $position = $i;
+                            break;
+                        }
                     }
-            dump($sousplanif->getCompetences());
-
+                    dump($position);
+//                    dump($sousplanif);
                 }
+                    $position += 1;
+                return new Response($position);
             }
-            die;
         }else{
             return new Response("0");
 
@@ -127,10 +140,10 @@ class PlanifController extends Controller
     }
 
 
-     /**
-      * @Route("/planaction", name="set_plannification")²
-      * @throws \Doctrine\ORM\ORMException
-      */
+    /**
+     * @Route("/planaction", name="set_plannification")²
+     * @throws \Doctrine\ORM\ORMException
+     */
     public function     setPlanAction(Request $request)
     {
         $em            = $this->container->get('doctrine.orm.entity_manager');
@@ -159,38 +172,63 @@ class PlanifController extends Controller
 
         $time        = $request->request->get('timePrev');
 
+        $status        = $request->request->get('status');
+
         $time = new \DateTime($time);
 //           $time = $time->format("H:i");
         $skillId     = $request->request->get('dataSkill');
         $skill       = $this->getDoctrine()
             ->getRepository(Competence::class)
             ->find($skillId);
+        dump($skill);
         $actorid       = $request->request->get('actor');
-        $actor       = $this->getDoctrine()
-            ->getRepository(Actor::class)
-            ->find($actorid);
-        $datePlanif  = $request->get('datePlanif');
-        $datePlanif = new \DateTime( $datePlanif);
-//        $datePlanif = $datePlanif->format("d-m-Y");
-        $dateStart   = $request->request->get('dateStart');
-        $dateStart = new \DateTime($dateStart);
-//        $dateStart = $dateStart->format("d-m-Y");
+        if ($actorid){
+            $actor       = $this->getDoctrine()
+                ->getRepository(Actor::class)
+                ->find($actorid);
+        }else{
+            $actor = null;
+        }
+        $datePlanif = $request->get('datePlanif');
+        if ($datePlanif) {
+            $datePlanif = new \DateTime( $datePlanif);
+        }else{
+            $datePlanif = null;
+        }
+        $dateStart = $request->request->get('dateStart');
+        if ($dateStart) {
+            $dateStart = new \DateTime($dateStart);
+        }else{
+            $dateStart = null;
+        }
         $dateEnd     = $request->request->get('dateEnd');
-        $dateEnd     = new \DateTime($dateEnd);
-//        $dateEnd     = $dateEnd->format("d-m-Y");
+        if ($dateEnd) {
+            $dateEnd = new \DateTime($dateEnd);
+        }else{
+            $dateEnd = null;
+        }
+//        dump($actor);
+
         $comment     = $request->get('comment');
 
 
 
         $sousPlanif = new SousPlanification();
+        if($actor){
 
-        $sousPlanif->addActor($actor);
+            $sousPlanif->addActor($actor);
+        }
         $sousPlanif->setCompetences($skill->getName());
         $sousPlanif->setEndDate($dateEnd);
         $sousPlanif->setStartingDate($dateStart);
         $sousPlanif->setPlanif($planif);
         $sousPlanif->setTimePlanif($time);
+        $sousPlanif->setStatus($status);
 
+//        dump($dateStart);
+//        dump($dateEnd);
+//        dump($datePlanif);
+//        die;
 //        dump($planif);
 //        dump($sousPlanif);
 //        die;
@@ -199,7 +237,7 @@ class PlanifController extends Controller
         $em->persist($sousPlanif);
         $em->flush();
 
-        return new Response('\'Féliciations ! \'.\'La tâche \'.$skill->getName().\' a bien été enregistrée\'');
+        return new Response("Féliciations ! La tâche ".$skill->getName()." a bien été enregistrée.");
 
         $this->addFlash(
             'notice',
@@ -219,7 +257,8 @@ class PlanifController extends Controller
      */
     public function setPlanTotalAction(Request $request)
     {
-
+        $totalTime = 0;
+        $servicTime = $this->container->get('planning.service.time');
         $datePlanif = new \DateTime( 'NOW');
 //        $datePlanif = $datePlanif->format("d-m-Y");
         $dateStart   = $request->get('dateStart');
@@ -238,8 +277,8 @@ class PlanifController extends Controller
             ->find($saleDocLineid);
 
         $planif = $em->getRepository(Planification::class)
-            ->findBy(['saleDocumentLine' => $saleDocLineid ])[0];
-
+            ->findOneBy(['saleDocumentLine' => $saleDocLineid ]);
+        $sousplanifes = $planif->getSousPlanif();
 
         $planif->setComment($comment);
         $planif->setDatePlanif($datePlanif);
@@ -253,8 +292,23 @@ class PlanifController extends Controller
         $saleDocLine->setComment($planif->getComment());
         $saleDocLine->setStatus('Planifié');
 
-        $em->persist($planif);
+        $em->persist($saleDocLine);
         $em->flush();
+
+//        dump($saleDocLine);
+//        dump($planif);
+//        foreach ($sousplanifes as $sousplanife){
+//            $h = $sousplanife->getTimePlanif()->format('H');
+//            $m = $sousplanife->getTimePlanif()->format('i');
+////            dump($h.":".$m);
+//            dump($sousplanife);
+//            $totalTime += $servicTime->second($h,$m);
+//        }
+//        $totalTime = $servicTime->temp($totalTime);
+//
+//        dump($totalTime);
+//
+//        die;
 
         $saleDoc = $em->getRepository(SaleDocument::class)
             ->findSaleDocCount($saleDocLine->getSaledocument()->getId());

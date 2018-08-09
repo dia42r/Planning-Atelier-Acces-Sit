@@ -38,6 +38,9 @@ class TimePlanifController extends Controller
 
     /**
      * @Route("/saisis-des-temps/{id}", name="saisie-temps-detail")
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function saisieTempsDetails($id, Request $request)
     {
@@ -88,6 +91,7 @@ class TimePlanifController extends Controller
     public function saisiTempsArticles($id, Request $request)
     {
         $totalTime = 0;
+        $em = $this->getDoctrine()->getManager();
         $saledocumentline = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->findItem($id);
@@ -107,26 +111,34 @@ class TimePlanifController extends Controller
         }
         $totalTime = $this->temp($totalTime);
 
+        if($saledocumentline->getTotalPrev() == null){
+            $totalPrev = new \DateTime("0000-01-00 ".$totalTime);
+            $saledocumentline->setTotalPrev($totalPrev);
+            $em->persist($saledocumentline);
+            $em->flush();
+        }
+
+
         if ( $request->isMethod("POST" )) {
 
             $em = $this->getDoctrine()->getManager();
             $total = $request->request->get('total');
 
             $total = new \DateTime("0000-01-00 ".$total);
-            $saledocumentline[0]->setTotalTime($total);
+            $saledocumentline->setTotalTime($total);
 
-            $em->persist($saledocumentline[0]);
+            $em->persist($saledocumentline);
             $em->flush();
 
 
             return $this->redirectToRoute('saisie-temps-detail', [
-                "id" => $saledocumentline[0]->getDocumentid()
+                "id" => $saledocumentline->getDocumentid()
             ]);
 
         }
 
         return $this->render('pages/saisie-des-temps-par-articles.html.twig', [
-            'saledocumentline'      => $saledocumentline[0],
+            'saledocumentline'      => $saledocumentline,
             'subtask'               => $subtasks,
             'totalPrev'             => $totalTime
         ]);

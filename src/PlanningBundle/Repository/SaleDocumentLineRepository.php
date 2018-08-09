@@ -1,6 +1,8 @@
 <?php
 
 namespace PlanningBundle\Repository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 
 /**
  * SaleDocumentLineRepository
@@ -39,6 +41,10 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 //            ->setParameter('docnum', $documentnumber)
             ->getQuery();
 
-        return $q->getResult();
+        try {
+            return $q->getSingleResult();
+        } catch (NoResultException $e) {
+        } catch (NonUniqueResultException $e) {
+        }
     }
 }

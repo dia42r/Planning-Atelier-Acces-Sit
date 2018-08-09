@@ -15,6 +15,8 @@
                 <th class="ths">Statut</th>
                 <th class="ths">Date validée</th>
                 <th class="ths">CAT terminée</th>
+                <th class="ths">Total du temps prévisionnel</th>
+                <th class="ths">Total du temps réel</th>
                 <th class="ths">Saisie des temps</th>
             </tr>
             </thead>
@@ -28,7 +30,7 @@
                         {{ saisi.customerName }}
                     </td>
                     <td>{{ saisi.status }}</td>
-                    <td id="dateqEndqFab" data-id = "{{ saisi.documentNumber }}">
+                    <td id="dateEndFab" data-id = "{{ saisi.documentNumber }}">
                         {% if saisi.documentEndDateFabric is not null %}
                             {{ saisi.documentEndDateFabric|date('d/m/y') }}
                         {% else %}
@@ -39,9 +41,15 @@
                         {% if saisi.catEnd %}
                             &#10004
                         {% else %}
-                            <input type="checkbox" class="cat-enf" data-id = "{{ saisi.documentNumber }}">
+                            <input type="checkbox" class="cat-enf" data-id = "{{ saisi.documentNumber }}" title="">
                         {% endif %}
                     </td>
+                    <td>Non-défini</td>
+                    {% if saisi.totalTime is not null %}
+                        <td>{{ saisi.totalTime|date('H:i') }}</td>
+                    {% else %}
+                        <td class="totalnondef">Non-défini</td>
+                    {% endif %}
 
                     <td class="saisi-totaltime" data-id = "{{ saisi.documentNumber }}" data-saisi-totaltime = {% if saisi.totalTime == null %}0{% else %}1{% endif %}
                     >
@@ -71,7 +79,6 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
         $(function () {
 
@@ -83,7 +90,7 @@
                     let data_id = this.getAttribute('data-id');
                     let $saisi_totaltime = document.querySelector(".saisi-totaltime[data-id='" + data_id + "']");
                     const $catEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
-                    const $dateqEndqFab = document.querySelector("#dateqEndqFab[data-id='" + data_id + "']");
+                    const $dateEndFab = document.querySelector("#dateEndFab[data-id='" + data_id + "']");
 
                     console.log($saisi_totaltime);
                     if (this.checked) {
@@ -116,7 +123,7 @@
                                                 }).then((add) => {
                                                     // const $atEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
                                                     $($catEnd).html("&#10004");
-                                                    $($dateqEndqFab).html(result);
+                                                    $($dateEndFab).html(result);
                                                 });
                                                 // const $atEnd = document.querySelector("#catEnd[data-id='" + data_id + "']");
                                                 console.log(result);

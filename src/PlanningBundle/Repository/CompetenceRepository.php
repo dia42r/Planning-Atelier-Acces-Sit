@@ -10,4 +10,15 @@ namespace PlanningBundle\Repository;
  */
 class CompetenceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findskill($id)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+        ->select('s.id, s.position, s.name') // Selection des alias dont on a besoin
+            ->where("s.id = :skillid") // En pointant vers la bonne donnée
+            ->setParameter('skillid',$id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
 }

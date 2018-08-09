@@ -16,7 +16,8 @@
                     <th class="ths">Description article</th>
                     <th class="ths">Quantité</th>
                     <th class="ths">Action</th>
-                    <th class="ths">Total temps</th>
+                    <th class="ths">Total temps prévisionnel</th>
+                    <th class="ths">Total temps réel</th>
                 </tr>
                 </thead>
                 <tbody> <!-- Corps du tableau -->
@@ -30,6 +31,12 @@
                                 <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                             </a>
                         </td>
+                        {% if detail.totalPrev is not null %}
+                            <td>{{ detail.totalPrev|date('H:i') }}</td>
+                            <input class="totalPrev" type="hidden" value="{{ detail.totalPrev|date('H:i') }}" name="totalPrev{{ loop.index }}">
+                        {% else %}
+                            <td>Non-défini</td>
+                        {% endif %}
                         {% if detail.totalTime is not null %}
                             <td>{{ detail.totalTime|date('H:i') }}</td>
                             <input class="total" type="hidden" value="{{ detail.totalTime|date('H:i') }}" name="total{{ loop.index }}">
@@ -42,6 +49,7 @@
 
                 <tr class="tr-total">
                     <td>Total</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

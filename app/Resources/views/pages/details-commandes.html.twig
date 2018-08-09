@@ -17,7 +17,7 @@
                 <th>Quantité</th>
                 <th>Date départ atelier souhaiter</th>
                 <th>Action</th>
-                {#<td>Tâches</td>#}
+                <th>Action</th>
                 <th>Statut</th>
                 <th>Fin de fabrication</th>
                 <th>Commentaire</th>
@@ -33,6 +33,16 @@
                     <td>
                         <a href="{{ path('planification-produits', {'id': detail.id}) }}">
                             <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="">
+                            <div class="con-tooltip top">
+                                <img class="delete-img" src="{{ asset('img/x-button.png') }}" alt="">
+                                <div class="tooltip ">
+                                    <p style="">En cliquant sur la croix vous ne planifirez pas l'article et le statut sera automatiquement planifié </p>
+                                </div>
+                            </div>
                         </a>
                     </td>
                     {#<td>#}
@@ -63,4 +73,8 @@
             </div>
         </form>
     </section>
+{% endblock %}
+
+{% block javascripts %}
+
 {% endblock %}

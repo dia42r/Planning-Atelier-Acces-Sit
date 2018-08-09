@@ -39,6 +39,7 @@ h2 {
 th, td {
     text-align: center;
     border: 1px solid black;
+    /*padding: 0 6px;*/
 }
 
 tr {
@@ -49,11 +50,6 @@ table {
     margin: 3% auto 5%;
     border-collapse: collapse;
     width: 90%;
-}
-
-tbody {
-    background: rgba(170, 170, 170, 0.42);
-
 }
 
 a {
@@ -111,15 +107,15 @@ nav .uls li {
     color: #ffffff;
 }
 
-nav .uls li:nth-child(3) {
-    border-right: none;
-}
+/*nav .uls li:nth-child(3) {*/
+    /*border-right: none;*/
+/*}*/
 
 nav ul li.lis {
     border: 1px solid #000000;
     text-transform: none;
     font-size: 12px;
-    background: rgba(170, 170, 170);
+    background: rgb(227, 227, 227);
 }
 
 nav ul li.lis a:hover {
@@ -201,7 +197,6 @@ main h1 {
 #main input {
     font-size: 18px;
     padding: 10px 10px 10px 5px;
-    /*display: block;*/
     width: 300px;
     border: none;
     border-bottom: 1px solid #777777;
@@ -337,6 +332,10 @@ form .group label {
     width: 100%;
 }
 
+#main-planification-commande tbody, #section-details-commandes tbody, #saisi-de-temps tbody, #saisi-de-temps-details tbody, #saisi-de-temps-par-articles tbody {
+    background: rgb(227, 227, 227);
+}
+
 #main-planification-commande .ebp2 {
     cursor: pointer;
     margin-left: 5%;
@@ -370,9 +369,9 @@ form .group label {
 }
 
 #main-planification-commande .edit-img {
-    width: 12%;
-    float: right;
-    margin: 0 2%;
+    max-width: 17px;
+    /*float: right;*/
+    /*margin: 0 2%;*/
 }
 
 #main-planification-commande .planif-button-h2 {
@@ -384,7 +383,7 @@ form .group label {
 }
 
 #main-planification-commande .img-event {
-    width: 3%;
+    width: 30px;
     cursor: pointer;
     margin-left: 55%;
 }
@@ -443,9 +442,85 @@ form .group label {
     text-align: right;
 }
 
-#section-details-commandes .edit-img {
-    width: 45%;
+#section-details-commandes .con-tooltip img, .edit-img {
+    max-width: 20px;
 }
+
+/*tooltip Box*/
+.con-tooltip {
+    position: relative;
+    border-radius: 9px;
+    transition: all 0.3s ease-in-out;
+    /*padding: 10px;*/
+}
+
+
+#section-details-commandes .con-tooltip p {
+    font-size: 20px;
+    margin: 0;
+    color: #ff001e;
+    font-weight: bolder;
+}
+
+#section-details-commandes .tooltip p {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+
+}
+/*tooltip */
+.tooltip {
+    visibility: hidden;
+    z-index: 1;
+    opacity: .40;
+    /*width: 100%;*/
+    padding: 0 20px;
+    left: -16em;
+    background: #333;
+    white-space: nowrap;
+    color: #E086D3;
+    position: absolute;
+    top:-3em;
+    border-radius: 9px;
+    font-size: 16px;
+    transform: translateY(9px);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+}
+
+
+/* tooltip  after*/
+.tooltip::after {
+    content: " ";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 13px 0 13px;
+    border-color: #333 transparent transparent transparent;
+    position: absolute;
+    left: 41%;
+}
+
+.con-tooltip:hover .tooltip{
+    visibility: visible;
+    transform: translateY(-10px);
+    opacity: 1;
+    transition: .3s linear;
+    animation: odsoky 1s ease-in-out infinite  alternate;
+
+}
+@keyframes odsoky {
+    0% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(1px);
+    }
+}
+
+
 
 #main-planification-commande .customer-name {
     width: 0;
@@ -638,12 +713,11 @@ form .group label {
 #planif-produits #button-8:hover, #section-details-commandes #button-8:hover, #main-planification-commande #button-8:hover, #saisi-de-temps-details #button-8:hover, #saisi-de-temps-par-articles #button-8:hover{
     -webkit-box-shadow: 0 0 10px #34495e;
     box-shadow: 0 0 10px #34495e;
+    background: #C9046B;
+    color: #ffff;
+    border-color: #0000;
 }
 
-
-#planif-produits .time:nth-last-child(3) {
-    margin-left: 14.9em;
-}
 
 #tab > form > div.tab_content_container.tabo > div.tab__content-time > div > input.time {
     border-radius: 2px;
@@ -717,7 +791,7 @@ form .group label {
     margin: 2% 15% 8%;
 }
 
-#table-submit {
+.table-2-submit {
     visibility: hidden;
 }
 
@@ -752,9 +826,12 @@ form .group label {
 
 #planif-produits .planif-produits-comments, .planif-produits-validate {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row-reverse;
     margin: 0 auto;
 }
+
 
 #planif-produits .tab_content .label-date {
     width: 14%;
@@ -763,7 +840,8 @@ form .group label {
 #planif-produits .planif-produits-validate {
     margin: 2% auto;
     display: flex;
-    justify-content: flex-end;
+    /*justify-content: flex-end;*/
+    visibility: hidden;
 }
 
 #planif-produits #actor select {
@@ -823,7 +901,7 @@ form .group label {
 }
 
 #planif-produits .tab_content_container-para {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: 16px;
 }
 
@@ -862,7 +940,7 @@ form .group label {
 
 #saisi-de-temps .saisi-totaltime a {
     cursor: pointer;
-    padding: 8px 10px;
+    padding: 8px;
     font-size: 15px;
     border-radius: 2px;
     position: relative;
@@ -878,15 +956,18 @@ form .group label {
 #saisi-de-temps .saisi-totaltime a:hover {
     -webkit-box-shadow: 0 0 10px #34495e;
     box-shadow: 0 0 10px #34495e;
+
 }
 
 
 
 #saisi-de-temps td:last-child p {
     border: 2px solid #000000;
-    padding: 4%;
-    width: 60%;
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 14px;
     margin: 0 auto;
+    width: 90%;
     cursor: default;
 }
 
@@ -933,6 +1014,9 @@ form .group label {
 #saisi-de-temps-details .input__subm input:hover {
     -webkit-box-shadow: 0 0 10px #34495e;
     box-shadow: 0 0 10px #34495e;
+    color: #ffff;
+    border-color: #0000;
+    background: #c9046b;
 }
 
 #saisi-de-temps-details > form > table > tbody > tr > td:nth-child(4) > a > img {
@@ -971,19 +1055,142 @@ footer ul a {
 
 /*=========================datepicker==============================*/
 
-#saisi-de-temps .saisi-totaltime a:hover {
-    text-decoration: none;
+/*#saisi-de-temps .saisi-totaltime a:hover {*/
+    /*text-decoration: none;*/
+/*}*/
+
+.swal-footer {
+    background-color: rgb(245, 248, 250);
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
 }
 
 .swal-text {
     font-size: 25px;
+    text-align: center;
 }
 
 .swal-button {
-    padding: 7px 19px;
-    border-radius: 2px;
-    background-color: #4962B3;
-    font-size: 12px;
-    border: 1px solid #3e549a;
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+    /*padding: 7px 19px;*/
+    /*border-radius: 2px;*/
+    /*background-color: #4962B3;*/
+    /*color: #FFFFFF;*/
+    /*font-size: 12px;*/
+    /*border: 1px solid #3e549a;*/
+    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);*/
+
+    background-color: #3085d6;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
+
+.input__valid-final {
+    display: grid;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.swal-title:not(:first-child) {
+    margin-bottom: 40px;
+}
+
+.input-group {
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+#saisi-de-temps > table > tbody > tr:nth-child(5) > td.saisi-totaltime > a {
+    width: 90%;
+    padding: 8px 11px;
+    border: 2px solid black;
+    font-size: 14px;
+}
+
+#openModal h2 {
+    padding: 30px;
+    text-align: center;
+    font-family: inherit;
+}
+
+.openModal__content {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+.openModal__content span {
+    font-size: 19px;
+}
+
+.openModal__content a {
+    color: red;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 60%;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+

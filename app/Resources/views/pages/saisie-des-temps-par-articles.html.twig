@@ -56,7 +56,7 @@
                     <td></td>
                     <td>{{ totalPrev }}</td>
                     {% if saledocumentline.totalTime is not null and (saledocumentline.totalTime|date("H:i")) != "00:00" %}
-                        <td><input id="total1" type="time"  disabled value="{{ saledocumentline.totalTime|date("H:i") }}" name="totale" title=""></td>
+                            <td>{{ saledocumentline.totalTime|date("H:i") }}</td>
                     {% else %}
                         <td id="td_total"><input id="total1" type="time"  disabled value="00:00" name="totale" title=""></td>
                         <input id="total" type="hidden"  value="00:00" name="total">
@@ -65,7 +65,11 @@
                 </tbody>
             </table>
 
-            <input id="table-submit" class="table-2-submit" type="submit">
+
+            <div class="input__valid-final">
+
+            <input id="button-8" class="table-2-submit subm buttonn" type="submit" value="Valider">
+            </div>
 
         </form>
     </section>
@@ -82,7 +86,7 @@
                 const $input_time   = document.querySelectorAll(".input-time");
                 const $input_timehidden   = document.querySelectorAll("#input-timehidden");
                 var   count_time    = $input_time.length;
-                const $table_submit = document.querySelector("#table-submit");
+                const $table_submit = document.querySelector(".table-2-submit");
                 var   $inputTotal1  = document.querySelector("#total1");
                 var   $inputTotal   = document.querySelector("#total");
                 var $tdtime  = document.querySelectorAll("#td-time");

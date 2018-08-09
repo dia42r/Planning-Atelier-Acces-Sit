@@ -39,9 +39,12 @@
                             <button class="six col col-time" id="valide-time">
                                 <input class="subm buttonn" type="submit" id="button-8" value="Valider">
                             </button>
-                            {#<button id="valide-time">Validez votre temps</button>#}
+                            <button class="six col col-time" id="">
+                                <input class="subm buttonn last-task" type="submit" id="button-8" value="Passez à la dernière étape">
+                            </button>
                         </div>
                     </div>
+
                     <input class="saledoclineid" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
                     <div class="demo-section k-content form-group-global">
                         <div class="form-group">
@@ -74,32 +77,44 @@
                     </div>
                 </div>
             </form>
+
         </div>
 
         <form action="{{ path('set_plannificationtotal') }}">
             <div class="planif-produits-comments">
                 <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
+                <a href="#openModal" class="subm buttonn" id="button-8">Voir les tâches enregistrées</a>
+                <div id="openModal" class="modalDialog">
+                    <div>
+                        <a href="#close" title="Close" class="close">&times;</a>
+                            <h2>Listes des tâches enregistrées</h2>
+                        <div class="openModal__content">
+                            <span>{{ saledocumentline.saledocument.documentNumber }}</span>
+                            <span>Reference Article : {{ saledocumentline.item.id}} </span>
+                            <a href="#">Modifier</a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
+            {% if saledocumentline.saledocument.status != "Planifié"%}
             <div class="planif-produits-validate button__subm-form">
-                {#<button class="six col" id="valide-time">#}
                 <input class="subm buttonn" type="submit" id="button-8" value="Valider la planification">
                 <input class="time buttonn" type="hidden" name="saleDocLine" value="{{ saledocumentline.id }}">
-                {#</button>#}
             </div>
+            {% endif %}
         </form>
     </section>
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/datePicker.js') }}"></script>
-    {#<script src="http://kendo.cdn.telerik.com/2013.2.716/js/cultures/kendo.culture.fr-FR.min.js"></script>#}
+    {#<script type="text/javascript" src="{{ asset('js/datePicker.js') }}"></script>#}
     <script src="http://kendo.cdn.telerik.com/2018.2.620/js/cultures/kendo.culture.fr-FR.min.js"></script>
     <script type="text/javascript">
 
         $(function () {
-
-
             const $bb = document.getElementById('valide-time');
             const $actor = document.getElementById('actor');
             const $skill = document.querySelector('li.active');
@@ -109,72 +124,176 @@
             const $inputEnd = document.querySelector('input#end');
             var $inputactor = null;
             const $inputValider = document.querySelector("input.valider-soustache[value='Valider']");
+            const $bbValiderPlanif = document.querySelector(".planif-produits-validate");
             const $inputIgnorer = document.querySelector("input[value='Ignorer']");
             const li_skill = $("ul.tabs li");
             const $saledocumentlineid = "{{ saledocumentline.id }}";
-            console.log(li_skill);
+            const $lastTask = document.querySelector('.last-task');
 
-            if ($("ul.tabs li")) {
-                $("ul.tabs li").click(function () {
-                    let skill = $(this).attr('data-skill');
-                    const $skill = $(this);
-                    $('.tab_container').hide();
-                    $('.tab_container[data-skill='+skill+']').show();
-                    $("ul.tabs li").removeClass('active');
-                    $(this).addClass('active');
-                    const data_skill = $skill.attr("data-skill");
-
-                    $inputskill.setAttribute("value", data_skill);
-                });
-                $("ul.tabs li:first-child").trigger('click');
+            var skilltab = [];
+            for (let i = 0; i < li_skill.length; i++) {
+                let data_skill = li_skill.get(i).getAttribute("data-skill");
+                skilltab.push(data_skill);
             }
-            {#var skilltab = [];#}
-            {#for(let i = 0; i < li_skill.length; i++){#}
-                {#let data_skill = li_skill.get(i).getAttribute("data-skill");#}
-                {#skilltab.push(data_skill);#}
-            {#}#}
-                {#$.ajax({#}
-                    {#url: "{{ path('set_plannification_check_skill') }}",#}
-                    {#method: "POST",#}
-                    {#data: {#}
-                        {#saledocumentlineid : $saledocumentlineid,#}
-                        {#dataSkills : skilltab#}
-                    {#}#}
-                {#})#}
-                    {#.done( function( datas ) {#}
-                        {#if(datas == 0){#}
-                            {#let data_skill = li_skill.get(0).getAttribute("data-skill");#}
-                            {#li_skill.get(0).classList.add("active");#}
-                                    {#$inputskill.setAttribute("value", data_skill);#}
-                        {#}#}
-                        {#// for(let i = 0; i < li_skill.length; i++){#}
-                        {#//     if(li_skill.get(i).classList.contains("active")){#}
-                        {#//         li_skill.get(i).classList.remove("active");#}
-                        {#//         li_skill.get(i+1).classList.add("active");#}
-                        {#//#}
-                        {#//         $inputskill.setAttribute("value", data_skill);#}
-                        {#//#}
-                        {#//         break#}
-                        {#//     }#}
-                        {#// }#}
-                        {#console.log(datas);#}
-                    {#});#}
-            // console.log(li_skill.get(0).classList.contains("active"));
-            // console.log($(li_skill.get(0)).hasClass("active"));
-            // console.log(li_skill.get(0).classList.item(0));
-            // console.log(li_skill.get(0).classList);
-            // console.log($inputValider);
+            $inputIgnorer.style.visibility = "hidden";
 
+            $.ajax({
+                url: "{{ path('set_plannification_check_skill') }}",
+                method: "POST",
+                data: {
+                    saledocumentlineid : $saledocumentlineid,
+                    dataSkills : skilltab
+                }
+            })
+                .done( function( datas ) {
+                    datas = parseInt(datas);
+                    for (let i = 0; i < li_skill.length; i++) {
+                        if (li_skill.get(i).classList.contains("active")) {
+                            li_skill.get(i).classList.remove("active");
+                            break
+                        }
+                    }
+                    if (li_skill.length === datas) {
+                        datas -= 1;
+                        if ($bbValiderPlanif) {
 
-            // console.log($skill.getAttribute("data-skill"));
+                        $bbValiderPlanif.style.visibility = "visible";
+                        }
+                        $inputValider.style.visibility = "hidden";
+                        $inputIgnorer.style.visibility = "hidden";
+                    }else if((li_skill.length - 1) === datas) {
+                        $inputIgnorer.style.visibility = "hidden";
+                    }else {
+                        $inputIgnorer.style.visibility = "visible";
+                    }
+
+                    let data_skill = li_skill.get(datas).getAttribute("data-skill");
+                    $inputskill.setAttribute("value", data_skill);
+                    li_skill.get(datas).classList.add("active");
+
+                    console.log(datas);
+                });
+
+            $lastTask.addEventListener('click', function (event) {
+                event.preventDefault();
+                const liLastSkill = li_skill.length-1;
+                console.log(li_skill);
+                console.log(li_skill.get(0));
+                let itmp = null;
+                for ( let i = 0 ; i < li_skill.length - 1; i++) {
+                    if (li_skill.get(i).classList.contains('active')) {
+                        itmp = i;
+                        break
+                    }
+                }
+                for ( let i = itmp ; i < li_skill.length - 1; i++) {
+                    if (li_skill.get(i).classList.contains('active')) {
+                        li_skill.get(i).classList.remove('active');
+                    }
+                    let data_skillValue = li_skill.get(i).getAttribute("data-skill");
+                    $inputskill.setAttribute("value", data_skillValue);
+                    let dataSkill = $inputskill.getAttribute('value');
+                    let actor = null;
+                    let dateStart = null;
+                    let dateEnd = null;
+                    let timePrev = null;
+
+                    $.ajax({
+                        url: "{{ path('set_plannification') }}",
+                        method: "POST",
+                        data: {
+                            saledocumentlineid: $saledocumentlineid,
+                            dataSkill: dataSkill,
+                            actor: actor,
+                            dateStart: dateStart,
+                            dateEnd: dateEnd,
+                            timePrev: timePrev,
+                            status: "ignorer"
+                        }
+                    })
+                }
+                li_skill.get(liLastSkill).classList.add('active');
+                let data_skill = li_skill.get(liLastSkill).getAttribute("data-skill");
+                $inputskill.setAttribute("value", data_skill);
+                $inputIgnorer.style.visibility = "hidden";
+            });
             $inputValider.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 let dataSkill = $inputskill.getAttribute('value');
+                if ($inputactor) {
                 let actor = $inputactor.value;
+                }
                 let dateStart = $inputStart.value;
                 let dateEnd = $inputEnd.value;
                 let timePrev = $inputTime.value;
+                console.log($inputactor);
+                if ($inputactor == null){
+                    swal({
+                        title: "Votre temps n'est pas validé"
+                    });
+                }else{
+                    let actor = $inputactor.value;
+                $.ajax({
+                    url: "{{ path('set_plannification') }}",
+                    method: "POST",
+                    data: {
+                        saledocumentlineid : $saledocumentlineid,
+                        dataSkill : dataSkill ,
+                        actor : actor ,
+                        dateStart : dateStart ,
+                        dateEnd : dateEnd ,
+                        timePrev : timePrev ,
+                        status : "valider"
+                    }
+                })
+                    .done( function ( datas ) {
+                        swal({
+                            icon: "success",
+                            title: datas,
+                            timer: 3000,
+                            button: false
+                            // timer: "2000"
+                        });
+                        $inputactor.parentNode.removeChild($inputactor);
+                        $inputTime.value = "--:--";
+                        $inputactor = null;
+                        for(let i = 0; i < li_skill.length; i++){
+                            if(li_skill.get(i).classList.contains("active")){
+                                li_skill.get(i).classList.remove("active");
+                                if(i === li_skill.length - 1){
+
+                                li_skill.get(i).classList.add("active");
+                                let data_skill = li_skill.get(i).getAttribute("data-skill");
+                                    $bbValiderPlanif.style.visibility = "visible";
+                                    $inputValider.style.visibility = "hidden";
+                                    $inputIgnorer.style.visibility = "hidden";
+                                }else if(i === li_skill.length - 2) {
+
+                                li_skill.get(i+1).classList.add("active");
+                                let data_skill = li_skill.get(i+1).getAttribute("data-skill");
+                                    $inputIgnorer.style.visibility = "hidden";
+                                }else {
+
+                                li_skill.get(i+1).classList.add("active");
+                                let data_skill = li_skill.get(i+1).getAttribute("data-skill");
+                                }
+                                $inputskill.setAttribute("value", data_skill);
+
+                                break
+                            }
+                        }
+                    });
+                }
+            });
+            $inputIgnorer.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                let dataSkill = $inputskill.getAttribute('value');
+                let actor = null;
+                let dateStart = null;
+                let dateEnd = null;
+                let timePrev = null;
 
                 $.ajax({
                     url: "{{ path('set_plannification') }}",
@@ -186,15 +305,35 @@
                         dateStart : dateStart ,
                         dateEnd : dateEnd ,
                         timePrev : timePrev ,
+                        status : "ignorer"
                     }
                 })
-                    .done( function( datas ) {
-                        alert(datas)
+                    .done( function ( datas ) {
+                        console.log($inputactor);
+                        if($inputactor){
+                            $inputactor.parentNode.removeChild($inputactor);
+                        }
+                        $inputTime.value = "--:--";
                         for(let i = 0; i < li_skill.length; i++){
                             if(li_skill.get(i).classList.contains("active")){
                                 li_skill.get(i).classList.remove("active");
+                                if(i === li_skill.length - 1){
+
+                                li_skill.get(i).classList.add("active");
+                                let data_skill = li_skill.get(i).getAttribute("data-skill");
+                                    $bbValiderPlanif.style.visibility = "visible";
+                                    $inputValider.style.visibility = "hidden";
+                                    $inputIgnorer.style.visibility = "hidden";
+                                }else if(i === li_skill.length - 2) {
+
                                 li_skill.get(i+1).classList.add("active");
                                 let data_skill = li_skill.get(i+1).getAttribute("data-skill");
+                                    $inputIgnorer.style.visibility = "hidden";
+                                }else {
+
+                                li_skill.get(i+1).classList.add("active");
+                                let data_skill = li_skill.get(i+1).getAttribute("data-skill");
+                                }
                                 $inputskill.setAttribute("value", data_skill);
 
                                 break
@@ -215,6 +354,7 @@
                     data = JSON.parse(datas);
                     const $selectActor = document.createElement("SELECT");
                     $selectActor.setAttribute('name',"actor");
+                    $selectActor.setAttribute('id',"actor");
 
                     for ( let i = 0; i < data.length; i++ ) {
 
@@ -287,6 +427,14 @@
             // start.max(end.value());
             // end.min(start.value());
         });
+    </script>
+    <script>
+    const aaaa = document.querySelector('.w3-button ');
+
+    aaaa.addEventListener('click' , function (event) {
+    event.preventDefault();
+
+    })
     </script>
 
 {% endblock %}

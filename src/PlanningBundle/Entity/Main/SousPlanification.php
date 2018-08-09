@@ -29,23 +29,30 @@ class SousPlanification
     private $competences;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=50)
+     */
+    private $status;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="time_planif", type="time")
+     * @ORM\Column(name="time_planif", type="time", nullable=true)
      */
     private $timePlanif;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="starting_date", type="datetime")
+     * @ORM\Column(name="starting_date", type="datetime", nullable=true)
      */
     private $startingDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="end_date", type="datetime")
+     * @ORM\Column(name="end_date", type="datetime", nullable=true)
      */
     private $endDate;
 
@@ -69,7 +76,7 @@ class SousPlanification
      * @var \PlanningBundle\Entity\Main\Planification
      * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Main\Planification",inversedBy="sousPlanif")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="planif_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="planif_id", referencedColumnName="id", nullable=true)
      * })
      */
     private $planif;
@@ -116,6 +123,24 @@ class SousPlanification
     {
         return $this->competences;
     }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus(string $status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
 
     /**
      * Set timePlanif.
