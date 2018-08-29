@@ -15,7 +15,6 @@
                 <th>Réference article</th>
                 <th>Description article</th>
                 <th>Quantité</th>
-                <th>Date départ atelier souhaiter</th>
                 <th>Action</th>
                 <th>Action</th>
                 <th>Statut</th>
@@ -29,14 +28,13 @@
                     <td class="tbodytd">{{ detail.item.id }}</td>
                     <td>{{ detail.description}}</td>
                     <td>{{ detail.quantity|number_format }}</td>
-                    <td>{{ detail.deliverydate|date('d-m-y') }}</td>
                     <td>
                         <a href="{{ path('planification-produits', {'id': detail.id}) }}">
                             <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
                     <td>
-                        <a href="">
+                        <a href="{{ path('art-non-planif', {'id': detail.id}) }}">
                             <div class="con-tooltip top">
                                 <img class="delete-img" src="{{ asset('img/x-button.png') }}" alt="">
                                 <div class="tooltip ">
@@ -45,14 +43,18 @@
                             </div>
                         </a>
                     </td>
-                    {#<td>#}
-                    {#<a href="{{ path('liste-taches', {'id': detail.id }) }}">#}
-                    {#<img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">#}
-                    {#</a>#}
-                    {#</td>#}
                     <td class="plan">{{ detail.status }}</td>
-                    <td>Non-défini</td>
-                    {#<td>{{ detail.planif.endDate|date }}</td>#}
+                    <td>
+                        {% if detail.planif is not null %}
+                            {% if detail.planif.endDate is not null %}
+                                {{ detail.planif.endDate|date('d/m/y') }}
+                            {% else %}
+                                Non-défini
+                            {% endif %}
+                        {% else %}
+                            Non-défini
+                        {% endif %}
+                    </td>
                     <td>
                         {% if detail.comment is not null %}
                             {{ detail.comment }}
@@ -64,10 +66,11 @@
             {% endfor %}
             </tbody>
         </table>
-        <form action="{{ path('planifier-une-commande') }}">
+        <form action="{{ path('planification_valider', {'id': saledocument.id }) }}">
             <div class="valid">
                 {#<button class="button-val">valider</button>#}
                 <button class="six col" id="valide-time">
+                    <input class="subm buttonn" type="hidden" id="button-8" value="{{ saledocument.id }}">
                     <input class="subm buttonn" type="button" id="button-8" value="Valider">
                 </button>
             </div>

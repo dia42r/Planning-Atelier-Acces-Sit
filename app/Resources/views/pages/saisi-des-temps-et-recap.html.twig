@@ -44,7 +44,11 @@
                             <input type="checkbox" class="cat-enf" data-id = "{{ saisi.documentNumber }}" title="">
                         {% endif %}
                     </td>
-                    <td>Non-défini</td>
+                    {% if saisi.totalPrev is not null %}
+                        <td>{{ saisi.totalPrev|date('H:i') }}</td>
+                    {% else %}
+                        <td class="totalnondef">Non-défini</td>
+                    {% endif %}
                     {% if saisi.totalTime is not null %}
                         <td>{{ saisi.totalTime|date('H:i') }}</td>
                     {% else %}

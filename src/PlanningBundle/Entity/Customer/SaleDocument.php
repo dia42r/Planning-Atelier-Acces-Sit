@@ -72,49 +72,11 @@ class SaleDocument
     private $catEnd = false;
 
     /**
-     * @return mixed
-     */
-    public function getNumberPrefix()
-    {
-        return $this->numberPrefix;
-    }
-
-    /**
-     * @param mixed $numberPrefix
-     * @return SaleDocument
-     */
-    public function setNumberPrefix($numberPrefix)
-    {
-        $this->numberPrefix = $numberPrefix;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCustomerName()
-    {
-        return $this->customerName;
-    }
-
-    /**
-     * @param mixed $customerName
-     * @return SaleDocument
-     */
-    public function setCustomerName($customerName)
-    {
-        $this->customerName = $customerName;
-        return $this;
-    }
-
-    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=40, nullable=true)
      */
     private $status = 'Non planifié';
-
-
 
     /**
      * @var string
@@ -123,12 +85,33 @@ class SaleDocument
      */
     private $documentWishDate;
 
+
+    /**
+     * @ORM\Column(name="total_prev", type="string", type="time", nullable=true)
+     */
+    private $totalPrev;
+
     /**
      * @var string
      *
      * @ORM\Column(name="documentEndDateFabric", type="date", nullable=true)
      */
     private $documentEndDateFabric;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="starting_date", type="datetime", nullable=true)
+     */
+    private $startingDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="end_date", type="datetime", nullable=true)
+     */
+    private $endDate;
+
 
 
     /**
@@ -148,6 +131,7 @@ class SaleDocument
         $this->documentValidDate = $documentValidDate;
         return $this;
     }
+
 
     /**
      * @var string
@@ -192,7 +176,6 @@ class SaleDocument
         return $this;
     }
 
-
     /**
      * @return mixed
      */
@@ -229,6 +212,7 @@ class SaleDocument
         $this->id = $id;
         return $this;
     }
+
 
     /**
      * Set documentDate
@@ -277,6 +261,7 @@ class SaleDocument
     {
         return $this->documentNumber;
     }
+
     /**
      * Constructor
      */
@@ -298,7 +283,6 @@ class SaleDocument
 
         return $this;
     }
-
     /**
      * Remove saleDocumentLine.
      *
@@ -325,8 +309,6 @@ class SaleDocument
         return $this;
     }
 
-
-
     /**
      * Set totalTime.
      *
@@ -351,6 +333,8 @@ class SaleDocument
         return $this->totalTime;
     }
 
+
+
     /**
      * @return string
      */
@@ -368,8 +352,6 @@ class SaleDocument
         $this->documentEndDateFabric = $documentEndDateFabric;
         return $this;
     }
-
-
 
     /**
      * Set catEnd.
@@ -394,4 +376,96 @@ class SaleDocument
     {
         return $this->catEnd;
     }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getNumberPrefix()
+    {
+        return $this->numberPrefix;
+    }
+
+    /**
+     * @param mixed $numberPrefix
+     * @return SaleDocument
+     */
+    public function setNumberPrefix($numberPrefix)
+    {
+        $this->numberPrefix = $numberPrefix;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomerName()
+    {
+        return $this->customerName;
+    }
+
+    /**
+     * @param mixed $customerName
+     * @return SaleDocument
+     */
+    public function setCustomerName($customerName)
+    {
+        $this->customerName = $customerName;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalPrev()
+    {
+        return $this->totalPrev;
+    }
+
+    /**
+     * @param mixed $totalPrev
+     * @return SaleDocument
+     */
+    public function setTotalPrev($totalPrev)
+    {
+        $this->totalPrev = $totalPrev;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartingDate()
+    {
+        return $this->startingDate;
+    }
+
+    /**
+     * @param \DateTime $startingDate
+     */
+    public function setStartingDate($startingDate)
+    {
+        $this->startingDate = $startingDate;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+        return $this;
+    }
+
+
 }

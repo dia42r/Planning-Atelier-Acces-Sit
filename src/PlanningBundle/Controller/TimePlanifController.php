@@ -52,12 +52,18 @@ class TimePlanifController extends Controller
             ->getRepository(SaleDocumentLine::class)
             ->findDoc($id);
 
+        $detailsValid = $this->getDoctrine()
+            ->getRepository(SaleDocumentLine::class)
+            ->findDocStatusValid($id);
+
+
         if ( $request->isMethod("POST" )) {
             $em = $this->getDoctrine()->getManager();
-            $count = count($request->request);
+            $count = $request->request->get('totalIndex');
             $total = 0;
+            $totalPrev = 0;
 
-            for ($i=1; $i <= $count; $i++) {
+            for ($i=0; $i <= $count; $i++) {
 
                 $time = $request->request->get("total".$i);
                 $date = new \DateTime("0000-01-01 ".$time);
@@ -66,9 +72,18 @@ class TimePlanifController extends Controller
 
                 $total += $this->second($hour,$minute);
 
+                $timeTotalPrev = $request->request->get("totalPrev".$i);
+                $dateTotalPrev = new \DateTime("0000-01-01 ".$timeTotalPrev);
+                $hourTotalPrev = $dateTotalPrev->format('H');
+                $minuteTotalPrev = $dateTotalPrev->format('i');
+
+                $totalPrev += $this->second($hourTotalPrev,$minuteTotalPrev);
+
             }
             $total = new \DateTime("0000-01-01 ".$this->temp($total));
+            $totalPrev = new \DateTime("0000-01-01 ".$this->temp($totalPrev));
             $art->setTotalTime($total);
+            $art->setTotalPrev($totalPrev);
             $em->persist($art);
             $em->flush();
 
@@ -78,10 +93,9 @@ class TimePlanifController extends Controller
         }
         return $this->render('pages/saisi-temps-details.html.twig', [
             'details' => $details,
-            'art' => $art
+            'art' => $art,
+            'detailsValid' => count($detailsValid)
         ]);
-
-
     }
 
 

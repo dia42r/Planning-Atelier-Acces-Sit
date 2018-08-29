@@ -14,9 +14,19 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
     public function findDetails()
     {
         $d = $this->createQueryBuilder('d')
-            ->select('d.descriptionclear,d.itemid,d.id,d.quantity,d.documentid')
-//            ->setMaxResults(500)
+            ->select('d.deliverydate,d.descriptionclear,d.itemid,d.id,d.quantity,d.documentid')
+//            ->setMaxResults(1500)
 //            ->where("d.id = '42E765E0-E216-42BE-9BE6-A39609322A5A'")
+            ->getQuery();
+        return $d->getResult();
+    }
+
+    public function findtest($id)
+    {
+        $d = $this->createQueryBuilder('d')
+            ->select('d.deliverydate,d.descriptionclear,d.itemid,d.id,d.quantity,d.documentid')
+            ->where("d.id > :id")
+            ->setParameter('id',$id)
             ->getQuery();
         return $d->getResult();
     }

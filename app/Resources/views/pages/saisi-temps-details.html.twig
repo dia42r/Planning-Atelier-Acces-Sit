@@ -1,4 +1,5 @@
 {% extends "base.html.twig" %}
+{% set i = 0 %}
 {% block body %}
     <!--suppress ALL -->
     <section id="saisi-de-temps-details">
@@ -22,6 +23,8 @@
                 </thead>
                 <tbody> <!-- Corps du tableau -->
                 {% for detail in details %}
+                    {% if  detail.statusBis is null %}
+
                     <tr class="trgrey">
                         <td class="tbodytd">{{ detail.item.id }}</td>
                         <td>{{ detail.description}}</td>
@@ -33,26 +36,32 @@
                         </td>
                         {% if detail.totalPrev is not null %}
                             <td>{{ detail.totalPrev|date('H:i') }}</td>
-                            <input class="totalPrev" type="hidden" value="{{ detail.totalPrev|date('H:i') }}" name="totalPrev{{ loop.index }}">
+                            <input class="totalPrev" type="hidden" value="{{ detail.totalPrev|date('H:i') }}" name="totalPrev{{ i }}">
                         {% else %}
                             <td>Non-défini</td>
                         {% endif %}
                         {% if detail.totalTime is not null %}
                             <td>{{ detail.totalTime|date('H:i') }}</td>
-                            <input class="total" type="hidden" value="{{ detail.totalTime|date('H:i') }}" name="total{{ loop.index }}">
+                            <input class="total" type="hidden" value="{{ detail.totalTime|date('H:i') }}" name="total{{ i }}">
                         {% else %}
                             <td>Non-défini</td>
                         {% endif %}
                     </tr>
+                        {% set i = i + 1 %}
+                    {% endif %}
                 {% endfor %}
-
+                <input type="hidden" name="totalIndex" value="{{ i }}">
 
                 <tr class="tr-total">
                     <td>Total</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    {% if art.totalPrev is not null %}
+                        <td>{{ art.totalPrev|date('H:i') }}</td>
+                    {% else %}
+                        <td class="totalnondef">Non-défini</td>
+                    {% endif %}
                     {% if art.totalTime is not null %}
                         <td>{{ art.totalTime|date('H:i') }}</td>
                     {% else %}
@@ -74,7 +83,7 @@
 
     <script type="text/javascript">
 
-        const saleNumber = {{ details|length }};
+        const saleNumber = {{ detailsValid }};
         const $totalinput = document.querySelectorAll('.total');
         const $submit =  document.querySelector('.validetotal');
         const $totalnondef =  document.querySelector('.totalnondef');

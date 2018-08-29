@@ -22,4 +22,37 @@ class SousPlanificationRepository extends \Doctrine\ORM\EntityRepository
 
        return $ben->getResult();
     }
+    public function findTaskAllTasksBy($id)
+    {
+        $ben = $this->createQueryBuilder('g')
+//            ->addSelect('r.name as actor')
+            ->join('g.planif', 'p')
+            ->join('g.actor','r')
+            ->where('p.id = :id' )
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $ben->getResult();
+    }
+
+    public function findTaskAllActorBy($id)
+    {
+        $ben = $this->createQueryBuilder('s')
+            ->join('s.actor','a')
+            ->where('a.id = :id' )
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $ben->getResult();
+    }
+    public function findTaskAllCompetenceBy($competence)
+    {
+        $ben = $this->createQueryBuilder('s')
+            ->where('s.competences = :competence' )
+            ->andwhere("s.status = 'valider'" )
+            ->setParameter('competence', $competence)
+            ->getQuery();
+
+        return $ben->getResult();
+    }
 }

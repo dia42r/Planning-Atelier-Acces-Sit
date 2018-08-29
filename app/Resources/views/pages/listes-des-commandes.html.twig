@@ -3,7 +3,14 @@
     <section id="main-planification-commande">
         <div class="planif-button-h2">
             <h2>Listes des commandes </h2>
-            <img onclick="searchClick()" class="img-event" style="width: 3%; cursor: pointer" src="{{ asset('img/magnifier.png') }}" alt="search">
+            <div class="btn_container">
+                <img class="img-event open_button" style="width: 23%; cursor: pointer" src="{{ asset('img/magnifier.png') }}" alt="search">
+            </div>
+            <div class="modal_info">
+                <h1>Rechercher</h1>
+                <input class="modal_info-search" type="search" title="" placeholder="Entrer votre CAT">
+            </div>
+            <div class="modal_overlay"></div>
         </div>
         <table>
             <div class="navigation list-pag">
@@ -28,7 +35,13 @@
                     <td class="customer-name">{{ commande.customerName }}</td>
                     <td>{{ commande.status }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
-                    <td></td>
+                    <td>
+                        {% if commande.endDate is not null %}
+                            {{ commande.endDate|date('d/m/y') }}
+                        {% else %}
+                            Non-défini
+                        {% endif %}
+                    </td>
                     <td>
                         {% if commande.documentEndDateFabric is not null %}
                             {{ commande.documentEndDateFabric|date('d/m/y') }}
@@ -49,47 +62,64 @@
 
     {% block javascripts %}
         <script type="text/javascript">
-            function searchClick() {
-                swal({
-                    text: 'Rechercher votre CAT',
-                    content: "input",
-                    button: {
-                        text: "Rechercher",
-                        closeModal: false,
-                    },
-                })
-                    .then(name => {
-                        if (!name) throw null;
+            (function(){
+                var $content = $('.modal_info').detach();
 
-                        return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
-                    })
-                    .then(results => {
-                        return results.json();
-                    })
-                    .then(json => {
-                        const movie = json.results[0];
-
-                        if (!movie) {
-                            return swal("La CAT n'a pas été trouvée");
-                        }
-
-                        const name = movie.trackName;
-                        const imageURL = movie.artworkUrl100;
-
-                        swal({
-                            title: "Top result:",
-                            text: name,
-                            icon: imageURL,
-                        });
-                    })
-                    .catch(err => {
-                        if (err) {
-                            swal("Oh noes!", "The AJAX request failed!", "error");
-                        } else {
-                            swal.stopLoading();
-                            swal.close();
-                        }
+                $('.open_button').on('click', function(e){
+                    modal.open({
+                        content: $content,
+                        width: 540,
+                        height: 270,
                     });
-            }
+                    $content.addClass('modal_content');
+                    $('.modal, .modal_overlay').addClass('display');
+                    $('.open_button').addClass('load');
+                });
+            }());
+
+            var modal = (function(){
+
+                var $close = $('<button role="button" class="modal_close" title="Close"><span></span></button>');
+                var $content = $('<div class="modal_content"/>');
+                var $modal = $('<div class="modal"/>');
+                var $window = $(window);
+
+                $modal.append($content, $close);
+
+                $close.on('click', function(e){
+                    $('.modal, .modal_overlay').addClass('conceal');
+                    $('.modal, .modal_overlay').removeClass('display');
+                    $('.open_button').removeClass('load');
+                    e.preventDefault();
+                    modal.close();
+                });
+
+                return {
+                    center: function(){
+                        var top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
+                        var left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
+                        $modal.css({
+                            top: top + $window.scrollTop(),
+                            left: left + $window.scrollLeft(),
+                        });
+                    },
+                    open: function(settings){
+                        $content.empty().append(settings.content);
+
+                        $modal.css({
+                            width: settings.width || 'auto',
+                            height: settings.height || 'auto'
+                        }).appendTo('body');
+
+                        modal.center();
+                        $(window).on('resize', modal.center);
+                    },
+                    close: function(){
+                        $content.empty();
+                        $modal.detach();
+                        $(window).off('resize', modal.center);
+                    }
+                };
+            }());
         </script>
     {% endblock %}

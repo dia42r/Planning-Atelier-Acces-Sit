@@ -6,7 +6,7 @@
             <select name="" id="selectTask" title="">
                 {% for task in tasks  %}
                     {#{% if task.enabled == 1 %}#}
-                        <option value="">{{ task.name }}</option>
+                        <option value="{{ task.id }}">{{ task.name }}</option>
                     {#{% endif %}#}
                 {% endfor %}
             </select>
@@ -15,6 +15,7 @@
 
     {% include '@FullCalendar/Calendar/calendar.html.twig' %}
 
+{% endblock %}
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
@@ -25,7 +26,6 @@
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.Task-settings.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
     {% endblock %}
-{% endblock %}

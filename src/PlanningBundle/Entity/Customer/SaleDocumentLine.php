@@ -75,7 +75,14 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="status", type="string", length=30, nullable=true)
      */
-    private $status = "Non planifié";
+    private $status = "Non-planifié";
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="status_bis", type="string", length=30, nullable=true)
+     */
+    private $statusBis;
 
     /**
      * @var \PlanningBundle\Entity\Customer\Item
@@ -97,10 +104,9 @@ class SaleDocumentLine
      */
     private $saledocument;
 
-
     /**
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Planification")
-     * @ORM\JoinColumn(name="Planification_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Planification",mappedBy="saleDocumentLine")
+     * @ORM\JoinColumn(name="Planification_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $planif;
 
@@ -111,14 +117,19 @@ class SaleDocumentLine
      */
     private $totalTime;
 
+
     /**
      *
      * @ORM\Column(name="total_prev", type="time", nullable=true)
      */
     private $totalPrev;
 
-
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="documentWishDate", type="date", nullable=true)
+     */
+    private $documentWishDate;
 
     /**
      * Get id.
@@ -130,15 +141,16 @@ class SaleDocumentLine
         return $this->id;
     }
 
+
     /**
      * @param string $id
+     * @return SaleDocumentLine
      */
     public function setId($id)
     {
         $this->id = $id;
         return $this;
     }
-
 
     /**
      * Set documentid.
@@ -153,6 +165,7 @@ class SaleDocumentLine
 
         return $this;
     }
+
 
     /**
      * Get documentid.
@@ -428,7 +441,6 @@ class SaleDocumentLine
         return $this->totalTime;
     }
 
-
     public function getTotalPrev()
     {
         return $this->totalPrev;
@@ -438,6 +450,44 @@ class SaleDocumentLine
     public function setTotalPrev($totalPrev)
     {
         $this->totalPrev = $totalPrev;
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getDocumentWishDate(): string
+    {
+        return $this->documentWishDate;
+    }
+
+
+    /**
+     * @param string $documentWishDate
+     * @return SaleDocumentLine
+     */
+    public function setDocumentWishDate(string $documentWishDate)
+    {
+        $this->documentWishDate = $documentWishDate;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStatusBis(): ?string
+    {
+        return $this->statusBis;
+    }
+
+    /**
+     * @param null|string $statusBis
+     * @return SaleDocumentLine
+     */
+    public function setStatusBis(?string $statusBis)
+    {
+        $this->statusBis = $statusBis;
         return $this;
     }
 

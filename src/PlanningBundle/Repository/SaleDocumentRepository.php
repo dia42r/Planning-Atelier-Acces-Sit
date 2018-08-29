@@ -12,6 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class SaleDocumentRepository extends EntityRepository
 {
+    public function findSaleSearch($val)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+         ->where("s.documentNumber LIKE '%:salval%'") // En pointant vers la bonne donnée
+            ->setParameter('salval',$val)
+            ->getQuery();
+
+        return $q->getResult();
+    }
+    
     public function findSaleDoc($id)
     {
         // Création d'une requete personnalisé Query Builder
@@ -55,5 +66,14 @@ class SaleDocumentRepository extends EntityRepository
             ->getQuery();
 
         return $q->getResult()[0]['max'];
+    }
+    public function findSaleDocCPlanif()
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+            ->where("s.status = 'Planifié'") // En pointant vers la bonne donnée
+            ->getQuery();
+
+        return $q->getResult();
     }
 }

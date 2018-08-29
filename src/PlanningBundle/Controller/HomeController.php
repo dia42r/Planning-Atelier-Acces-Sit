@@ -27,38 +27,19 @@ class HomeController extends Controller
         return $this->render('pages/page-accueil.html.twig');
     }
 
-//    /**
-//     * @Route("/test", name="premiere-page")
-//     */
-//    public function indextestAction()
-//    {
-////        $ob = new MyCustomEvent('Event Title 1', new \DateTime());
-//        return new Response('[{id: "1", resourceId: "b", start: "2018-04-07T02:00:00", end: "2018-04-07T07:00:00", title: "event 1"}]');
-//    }
-
     /**
      * @Route("/search", name="search_result")
      * @Method({"GET", "POST"})
      */
     public function searchAction(Request $request)
     {
-//        $search = null;
-        $form = $this->createFormBuilder(null)
-            ->add('Rechercher', TextType::class, ['constraints' => new Length(['min' => 3]), 'attr' => ['placeholder' => 'Rechercher une CAT']])
-            ->add('send', SubmitType::class, ['label' => 'Envoyer'])
-            ->getForm();
+        $search = $request->query->get('term');
+        $serializer = $this->container->get('jms_serializer');
+        $saledocument = $this->getDoctrine()->getRepository(SaleDocument::class)->findSaleSearch($search);
 
-        $form->handleRequest($request);
+        $data       = $serializer->serialize($saledocument, 'json');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $form['Rechercher']->getData();
-            return $this->redirectToRoute('search_result');
-        }
-
-        return $this->render('partials/_searchbar.html.twig', [
-            'form'   =>   $form->createView()
-        ]);
+        return new Response($data);
     }
 
 

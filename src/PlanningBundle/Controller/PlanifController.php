@@ -47,6 +47,70 @@ class PlanifController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/planificationFullValider/{id}", name="planification_valider")
+     * @param Request $request
+     * @param SaleDocument $saleDocument
+     * @return Response
+     */
+    public function planificationFullValiderAction(Request $request, SaleDocument $saleDocument)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $saleDocumentLines = $saleDocument->getSaleDocumentLines()->toArray();
+        $lastSaleDocumentLine = count($saleDocumentLines);
+        $startDate = null;
+        $endDate = null;
+        for ($i=0; $i < $lastSaleDocumentLine; $i++) {
+            if ($saleDocumentLines[$i]->getPlanif() != null){
+
+                $startDateTmp = $saleDocumentLines[$i]->getPlanif()->getStartingDate();
+                if ($startDate == null){
+                    $startDate = $startDateTmp;
+                }elseif ($startDate > $startDateTmp){
+                    $startDate = $startDateTmp;
+                }
+            }
+        }
+        for ( $i=$lastSaleDocumentLine - 1; $i >= 0; $i--) {
+            if ($saleDocumentLines[$i]->getPlanif() != null){
+                $endDateTmp = $saleDocumentLines[$i]->getPlanif()->getEndDate();
+                if ($endDate == null){
+                    $endDate = $endDateTmp;
+                }elseif ($endDate < $endDateTmp){
+                    $endDate = $endDateTmp;
+                }
+            }
+        }
+//        foreach ($saleDocumentLines as $saleDocumentLine){
+//
+//            if($saleDocumentLine->getPlanif() != null){
+//
+//                dump($saleDocumentLine->getPlanif());
+////        dump($saleDocumentLine->getPlanif()->getStartingDate());
+////        dump($saleDocumentLine->getPlanif()->getEndDate());
+//            }else{
+//
+//            }
+//            if($saleDocumentLine->getPlanif()->getEndDate() == null){
+//
+//            }else{
+//
+//            }
+//        }
+        $saleDocument->setStartingDate($startDate);
+        $saleDocument->setEndDate($endDate);
+        $saleDocument->setDocumentEndDateFabric($endDate);
+
+        $em->persist($saleDocument);
+        $em->flush();
+
+        return $this->redirectToRoute('planifier-une-commande');
+//        dump($startDate);
+//        dump($endDate);
+//        die;
+    }
+
 
     /**
      * @Route("/details/{id}", name="details-commandes")
@@ -89,68 +153,65 @@ class PlanifController extends Controller
 
 
     /**
-     * @Route("/planaction/check-skil", name="set_plannification_check_skill")²
+     * @Route("/planaction/check-skill", name="set_plannification_check_skill")²
      * @param Request $request
      * @return Response
      */
-    public function  setPlanActionCheckSkill(Request $request){
+    public function  setPlanActionCheckSkill(Request $request) {
+
         $em            = $this->container->get('doctrine.orm.entity_manager');
         $saleDocLineid = $request->request->get('saledocumentlineid');
-        $skilltab = $request->request->get('dataSkills');
+        $skilltab      = $request->request->get('dataSkills');
+
         $saleDocLine   = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->find($saleDocLineid);
+
         $planif        = $em->getRepository(Planification::class)
             ->findBy(['saleDocumentLine' => $saleDocLineid ]);
-
 
         if( $planif ) {
             $sousplanifs = $planif[0]->getSousPlanif()->toArray();
 
-            if (empty($sousplanifs)){
-
+            if (empty($sousplanifs)) {
                 return new Response("0");
-            }else{
+            }else {
                 $position = 0;
-                foreach ($sousplanifs as $sousplanif){
-//                    dump($skilltab);
-//                    die;
-                    for($i = 0; $i < count($skilltab); $i++) {
+                foreach ($sousplanifs as $sousplanif) {
+                    for( $i = 0; $i < count($skilltab); $i++ ) {
                         $skill = $em->getRepository(Competence::class)->findskill($skilltab[$i]);
-//                        dump($skill[0]['name']);
-//                        die;
                         if($sousplanif->getCompetences() == $skill[0]['name']){
-                            if($position <= $i)
+                            if( $position <= $i )
                                 $position = $i;
                             break;
                         }
                     }
-                    dump($position);
-//                    dump($sousplanif);
                 }
-                    $position += 1;
+                $position += 1;
                 return new Response($position);
             }
-        }else{
+        }else {
             return new Response("0");
-
         }
-//        dump(empty($planif[0]->getSousPlanif()->toArray()));
-//        die;
     }
 
 
     /**
      * @Route("/planaction", name="set_plannification")²
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function     setPlanAction(Request $request)
+    public function setPlanAction(Request $request)
     {
         $em            = $this->container->get('doctrine.orm.entity_manager');
         $saleDocLineid = $request->request->get('saledocumentlineid');
+
         $saleDocLine   = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->find($saleDocLineid);
+
         $planif        = $em->getRepository(Planification::class)
             ->findBy(['saleDocumentLine' => $saleDocLineid ]);
 
@@ -158,7 +219,13 @@ class PlanifController extends Controller
 
             $planif    = new Planification();
             $planif->setSaleDocumentLine($saleDocLine);
+
             $em->persist($planif);
+            $em->flush();
+
+            $saleDocLine->setPlanif($planif);
+
+            $em->persist($saleDocLine);
             $em->flush();
 
             $planif    = $em->getRepository(Planification::class)
@@ -169,53 +236,63 @@ class PlanifController extends Controller
         }
 
         $serializer = $this->container->get('jms_serializer');
-
         $time        = $request->request->get('timePrev');
+        $status      = $request->request->get('status');
 
-        $status        = $request->request->get('status');
+        if ( $time ) {
+            $time = new \DateTime($time);
+        }else {
+            $time = null;
+        }
 
-        $time = new \DateTime($time);
-//           $time = $time->format("H:i");
         $skillId     = $request->request->get('dataSkill');
+
         $skill       = $this->getDoctrine()
             ->getRepository(Competence::class)
             ->find($skillId);
-        dump($skill);
-        $actorid       = $request->request->get('actor');
-        if ($actorid){
-            $actor       = $this->getDoctrine()
+
+        $actorid     = $request->request->get('actor');
+
+        if ( $actorid ) {
+            $actor   = $this->getDoctrine()
                 ->getRepository(Actor::class)
                 ->find($actorid);
-        }else{
+        }else {
             $actor = null;
         }
+
         $datePlanif = $request->get('datePlanif');
-        if ($datePlanif) {
+
+        if ( $datePlanif ) {
             $datePlanif = new \DateTime( $datePlanif);
-        }else{
+        }else {
             $datePlanif = null;
         }
+
         $dateStart = $request->request->get('dateStart');
-        if ($dateStart) {
+
+        if ( $dateStart ) {
             $dateStart = new \DateTime($dateStart);
-        }else{
+        }else {
             $dateStart = null;
         }
+
         $dateEnd     = $request->request->get('dateEnd');
-        if ($dateEnd) {
+
+        if ( $dateEnd ) {
             $dateEnd = new \DateTime($dateEnd);
-        }else{
+        }else {
             $dateEnd = null;
         }
-//        dump($actor);
+
 
         $comment     = $request->get('comment');
 
 
 
         $sousPlanif = new SousPlanification();
-        if($actor){
 
+        if( $actor ) {
             $sousPlanif->addActor($actor);
         }
         $sousPlanif->setCompetences($skill->getName());
@@ -225,15 +302,6 @@ class PlanifController extends Controller
         $sousPlanif->setTimePlanif($time);
         $sousPlanif->setStatus($status);
 
-//        dump($dateStart);
-//        dump($dateEnd);
-//        dump($datePlanif);
-//        die;
-//        dump($planif);
-//        dump($sousPlanif);
-//        die;
-
-//
         $em->persist($sousPlanif);
         $em->flush();
 
@@ -246,14 +314,16 @@ class PlanifController extends Controller
 
         return $this->redirectToRoute('planification-produits',[
             'id' => $saleDocLineid
-//           'end' => $end
         ]);
     }
 
 
     /**
      * @Route("/plantotalaction", name="set_plannificationtotal")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function setPlanTotalAction(Request $request)
     {
@@ -272,6 +342,7 @@ class PlanifController extends Controller
         $em       = $this->container->get('doctrine.orm.entity_manager');
 
         $saleDocLineid = $request->get('saleDocLine');
+
         $saleDocLine = $this->getDoctrine()
             ->getRepository(SaleDocumentLine::class)
             ->find($saleDocLineid);
@@ -280,10 +351,19 @@ class PlanifController extends Controller
             ->findOneBy(['saleDocumentLine' => $saleDocLineid ]);
         $sousplanifes = $planif->getSousPlanif();
 
+        $lastTask = count($sousplanifes);
+        for( $i=0; $i < $lastTask; $i++ ) {
+            if( $sousplanifes[$i]->getStatus() != 'ignorer') {
+                $startdate = $sousplanifes[$i]->getStartingDate();
+                break;
+            }
+        }
+        $endDate = $sousplanifes[$lastTask - 1]->getEndDate();
+
         $planif->setComment($comment);
         $planif->setDatePlanif($datePlanif);
-        $planif->setEndDate($dateEnd);
-        $planif->setStartingDate($dateStart);
+        $planif->setStartingDate($startdate);
+        $planif->setEndDate($endDate);
 
 
         $em->persist($planif);
@@ -295,20 +375,22 @@ class PlanifController extends Controller
         $em->persist($saleDocLine);
         $em->flush();
 
-//        dump($saleDocLine);
-//        dump($planif);
-//        foreach ($sousplanifes as $sousplanife){
-//            $h = $sousplanife->getTimePlanif()->format('H');
-//            $m = $sousplanife->getTimePlanif()->format('i');
-////            dump($h.":".$m);
-//            dump($sousplanife);
-//            $totalTime += $servicTime->second($h,$m);
-//        }
-//        $totalTime = $servicTime->temp($totalTime);
-//
-//        dump($totalTime);
-//
-//        die;
+        foreach ( $sousplanifes as $sousplanife ) {
+            if( $sousplanife->getStatus() == 'ignorer' ) {
+                continue;
+            }
+            $h = $sousplanife->getTimePlanif()->format('H');
+            $m = $sousplanife->getTimePlanif()->format('i');
+            $totalTime += $servicTime->second($h,$m);
+        }
+
+        $totalTime = $servicTime->temp($totalTime);
+        $totalTime = new \DateTime($totalTime);
+
+        $saleDocLine->setTotalPrev($totalTime);
+
+        $em->persist($saleDocLine);
+        $em->flush();
 
         $saleDoc = $em->getRepository(SaleDocument::class)
             ->findSaleDocCount($saleDocLine->getSaledocument()->getId());
@@ -319,18 +401,11 @@ class PlanifController extends Controller
         $saleDocument = $em->getRepository(SaleDocument::class)
             ->find($saleDocLine->getSaledocument()->getId());
 
-//        dump(($saleDoc == $saleDoc2 ));
-//        dump("-----------------");
-//        dump(($saleDoc ));
-//        dump("-----------------");
-//        dump(( $saleDoc2 ));
-//        die;
         if( $saleDoc == $saleDoc2 ) {
             $saleDocument->setStatus('Planifié');
         }
         else {
             $saleDocument->setStatus('Planifié partiellement');
-
         }
 
         $em->persist($saleDocument);
@@ -343,28 +418,28 @@ class PlanifController extends Controller
 
     /**
      * @Route("/actor", name="get_actor")
+     * @param Request $request
      * @return Response
      */
     public function getActorsAction(Request $request)
     {
         $serializer = $this->container->get('jms_serializer');
-        $skill = $request->query->get('skill');
+        $skill      = $request->query->get('skill');
         $actors     = $this->getDoctrine()
             ->getRepository(Competence::class)
             ->find($skill);
 
-        $actors = $actors->getActor()->toArray();
-        $actorsTab = [];
+        $actors     = $actors->getActor()->toArray();
+        $actorsTab  = [];
         $actorsTab2 = [];
-        foreach ($actors as $actor){
+
+        foreach ( $actors as $actor ) {
             $actorsTab['id'] = $actor->getId();
             $actorsTab['name'] = $actor->getName();
             array_push($actorsTab2, $actorsTab);
         }
-//        dump($request->query->get('skill'));
-//        die;
-        $data       = $serializer->serialize($actorsTab2, 'json');
 
+        $data       = $serializer->serialize($actorsTab2, 'json');
 
         return new Response($data);
     }
@@ -377,20 +452,156 @@ class PlanifController extends Controller
     public function ajaxDateFabricAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $id = $request->request->get('id');
-//        dump($id);
-//        die;
+
         $dateNow = new \DateTime('now');
-//        dump($dateNow);
-//        die();
+
         $saledocument = $em->getRepository(SaleDocument::class)
             ->findOneBy(['documentNumber'=>$id]);
 
         $saledocument->setDocumentEndDateFabric($dateNow);
         $saledocument->setCatEnd(true);
+
         $em->persist($saledocument);
         $em->flush();
 
         $date = $saledocument->getDocumentEndDateFabric();
+
         return new Response($date->format("d/m/y"));
+    }
+
+    /**
+     * @Route("/article-non-planif/{id}", name="art-non-planif")
+     * @param Request $request
+     * @param SaleDocumentLine $saleDocumentLine
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function dontAccesPlanifAction(Request $request, SaleDocumentLine $saleDocumentLine)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $saleDocumentid = $saleDocumentLine->getSaledocument()->getId();
+
+        $saleDocumentLine->setStatus("Planifié");
+        $saleDocumentLine->setStatusBis("Tâche non planifiée");
+        $em->persist($saleDocumentLine);
+        $em->flush();
+
+        $saleDocument = $em->getRepository(SaleDocument::class)
+            ->find($saleDocumentid);
+
+        $saleDoc = $em->getRepository(SaleDocument::class)
+            ->findSaleDocCount($saleDocumentLine->getSaledocument()->getId());
+
+        $saleDoc2 = $em->getRepository(SaleDocument::class)
+            ->findSaleDocCount2($saleDocumentLine->getSaledocument()->getId());
+
+        if( $saleDoc == $saleDoc2 ) {
+            $saleDocument->setStatus('Planifié');
+        }
+        else {
+            $saleDocument->setStatus('Planifié partiellement');
+        }
+
+        $em->persist($saleDocument);
+        $em->flush();
+
+        return $this->redirectToRoute('details-commandes', [
+            "id" => $saleDocumentid
+        ]);
+    }
+
+
+    /**
+     * @Route("/liste-sous-taches/{id}", name="list-sub-task")
+     * @param Request $request
+     * @param SaleDocumentLine $salDocumentLine
+     * @return Response
+     */
+    public function listSubTask(Request $request, SaleDocumentLine $salDocumentLine)
+    {
+        $salDocumentLineId = $salDocumentLine->getId();
+        $task = $this->getDoctrine()
+            ->getRepository(Planification::class)
+            ->findPlanif($salDocumentLineId);
+
+        $subtasks = $this->getDoctrine()
+            ->getRepository(SousPlanification::class)
+            ->findAllTasksBy($task->getId());
+
+        $subtasksTab = [];
+        foreach ( $subtasks as $subtask ){
+            $actors = $subtask->getActor()->toArray();
+            $actorsTab = [];
+            foreach ( $actors as $actor ) {
+                $actorTab['name'] = $actor->getName();
+                array_push($actorsTab, $actorTab);
+            }
+            $subtaskTab['idTask'] = $subtask->getId();
+            $subtaskTab['timePlanif'] = $subtask->getTimePlanif()->format('H:i');
+            $subtaskTab['competence'] = $subtask->getCompetences();
+            $subtaskTab['startingDate'] = $subtask->getStartingDate()->format("d-m-Y");
+            $subtaskTab['endDate'] = $subtask->getEndDate()->format("d-m-Y");
+
+            $subtaskTab['actor'] = $actorsTab;
+            array_push($subtasksTab, $subtaskTab);
+        }
+
+
+        $serializer = $this->container->get('jms_serializer');
+        $data       = $serializer->serialize($subtasksTab, 'json');
+        return new Response($data);
+    }
+
+
+    /**
+     * @Route("/subTask/{id}", name="sub_Task")
+     * @param Request $request
+     * @param SousPlanification $sousPlanification
+     * @return Response
+     */
+    public function subTask(Request $request, SousPlanification $sousPlanification)
+    {
+        if ( $request->isXmlHttpRequest() ) {
+
+            $sousPlanificationTab['timePlanif'] = $sousPlanification->getTimePlanif()->format('H:i');
+            $sousPlanificationTab['startingDate'] = $sousPlanification->getStartingDate()->format("d-m-Y");
+            $sousPlanificationTab['endDate'] = $sousPlanification->getEndDate()->format("d-m-Y");
+
+            $delete = $request->request->get('delete');
+
+            $em = $this->getDoctrine()->getManager();
+
+            if ( $request->isMethod("POST") && ($delete == null) ) {
+
+                $timePrevis = $request->request->get('timePrev');
+                $dateStart = $request->request->get('dateStart');
+                $dateEnd = $request->request->get('dateEnd');
+
+                $timePrevis = new \DateTime($timePrevis);
+                $dateStart  = new \DateTime($dateStart);
+                $dateEnd    = new \DateTime($dateEnd);
+
+                $sousPlanification->setTimePlanif($timePrevis);
+                $sousPlanification->setStartingDate($dateStart);
+                $sousPlanification->setEndDate($dateEnd);
+
+                $em->persist($sousPlanification);
+                $em->flush();
+
+                return new Response('good');
+
+            } elseif ( $request->isMethod("POST") && ($delete == true) ) {
+
+                $em->remove($sousPlanification);
+                $em->flush();
+                return new Response('success');
+
+            }
+
+            $serializer = $this->container->get('jms_serializer');
+            $data = $serializer->serialize($sousPlanificationTab, 'json');
+
+            return new Response($data);
+
+        }
     }
 }

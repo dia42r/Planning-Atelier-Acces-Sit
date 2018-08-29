@@ -10,4 +10,17 @@ namespace PlanningBundle\Repository\Main;
  */
 class PlanificationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findPlanif($idSalDoc)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("p")
+//            ->select('sp')// Création d'un alias
+            ->join('p.sousPlanif', 'sp')
+            ->join('p.saleDocumentLine', 'sd')
+            ->where("sd.id = :idSal") // En pointant vers la bonne donnée
+            ->setParameter('idSal', $idSalDoc)
+            ->getQuery();
+
+        return $q->getSingleResult();
+    }
 }

@@ -236,6 +236,7 @@ form .group label {
     position: relative;
     display: block;
     width: 300px;
+    margin-top: 2px;
 }
 
 #main .bar:before, .bar:after {
@@ -444,6 +445,7 @@ form .group label {
 
 #section-details-commandes .con-tooltip img, .edit-img {
     max-width: 20px;
+    vertical-align: middle;
 }
 
 /*tooltip Box*/
@@ -873,16 +875,9 @@ form .group label {
     transition: 0.3s;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
     color: black;
 }
-
-/*#planif-produits .tab_content-timechoice {*/
-    /*display: grid;*/
-    /*grid-auto-flow: column;*/
-    /*justify-content: space-between;*/
-/*}*/
 
 #planif-produits .form-group-global {
     display: grid;
@@ -905,11 +900,81 @@ form .group label {
     font-size: 16px;
 }
 
+#planif-produits .last-skills {
+    border-color: transparent;
+}
+
+#planif-produits .modal__title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#planif-produits .modal__title span, .openModal2__content span {
+    padding: 17px;
+    font-weight: bold;
+}
+
+#planif-produits .openModal2__wrapper form {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#planif-produits .openModal2__wrapper form input {
+    padding: 10px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-left: 4%;
+}
+
+
+#planif-produits .openModal2__wrapper form input:nth-child(2) {
+    margin-left: 13%;
+}
+
+#planif-produits .openModal2__wrapper form input:nth-child(3) {
+    margin-left: 5%;
+    margin-right: 7%;
+}
+
+
+#planif-produits .openModal2__wrapper form div {
+    margin-right: 11px;
+    margin-top: 4px;
+}
+
+#planif-produits .openModal2__wrapper form div a, .openModal__content a {
+    cursor: pointer;
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 2px;
+    position: relative;
+    color: #000000;
+    display: flow-root;
+    border: 1px solid;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#planif-produits .openModal2__wrapper form div a:hover, .openModal__content a:hover {
+    box-shadow: 0 0 10px #34495e;
+    background: #C9046B;
+    color: #ffff;
+    border-color: #0000;
+}
+
+#planif-produits .openModal2__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 
 /*=======================Main Planning Taches et Acteurs==============*/
 
 
-#mainselected, #selectTask {
+#mainselected, #selectTask, #selectActor {
     font-weight: 500;
     font-size: 20px;
     font-family: AppleGothic, sans-serif;
@@ -1055,10 +1120,6 @@ footer ul a {
 
 /*=========================datepicker==============================*/
 
-/*#saisi-de-temps .saisi-totaltime a:hover {*/
-    /*text-decoration: none;*/
-/*}*/
-
 .swal-footer {
     background-color: rgb(245, 248, 250);
     margin-top: 32px;
@@ -1075,14 +1136,6 @@ footer ul a {
 }
 
 .swal-button {
-    /*padding: 7px 19px;*/
-    /*border-radius: 2px;*/
-    /*background-color: #4962B3;*/
-    /*color: #FFFFFF;*/
-    /*font-size: 12px;*/
-    /*border: 1px solid #3e549a;*/
-    /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);*/
-
     background-color: #3085d6;
     color: #fff;
     border: none;
@@ -1120,7 +1173,7 @@ footer ul a {
 }
 
 #openModal h2 {
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     font-family: inherit;
 }
@@ -1129,14 +1182,13 @@ footer ul a {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
+    margin-top: 2%;
 }
 
 .openModal__content span {
     font-size: 19px;
-}
-
-.openModal__content a {
-    color: red;
+    text-align: left;
+    width: 117px;
 }
 
 .modalDialog {
@@ -1147,7 +1199,7 @@ footer ul a {
     bottom: 0;
     left: 0;
     background: rgba(0,0,0,0.8);
-    z-index: 99999;
+    z-index: 5;
     opacity:0;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
@@ -1161,7 +1213,7 @@ footer ul a {
 }
 
 .modalDialog > div {
-    width: 60%;
+    width: 90%;
     position: relative;
     margin: 10% auto;
     padding: 5px 20px 13px 20px;
@@ -1193,4 +1245,171 @@ footer ul a {
 
 .close:hover { background: #00d9ff; }
 
+/*==========================================================*/
+
+
+
+h1 {
+    color: #A6A49C;
+    font-family: 'Palanquin', Arial, sans-serif;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #474544;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 14px;
+}
+
+.modal {
+    opacity: 0;
+    padding: 50px;
+    position: absolute;
+    z-index: 1100;
+    -webkit-transition: opacity 600ms linear 600ms;
+    -moz-transition: opacity 600ms linear 600ms;
+    -ms-transition: opacity 600ms linear 600ms;
+    -o-transition: opacity 600ms linear 600ms;
+    transition: opacity 600ms linear 600ms;
+}
+
+.modal_info {
+    background: #FFFFFF;
+    padding: 50px 100px;
+    text-align: center;
+}
+
+.modal_overlay {
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 900;
+    -webkit-transition: opacity 200ms linear;
+    -moz-transition: opacity 200ms linear;
+    -ms-transition: opacity 200ms linear;
+    -o-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+}
+
+.display {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*.conceal {*/
+    /*visibility: visible;*/
+/*}*/
+
+.btn_container {
+    height: 100%;
+    text-align: center;
+}
+
+.btn_container:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+}
+
+.open_button {
+    position: relative;
+    width: 172px;
+    z-index: 1000;
+     -webkit-transition: opacity 100ms linear;
+    -moz-transition: opacity 100ms linear;
+    -ms-transition: opacity 100ms linear;
+    -o-transition: opacity 100ms linear;
+     transition: opacity 100ms linear;
+}
+
+.modal_info-search {
+    border-radius: 32px;
+    width: 100%;
+    font-size: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+button.modal_close {
+    background: #363D4E;
+    border: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    color: #FFFFFF;
+    cursor: pointer;
+    outline: none;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    -webkit-transition: -webkit-transform 600ms;
+    -moz-transition: -moz-transform 600ms;
+    -ms-transition: -ms-transform 600ms;
+    -o-transition: -o-transform 600ms;
+    transition: transform 600ms;
+}
+
+button.modal_close:hover {
+    background: #3E465A;
+    -webkit-transform: rotate(360deg) scale(1.10);
+    -moz-transform: rotate(360deg) scale(1.10);
+    -ms-transform: rotate(360deg) scale(1.10);
+    -o-transform: rotate(360deg) scale(1.10);
+    transform: rotate(360deg) scale(1.10);
+    -webkit-transition: -webkit-transform 600ms;
+    -moz-transition: -moz-transform 600ms;
+    -ms-transition: -ms-transform 600ms;
+    -o-transition: -o-transform 600ms;
+    transition: transform 600ms;
+}
+
+button.modal_close span, .modal_close span:before, .modal_close span:after {
+    background: #FFFFFF;
+    content: '';
+    cursor: pointer;
+    display: block;
+    height: 2px;
+    position: absolute;
+    width: 20px;
+}
+
+button.modal_close span:first-child {
+    background: none;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+button.modal_close span:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+button.modal_close span:after {
+    -webkit-transform: translateY(-2px) rotate(-45deg);
+    -moz-transform: translateY(-2px) rotate(-45deg);
+    -ms-transform: translateY(-2px) rotate(-45deg);
+    -o-transform: translateY(-2px) rotate(-45deg);
+    transform: translateY(-2px) rotate(-45deg);
+    top: 2px;
+}
 

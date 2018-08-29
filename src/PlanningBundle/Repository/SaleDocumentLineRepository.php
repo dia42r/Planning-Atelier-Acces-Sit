@@ -27,6 +27,21 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
         return $q->getResult();
     }
 
+    public function findDocStatusValid($id)
+    {
+        // Création d'une requete personnalisé Query Builder
+        $q = $this->createQueryBuilder("s") // Création d'un alias
+        ->select('s') // Selection des alias dont on a besoin
+        ->join("s.item","i") // Jointure avec la table Item pour pouvoir utilisé les données
+        ->join("s.saledocument","b")
+            ->where("b.id = :docid") // En pointant vers la bonne donnée
+            ->andWhere("s.statusBis is NULL ")
+            ->setParameter('docid',$id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
+
     public function findItem($id)
     {
         // Création d'une requete personnalisé Query Builder
@@ -46,5 +61,15 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
         } catch (NoResultException $e) {
         } catch (NonUniqueResultException $e) {
         }
+    }
+    public function findlastid()
+    {
+        $d = $this->createQueryBuilder('s')
+            ->select('s.id')
+            ->orderBy('s.id', 'DESC')
+            ->setFirstResult(1)
+            ->setMaxResults(1)
+            ->getQuery();
+        return $d->getSingleResult();
     }
 }

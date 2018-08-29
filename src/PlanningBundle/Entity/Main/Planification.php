@@ -36,8 +36,8 @@ class Planification
     private $comment;
 
     /**
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine")
-     * @ORM\JoinColumn(name="SaleDocumentLine_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", inversedBy="planif" )
+     * @ORM\JoinColumn(name="SaleDocumentLine_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $saleDocumentLine;
 
