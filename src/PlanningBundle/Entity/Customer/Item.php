@@ -31,7 +31,7 @@ class Item
     /**
      * @var string
      *
-     * @ORM\Column(name="desComm", type="string", length=255, nullable=true)
+     * @ORM\Column(name="desComm", type="text", nullable=true)
      */
     private $desComm;
 
