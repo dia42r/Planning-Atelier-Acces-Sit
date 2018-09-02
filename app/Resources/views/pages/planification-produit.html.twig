@@ -162,17 +162,21 @@
             const $openModal2Wrapper = document.querySelector('.openModal2__wrapper');
             const $openModalClose = document.querySelector('#close');
             const $waitCheck = document.querySelector('#wait-check');
+            var dateinitial = new Date();
+
+            dateinitial.setHours(8);
+            dateinitial.setMinutes(0);
 
             var start = $("#start").kendoDateTimePicker({
                 culture: "fr-FR",
                 change: startChange,
-                value: new Date(),
+                value: dateinitial,
                 format: "dd-MM-yyyy HH:mm"
             }).data("kendoDateTimePicker");
 
             var end = $("#end").kendoDateTimePicker({
                 culture: "fr-FR",
-                value: new Date(),
+                value: dateinitial,
                 change: endChange,
                 format: "dd-MM-yyyy HH:mm"
             }).data("kendoDateTimePicker");
@@ -198,10 +202,9 @@
             })
                 .done( function( datas ) {
                     datas = JSON.parse(datas);
-                    console.log(datas);
-                    // debugger
                     let startDate = new Date(datas['end']);
-                    console.log(startDate);
+                    startDate.setHours(8);
+                    startDate.setMinutes(0);
                     for (let i = 0; i < $$li_skill.length; i++) {
                         if ($$li_skill.get(i).classList.contains("active")) {
                             $$li_skill.get(i).classList.remove("active");
@@ -226,7 +229,10 @@
                     $inputskill.setAttribute("value", data_skill);
                     $$li_skill.get(datas['position']).classList.add("active");
                     start.value(startDate);
+                    end.value(startDate);
                     start.min(start.value(startDate));
+                    start.min(start.value());
+                    end.min(start.value(startDate));
                     end.min(start.value());
                 });
 
@@ -619,53 +625,41 @@
                 });
             }
             function startChange() {
-                var startDate = start.value(),
-                    endDate = end.value();
+                var startDate = start.value();
 
                 if (startDate) {
                     startDate = new Date(startDate);
                     startDate.setDate(startDate.getDate());
+                    startDate.setHours(8);
+                    startDate.setMinutes(0);
+
                     end.min(startDate);
                     end.value(startDate);
-                    console.log(1);
 
-                } else if (endDate) {
-                    console.log(2);
-                    start.max(new Date(endDate));
-                } else {
-                    console.log(3);
-                    endDate = new Date();
-                    // start.max(endDate);
-                    // end.min(endDate);
                 }
             }
 
             function endChange() {
-                var endDate = end.value(),
-                    startDate = start.value();
+                var endDate = end.value();
 
                 if (endDate) {
                     endDate = new Date(endDate);
                     endDate.setDate(endDate.getDate());
+                    endDate.setHours(8);
+                    endDate.setMinutes(0);
                     // start.min(endDate);
-                } else if (startDate) {
-                    console.log(2);
-                    end.min(new Date(startDate));
-                } else {
-                    console.log(3);
-                    endDate = new Date();
-                    start.max(endDate);
-                    end.min(endDate);
                 }
             }
             function dateStartEndValider() {
-                var endDate = end.value(),
-                    startDate = start.value();
+                var endDate = end.value();
 
                 if (endDate) {
                     endDate = new Date(endDate);
                     endDate.setDate(endDate.getDate());
+                    endDate.setHours(8);
+                    endDate.setMinutes(0);
                     start.value(endDate);
+                    end.value(endDate);
                 }
             }
         })

@@ -392,10 +392,12 @@ class PlanifController extends Controller
             $totalTime += $servicTime->second($h,$m);
         }
 
-        $totalTime = $servicTime->temp($totalTime);
-        $totalTime = new \DateTime($totalTime);
+        $totalTimeTab = $servicTime->temp($totalTime);
+
+        $totalTime = new \DateTime($totalTimeTab['time']);
 
         $saleDocLine->setTotalPrev($totalTime);
+        $saleDocLine->setTotalPrevMultiple($totalTimeTab['multiplier']);
 
         $em->persist($saleDocLine);
         $em->flush();

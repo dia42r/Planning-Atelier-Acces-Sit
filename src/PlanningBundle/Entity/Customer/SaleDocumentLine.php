@@ -117,12 +117,24 @@ class SaleDocumentLine
      */
     private $totalTime;
 
+    /**
+     *
+     * @ORM\Column(name="total_time_multiple", type="integer", nullable=true)
+     */
+    private $totalTimeMultiple;
+
 
     /**
      *
      * @ORM\Column(name="total_prev", type="time", nullable=true)
      */
     private $totalPrev;
+
+    /**
+     *
+     * @ORM\Column(name="total_prev_multiple", type="integer", nullable=true)
+     */
+    private $totalPrevMultiple;
 
     /**
      * @var string
@@ -451,6 +463,34 @@ class SaleDocumentLine
     {
         $this->totalPrev = $totalPrev;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalTimeMultiple(){
+        return $this->totalTimeMultiple;
+    }
+
+    /**
+     * @param mixed $totalTimeMultiple
+     */
+    public function setTotalTimeMultiple($totalTimeMultiple){
+        $this->totalTimeMultiple = $totalTimeMultiple;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalPrevMultiple(){
+        return $this->totalPrevMultiple;
+    }
+
+    /**
+     * @param mixed $totalPrevMultiple
+     */
+    public function setTotalPrevMultiple($totalPrevMultiple){
+        $this->totalPrevMultiple = $totalPrevMultiple;
     }
 
 
