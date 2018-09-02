@@ -741,7 +741,7 @@ form .group label {
 
 #planif-produits .button__subm-form {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -756,6 +756,11 @@ form .group label {
     border: 1px solid;
 }
 
+#planif-produits .tab__content_label {
+    display: flex;
+    width: 88%;
+    margin: 0 auto 2%;
+}
 
 #planif-produits .tab__content_label label {
     text-transform: uppercase;
@@ -842,7 +847,7 @@ form .group label {
 #planif-produits .planif-produits-validate {
     margin: 2% auto;
     display: flex;
-    /*justify-content: flex-end;*/
+    justify-content: flex-start;
     visibility: hidden;
 }
 

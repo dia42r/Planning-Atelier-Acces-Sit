@@ -44,22 +44,6 @@ class Item
 
 
     /**
-     * One Item has One Family
-     * @ORM\OneToOne(targetEntity="ItemFamily")
-     * @ORM\JoinColumn(name="family_id", referencedColumnName="id")
-     */
-    private $itemFamily;
-
-    /**
-     * One Item has One SubFamily
-     * @ORM\OneToOne(targetEntity="ItemSubFamily")
-     * @ORM\JoinColumn(name="itemSubfamily_id", referencedColumnName="id")
-     *
-     */
-    private $itemSubFamily;
-
-
-    /**
      * One Product has Many Features.
      * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", mappedBy="item")
      */
@@ -170,53 +154,6 @@ class Item
         return $this->note;
     }
 
-    /**
-     * Set itemFamily.
-     *
-     * @param \PlanningBundle\Entity\Customer\ItemFamily|null $itemFamily
-     *
-     * @return Item
-     */
-    public function setItemFamily(\PlanningBundle\Entity\Customer\ItemFamily $itemFamily = null)
-    {
-        $this->itemFamily = $itemFamily;
-
-        return $this;
-    }
-
-    /**
-     * Get itemFamily.
-     *
-     * @return \PlanningBundle\Entity\Customer\ItemFamily|null
-     */
-    public function getItemFamily()
-    {
-        return $this->itemFamily;
-    }
-
-    /**
-     * Set itemSubFamily.
-     *
-     * @param \PlanningBundle\Entity\Customer\ItemSubFamily|null $itemSubFamily
-     *
-     * @return Item
-     */
-    public function setItemSubFamily(\PlanningBundle\Entity\Customer\ItemSubFamily $itemSubFamily = null)
-    {
-        $this->itemSubFamily = $itemSubFamily;
-
-        return $this;
-    }
-
-    /**
-     * Get itemSubFamily.
-     *
-     * @return \PlanningBundle\Entity\Customer\ItemSubFamily|null
-     */
-    public function getItemSubFamily()
-    {
-        return $this->itemSubFamily;
-    }
 
     /**
      * Add saledocumentLine.

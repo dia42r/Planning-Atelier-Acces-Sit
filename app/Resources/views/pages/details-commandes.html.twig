@@ -17,6 +17,7 @@
                 <th>Quantité</th>
                 <th>Action</th>
                 <th>Action</th>
+                <th>Action</th>
                 <th>Statut</th>
                 <th>Fin de fabrication</th>
                 <th>Commentaire</th>
@@ -43,7 +44,23 @@
                             </div>
                         </a>
                     </td>
-                    <td class="plan">{{ detail.status }}</td>
+                    <td>
+                        <a href="{{ path('art-ndelete-attente', {'id': detail.id}) }}">
+                            <div class="con-tooltip top">
+                                <img class="delete-img" src="{{ asset('img/x-button.png') }}" alt="">
+                                <div class="tooltip ">
+                                    <p style="">En cliquant sur la croix vous ne planifirez pas l'article et le statut sera automatiquement planifié </p>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                    <td class="plan">
+                        {% if detail.statusBis is not null %}
+                            {{ detail.statusBis }}
+                        {% else %}
+                            {{ detail.status }}
+                        {% endif %}
+                    </td>
                     <td>
                         {% if detail.planif is not null %}
                             {% if detail.planif.endDate is not null %}

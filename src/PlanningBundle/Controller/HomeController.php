@@ -11,11 +11,9 @@ use PlanningBundle\Entity\Customer\SaleDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\HttpFoundation\Response;
-use PlanningBundle\Entity\Main\CalendarEvents as MyCustomEvent;
 
 class HomeController extends Controller
 {
@@ -27,43 +25,26 @@ class HomeController extends Controller
         return $this->render('pages/page-accueil.html.twig');
     }
 
-    /**
-     * @Route("/search", name="search_result")
-     * @Method({"GET", "POST"})
-     */
-    public function searchAction(Request $request)
-    {
-        $search = $request->query->get('term');
-        $serializer = $this->container->get('jms_serializer');
-        $saledocument = $this->getDoctrine()->getRepository(SaleDocument::class)->findSaleSearch($search);
-
-        $data       = $serializer->serialize($saledocument, 'json');
-
-        return new Response($data);
-    }
 
 
     /**
      * @Route("/listes", name="listes-commandes")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function listeCommandesAction(Request $request)
     {
-        $form = $this->createFormBuilder(null)
-            ->add('Rechercher', TextType::class, ['constraints' => new Length(['min' => 3]), 'attr' => ['placeholder' => 'Rechercher une CAT']])
-            ->add('send', SubmitType::class, ['label' => 'Envoyer'])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ( $form->isSubmitted() && $form->isValid() ) {
-
-            $form['Rechercher']->getData();
-            return $this->redirectToRoute('search_result');
-        }
+        $search = $request->request->get('search');
+        if ($search){
+            $commandes = $this->getDoctrine()
+                ->getRepository(SaleDocument::class)
+                ->findSaleSearch($search);
+        }else{
 
         $commandes = $this->getDoctrine()
             ->getRepository(SaleDocument::class)
             ->findBy([],['documentNumber' => 'desc']);
+        }
 
         $paginator = $this->get('knp_paginator');
 
@@ -76,14 +57,13 @@ class HomeController extends Controller
         return $this->render('pages/listes-des-commandes.html.twig', [
             'commandes' => $commandes,
             "pagination"=> $pagination,
-            'form'      => $form
         ]);
     }
 
 
-
     /**
      * @Route("/saledocumentline-task/{id}", name="liste-taches")
+     * @param $id
      */
     public function TasksActions($id)
     {

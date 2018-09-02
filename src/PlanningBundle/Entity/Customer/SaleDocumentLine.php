@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * SaleDocumentLine
  *
- * @ORM\Table(name="sale_document_line", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_5727BE815EB52FD5", columns={"documentId"})}, indexes={@ORM\Index(name="IDX_5727BE81DBBCE3DC", columns={"saleDocument_id"}), @ORM\Index(name="UNIQ_5727BE81126F525E", columns={"item_id"})})
+ * @ORM\Table(name="sale_document_line")
  * @ORM\Entity(repositoryClass="PlanningBundle\Repository\SaleDocumentLineRepository")
  */
 class SaleDocumentLine
@@ -24,7 +24,7 @@ class SaleDocumentLine
     /**
      * @var string|null
      *
-     * @ORM\Column(name="documentId", type="string", length=255, nullable=true, unique=false)
+     * @ORM\Column(name="documentId", type="string", length=255, nullable=true)
      */
     private $documentid;
 
@@ -476,7 +476,7 @@ class SaleDocumentLine
     /**
      * @return null|string
      */
-    public function getStatusBis(): ?string
+    public function getStatusBis()
     {
         return $this->statusBis;
     }
@@ -485,7 +485,7 @@ class SaleDocumentLine
      * @param null|string $statusBis
      * @return SaleDocumentLine
      */
-    public function setStatusBis(?string $statusBis)
+    public function setStatusBis( $statusBis)
     {
         $this->statusBis = $statusBis;
         return $this;

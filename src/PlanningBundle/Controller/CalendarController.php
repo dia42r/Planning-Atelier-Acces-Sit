@@ -37,7 +37,11 @@ class CalendarController extends Controller
                 foreach ($planifs as $planif ) {
                     $planifTab['title'] = $planif->getDocumentNumber();
                     $planifTab['start'] = $planif->getStartingDate();
-                    $planifTab['end'] = $planif->getEndDate();;
+                    $planifTab['end'] = $planif->getEndDate();
+                    if($planif->getStatusBis() != null){
+
+                    $planifTab['backgroundColor'] = 'red';
+                    }
                     array_push($planifsTab, $planifTab);
 //        dump($planif->getSaleDocumentLine()->getSaledocument()->getDocumentNumber());
                 }
@@ -56,18 +60,18 @@ class CalendarController extends Controller
                     | ['.$CAT.']';
                     $subTaskTab['start'] = $subTask->getStartingDate();
                     $subTaskTab['end'] = $subTask->getEndDate();
+                    $subTaskTab['backgroundColor'] = 'red';
                     array_push($subTasksTab, $subTaskTab);
                 }
-//                dump($subTasksTab);
-//                dump($subTasks[0]->getPlanif()->getSaleDocumentLine()->getSaleDocument()->getDocumentNumber());
-//                dump($subTasks);
-//                die;
+
                 $data = $serializer->serialize($subTasksTab, 'json');
                 return new Response($data);
                 break;
             case 'TASK':
                 $competence = $em->getRepository(Competence::class)->find($task);
-                $subTasks = $em->getRepository(SousPlanification::class)->findTaskAllCompetenceBy($competence->getName());
+                $subTasks = $em->getRepository(SousPlanification::class)
+                    ->findTaskAllCompetenceBy($competence->getName());
+
                 $subTasksTab = [];
 
                 foreach ($subTasks as $subTask ) {
@@ -84,10 +88,7 @@ class CalendarController extends Controller
                     $subTaskTab['end'] = $subTask->getEndDate();
                     array_push($subTasksTab, $subTaskTab);
                 }
-//                dump($subTasksTab);
-//                dump($subTasks[0]->getPlanif()->getSaleDocumentLine()->getSaleDocument()->getDocumentNumber());
-//                dump($subTasks[0]->getActor()->toArray());
-//                die;
+
                 $data = $serializer->serialize($subTasksTab, 'json');
                 return new Response($data);
                 break;
@@ -95,20 +96,6 @@ class CalendarController extends Controller
                 echo "i égal 2";
                 break;
         }
-
-//        dump($planifsTab);
-//        die;
-
-//        $tab = [
-//            ['title' => "Event Title 1", "start"=> "2018-07-11T00:00:00", "end" => "2018-08-24T07:00:00"],
-//            ['title' => "Event Title 2", "start"=> "2018-07-11T00:00:00", "end" => "2018-08-23T07:00:00"],
-//            ['title' => "Event Title 3", "start"=> "2018-07-11T00:00:00", "end" => "2018-08-22T07:00:00"],
-//            ['title' => "Event Title 4", "start"=> "2018-07-11T01:00:00", "end" => "2018-08-21T07:00:00"],
-//            ['title' => "Event Title 5", "start"=> "2018-08-24T02:00:00", "end" => "2018-08-26T07:06:00"],
-//        ];
-//        $json = {"title":"Event Title 1","start":"2018-07-11T00:00:00"},{"title":"Event Title 2","start":"2018-07-10T00:00:00"},{"title":"Event Title 3","start":"2018-08-21T07:00:00","end":"2018-08-24T07:00:00"}]
-
         return new Response('good');
-
     }
 }

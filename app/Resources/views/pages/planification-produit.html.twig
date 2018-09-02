@@ -29,7 +29,7 @@
             <div class="tab_container" data-skill="0"></div>
         </div>
         <div id="tab" class="tab_content">
-            <form action="{{ path('set_plannification') }}">
+            <form action="{{ path('set_plannification') }}" method="post">
                 <div class="tab_content_container tabo">
                     <div class="tab__content-time">
                         <p class="tab_content_container-para">Temps prévisionel de planification : </p>
@@ -65,12 +65,7 @@
                     <div id="actor"></div>
                 </div>
                 <div class="button__subm-form">
-                    <div class="tab__content_label">
-                        <label for="check">
-                            Mettre en attente
-                            <input type="checkbox" id="wait-check">
-                        </label>
-                    </div>
+
                     <div class="container__submit">
                         <input class="subm buttonn" type="button" id="button-8" value="Ignorer">
                         <input class="subm buttonn valider-soustache" type="submit" id="button-8" value="Valider">
@@ -81,6 +76,12 @@
         </div>
 
         <form action="{{ path('set_plannificationtotal') }}">
+            <div class="tab__content_label">
+                <label for="check">
+                    Mettre en attente
+                    <input type="checkbox" id="wait-check" name="waitCheck">
+                </label>
+            </div>
             <div class="planif-produits-comments">
                 <textarea name="comment" id="" cols="70" rows="6"  placeholder="Saissisez votre commentaire"></textarea>
                 <div class="openmodal-button">
@@ -162,12 +163,30 @@
             const $openModalClose = document.querySelector('#close');
             const $waitCheck = document.querySelector('#wait-check');
 
+            var start = $("#start").kendoDateTimePicker({
+                culture: "fr-FR",
+                change: startChange,
+                value: new Date(),
+                format: "dd-MM-yyyy HH:mm"
+            }).data("kendoDateTimePicker");
+
+            var end = $("#end").kendoDateTimePicker({
+                culture: "fr-FR",
+                value: new Date(),
+                change: endChange,
+                format: "dd-MM-yyyy HH:mm"
+            }).data("kendoDateTimePicker");
+
+
             var skilltab = [];
             for (let i = 0; i < $$li_skill.length; i++) {
                 let data_skill = $$li_skill.get(i).getAttribute("data-skill");
                 skilltab.push(data_skill);
             }
             $inputIgnorer.style.visibility = "hidden";
+            start.min(start.value());
+            end.min(start.value());
+
 
             $.ajax({
                 url: "{{ path('set_plannification_check_skill') }}",
@@ -178,32 +197,37 @@
                 }
             })
                 .done( function( datas ) {
-                    datas = parseInt(datas);
+                    datas = JSON.parse(datas);
+                    console.log(datas);
+                    // debugger
+                    let startDate = new Date(datas['end']);
+                    console.log(startDate);
                     for (let i = 0; i < $$li_skill.length; i++) {
                         if ($$li_skill.get(i).classList.contains("active")) {
                             $$li_skill.get(i).classList.remove("active");
                             break
                         }
                     }
-                    if ($$li_skill.length === datas) {
-                        datas -= 1;
+                    if ($$li_skill.length === datas['position']) {
+                        datas['position'] -= 1;
                         if ($bbValiderPlanif) {
 
                             $bbValiderPlanif.style.visibility = "visible";
                         }
                         $inputValider.style.visibility = "hidden";
                         $inputIgnorer.style.visibility = "hidden";
-                    }else if(($$li_skill.length - 1) === datas) {
+                    }else if(($$li_skill.length - 1) === datas['position']) {
                         $inputIgnorer.style.visibility = "hidden";
                     }else {
                         $inputIgnorer.style.visibility = "visible";
                     }
 
-                    let data_skill = $$li_skill.get(datas).getAttribute("data-skill");
+                    let data_skill = $$li_skill.get(datas['position']).getAttribute("data-skill");
                     $inputskill.setAttribute("value", data_skill);
-                    $$li_skill.get(datas).classList.add("active");
-
-                    console.log(datas);
+                    $$li_skill.get(datas['position']).classList.add("active");
+                    start.value(startDate);
+                    start.min(start.value(startDate));
+                    end.min(start.value());
                 });
 
             $lastTask.addEventListener('click', function (event) {
@@ -324,6 +348,7 @@
                                     break
                                 }
                             }
+                            dateStartEndValider()
                         });
                 }
             });
@@ -382,7 +407,6 @@
                                 break
                             }
                         }
-                        console.log(datas);
                     });
             });
             $bb.addEventListener('click', function (e) {
@@ -594,11 +618,6 @@
                     }
                 });
             }
-        })
-
-    </script>
-    <script>
-        $(document).ready(function() {
             function startChange() {
                 var startDate = start.value(),
                     endDate = end.value();
@@ -607,9 +626,14 @@
                     startDate = new Date(startDate);
                     startDate.setDate(startDate.getDate());
                     end.min(startDate);
+                    end.value(startDate);
+                    console.log(1);
+
                 } else if (endDate) {
+                    console.log(2);
                     start.max(new Date(endDate));
                 } else {
+                    console.log(3);
                     endDate = new Date();
                     // start.max(endDate);
                     // end.min(endDate);
@@ -623,36 +647,90 @@
                 if (endDate) {
                     endDate = new Date(endDate);
                     endDate.setDate(endDate.getDate());
-                    start.max(endDate);
+                    // start.min(endDate);
                 } else if (startDate) {
+                    console.log(2);
                     end.min(new Date(startDate));
                 } else {
+                    console.log(3);
                     endDate = new Date();
                     start.max(endDate);
                     end.min(endDate);
                 }
             }
+            function dateStartEndValider() {
+                var endDate = end.value(),
+                    startDate = start.value();
 
+                if (endDate) {
+                    endDate = new Date(endDate);
+                    endDate.setDate(endDate.getDate());
+                    start.value(endDate);
+                }
+            }
+        })
 
-            var today = kendo.date.today();
-
-            var start = $("#start").kendoDateTimePicker({
-                culture: "fr-FR",
-                change: startChange,
-                value: new Date(),
-                format: "dd-MM-yyyy HH:mm"
-            }).data("kendoDateTimePicker");
-
-            var end = $("#end").kendoDateTimePicker({
-                culture: "fr-FR",
-                value: new Date(),
-                change: endChange,
-                format: "dd-MM-yyyy HH:mm"
-            }).data("kendoDateTimePicker");
-
-            // start.max(end.value());
-            // end.min(start.value());
-        });
     </script>
+    {#<script>#}
+        {#$(document).ready(function() {#}
+            {#function startChange() {#}
+                {#var startDate = start.value(),#}
+                    {#endDate = end.value();#}
+
+                {#if (startDate) {#}
+                    {#startDate = new Date(startDate);#}
+                    {#startDate.setDate(startDate.getDate());#}
+                    {#end.min(startDate);#}
+                    {#end.value(startDate);#}
+                    {#console.log(1);#}
+
+                {#} else if (endDate) {#}
+                    {#console.log(2);#}
+                    {#start.max(new Date(endDate));#}
+                {#} else {#}
+                    {#console.log(3);#}
+                    {#endDate = new Date();#}
+                    {#// start.max(endDate);#}
+                    {#// end.min(endDate);#}
+                {#}#}
+            {#}#}
+
+            {#function endChange() {#}
+                {#var endDate = end.value(),#}
+                    {#startDate = start.value();#}
+
+                {#if (endDate) {#}
+                    {#endDate = new Date(endDate);#}
+                    {#endDate.setDate(endDate.getDate());#}
+                    {#start.min(endDate);#}
+                {#} else if (startDate) {#}
+                    {#console.log(2);#}
+                    {#end.min(new Date(startDate));#}
+                {#} else {#}
+                    {#console.log(3);#}
+                    {#endDate = new Date();#}
+                    {#start.max(endDate);#}
+                    {#end.min(endDate);#}
+                {#}#}
+            {#}#}
+
+            {#var start = $("#start").kendoDateTimePicker({#}
+                {#culture: "fr-FR",#}
+                {#change: startChange,#}
+                {#value: new Date(),#}
+                {#format: "dd-MM-yyyy HH:mm"#}
+            {#}).data("kendoDateTimePicker");#}
+
+            {#var end = $("#end").kendoDateTimePicker({#}
+                {#culture: "fr-FR",#}
+                {#value: new Date(),#}
+                {#change: endChange,#}
+                {#format: "dd-MM-yyyy HH:mm"#}
+            {#}).data("kendoDateTimePicker");#}
+
+            {#start.min(start.value());#}
+            {#end.min(start.value());#}
+        {#});#}
+    {#</script>#}
 
 {% endblock %}

@@ -3,7 +3,6 @@
 namespace PlanningBundle\Controller;
 
 use PlanningBundle\Form\LoginForm;
-use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -12,6 +11,8 @@ class SecurityController extends Controller
 {
     /**
      * @Route("/connexion", name="connexion_securisée")
+     * @param AuthenticationUtils $authenticalUtils
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function loginAction(AuthenticationUtils $authenticalUtils)
     {
@@ -36,6 +37,7 @@ class SecurityController extends Controller
 
     /**
      * @Route("/deconnexion", name="security_logout")
+     * @throws \Exception
      */
     public function logoutAction()
     {

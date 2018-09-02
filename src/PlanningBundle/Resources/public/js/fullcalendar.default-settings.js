@@ -1,3 +1,4 @@
+var $$calendarHolder = $('#calendar-holder');
 $(function () {
     $('#calendar-holder').fullCalendar({
         header: {
@@ -5,29 +6,18 @@ $(function () {
             center: 'title',
             right: 'month, agendaWeek, agendaDay'
         },
+        displayEventEnd:true,
         timezone: ('Europe/London'),
-        businessHours: {
-            start: '09:00',
-            end: '17:30',
-            dow: [1, 2, 3, 4, 5]
-        },
-        // allDaySlot: true,
-        // lazyFetching: true,
-        // firstDay: 1,
+        allDaySlot: true,
         selectable: true,
-        timeFormat: {
-            agenda: 'h:mmt',
-            '': 'h:mmt'
-        },
-        editable: true,
-        eventDurationEditable: true,
-        eventSources: [
-            {
-                url: '/full-calendar/load',
-                type: 'POST',
-                data: {},
-                error: function () {}
-            }
-        ]
+        // eventClick: function(event, element) {
+        //
+        //     event.title = "CLICKED!";
+        //
+        //     $('#calendar-holder').fullCalendar('updateEvent', event);
+        //
+        // },
+
+        timeFormat: 'HH:mm'
     });
 });

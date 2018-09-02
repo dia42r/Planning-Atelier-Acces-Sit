@@ -72,4 +72,14 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $d->getSingleResult();
     }
+    public function findWait()
+    {
+        $d = $this->createQueryBuilder('s')
+            ->select('s.id')
+            ->where("s.statusBis = 'En attente'")
+            ->setFirstResult(1)
+            ->setMaxResults(1)
+            ->getQuery();
+        return $d->getSingleResult();
+    }
 }

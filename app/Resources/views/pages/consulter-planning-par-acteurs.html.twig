@@ -2,7 +2,6 @@
 {% block body %}
     <main id="mainselected">
         <section class="planif-button-h2">
-            {#<div class="planif-button-h2">#}
             <h2>Consulter le planning par acteurs : </h2>
             <select name="" id="selectActor" title="">
                 {% for actor in actors  %}
@@ -11,7 +10,6 @@
                     {% endif %}
                 {% endfor %}
             </select>
-            {#</div>#}
         </section>
     </main>
 
@@ -29,6 +27,38 @@
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.Actor-settings.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+        <script type="text/javascript">
+            $(function () {
+                var $$selectActor = document.getElementById('selectActor');
+                var actor = $$selectActor.value;
+
+                $$calendarHolder.fullCalendar('addEventSource',
+                    {
+                        url: '/load-planning',
+                        type: 'GET',
+                        data: {planning:'ACTOR',actor:actor},
+                        error: function () {
+                        }
+                    }
+                );
+
+                $$selectActor.addEventListener('change', function () {
+                    let actor = this.value;
+                    $$calendarHolder.fullCalendar( 'removeEventSources' );
+                    $$calendarHolder.fullCalendar( 'addEventSource' ,
+                        {
+                            url: '/load-planning',
+                            type: 'GET',
+                            data: {planning:'ACTOR',actor:actor},
+                            error: function () {}
+                        }
+                    );
+                    console.log(this.value);
+                    // debugger
+
+                })
+            });
+        </script>
     {% endblock %}

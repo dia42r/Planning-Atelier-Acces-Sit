@@ -61,6 +61,12 @@ class PlanifController extends Controller
         $lastSaleDocumentLine = count($saleDocumentLines);
         $startDate = null;
         $endDate = null;
+        $waits = false;
+        for ($i=0; $i < $lastSaleDocumentLine; $i++) {
+            if ($saleDocumentLines[$i]->getStatusBis() == "En attente"){
+                $waits = true;
+            }
+        }
         for ($i=0; $i < $lastSaleDocumentLine; $i++) {
             if ($saleDocumentLines[$i]->getPlanif() != null){
 
@@ -82,33 +88,19 @@ class PlanifController extends Controller
                 }
             }
         }
-//        foreach ($saleDocumentLines as $saleDocumentLine){
 //
-//            if($saleDocumentLine->getPlanif() != null){
-//
-//                dump($saleDocumentLine->getPlanif());
-////        dump($saleDocumentLine->getPlanif()->getStartingDate());
-////        dump($saleDocumentLine->getPlanif()->getEndDate());
-//            }else{
-//
-//            }
-//            if($saleDocumentLine->getPlanif()->getEndDate() == null){
-//
-//            }else{
-//
-//            }
-//        }
         $saleDocument->setStartingDate($startDate);
         $saleDocument->setEndDate($endDate);
-        $saleDocument->setDocumentEndDateFabric($endDate);
+        if($waits){
+            $saleDocument->setStatusBis("En attente");
+
+        }
 
         $em->persist($saleDocument);
         $em->flush();
 
         return $this->redirectToRoute('planifier-une-commande');
-//        dump($startDate);
-//        dump($endDate);
-//        die;
+
     }
 
 
@@ -134,6 +126,8 @@ class PlanifController extends Controller
 
     /**
      * @Route("/planification_produits/{id}", name="planification-produits")
+     * @param $id
+     * @return Response
      */
     public function planificationProduits($id)
     {
@@ -160,6 +154,7 @@ class PlanifController extends Controller
     public function  setPlanActionCheckSkill(Request $request) {
 
         $em            = $this->container->get('doctrine.orm.entity_manager');
+        $serializer = $this->container->get('jms_serializer');
         $saleDocLineid = $request->request->get('saledocumentlineid');
         $skilltab      = $request->request->get('dataSkills');
 
@@ -180,15 +175,24 @@ class PlanifController extends Controller
                 foreach ($sousplanifs as $sousplanif) {
                     for( $i = 0; $i < count($skilltab); $i++ ) {
                         $skill = $em->getRepository(Competence::class)->findskill($skilltab[$i]);
+                        if($sousplanif->getStartingDate() != null){
+                            $data['end'] = $sousplanif->getEndDate();
+                        }
                         if($sousplanif->getCompetences() == $skill[0]['name']){
-                            if( $position <= $i )
+                            if( $position <= $i ){
                                 $position = $i;
                             break;
+
+                            }
                         }
                     }
                 }
                 $position += 1;
-                return new Response($position);
+                $data['position'] = $position;
+
+                $data = $serializer->serialize($data, 'json');
+
+                return new Response($data);
             }
         }else {
             return new Response("0");
@@ -331,6 +335,7 @@ class PlanifController extends Controller
         $servicTime = $this->container->get('planning.service.time');
         $datePlanif = new \DateTime( 'NOW');
 //        $datePlanif = $datePlanif->format("d-m-Y");
+        $statusattente   = $request->get('waitCheck');
         $dateStart   = $request->get('dateStart');
         $dateStart = new \DateTime($dateStart);
 //        $dateStart = $dateStart->format("d-m-Y");
@@ -371,6 +376,9 @@ class PlanifController extends Controller
 
         $saleDocLine->setComment($planif->getComment());
         $saleDocLine->setStatus('Planifié');
+        if($statusattente || $statusattente == 'on'){
+            $saleDocLine->setStatusBis('En attente');
+        }
 
         $em->persist($saleDocLine);
         $em->flush();
@@ -603,5 +611,31 @@ class PlanifController extends Controller
             return new Response($data);
 
         }
+    }
+    /**
+     * @Route("/article-delete-attente/{id}", name="art-ndelete-attente")
+     * @param Request $request
+     * @param SaleDocumentLine $saleDocumentLine
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function dontWaitPlanifAction(Request $request, SaleDocumentLine $saleDocumentLine)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $saleDocumentid = $saleDocumentLine->getSaledocument()->getId();
+        $saleDocument = $em->getRepository(SaleDocument::class)
+            ->find($saleDocumentid);
+
+
+        $saleDocumentLine->setStatusBis(null);
+        $saleDocument->setStatusBis(null);
+
+        $em->persist($saleDocumentLine);
+//        $em->flush();
+        $em->persist($saleDocument);
+        $em->flush();
+
+        return $this->redirectToRoute('details-commandes', [
+            "id" => $saleDocumentid
+        ]);
     }
 }

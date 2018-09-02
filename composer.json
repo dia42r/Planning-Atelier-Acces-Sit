@@ -39,10 +39,6 @@
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
-        "hautelook/alice-bundle":"^2.0@beta",
-        "nelmio/alice":"^3.0@beta",
-        "theofidry/alice-data-fixtures":"^1.0@beta",
-        "doctrine/data-fixtures": "^1.2.2",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },

@@ -14,15 +14,19 @@ class SaleDocumentRepository extends EntityRepository
 {
     public function findSaleSearch($val)
     {
+        dump($val);
         // Création d'une requete personnalisé Query Builder
         $q = $this->createQueryBuilder("s") // Création d'un alias
-         ->where("s.documentNumber LIKE '%:salval%'") // En pointant vers la bonne donnée
-            ->setParameter('salval',$val)
+        ->orderBy('s.documentNumber','DESC')
+        ->andwhere("s.documentNumber LIKE :salval") // En pointant vers la bonne donnée
+            ->setParameter('salval', '%'.$val.'%')
             ->getQuery();
 
+        dump($q);
+//        die;
         return $q->getResult();
     }
-    
+
     public function findSaleDoc($id)
     {
         // Création d'une requete personnalisé Query Builder
@@ -41,8 +45,8 @@ class SaleDocumentRepository extends EntityRepository
     public function findSaleDocCount($id)
     {
         $q = $this->createQueryBuilder("s")
-        ->Select("count(b) as max")
-        ->join("s.saleDocumentLines","b")
+            ->Select("count(b) as max")
+            ->join("s.saleDocumentLines","b")
             ->join("b.item","i")
             ->where("s.id = :docid")
             ->setParameter('docid',$id)
@@ -71,8 +75,8 @@ class SaleDocumentRepository extends EntityRepository
     {
         // Création d'une requete personnalisé Query Builder
         $q = $this->createQueryBuilder("s") // Création d'un alias
-            ->where("s.status = 'Planifié'") // En pointant vers la bonne donnée
-            ->getQuery();
+        ->where("s.status = 'Planifié'") // En pointant vers la bonne donnée
+        ->getQuery();
 
         return $q->getResult();
     }

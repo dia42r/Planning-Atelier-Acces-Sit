@@ -3,19 +3,11 @@
     <main id="main-planification-commande">
         <div class="planif-button-h2">
             <h2>Listes et état des commandes </h2>
-            {#<div class="btn_container">#}
-                {#<img class="img-event open_button" style="width: 23%; cursor: pointer" src="{{ asset('img/magnifier.png') }}" alt="search">#}
-            {#</div>#}
-            {#<div class="modal_info">#}
-                {#<h1>Rechercher</h1>#}
-                {#<input class="modal_info-search" type="search" title="" placeholder="Entrer votre CAT">#}
-            {#</div>#}
-            {#<div class="modal_overlay"></div>#}
-            <button class="six col" id="valide-time">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a id="button-8" class="buttonn" href="{{ path('security_logout') }}">Déconnexion</a>
-                {% endif %}
-            </button>
+                <button class="six col" id="valide-time">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a id="button-8" class="buttonn" href="{{ path('security_logout') }}">Déconnexion</a>
+                    {% endif %}
+                </button>
         </div>
         <div class="navigation nav-pag">
             {{ knp_pagination_render(pagination) }}
@@ -42,7 +34,13 @@
                         </a>
                     </td>
                     <td>{{ commande.customerName }}</td>
-                    <td>{{ commande.status }}</td>
+                    <td>
+                        {% if commande.statusBis is not null %}
+                            {{ commande.status }} [logo]
+                        {% else %}
+                            {{ commande.status }}
+                        {% endif %}
+                    </td>
                     <td>{{ commande.documentDate|date('d/m/y') }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
                     <td>

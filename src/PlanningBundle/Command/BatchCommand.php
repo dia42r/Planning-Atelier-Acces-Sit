@@ -2,7 +2,6 @@
 
 namespace PlanningBundle\Command;
 
-use Faker\Provider\DateTime;
 use SqlSrvBundle\Entity\Item;
 use SqlSrvBundle\Entity\Saledocument;
 use SqlSrvBundle\Entity\Saledocumentline;
@@ -64,9 +63,7 @@ class BatchCommand extends ContainerAwareCommand
 
             $batchSize = 20;
             foreach ($test as $key => $safe ) {
-//            dump($key);
-//            dump($safe);
-//            die;
+
                 $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
                 $safedocument->setId($safe['id']);
                 $safedocument->setDocumentNumber($safe['documentnumber']);
@@ -80,7 +77,6 @@ class BatchCommand extends ContainerAwareCommand
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
                     var_dump('ok');
-//                var_dump($em);
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
                 }
@@ -103,9 +99,7 @@ class BatchCommand extends ContainerAwareCommand
             $progress->start();
             $batchSize = 20;
             foreach ($items as $key => $safe ) {
-//            dump($key);
-//            dump($safe['id'],$safe['caption']);
-//            die;
+
                 $item = new \PlanningBundle\Entity\Customer\Item();
                 $item->setId($safe['id']);
                 $item->setCaption($safe['caption']);
@@ -113,9 +107,9 @@ class BatchCommand extends ContainerAwareCommand
                 $em->persist($item);
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
-//                dump($item);
+
                     dump('ok');
-//                die;
+
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
                 }
@@ -131,7 +125,7 @@ class BatchCommand extends ContainerAwareCommand
                 ->getRepository(Saledocumentline::class)
                 ->findDetails();
             $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
-//        die("ok");
+
             $output->writeln([
                 'ready go',
                 '========'
@@ -215,9 +209,7 @@ class BatchCommand extends ContainerAwareCommand
             $progress->start();
             $batchSize = 20;
             foreach ($test as $key => $safe ) {
-//            dump($key);
-//            dump($safe);
-//            die;
+
                 $safedocumentlinePlanning = $em->getRepository(SaleDocumentLinePlanning::class)->find($safe['id']);
 
                 if($safedocumentlinePlanning == null) {

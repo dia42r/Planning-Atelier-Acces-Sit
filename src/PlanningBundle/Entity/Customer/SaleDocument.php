@@ -79,6 +79,13 @@ class SaleDocument
     private $status = 'Non planifié';
 
     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="status_bis", type="string", length=30, nullable=true)
+     */
+    private $statusBis;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="documentWishDate", type="date", nullable=true)
@@ -175,6 +182,25 @@ class SaleDocument
         $this->status = $status;
         return $this;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getStatusBis()
+    {
+        return $this->statusBis;
+    }
+
+    /**
+     * @param null|string $statusBis
+     */
+    public function setStatusBis( $statusBis)
+    {
+        $this->statusBis = $statusBis;
+        return $this;
+    }
+
+
 
     /**
      * @return mixed

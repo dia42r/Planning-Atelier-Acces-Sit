@@ -5,9 +5,7 @@
             <h2>Consulter le planning par tâches : </h2>
             <select name="" id="selectTask" title="">
                 {% for task in tasks  %}
-                    {#{% if task.enabled == 1 %}#}
-                        <option value="{{ task.id }}">{{ task.name }}</option>
-                    {#{% endif %}#}
+                    <option value="{{ task.id }}">{{ task.name }}</option>
                 {% endfor %}
             </select>
         </section>
@@ -26,6 +24,34 @@
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.Task-settings.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+        <script type="text/javascript">
+            $(function () {
+                var $$selectTask = document.getElementById('selectTask');
+                var task = $$selectTask.value;
+                $$calendarHolder.fullCalendar('addEventSource',
+                    {
+                        url: '/load-planning',
+                        type: 'GET',
+                        data: {planning: 'TASK', task: task},
+                        error: function () {
+                        }
+                    }
+                );
+                $$selectTask.addEventListener('change', function () {
+                    let task = this.value;
+                    $$calendarHolder.fullCalendar('removeEventSources');
+                    $$calendarHolder.fullCalendar('addEventSource',
+                        {
+                            url: '/load-planning',
+                            type: 'GET',
+                            data: {planning: 'TASK', task: task},
+                            error: function () {
+                            }
+                        }
+                    );
+                });
+            });
+        </script>
     {% endblock %}

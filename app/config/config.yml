@@ -80,8 +80,6 @@ doctrine:
                 mappings:
                     SqlSrvBundle: ~
 
-
-
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
@@ -90,8 +88,6 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-hautelook_alice:
-    fixtures_path: 'DataFixtures/ORM'
 
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/DoctrineMigrations"
