@@ -18,4 +18,14 @@ class ItemRepository extends \Doctrine\ORM\EntityRepository
 
         return $it->getResult();
     }
+
+    public function findtest($id)
+    {
+        $d = $this->createQueryBuilder('i')
+            ->select('i.id, i.caption, i.descom')
+            ->where("i.id > :id")
+            ->setParameter('id',$id)
+            ->getQuery();
+        return $d->getResult();
+    }
 }

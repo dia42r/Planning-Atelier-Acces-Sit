@@ -10,4 +10,14 @@ namespace PlanningBundle\Repository;
  */
 class ItemRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findlastid()
+    {
+        $d = $this->createQueryBuilder('s')
+            ->select('s.id')
+            ->orderBy('s.id', 'DESC')
+            ->setFirstResult(1)
+            ->setMaxResults(1)
+            ->getQuery();
+        return $d->getSingleResult();
+    }
 }

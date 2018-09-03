@@ -112,10 +112,15 @@
                             d1m = d1.getMinutes();
                             ds = second(dh, dm);
                             ds1 = second(d1h, d1m);
+                            console.log(ds);
+                            console.log(ds1);
+                            dt = temp(ds1);
                             ds = ds + ds1;
                             dt = temp(ds);
+                            console.log(dt);
                             $inputTotal.value = dt;
                             $inputTotal1.value = dt;
+                            console.log($inputTotal.value);
                             count_time--;
                             if (count_time === 0) {
                                 $table_submit.style.visibility = "visible"
@@ -196,7 +201,9 @@
                     var hours   = Math.floor(seconds / 3600);
                     var minutes = Math.floor((seconds - (hours * 3600)) / 60);
                     var seconds = seconds - (hours * 3600) - (minutes * 60);
-                    hours -= 2;
+                    console.log(hours);
+                    // hours -= 2;
+                    console.log(hours);
                     if (hours   < 10) {hours   = "0"+(hours)}
                     if (minutes < 10) {minutes = "0"+minutes;}
                     // if (seconds < 10) {seconds = "0"+seconds;}

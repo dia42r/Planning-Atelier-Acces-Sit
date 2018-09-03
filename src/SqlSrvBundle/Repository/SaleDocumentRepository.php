@@ -29,4 +29,20 @@ class SaleDocumentRepository extends EntityRepository
         return $q->getResult();
 
     }
+
+    public function findtest($id)
+    {
+        $limitdate = new \DateTime('-6 month');
+
+        $d = $this->createQueryBuilder('s')
+            ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix') // Données selectionnés dont on a besoin
+            ->where("s.numberprefix = :prefix") // I: premier param a checké  @Param prefix
+            ->andWhere("s.id > :id")
+            ->andWhere('s.documentdate > :limitdate') // II: deuxieme param a checké @Param limitedate
+            ->setParameter('prefix', 'CAT') // Set Param I
+            ->setParameter('limitdate', $limitdate->format('d-m-y'))
+            ->setParameter('id',$id)
+            ->getQuery();
+        return $d->getResult();
+    }
 }

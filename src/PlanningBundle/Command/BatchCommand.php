@@ -6,6 +6,8 @@ use SqlSrvBundle\Entity\Item;
 use SqlSrvBundle\Entity\Saledocument;
 use SqlSrvBundle\Entity\Saledocumentline;
 use PlanningBundle\Entity\Customer\SaleDocumentLine as SaleDocumentLinePlanning;
+use PlanningBundle\Entity\Customer\SaleDocument as SaleDocumentPlanning;
+use PlanningBundle\Entity\Customer\Item as ItemPlanning;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
@@ -83,6 +85,8 @@ class BatchCommand extends ContainerAwareCommand
             }
             $em->flush();
             $em->clear();
+            $progress->finish();
+
         }
         elseif ($input->getArgument('sql') == 2){
             $items = $this->getContainer()
@@ -185,7 +189,116 @@ class BatchCommand extends ContainerAwareCommand
             $progress->finish();
         }
         elseif ($input->getArgument('sql') == 4){
+            $testplanning = $this
+                ->getContainer()
+                ->get('doctrine.orm.default_entity_manager')
+                ->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
+                ->findlastid();
 
+            $test = $this
+                ->getContainer()
+                ->get('doctrine.orm.customer_entity_manager')
+                ->getRepository(Saledocument::class)
+                ->findtest($testplanning['id']);
+
+            $em = $this->getContainer()
+                ->get('doctrine.orm.default_entity_manager');
+
+            $output->writeln([
+                'ready go saldocument',
+                '========'
+            ]);
+
+            $progress = new ProgressBar($output, count($test));
+            $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
+            // starts and displays the progress bar
+            $progress->start();
+
+            $batchSize = 20;
+            foreach ($test as $key => $safe ) {
+                $safedocumentPlanning = $em->getRepository(SaleDocumentPlanning::class)->find($safe['id']);
+                if($safedocumentPlanning == null) {
+
+                    $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
+                    $safedocument->setId($safe['id']);
+                    $safedocument->setDocumentNumber($safe['documentnumber']);
+                    $safedocument->setDocumentDate($safe['documentdate']);
+                    $safedocument->setDocumentWishDate($safe['deliverydate']);
+                    $safedocument->setCustomerName($safe['customername']);
+                    $safedocument->setNumberPrefix($safe['numberprefix']);
+                    dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
+
+                    $em->persist($safedocument);
+                }else{
+                    dump('deja dans la base');
+                }
+                $progress->advance();
+                if (($key % $batchSize) === 0) {
+                    var_dump('ok');
+                    $em->flush();
+                    $em->clear(); // Detaches all objects from Doctrine!
+                }
+            }
+            $em->flush();
+            $em->clear();
+            $progress->finish();
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
+            $testplanning = $this
+                ->getContainer()
+                ->get('doctrine.orm.default_entity_manager')
+                ->getRepository(\PlanningBundle\Entity\Customer\Item::class)
+                ->findlastid();
+
+            $items = $this
+                ->getContainer()
+                ->get('doctrine.orm.customer_entity_manager')
+                ->getRepository(Item::class)
+                ->findtest($testplanning['id']);
+
+            $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
+            $output->writeln([
+                '        ',
+                '========',
+                'ready go item',
+                '========'
+            ]);
+            $progress = new ProgressBar($output, count($items));
+// starts and displays the progress bar
+            $progress->start();
+            $batchSize = 20;
+            foreach ($items as $key => $safe ) {
+                $itemPlanning = $em->getRepository(ItemPlanning::class)->find($safe['id']);
+                if($itemPlanning == null) {
+
+                    $item = new \PlanningBundle\Entity\Customer\Item();
+                    $item->setId($safe['id']);
+                    $item->setCaption($safe['caption']);
+                    $item->setDesComm($safe['descom']);
+                    dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
+
+                    $em->persist($item);
+                }else{
+                    dump('deja dans la base');
+                }
+                $progress->advance();
+                if (($key % $batchSize) === 0) {
+
+                    dump('ok');
+
+                    $em->flush();
+                    $em->clear(); // Detaches all objects from Doctrine!
+                }
+            }
+            $em->flush();
+            $em->clear();
+            $progress->finish();
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
             $testplanning = $this
                 ->getContainer()
                 ->get('doctrine.orm.default_entity_manager')
@@ -200,7 +313,9 @@ class BatchCommand extends ContainerAwareCommand
             $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
 //        die("ok");
             $output->writeln([
-                'ready go',
+                '        ',
+                '========',
+                'ready go saledomentline',
                 '========'
             ]);
             $progress = new ProgressBar($output, count($test));
@@ -232,11 +347,8 @@ class BatchCommand extends ContainerAwareCommand
                         $safedocumentline->setDescription($safe['descriptionclear']);
                         $safedocumentline->setQuantity($safe['quantity']);
                         $em->persist($safedocumentline);
-                        dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ');
+                        dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
 
-                    }
-                    else {
-                        dump(' non CAT');
                     }
 
                 }else{

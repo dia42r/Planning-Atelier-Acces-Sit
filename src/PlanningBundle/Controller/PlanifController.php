@@ -195,7 +195,10 @@ class PlanifController extends Controller
                 return new Response($data);
             }
         }else {
-            return new Response("0");
+            $data['position'] = 0;
+            $data = $serializer->serialize($data, 'json');
+
+            return new Response($data);
         }
     }
 
@@ -255,14 +258,18 @@ class PlanifController extends Controller
             ->getRepository(Competence::class)
             ->find($skillId);
 
-        $actorid     = $request->request->get('actor');
+        $actorsid     = $request->request->get('actor');
+        $actors = [];
+        if ( $actorsid ) {
+            foreach ($actorsid as $actorid){
 
-        if ( $actorid ) {
             $actor   = $this->getDoctrine()
                 ->getRepository(Actor::class)
                 ->find($actorid);
+            array_push($actors, $actor);
+            }
         }else {
-            $actor = null;
+            $actors = null;
         }
 
         $datePlanif = $request->get('datePlanif');
@@ -296,8 +303,11 @@ class PlanifController extends Controller
 
         $sousPlanif = new SousPlanification();
 
-        if( $actor ) {
-            $sousPlanif->addActor($actor);
+        if( $actors ) {
+            foreach ($actors as $actor){
+                $sousPlanif->addActor($actor);
+            }
+
         }
         $sousPlanif->setCompetences($skill->getName());
         $sousPlanif->setEndDate($dateEnd);

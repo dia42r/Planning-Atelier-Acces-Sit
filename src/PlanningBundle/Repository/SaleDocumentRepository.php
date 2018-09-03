@@ -26,6 +26,16 @@ class SaleDocumentRepository extends EntityRepository
 //        die;
         return $q->getResult();
     }
+    public function findlastid()
+    {
+        $d = $this->createQueryBuilder('s')
+            ->select('s.id')
+            ->orderBy('s.id', 'DESC')
+            ->setFirstResult(1)
+            ->setMaxResults(1)
+            ->getQuery();
+        return $d->getSingleResult();
+    }
 
     public function findSaleDoc($id)
     {

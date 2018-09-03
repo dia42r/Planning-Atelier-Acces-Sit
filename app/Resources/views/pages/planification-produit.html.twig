@@ -170,7 +170,7 @@
             var start = $("#start").kendoDateTimePicker({
                 culture: "fr-FR",
                 change: startChange,
-                value: dateinitial,
+                value: new Date(),
                 format: "dd-MM-yyyy HH:mm"
             }).data("kendoDateTimePicker");
 
@@ -188,6 +188,7 @@
                 skilltab.push(data_skill);
             }
             $inputIgnorer.style.visibility = "hidden";
+            $lastTask.style.visibility = "hidden";
             start.min(start.value());
             end.min(start.value());
 
@@ -202,7 +203,12 @@
             })
                 .done( function( datas ) {
                     datas = JSON.parse(datas);
-                    let startDate = new Date(datas['end']);
+                    let startDate;
+                    if(datas['end'] != null){
+                        startDate = new Date(datas['end']);
+                    }else {
+                        startDate = new Date();
+                    }
                     startDate.setHours(8);
                     startDate.setMinutes(0);
                     for (let i = 0; i < $$li_skill.length; i++) {
@@ -218,11 +224,14 @@
                             $bbValiderPlanif.style.visibility = "visible";
                         }
                         $inputValider.style.visibility = "hidden";
-                        $inputIgnorer.style.visibility = "hidden";
+                        $inputValider.style.visibility = "hidden";
+                        $lastTask.style.visibility = "hidden";
                     }else if(($$li_skill.length - 1) === datas['position']) {
                         $inputIgnorer.style.visibility = "hidden";
+                        $lastTask.style.visibility = "hidden";
                     }else {
                         $inputIgnorer.style.visibility = "visible";
+                        $lastTask.style.visibility = "visible";
                     }
 
                     let data_skill = $$li_skill.get(datas['position']).getAttribute("data-skill");
@@ -278,6 +287,7 @@
                 let data_skill = $$li_skill.get(liLastSkill).getAttribute("data-skill");
                 $inputskill.setAttribute("value", data_skill);
                 $inputIgnorer.style.visibility = "hidden";
+                $lastTask.style.visibility = "hidden";
             });
             $inputValider.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -290,8 +300,11 @@
 
                 }
                 let dataSkill = $inputskill.getAttribute('value');
+                    let actor = [];
                 if ($inputactor) {
-                    let actor = $inputactor.value;
+                    for(let i=0;i < $inputactor.length; i++){
+                        actor.push($inputactor[i].value)
+                    }
                 }
                 let dateStart = $inputStart.value;
                 let dateEnd = $inputEnd.value;
@@ -302,7 +315,12 @@
                         title: "Votre temps n'est pas validé"
                     });
                 }else{
-                    let actor = $inputactor.value;
+                    let actor = [];
+                    if ($inputactor) {
+                        for(let i=0;i < $inputactor.length; i++){
+                            actor.push($inputactor[i].value)
+                        }
+                    }
                     $.ajax({
                         url: "{{ path('set_plannification') }}",
                         method: "POST",
@@ -324,7 +342,10 @@
                                 button: false
                                 // timer: "2000"
                             });
-                            $inputactor.parentNode.removeChild($inputactor);
+
+                            for(let i=0;i < $inputactor.length; i++){
+                                $inputactor[i].parentNode.removeChild($inputactor[i]);
+                            }
                             $inputTime.value = "--:--";
                             $inputactor = null;
                             let data_skill;
@@ -439,7 +460,7 @@
                         $selectActor.appendChild($opt)
                     }
                     $actor.appendChild($selectActor);
-                    $inputactor = document.querySelector("select[name='actor']");
+                    $inputactor = document.querySelectorAll("select[name='actor']");
                     // Create a <p> element
                 });
             });
