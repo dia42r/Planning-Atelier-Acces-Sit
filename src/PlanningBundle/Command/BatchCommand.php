@@ -64,6 +64,7 @@ class BatchCommand extends ContainerAwareCommand
             $progress->start();
 
             $batchSize = 20;
+            $count = 0;
             foreach ($test as $key => $safe ) {
 
                 $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
@@ -75,10 +76,11 @@ class BatchCommand extends ContainerAwareCommand
                 $safedocument->setNumberPrefix($safe['numberprefix']);
 
                 $em->persist($safedocument);
+                $count++;
 
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
-                    var_dump('ok');
+                    dump('add: '.$count);
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
                 }
@@ -102,6 +104,8 @@ class BatchCommand extends ContainerAwareCommand
 // starts and displays the progress bar
             $progress->start();
             $batchSize = 20;
+                        $count = 0;
+
             foreach ($items as $key => $safe ) {
 
                 $item = new \PlanningBundle\Entity\Customer\Item();
@@ -109,10 +113,11 @@ class BatchCommand extends ContainerAwareCommand
                 $item->setCaption($safe['caption']);
                 $item->setDesComm($safe['descom']);
                 $em->persist($item);
+                $count++;
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
 
-                    dump('ok');
+                    dump('add: '.$count);
 
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
@@ -139,6 +144,7 @@ class BatchCommand extends ContainerAwareCommand
 // starts and displays the progress bar
             $progress->start();
             $batchSize = 20;
+            $count = 0;
             foreach ($test as $key => $safe ) {
 //            dump($key);
 //            dump($safe);
@@ -165,8 +171,7 @@ class BatchCommand extends ContainerAwareCommand
                         $safedocumentline->setDescription($safe['descriptionclear']);
                         $safedocumentline->setQuantity($safe['quantity']);
                         $em->persist($safedocumentline);
-                        dump(' persist ++++++  ');
-
+                        $count++;
                     }
                     else {
                         dump(' non CAT');
@@ -178,7 +183,8 @@ class BatchCommand extends ContainerAwareCommand
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
 //                dump($safedocumentline);
-                    dump(' ++ ++ ++ insert ++ ++ ++ ');
+
+                    dump('add: '.$count);
 //                die;
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
@@ -371,12 +377,7 @@ class BatchCommand extends ContainerAwareCommand
             $em->clear();
             $progress->finish();
             file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: ".$addSaleDocument." || \nItem Add: ".$addItem." || \nSaleDocumentLine Add: ".$addSaleDocumentLine);
-            file_put_contents("logs/".$dateLog.".log","SaleDocument Add: ".$addSaleDocument." || \nItem Add: ".$addItem." || \nSaleDocumentLine Add: ".$addSaleDocumentLine);
         }
-        elseif ($input->getArgument('sql') == 5){
-            $dateLog = new \DateTime();
-            $dateLog = $dateLog->format('d-m-Y-H-i');
-            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: addSaleDocument \nItem Add: addItem \nSaleDocumentLine Add: addSaleDocumentLine");
-        }
+
     }
 }

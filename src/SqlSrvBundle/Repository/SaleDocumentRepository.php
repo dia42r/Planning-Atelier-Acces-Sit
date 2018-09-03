@@ -15,7 +15,7 @@ class SaleDocumentRepository extends EntityRepository
     public function findSafeDoc()
     {
         // Nouvelle Date -> Corespondant à la date la la plus éloigné du document que l'on souhaite récupéré
-        $limitdate = new \DateTime('-1 month');
+        $limitdate = new \DateTime('-1 years');
 
         //Query Builder
         $q = $this->createQueryBuilder("s")
