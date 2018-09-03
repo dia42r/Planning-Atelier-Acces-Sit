@@ -39,7 +39,7 @@ h2 {
 th, td {
     text-align: center;
     border: 1px solid black;
-    /*padding: 0 6px;*/
+    padding: 0 6px;
 }
 
 tr {

@@ -189,6 +189,13 @@ class BatchCommand extends ContainerAwareCommand
             $progress->finish();
         }
         elseif ($input->getArgument('sql') == 4){
+            $addSaleDocument = 0;
+            $addSaleDocumentLine = 0;
+            $addItem = 0;
+
+            $dateLog = new \DateTime();
+            $dateLog = $dateLog->format('d-m-Y H:i');
+
             $testplanning = $this
                 ->getContainer()
                 ->get('doctrine.orm.default_entity_manager')
@@ -226,15 +233,14 @@ class BatchCommand extends ContainerAwareCommand
                     $safedocument->setDocumentWishDate($safe['deliverydate']);
                     $safedocument->setCustomerName($safe['customername']);
                     $safedocument->setNumberPrefix($safe['numberprefix']);
-                    dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
-
                     $em->persist($safedocument);
+                    $addSaleDocument++;
                 }else{
                     dump('deja dans la base');
                 }
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
-                    var_dump('ok');
+                    var_dump('  add= '.$addSaleDocument);
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
                 }
@@ -277,16 +283,15 @@ class BatchCommand extends ContainerAwareCommand
                     $item->setId($safe['id']);
                     $item->setCaption($safe['caption']);
                     $item->setDesComm($safe['descom']);
-                    dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
-
                     $em->persist($item);
+                    $addItem++;
                 }else{
                     dump('deja dans la base');
                 }
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
 
-                    dump('ok');
+                    dump('   add='.$addItem);
 
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
@@ -347,8 +352,7 @@ class BatchCommand extends ContainerAwareCommand
                         $safedocumentline->setDescription($safe['descriptionclear']);
                         $safedocumentline->setQuantity($safe['quantity']);
                         $em->persist($safedocumentline);
-                        dump(' ++ ++ ++ ++ ++ persist ++ ++ ++ ++ ++  ?????????????????????????????');
-
+                        $addSaleDocumentLine++;
                     }
 
                 }else{
@@ -357,7 +361,7 @@ class BatchCommand extends ContainerAwareCommand
                 $progress->advance();
                 if (($key % $batchSize) === 0) {
 //                dump($safedocumentline);
-                    dump(' ++++++++++++++++++++++++ insert ++++++++++++++++++++++++ ');
+                    dump('  add='.$addSaleDocumentLine);
 //                die;
                     $em->flush();
                     $em->clear(); // Detaches all objects from Doctrine!
@@ -366,6 +370,12 @@ class BatchCommand extends ContainerAwareCommand
             $em->flush();
             $em->clear();
             $progress->finish();
+            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: ".$addSaleDocument." \nItem Add: ".$addItem."\nSaleDocumentLine Add: ".$addSaleDocumentLine);
+        }
+        elseif ($input->getArgument('sql') == 5){
+            $dateLog = new \DateTime();
+            $dateLog = $dateLog->format('d-m-Y H:i');
+            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: addSaleDocument \nItem Add: addItem \nSaleDocumentLine Add: addSaleDocumentLine");
         }
     }
 }

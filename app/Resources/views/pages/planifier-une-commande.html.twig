@@ -33,14 +33,14 @@
                             <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
                         </a>
                     </td>
-                    <td>{{ commande.customerName }}</td>
                     <td>
                         {% if commande.statusBis is not null %}
-                            {{ commande.status }} [logo]
+                            {{ commande.customerName }} <img style="width: 6%; display: block;margin: 0 auto;" class="delete-img" src="{{ asset('img/hourglass_blue.png') }}" alt="">
                         {% else %}
-                            {{ commande.status }}
+                            {{ commande.customerName }}
                         {% endif %}
                     </td>
+                    <td>{{ commande.status }}</td>
                     <td>{{ commande.documentDate|date('d/m/y') }}</td>
                     <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
                     <td>

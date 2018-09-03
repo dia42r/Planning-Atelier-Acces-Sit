@@ -14,16 +14,13 @@ class SaleDocumentRepository extends EntityRepository
 {
     public function findSaleSearch($val)
     {
-        dump($val);
         // Création d'une requete personnalisé Query Builder
         $q = $this->createQueryBuilder("s") // Création d'un alias
         ->orderBy('s.documentNumber','DESC')
         ->andwhere("s.documentNumber LIKE :salval") // En pointant vers la bonne donnée
             ->setParameter('salval', '%'.$val.'%')
             ->getQuery();
-
-        dump($q);
-//        die;
+        //        die;
         return $q->getResult();
     }
     public function findlastid()

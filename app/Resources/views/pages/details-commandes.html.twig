@@ -45,14 +45,16 @@
                         </a>
                     </td>
                     <td>
+                        {% if detail.statusBis is not null %}
                         <a href="{{ path('art-ndelete-attente', {'id': detail.id}) }}">
                             <div class="con-tooltip top">
-                                <img class="delete-img" src="{{ asset('img/x-button.png') }}" alt="">
-                                <div class="tooltip ">
-                                    <p style="">En cliquant sur la croix vous ne planifirez pas l'article et le statut sera automatiquement planifié </p>
+                                <img class="delete-img" src="{{ asset('img/stopwatch.png') }}" alt="">
+                                <div class="tooltip" style="marg">
+                                    <p style="">Cliquer pour supprimer la mise en attente de l'article </p>
                                 </div>
                             </div>
                         </a>
+                        {% endif %}
                     </td>
                     <td class="plan">
                         {% if detail.statusBis is not null %}

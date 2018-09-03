@@ -93,6 +93,8 @@ class PlanifController extends Controller
         $saleDocument->setEndDate($endDate);
         if($waits){
             $saleDocument->setStatusBis("En attente");
+        }else{
+            $saleDocument->setStatusBis(null);
 
         }
 
@@ -402,12 +404,10 @@ class PlanifController extends Controller
             $totalTime += $servicTime->second($h,$m);
         }
 
-        $totalTimeTab = $servicTime->temp($totalTime);
-
-        $totalTime = new \DateTime($totalTimeTab['time']);
+        $totalTime = $servicTime->temp($totalTime);
+        $totalTime = new \DateTime($totalTime);
 
         $saleDocLine->setTotalPrev($totalTime);
-        $saleDocLine->setTotalPrevMultiple($totalTimeTab['multiplier']);
 
         $em->persist($saleDocLine);
         $em->flush();
