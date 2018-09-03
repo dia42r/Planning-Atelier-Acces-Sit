@@ -194,7 +194,7 @@ class BatchCommand extends ContainerAwareCommand
             $addItem = 0;
 
             $dateLog = new \DateTime();
-            $dateLog = $dateLog->format('d-m-Y H:i');
+            $dateLog = $dateLog->format('d-m-Y-H-i');
 
             $testplanning = $this
                 ->getContainer()
@@ -374,7 +374,7 @@ class BatchCommand extends ContainerAwareCommand
         }
         elseif ($input->getArgument('sql') == 5){
             $dateLog = new \DateTime();
-            $dateLog = $dateLog->format('d-m-Y H:i');
+            $dateLog = $dateLog->format('d-m-Y-H-i');
             file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: addSaleDocument \nItem Add: addItem \nSaleDocumentLine Add: addSaleDocumentLine");
         }
     }
