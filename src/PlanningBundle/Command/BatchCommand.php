@@ -370,7 +370,8 @@ class BatchCommand extends ContainerAwareCommand
             $em->flush();
             $em->clear();
             $progress->finish();
-            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: ".$addSaleDocument." \nItem Add: ".$addItem."\nSaleDocumentLine Add: ".$addSaleDocumentLine);
+            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: ".$addSaleDocument." || \nItem Add: ".$addItem." || \nSaleDocumentLine Add: ".$addSaleDocumentLine);
+            file_put_contents("logs/".$dateLog.".log","SaleDocument Add: ".$addSaleDocument." || \nItem Add: ".$addItem." || \nSaleDocumentLine Add: ".$addSaleDocumentLine);
         }
         elseif ($input->getArgument('sql') == 5){
             $dateLog = new \DateTime();
