@@ -17,11 +17,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PlanifController extends Controller
 {
+
     /**
      * @Route("/planification", name="planifier-une-commande")
      * @param Request $request
      * @return Response
      */
+
     public function planificationAction(Request $request)
     {
         $log = $this->getDoctrine()

@@ -32,7 +32,7 @@ class SaleDocumentRepository extends EntityRepository
 
     public function findtest($id)
     {
-        $limitdate = new \DateTime('-6 month');
+        $limitdate = new \DateTime('-1 years');
 
         $d = $this->createQueryBuilder('s')
             ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix') // Données selectionnés dont on a besoin
