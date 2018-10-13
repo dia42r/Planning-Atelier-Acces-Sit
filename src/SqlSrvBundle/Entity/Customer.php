@@ -4705,6 +4705,16 @@ class Customer
     }
 
     /**
+     * Set id.
+     *
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+    /**
      * Get id.
      *
      * @return string

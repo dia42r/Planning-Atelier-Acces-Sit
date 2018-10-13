@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Customer;
+namespace PlanningBundle\Entity\EBP;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,7 +26,7 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="documentId", type="string", length=255, nullable=true)
      */
-    private $documentid;
+    private $documentId;
 
     /**
      * @var string|null
@@ -47,21 +47,21 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="realQuantity", type="integer", nullable=true)
      */
-    private $realquantity;
+    private $realQuantity;
 
     /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="deliveryDate", type="datetime", nullable=true)
      */
-    private $deliverydate;
+    private $deliveryDate;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="deliveryState", type="string", length=60, nullable=true)
      */
-    private $deliverystate;
+    private $deliveryState;
 
     /**
      * @var string|null
@@ -85,9 +85,9 @@ class SaleDocumentLine
     private $statusBis;
 
     /**
-     * @var \PlanningBundle\Entity\Customer\Item
+     * @var \PlanningBundle\Entity\EBP\Item
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\Item", inversedBy="saledocumentLine")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\Item", cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="item_id", referencedColumnName="id")
      * })
@@ -95,14 +95,14 @@ class SaleDocumentLine
     private $item;
 
     /**
-     * @var \PlanningBundle\Entity\Customer\SaleDocument
+     * @var \PlanningBundle\Entity\EBP\SaleDocument
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocument",inversedBy="saleDocumentLines")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocument",inversedBy="saleDocumentLines")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      * })
      */
-    private $saledocument;
+    private $saleDocument;
 
     /**
      * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Planification",mappedBy="saleDocumentLine")
@@ -153,28 +153,28 @@ class SaleDocumentLine
     }
 
     /**
-     * Set documentid.
+     * Set documentId.
      *
-     * @param string|null $documentid
+     * @param string|null $documentId
      *
      * @return SaleDocumentLine
      */
-    public function setDocumentid($documentid = null)
+    public function setDocumentId($documentId = null)
     {
-        $this->documentid = $documentid;
+        $this->documentId = $documentId;
 
         return $this;
     }
 
 
     /**
-     * Get documentid.
+     * Get documentId.
      *
      * @return string|null
      */
-    public function getDocumentid()
+    public function getDocumentId()
     {
-        return $this->documentid;
+        return $this->documentId;
     }
 
     /**
@@ -226,15 +226,15 @@ class SaleDocumentLine
     }
 
     /**
-     * Set realquantity.
+     * Set realQuantity.
      *
-     * @param int|null $realquantity
+     * @param int|null $realQuantity
      *
      * @return SaleDocumentLine
      */
-    public function setRealquantity($realquantity = null)
+    public function setRealquantity($realQuantity = null)
     {
-        $this->realquantity = $realquantity;
+        $this->realQuantity = $realQuantity;
 
         return $this;
     }
@@ -244,21 +244,21 @@ class SaleDocumentLine
      *
      * @return int|null
      */
-    public function getRealquantity()
+    public function getRealQuantity()
     {
-        return $this->realquantity;
+        return $this->realQuantity;
     }
 
     /**
-     * Set deliverydate.
+     * Set deliveryDate.
      *
-     * @param \DateTime|null $deliverydate
+     * @param \DateTime|null $deliveryDate
      *
      * @return SaleDocumentLine
      */
-    public function setDeliverydate($deliverydate = null)
+    public function setDeliveryDate($deliveryDate = null)
     {
-        $this->deliverydate = $deliverydate;
+        $this->deliveryDate = $deliveryDate;
 
         return $this;
     }
@@ -268,21 +268,21 @@ class SaleDocumentLine
      *
      * @return \DateTime|null
      */
-    public function getDeliverydate()
+    public function getDeliveryDate()
     {
-        return $this->deliverydate;
+        return $this->deliveryDate;
     }
 
     /**
-     * Set deliverystate.
+     * Set deliveryState.
      *
-     * @param string|null $deliverystate
+     * @param string|null $deliveryState
      *
      * @return SaleDocumentLine
      */
-    public function setDeliverystate($deliverystate = null)
+    public function setDeliveryState($deliveryState = null)
     {
-        $this->deliverystate = $deliverystate;
+        $this->deliveryState = $deliveryState;
 
         return $this;
     }
@@ -292,9 +292,9 @@ class SaleDocumentLine
      *
      * @return string|null
      */
-    public function getDeliverystate()
+    public function getDeliveryState()
     {
-        return $this->deliverystate;
+        return $this->deliveryState;
     }
 
     /**
@@ -348,11 +348,11 @@ class SaleDocumentLine
     /**
      * Set item.
      *
-     * @param \PlanningBundle\Entity\Customer\Item|null $item
+     * @param \PlanningBundle\Entity\EBP\Item|null $item
      *
      * @return SaleDocumentLine
      */
-    public function setItem(\PlanningBundle\Entity\Customer\Item $item = null)
+    public function setItem(\PlanningBundle\Entity\EBP\Item $item = null)
     {
         $this->item = $item;
 
@@ -362,7 +362,7 @@ class SaleDocumentLine
     /**
      * Get item.
      *
-     * @return \PlanningBundle\Entity\Customer\Item|null
+     * @return \PlanningBundle\Entity\EBP\Item|null
      */
     public function getItem()
     {
@@ -372,13 +372,13 @@ class SaleDocumentLine
     /**
      * Set saledocument.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocument|null $saledocument
+     * @param \PlanningBundle\Entity\EBP\SaleDocument|null $saledocument
      *
      * @return SaleDocumentLine
      */
-    public function setSaledocument($saledocument)
+    public function setSaleDocument($saleDocument)
     {
-        $this->saledocument = $saledocument;
+        $this->saleDocument = $saleDocument;
 
         return $this;
     }
@@ -386,11 +386,11 @@ class SaleDocumentLine
     /**
      * Get saledocument.
      *
-     * @return \PlanningBundle\Entity\Customer\SaleDocument|null
+     * @return \PlanningBundle\Entity\EBP\SaleDocument|null
      */
-    public function getSaledocument()
+    public function getSaleDocument()
     {
-        return $this->saledocument;
+        return $this->saleDocument;
     }
 
     /**

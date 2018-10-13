@@ -11,6 +11,17 @@ namespace SqlSrvBundle\Repository;
 class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    public function findBySaleDocumentId($id)
+    {
+        $q = $this->createQueryBuilder('s')
+            ->select('s')
+            ->where('s.documentid = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
+
     public function findDetails()
     {
         $d = $this->createQueryBuilder('d')

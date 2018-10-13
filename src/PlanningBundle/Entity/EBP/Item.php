@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Customer;
+namespace PlanningBundle\Entity\EBP;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -38,16 +38,10 @@ class Item
     /**
      * @var string
      *
-     * @ORM\Column(name="note", type="string", length=255, nullable=true)
+     * @ORM\Column(name="note", type="text", nullable=true)
      */
     private $note;
 
-
-    /**
-     * One Product has Many Features.
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", mappedBy="item")
-     */
-    private $saledocumentLine;
 
 
     /**
@@ -55,7 +49,6 @@ class Item
      */
     public function __construct()
     {
-        $this->saledocumentLine = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -155,39 +148,5 @@ class Item
     }
 
 
-    /**
-     * Add saledocumentLine.
-     *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-     *
-     * @return Item
-     */
-    public function addSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-    {
-        $this->saledocumentLine[] = $saledocumentLine;
 
-        return $this;
-    }
-
-    /**
-     * Remove saledocumentLine.
-     *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSaledocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saledocumentLine)
-    {
-        return $this->saledocumentLine->removeElement($saledocumentLine);
-    }
-
-    /**
-     * Get saledocumentLine.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSaledocumentLine()
-    {
-        return $this->saledocumentLine;
-    }
 }

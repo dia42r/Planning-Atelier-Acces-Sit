@@ -16,7 +16,7 @@ class BatchController extends Controller
     {
         $testplanning = $this
             ->get('doctrine.orm.default_entity_manager')
-            ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
+            ->getRepository(\PlanningBundle\Entity\EBP\SaleDocumentLine::class)
             ->findlastid();
         dump($testplanning['id']);
         $test = $this

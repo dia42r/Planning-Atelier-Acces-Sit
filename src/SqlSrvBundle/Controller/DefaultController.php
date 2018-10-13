@@ -26,7 +26,7 @@ class DefaultController extends Controller
 //            dump($key);
 //            dump($safe['id'],$safe['documentnumber'],$safe['documentdate'],$safe['deliverydate']);
 //            die;
-            $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
+            $safedocument = new \PlanningBundle\Entity\EBP\SaleDocument();
 
             $safedocument->setId($safe['id']);
             $safedocument->setDocumentNumber($safe['documentnumber']);
@@ -65,18 +65,18 @@ class DefaultController extends Controller
 //            dump($key);
 //            dump($safe);
 //            die;
-            $safedocument = $em->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
+            $safedocument = $em->getRepository(\PlanningBundle\Entity\EBP\SaleDocument::class)
                 ->find($safe['documentid']);
 
             if ($safe['itemid'] != null) {
-                $item = $em->getRepository(\PlanningBundle\Entity\Customer\Item::class)
+                $item = $em->getRepository(\PlanningBundle\Entity\EBP\Item::class)
                     ->find($safe['itemid']);
             }
             else {
                 $item = null;
             }
 
-            $safedocumentline = new \PlanningBundle\Entity\Customer\SaleDocumentLine();
+            $safedocumentline = new \PlanningBundle\Entity\EBP\SaleDocumentLine();
 
 
             $safedocumentline->setId($safe['id']);
@@ -124,7 +124,7 @@ class DefaultController extends Controller
 //            dump($key);
 //            dump($safe['id'],$safe['caption']);
 //            die;
-            $item = new \PlanningBundle\Entity\Customer\Item();
+            $item = new \PlanningBundle\Entity\EBP\Item();
 
             $item->setId($safe['id']);
             $item->setCaption($safe['caption']);

@@ -12,17 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class SaleDocumentRepository extends EntityRepository
 {
-    public function findSafeDoc()
+    public function findSaleDocuments()
     {
         // Nouvelle Date -> Corespondant à la date la la plus éloigné du document que l'on souhaite récupéré
         $limitdate = new \DateTime('-1 years');
 
         //Query Builder
         $q = $this->createQueryBuilder("s")
-            ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix') // Données selectionnés dont on a besoin
+            ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix, s.customerid') // Données selectionnés dont on a besoin
             ->where("s.numberprefix = :prefix") // I: premier param a checké  @Param prefix
             ->andWhere('s.documentdate > :limitdate') // II: deuxieme param a checké @Param limitedate
             ->setParameter('prefix', 'CAT') // Set Param I
+            ->setMaxResults(10)
             ->setParameter('limitdate', $limitdate->format('d-m-y')) // Set Param II
             ->getQuery();
 

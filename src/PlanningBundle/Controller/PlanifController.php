@@ -3,8 +3,8 @@
 namespace PlanningBundle\Controller;
 
 use function PHPSTORM_META\type;
-use PlanningBundle\Entity\Customer\SaleDocument;
-use PlanningBundle\Entity\Customer\SaleDocumentLine;
+use PlanningBundle\Entity\EBP\SaleDocument;
+use PlanningBundle\Entity\EBP\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Actor;
 use PlanningBundle\Entity\Main\Competence;
 use PlanningBundle\Entity\Main\Planification;

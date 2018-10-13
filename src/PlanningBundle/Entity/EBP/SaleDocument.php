@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanningBundle\Entity\Customer;
+namespace PlanningBundle\Entity\EBP;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -42,7 +42,7 @@ class SaleDocument
 
     /**
      * Many SaleDocument have One Customer
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\Customer\Customer", inversedBy="saleDocuments")
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="saleDocuments")
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
@@ -299,11 +299,11 @@ class SaleDocument
     /**
      * Add saleDocumentLine.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\EBP\SaleDocumentLine $saleDocumentLine
      *
      * @return SaleDocument
      */
-    public function addSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function addSaleDocumentLine(\PlanningBundle\Entity\EBP\SaleDocumentLine $saleDocumentLine)
     {
         $this->saleDocumentLines[] = $saleDocumentLine;
 
@@ -312,11 +312,11 @@ class SaleDocument
     /**
      * Remove saleDocumentLine.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine
+     * @param \PlanningBundle\Entity\EBP\SaleDocumentLine $saleDocumentLine
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine)
+    public function removeSaleDocumentLine(\PlanningBundle\Entity\EBP\SaleDocumentLine $saleDocumentLine)
     {
         return $this->saleDocumentLines->removeElement($saleDocumentLine);
     }
@@ -324,11 +324,11 @@ class SaleDocument
     /**
      * Set customer.
      *
-     * @param \PlanningBundle\Entity\Customer\Customer|null $customer
+     * @param \PlanningBundle\Entity\EBP\Customer|null $customer
      *
      * @return SaleDocument
      */
-    public function setCustomer(\PlanningBundle\Entity\Customer\Customer $customer = null)
+    public function setCustomer(\PlanningBundle\Entity\EBP\Customer $customer = null)
     {
         $this->customer = $customer;
 

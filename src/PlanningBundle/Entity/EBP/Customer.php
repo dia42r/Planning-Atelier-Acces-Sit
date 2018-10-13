@@ -1,13 +1,13 @@
 <?php
 
-namespace PlanningBundle\Entity\Customer;
+namespace PlanningBundle\Entity\EBP;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Customer
  *
- * @ORM\Table(name="customer",schema="customer")
+ * @ORM\Table(name="customer")
  * @ORM\Entity(repositoryClass="PlanningBundle\Repository\CustomerRepository")
  */
 class Customer
@@ -17,7 +17,7 @@ class Customer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
     /**
@@ -29,90 +29,90 @@ class Customer
     /**
      * @var string
      *
-     * @ORM\Column(name="civility", type="string", length=50)
+     * @ORM\Column(name="civility", type="string", length=50, nullable=true)
      */
     private $civility;
     /**
      * @var string
      *
-     * @ORM\Column(name="siren", type="string", length=255, unique=true)
+     * @ORM\Column(name="siren", type="string", length=255, unique=true, nullable=true)
      */
     private $siren;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddress1", type="string", length=255)
+     * @ORM\Column(name="mainDeliveryAddress1", type="string", length=255, nullable=true)
      */
     private $mainDeliveryAddress1;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddress2", type="string", length=255)
+     * @ORM\Column(name="mainDeliveryAddress2", type="string", length=255, nullable=true)
      */
     private $mainDeliveryAddress2;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddressCity", type="string", length=255)
+     * @ORM\Column(name="mainDeliveryAddressCity", type="string", length=255, nullable=true)
      */
     private $mainDeliveryAddressCity;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddressZipCode", type="string", length=255)
+     * @ORM\Column(name="mainDeliveryAddressZipCode", type="string", length=255, nullable=true)
      */
     private $mainDeliveryAddressZipCode;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddressState", type="string", length=60)
+     * @ORM\Column(name="mainDeliveryAddressState", type="string", length=60, nullable=true)
      */
     private $mainDeliveryAddressState;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainDeliveryAddressCountry", type="string", length=40)
+     * @ORM\Column(name="mainDeliveryAddressCountry", type="string", length=40, nullable=true)
      */
     private $mainDeliveryAddressCountry;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddress1", type="string", length=255)
+     * @ORM\Column(name="mainInvoicingAddress1", type="string", length=255, nullable=true)
      */
     private $mainInvoicingAddress1;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddress2", type="string", length=255)
+     * @ORM\Column(name="mainInvoicingAddress2", type="string", length=255, nullable=true)
      */
     private $mainInvoicingAddress2;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddressCity", type="string", length=50)
+     * @ORM\Column(name="mainInvoicingAddressCity", type="string", length=50, nullable=true)
      */
     private $mainInvoicingAddressCity;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddressZipCode", type="string", length=255)
+     * @ORM\Column(name="mainInvoicingAddressZipCode", type="string", length=255, nullable=true)
      */
     private $mainInvoicingAddressZipCode;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddressState", type="string", length=50)
+     * @ORM\Column(name="mainInvoicingAddressState", type="string", length=50, nullable=true)
      */
     private $mainInvoicingAddressState;
     /**
      * @var string
      *
-     * @ORM\Column(name="mainInvoicingAddressCountry", type="string", length=50)
+     * @ORM\Column(name="mainInvoicingAddressCountry", type="string", length=50, nullable=true)
      */
     private $mainInvoicingAddressCountry;
     /**
      * One Customer has many SaleDocument
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Customer\SaleDocument", mappedBy="customer")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\EBP\SaleDocument", mappedBy="customer")
      */
     private $saleDocuments;
     /**
@@ -122,6 +122,18 @@ class Customer
     {
         return $this->saleDocuments;
     }
+    
+    /**
+     * Set id.
+     *
+     * @return string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+    
     /**
      * Get id
      *
@@ -446,29 +458,7 @@ class Customer
     {
         return $this->mainInvoicingAddressCountry;
     }
-//    /**
-//     * Set saleDocuments
-//     *
-//     * @param string $saleDocuments
-//     *
-//     * @return Customer
-//     */
-//    public function setSaleDocuments($saleDocuments)
-//    {
-//        $this->saleDocuments = $saleDocuments;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get saleDocuments
-//     *
-//     * @return string
-//     */
-//    public function getSaleDocuments()
-//    {
-//        return $this->saleDocuments;
-//    }
+    
     /**
      * Constructor
      */
@@ -479,11 +469,11 @@ class Customer
     /**
      * Add saleDocument.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocument $saleDocument
+     * @param \PlanningBundle\Entity\EBP\SaleDocument $saleDocument
      *
      * @return Customer
      */
-    public function addSaleDocument(\PlanningBundle\Entity\Customer\SaleDocument $saleDocument)
+    public function addSaleDocument(\PlanningBundle\Entity\EBP\SaleDocument $saleDocument)
     {
         $this->saleDocuments[] = $saleDocument;
         return $this;
@@ -491,11 +481,11 @@ class Customer
     /**
      * Remove saleDocument.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocument $saleDocument
+     * @param \PlanningBundle\Entity\EBP\SaleDocument $saleDocument
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeSaleDocument(\PlanningBundle\Entity\Customer\SaleDocument $saleDocument)
+    public function removeSaleDocument(\PlanningBundle\Entity\EBP\SaleDocument $saleDocument)
     {
         return $this->saleDocuments->removeElement($saleDocument);
     }
