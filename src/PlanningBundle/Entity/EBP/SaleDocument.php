@@ -36,13 +36,13 @@ class SaleDocument
 
     /**
      * One SaleDocument has many SaleDocumentLines
-     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saledocument")
+     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saledocument", cascade={"persist"})
      */
         private $saleDocumentLines;
 
     /**
      * Many SaleDocument have One Customer
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="saleDocuments")
+     * @ORM\ManyToOne(targetEntity="Customer", cascade={"persist"})
      * @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      */
     private $customer;
@@ -308,6 +308,16 @@ class SaleDocument
         $this->saleDocumentLines[] = $saleDocumentLine;
 
         return $this;
+    }
+    
+    public function setSaleDocumentLines(array $saleDocumentLines) 
+    {
+        if (!empty($saleDocumentLines)) {
+            foreach ($saleDocumentLines as $saleDocumentLine) {
+                $this->addSaleDocumentLine($saleDocumentLine);
+            }
+        }
+        
     }
     /**
      * Remove saleDocumentLine.

@@ -24,9 +24,9 @@ class SaleDocumentLine
     /**
      * @var string|null
      *
-     * @ORM\Column(name="documentId", type="string", length=255, nullable=true)
+     * @ORM\Column(name="saleDocumentNumber", type="string", length=255, nullable=true)
      */
-    private $documentId;
+    private $saleDocumentNumber;
 
     /**
      * @var string|null
@@ -97,7 +97,7 @@ class SaleDocumentLine
     /**
      * @var \PlanningBundle\Entity\EBP\SaleDocument
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocument",inversedBy="saleDocumentLines")
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocument",inversedBy="saleDocumentLines"))
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      * })
@@ -159,9 +159,9 @@ class SaleDocumentLine
      *
      * @return SaleDocumentLine
      */
-    public function setDocumentId($documentId = null)
+    public function setSaleDocumentNumber($documentId = null)
     {
-        $this->documentId = $documentId;
+        $this->saleDocumentNumber = $documentId;
 
         return $this;
     }
@@ -172,9 +172,9 @@ class SaleDocumentLine
      *
      * @return string|null
      */
-    public function getDocumentId()
+    public function getSaleDocumentNumber()
     {
-        return $this->documentId;
+        return $this->saleDocumentNumber;
     }
 
     /**

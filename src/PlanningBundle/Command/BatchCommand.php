@@ -32,6 +32,107 @@ class BatchCommand extends ContainerAwareCommand
             );
     }
 
+    
+    public function getSaleDocumentCustomer($customerId) 
+    {
+        // Customer 
+
+        $customerSrc = $this->getContainer()
+            ->get('doctrine.orm.customer_entity_manager')
+            ->getRepository(\SqlSrvBundle\Entity\Customer::class)
+            ->findById($customerId);
+
+        if (!empty($customerSrc)) 
+        {
+            $customerDest =  new \PlanningBundle\Entity\EBP\Customer();
+            $customerDest->setId($customerSrc[0]->getId());
+            $customerDest->setCustomerId($customerSrc[0]->getId());
+            $customerDest->setCivility($customerSrc[0]->getCivility());
+            $customerDest->setMainDeliveryAddress1($customerSrc[0]->getMaindeliveryaddressAddress1()); 
+            $customerDest->setMainDeliveryAddress2($customerSrc[0]->getMaindeliveryaddressAddress2()); 
+            $customerDest->setMainDeliveryAddressCity($customerSrc[0]->getMaindeliveryaddressCity()); 
+            $customerDest->setMainDeliveryAddressZipCode($customerSrc[0]->getMaindeliveryaddressZipcode()); 
+            $customerDest->setMainDeliveryAddressState($customerSrc[0]->getMaindeliveryaddressState()); 
+            $customerDest->setMainDeliveryAddressCountry($customerSrc[0]->getMaindeliveryaddressCountryisocode());
+
+            $customerDest->setMainInvoicingAddress1($customerSrc[0]->getMaininvoicingaddressAddress1());
+            $customerDest->setMainInvoicingAddress2($customerSrc[0]->getMaininvoicingaddressAddress2());
+            $customerDest->setMainInvoicingAddressCity($customerSrc[0]->getMaininvoicingaddressCity());
+            $customerDest->setMainInvoicingAddressZipCode($customerSrc[0]->getMaininvoicingaddressZipcode());
+            $customerDest->setMainInvoicingAddressState($customerSrc[0]->getMaininvoicingaddressState());
+            $customerDest->setMainInvoicingAddressCountry($customerSrc[0]->getMaininvoicingaddressCountryisocode());
+            
+            return $customerDest;
+        }
+        
+        return null;
+    }
+    
+    /**
+     * 
+     * @param type $saleDocumentLineId
+     * @return Item
+     */
+    public function getItemInSaleDocumentLineId($itemid) 
+    {
+        // Set Item : 
+        $itemSrc = $this->getContainer()
+        ->get('doctrine.orm.customer_entity_manager')
+        ->getRepository(Item::class)
+        ->findById($itemid);
+        
+        $em = $this->getContainer()
+         ->get('doctrine.orm.default_entity_manager');
+        
+        if (!empty($itemSrc)) {
+            $itemDest = new \PlanningBundle\Entity\EBP\Item();
+            $itemDest->setId($itemSrc[0]->getId());
+            $itemDest->setCaption($itemSrc[0]->getCaption());
+            $itemDest->setDesComm($itemSrc[0]->getDescom());
+            $itemDest->setNote($itemSrc[0]->getNotesclear());
+            
+
+            
+            $em->merge($itemDest);
+            $em->flush();
+            return $itemDest;
+        }
+        
+        return null;
+        
+    }
+    /**
+     * Return saleDocumentLines 
+     * @param type $saleDocumentId
+     * @return SaleDocumentLinePlanning
+     */
+    public function getSaleDocumentLines($saleDocumentId)
+    {
+        $saleDocumentLinesSrc = $this->getContainer()
+        ->get('doctrine.orm.customer_entity_manager')
+        ->getRepository(SaleDocumentline::class)
+        ->findBySaleDocumentId($saleDocumentId);
+
+
+        $em = $this->getContainer()
+         ->get('doctrine.orm.default_entity_manager');
+        foreach ($saleDocumentLinesSrc as $saleDocumentLineSrc)
+        {
+            $saleDocumentLineDest = new \PlanningBundle\Entity\EBP\SaleDocumentLine();
+            $saleDocumentLineDest->setId($saleDocumentLineSrc->getId());
+            $saleDocumentLineDest->setDescription($saleDocumentLineSrc->getDescription());
+            $saleDocumentLineDest->setQuantity($saleDocumentLineSrc->getQuantity());
+            $saleDocumentLineDest->setItem($this->getItemInSaleDocumentLineId($saleDocumentLineSrc->getitemid()));
+ 
+            $em->merge($saleDocumentLineDest);
+            $em->flush();
+            $saleDocumentLinesDest[] = $saleDocumentLineDest;
+        }
+        
+        return $saleDocumentLinesDest;
+            
+    }
+        
     /**
      * {@inheritdoc}
      * @throws \Doctrine\ORM\ORMException
@@ -64,100 +165,28 @@ class BatchCommand extends ContainerAwareCommand
             // starts and displays the progress bar
             $progress->start();
 
-            $batchSize = 20;
             $countSaleDocument = 0;
-            $countSaleDocumentLine = 0;
-            $countItem = 0;
+            foreach ($saleDocuments as $document => $attribut) {
 
-            foreach ($saleDocuments as $document => $value ) {
-                
+
                 $saleDocument = new \PlanningBundle\Entity\EBP\SaleDocument();
-                $saleDocument->setId($value['id']);
-                $saleDocument->setDocumentNumber($value['documentnumber']);
-                $saleDocument->setDocumentDate($value['documentdate']);
-                $saleDocument->setDocumentWishDate($value['deliverydate']);
-                $saleDocument->setCustomerName($value['customername']);
-                $saleDocument->setNumberPrefix($value['numberprefix']);
-
-                dump(' SaleDocument : ' . $value['documentnumber']);
+                $saleDocument->setId($attribut['id']);
+                $saleDocument->setDocumentNumber($attribut['documentnumber']);
+                $saleDocument->setDocumentDate($attribut['documentdate']);
+                $saleDocument->setDocumentWishDate($attribut['deliverydate']);
+                $saleDocument->setCustomerName($attribut['customername']);
+                $saleDocument->setNumberPrefix($attribut['numberprefix']);
                 
-                // Customer 
+                $saleDocument->setSaleDocumentLines($this->getSaleDocumentLines($attribut['id']));
+                $saleDocument->setCustomer($this->getSaleDocumentCustomer($attribut['customerid']));
                 
-                $customerSrc = $this->getContainer()
-                    ->get('doctrine.orm.customer_entity_manager')
-                    ->getRepository(\SqlSrvBundle\Entity\Customer::class)
-                    ->findById($value['customerid']);
+                dump($saleDocument->getSaleDocumentLines());
                 
-
-                dump($customerSrc[0]);
-                dump($customerSrc[0]->getId());
-                if (!empty($customerSrc)) {
-                    $customerDest =  new \PlanningBundle\Entity\EBP\Customer();
-                    $customerDest->setId($value['customerid']);
-                    $customerDest->setCustomerId($value['customerid']);
-                    $customerDest->setCivility($customerSrc[0]->getCivility());
-                    $customerDest->setMainDeliveryAddress1($customerSrc[0]->getMaindeliveryaddressState()); 
-                }
-
                 $countSaleDocument++;
-
                 $progress->advance();
 
-                $saleDocumentLinesSrc = $this->getContainer()
-                    ->get('doctrine.orm.customer_entity_manager')
-                    ->getRepository(SaleDocumentline::class)
-                    ->findBySaleDocumentId( $value['id']);
-                
-                $em->merge($customerDest);
-                $em->flush(); 
-                
                 $em->merge($saleDocument);
-                $em->flush(); // Detaches all objects from Doctrine!
-                
-                foreach (\array_values($saleDocumentLinesSrc) as $saleDocumentLineSrc ) {
-
-                    $saleDocumentLinesDest = new \PlanningBundle\Entity\EBP\SaleDocumentLine();
-                    
-                    // Set Item : 
-                    $itemSrc = $this->getContainer()
-                    ->get('doctrine.orm.customer_entity_manager')
-                    ->getRepository(Item::class)
-                    ->findById($saleDocumentLineSrc->getItemid());
-                    
-                    if (!empty($itemSrc)) {
-                        $itemDest = new \PlanningBundle\Entity\EBP\Item();
-                        $itemDest->setId($itemSrc[0]->getId());
-                        $itemDest->setCaption($itemSrc[0]->getCaption());
-                        $itemDest->setDesComm($itemSrc[0]->getDescom());
-                        $itemDest->setNote($itemSrc[0]->getNotesclear());
-                        dump(' Item ' .$itemSrc[0]->getId());
-                    }
-
-                    // Set saleDocumentLine 
-                    
-                    $saleDocumentLinesDest->setId($saleDocumentLineSrc->getId());
-                    $saleDocumentLinesDest->setSaleDocument($saleDocument);
-                    $saleDocumentLinesDest->setQuantity($saleDocumentLineSrc->getQuantity());
-                    $saleDocumentLinesDest->setItem($itemDest);
-                    
-
-                    dump(' SaleDocumentLine' .$saleDocumentLineSrc->getId());
-                     
-                    $em->merge($saleDocumentLinesDest);
-                    $em->flush();
-                    
-                    $em->merge($itemDest);
-                    $em->flush();
-                    $saleDocument->addSaleDocumentLine($saleDocumentLinesDest);
-                    $countItem++;
-                    $countSaleDocumentLine++;
- 
-                }
-
-                dump('add SaleDocument : '.$countSaleDocument);
-                dump('add SaleDocumentLine: '.$countSaleDocumentLine);
-                dump('add Item : '.$countItem);
- 
+                $em->flush(); // Detaches all objects from Doctrine!    
             }
  
             $progress->finish();

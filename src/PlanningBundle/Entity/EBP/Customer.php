@@ -15,15 +15,15 @@ class Customer
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
     /**
      * @var int
      *
-     * @ORM\Column(name="customerId", type="integer")
+     * @ORM\Column(name="customerId", type="string")
      */
     private $customerId;
     /**
@@ -110,11 +110,7 @@ class Customer
      * @ORM\Column(name="mainInvoicingAddressCountry", type="string", length=50, nullable=true)
      */
     private $mainInvoicingAddressCountry;
-    /**
-     * One Customer has many SaleDocument
-     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\EBP\SaleDocument", mappedBy="customer")
-     */
-    private $saleDocuments;
+
     /**
      * @return mixed
      */
@@ -459,34 +455,9 @@ class Customer
         return $this->mainInvoicingAddressCountry;
     }
     
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->saleDocuments = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __toString() {
+        return $this->customerId;
     }
-    /**
-     * Add saleDocument.
-     *
-     * @param \PlanningBundle\Entity\EBP\SaleDocument $saleDocument
-     *
-     * @return Customer
-     */
-    public function addSaleDocument(\PlanningBundle\Entity\EBP\SaleDocument $saleDocument)
-    {
-        $this->saleDocuments[] = $saleDocument;
-        return $this;
-    }
-    /**
-     * Remove saleDocument.
-     *
-     * @param \PlanningBundle\Entity\EBP\SaleDocument $saleDocument
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSaleDocument(\PlanningBundle\Entity\EBP\SaleDocument $saleDocument)
-    {
-        return $this->saleDocuments->removeElement($saleDocument);
-    }
+    
+
 }

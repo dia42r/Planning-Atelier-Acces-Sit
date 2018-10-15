@@ -23,7 +23,7 @@ class SaleDocumentRepository extends EntityRepository
             ->where("s.numberprefix = :prefix") // I: premier param a checké  @Param prefix
             ->andWhere('s.documentdate > :limitdate') // II: deuxieme param a checké @Param limitedate
             ->setParameter('prefix', 'CAT') // Set Param I
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->setParameter('limitdate', $limitdate->format('d-m-y')) // Set Param II
             ->getQuery();
 
