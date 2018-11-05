@@ -13,6 +13,16 @@ use Doctrine\ORM\NoResultException;
 class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    public function findBySaleDocumentId($id)
+    {
+        $q = $this->createQueryBuilder('s')
+            ->select('s')
+            ->where('s.saleDocument = :id')
+            ->setParameter('id', $id)
+            ->getQuery();
+
+        return $q->getResult();
+    }
     public function findDoc($id)
     {
         // Création d'une requete personnalisé Query Builder

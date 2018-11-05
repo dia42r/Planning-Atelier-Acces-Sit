@@ -36,7 +36,7 @@ class Planification
     private $comment;
 
     /**
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Customer\SaleDocumentLine", inversedBy="planif" )
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocumentLine", inversedBy="planif" )
      * @ORM\JoinColumn(name="SaleDocumentLine_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $saleDocumentLine;
@@ -220,11 +220,11 @@ class Planification
     /**
      * Set saleDocumentLine.
      *
-     * @param \PlanningBundle\Entity\Customer\SaleDocumentLine|null $saleDocumentLine
+     * @param \PlanningBundle\Entity\EBP\SaleDocumentLine|null $saleDocumentLine
      *
      * @return Planification
      */
-    public function setSaleDocumentLine(\PlanningBundle\Entity\Customer\SaleDocumentLine $saleDocumentLine = null)
+    public function setSaleDocumentLine(\PlanningBundle\Entity\EBP\SaleDocumentLine $saleDocumentLine = null)
     {
         $this->saleDocumentLine = $saleDocumentLine;
 
@@ -234,7 +234,7 @@ class Planification
     /**
      * Get saleDocumentLine.
      *
-     * @return \PlanningBundle\Entity\Customer\SaleDocumentLine|null
+     * @return \PlanningBundle\Entity\EBP\SaleDocumentLine|null
      */
     public function getSaleDocumentLine()
     {

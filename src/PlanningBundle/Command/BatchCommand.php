@@ -5,14 +5,15 @@ namespace PlanningBundle\Command;
 use SqlSrvBundle\Entity\Item;
 use SqlSrvBundle\Entity\Saledocument;
 use SqlSrvBundle\Entity\Saledocumentline;
-use PlanningBundle\Entity\Customer\SaleDocumentLine as SaleDocumentLinePlanning;
-use PlanningBundle\Entity\Customer\SaleDocument as SaleDocumentPlanning;
-use PlanningBundle\Entity\Customer\Item as ItemPlanning;
+use PlanningBundle\Entity\EBP\SaleDocumentLine as SaleDocumentLinePlanning;
+use PlanningBundle\Entity\EBP\SaleDocument as SaleDocumentPlanning;
+use PlanningBundle\Entity\EBP\Item as ItemPlanning;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use PlanningBundle\Repository\CustomerRepository;
 
 class BatchCommand extends ContainerAwareCommand
 {
@@ -31,6 +32,107 @@ class BatchCommand extends ContainerAwareCommand
             );
     }
 
+    
+    public function getSaleDocumentCustomer($customerId) 
+    {
+        // Customer 
+
+        $customerSrc = $this->getContainer()
+            ->get('doctrine.orm.customer_entity_manager')
+            ->getRepository(\SqlSrvBundle\Entity\Customer::class)
+            ->findById($customerId);
+
+        if (!empty($customerSrc)) 
+        {
+            $customerDest =  new \PlanningBundle\Entity\EBP\Customer();
+            $customerDest->setId($customerSrc[0]->getId());
+            $customerDest->setCustomerId($customerSrc[0]->getId());
+            $customerDest->setCivility($customerSrc[0]->getCivility());
+            $customerDest->setMainDeliveryAddress1($customerSrc[0]->getMaindeliveryaddressAddress1()); 
+            $customerDest->setMainDeliveryAddress2($customerSrc[0]->getMaindeliveryaddressAddress2()); 
+            $customerDest->setMainDeliveryAddressCity($customerSrc[0]->getMaindeliveryaddressCity()); 
+            $customerDest->setMainDeliveryAddressZipCode($customerSrc[0]->getMaindeliveryaddressZipcode()); 
+            $customerDest->setMainDeliveryAddressState($customerSrc[0]->getMaindeliveryaddressState()); 
+            $customerDest->setMainDeliveryAddressCountry($customerSrc[0]->getMaindeliveryaddressCountryisocode());
+
+            $customerDest->setMainInvoicingAddress1($customerSrc[0]->getMaininvoicingaddressAddress1());
+            $customerDest->setMainInvoicingAddress2($customerSrc[0]->getMaininvoicingaddressAddress2());
+            $customerDest->setMainInvoicingAddressCity($customerSrc[0]->getMaininvoicingaddressCity());
+            $customerDest->setMainInvoicingAddressZipCode($customerSrc[0]->getMaininvoicingaddressZipcode());
+            $customerDest->setMainInvoicingAddressState($customerSrc[0]->getMaininvoicingaddressState());
+            $customerDest->setMainInvoicingAddressCountry($customerSrc[0]->getMaininvoicingaddressCountryisocode());
+            
+            return $customerDest;
+        }
+        
+        return null;
+    }
+    
+    /**
+     * 
+     * @param type $saleDocumentLineId
+     * @return Item
+     */
+    public function getItemInSaleDocumentLineId($itemid) 
+    {
+        // Set Item : 
+        $itemSrc = $this->getContainer()
+        ->get('doctrine.orm.customer_entity_manager')
+        ->getRepository(Item::class)
+        ->findById($itemid);
+        
+        $em = $this->getContainer()
+         ->get('doctrine.orm.default_entity_manager');
+        
+        if (!empty($itemSrc)) {
+            $itemDest = new \PlanningBundle\Entity\EBP\Item();
+            $itemDest->setId($itemSrc[0]->getId());
+            $itemDest->setCaption($itemSrc[0]->getCaption());
+            $itemDest->setDesComm($itemSrc[0]->getDescom());
+            $itemDest->setNote($itemSrc[0]->getNotesclear());
+            
+
+            
+            $em->merge($itemDest);
+            $em->flush();
+            return $itemDest;
+        }
+        
+        return null;
+        
+    }
+    /**
+     * Return saleDocumentLines 
+     * @param type $saleDocumentId
+     * @return SaleDocumentLinePlanning
+     */
+    public function getSaleDocumentLines($saleDocumentId)
+    {
+        $saleDocumentLinesSrc = $this->getContainer()
+        ->get('doctrine.orm.customer_entity_manager')
+        ->getRepository(SaleDocumentline::class)
+        ->findBySaleDocumentId($saleDocumentId);
+
+
+        $em = $this->getContainer()
+         ->get('doctrine.orm.default_entity_manager');
+        foreach ($saleDocumentLinesSrc as $saleDocumentLineSrc)
+        {
+            $saleDocumentLineDest = new \PlanningBundle\Entity\EBP\SaleDocumentLine();
+            $saleDocumentLineDest->setId($saleDocumentLineSrc->getId());
+            $saleDocumentLineDest->setDescription($saleDocumentLineSrc->getDescription());
+            $saleDocumentLineDest->setQuantity($saleDocumentLineSrc->getQuantity());
+            $saleDocumentLineDest->setItem($this->getItemInSaleDocumentLineId($saleDocumentLineSrc->getitemid()));
+ 
+            $em->merge($saleDocumentLineDest);
+            $em->flush();
+            $saleDocumentLinesDest[] = $saleDocumentLineDest;
+        }
+        
+        return $saleDocumentLinesDest;
+            
+    }
+        
     /**
      * {@inheritdoc}
      * @throws \Doctrine\ORM\ORMException
@@ -39,344 +141,56 @@ class BatchCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln([
-            'Start',
-            '====='
+            'Start syncronisation ',
+            '====================='
         ]);
 
         if ( $input->getArgument('sql') == 1 ) {
 
-            $test = $this->getContainer()
+            $saleDocuments = $this->getContainer()
                 ->get('doctrine.orm.customer_entity_manager')
                 ->getRepository(Saledocument::class)
-                ->findSafeDoc();
+                ->findSaleDocuments();
 
             $em = $this->getContainer()
                 ->get('doctrine.orm.default_entity_manager');
 
             $output->writeln([
-                'ready go',
-                '========'
+                ' Write ... ',
+                ' =========='
             ]);
 
-            $progress = new ProgressBar($output, count($test));
+            $progress = new ProgressBar($output, count($saleDocuments));
             $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
             // starts and displays the progress bar
             $progress->start();
 
-            $batchSize = 20;
-            $count = 0;
-            foreach ($test as $key => $safe ) {
+            $countSaleDocument = 0;
+            foreach ($saleDocuments as $document => $attribut) {
 
-                $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
-                $safedocument->setId($safe['id']);
-                $safedocument->setDocumentNumber($safe['documentnumber']);
-                $safedocument->setDocumentDate($safe['documentdate']);
-                $safedocument->setDocumentWishDate($safe['deliverydate']);
-                $safedocument->setCustomerName($safe['customername']);
-                $safedocument->setNumberPrefix($safe['numberprefix']);
 
-                $em->persist($safedocument);
-                $count++;
-
+                $saleDocument = new \PlanningBundle\Entity\EBP\SaleDocument();
+                $saleDocument->setId($attribut['id']);
+                $saleDocument->setDocumentNumber($attribut['documentnumber']);
+                $saleDocument->setDocumentDate($attribut['documentdate']);
+                $saleDocument->setDocumentWishDate($attribut['deliverydate']);
+                $saleDocument->setCustomerName($attribut['customername']);
+                $saleDocument->setNumberPrefix($attribut['numberprefix']);
+                
+                $saleDocument->setSaleDocumentLines($this->getSaleDocumentLines($attribut['id']));
+                $saleDocument->setCustomer($this->getSaleDocumentCustomer($attribut['customerid']));
+                
+                dump($saleDocument->getSaleDocumentLines());
+                
+                $countSaleDocument++;
                 $progress->advance();
-                if (($key % $batchSize) === 0) {
-                    dump('add: '.$count);
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
+
+                $em->merge($saleDocument);
+                $em->flush(); // Detaches all objects from Doctrine!    
             }
-            $em->flush();
-            $em->clear();
+ 
             $progress->finish();
 
-        }
-        elseif ($input->getArgument('sql') == 2){
-            $items = $this->getContainer()
-                ->get('doctrine.orm.customer_entity_manager')
-                ->getRepository(Item::class)
-                ->findItems();
-            $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
-            $output->writeln([
-                'ready go',
-                '========'
-            ]);
-            $progress = new ProgressBar($output, count($items));
-// starts and displays the progress bar
-            $progress->start();
-            $batchSize = 20;
-                        $count = 0;
-
-            foreach ($items as $key => $safe ) {
-
-                $item = new \PlanningBundle\Entity\Customer\Item();
-                $item->setId($safe['id']);
-                $item->setCaption($safe['caption']);
-                $item->setDesComm($safe['descom']);
-                $em->persist($item);
-                $count++;
-                $progress->advance();
-                if (($key % $batchSize) === 0) {
-
-                    dump('add: '.$count);
-
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
-            }
-            $em->flush();
-            $em->clear();
-            $progress->finish();
-        }
-        elseif ($input->getArgument('sql') == 3){
-
-            $test = $this->getContainer()
-                ->get('doctrine.orm.customer_entity_manager')
-                ->getRepository(Saledocumentline::class)
-                ->findDetails();
-            $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
-
-            $output->writeln([
-                'ready go',
-                '========'
-            ]);
-            $progress = new ProgressBar($output, count($test));
-            $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% || écoulé: %elapsed:6s%  tmp estimé: %estimated:-6s%  reste: %remaining%   ');
-// starts and displays the progress bar
-            $progress->start();
-            $batchSize = 20;
-            $count = 0;
-            foreach ($test as $key => $safe ) {
-//            dump($key);
-//            dump($safe);
-//            die;
-                $safedocumentlinePlanning = $em->getRepository(SaleDocumentLinePlanning::class)->find($safe['id']);
-
-                if($safedocumentlinePlanning == null) {
-
-                    $safedocument = $em->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
-                        ->find($safe['documentid']);
-                    if ($safe['itemid'] != null) {
-                        $item = $em->getRepository(\PlanningBundle\Entity\Customer\Item::class)
-                            ->find($safe['itemid']);
-                    }
-                    else {
-                        $item = null;
-                    }
-                    if ($safedocument != null) {
-                        $safedocumentline = new \PlanningBundle\Entity\Customer\SaleDocumentLine();
-                        $safedocumentline->setId($safe['id']);
-                        $safedocumentline->setSaleDocument($safedocument);
-                        $safedocumentline->setDocumentid($safe['documentid']);
-                        $safedocumentline->setItem($item);
-                        $safedocumentline->setDescription($safe['descriptionclear']);
-                        $safedocumentline->setQuantity($safe['quantity']);
-                        $em->persist($safedocumentline);
-                        $count++;
-                    }
-                    else {
-                        dump(' non CAT');
-                    }
-
-                }else{
-                    dump('deja dans la base');
-                }
-                $progress->advance();
-                if (($key % $batchSize) === 0) {
-//                dump($safedocumentline);
-
-                    dump('add: '.$count);
-//                die;
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
-            }
-            $em->flush();
-            $em->clear();
-            $progress->finish();
-        }
-        elseif ($input->getArgument('sql') == 4){
-            $addSaleDocument = 0;
-            $addSaleDocumentLine = 0;
-            $addItem = 0;
-
-            $dateLog = new \DateTime();
-            $dateLog = $dateLog->format('d-m-Y-H-i');
-
-            $testplanning = $this
-                ->getContainer()
-                ->get('doctrine.orm.default_entity_manager')
-                ->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
-                ->findlastid();
-
-            $test = $this
-                ->getContainer()
-                ->get('doctrine.orm.customer_entity_manager')
-                ->getRepository(Saledocument::class)
-                ->findtest($testplanning['id']);
-
-            $em = $this->getContainer()
-                ->get('doctrine.orm.default_entity_manager');
-
-            $output->writeln([
-                'ready go saldocument',
-                '========'
-            ]);
-
-            $progress = new ProgressBar($output, count($test));
-            $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%');
-            // starts and displays the progress bar
-            $progress->start();
-
-            $batchSize = 20;
-            foreach ($test as $key => $safe ) {
-                $safedocumentPlanning = $em->getRepository(SaleDocumentPlanning::class)->find($safe['id']);
-                if($safedocumentPlanning == null) {
-
-                    $safedocument = new \PlanningBundle\Entity\Customer\SaleDocument();
-                    $safedocument->setId($safe['id']);
-                    $safedocument->setDocumentNumber($safe['documentnumber']);
-                    $safedocument->setDocumentDate($safe['documentdate']);
-                    $safedocument->setDocumentWishDate($safe['deliverydate']);
-                    $safedocument->setCustomerName($safe['customername']);
-                    $safedocument->setNumberPrefix($safe['numberprefix']);
-                    $em->persist($safedocument);
-                    $addSaleDocument++;
-                }else{
-                    dump('deja dans la base');
-                }
-                $progress->advance();
-                if (($key % $batchSize) === 0) {
-                    var_dump('  add= '.$addSaleDocument);
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
-            }
-            $em->flush();
-            $em->clear();
-            $progress->finish();
-//----------------------------------------------------
-//----------------------------------------------------
-//----------------------------------------------------
-//----------------------------------------------------
-            $testplanning = $this
-                ->getContainer()
-                ->get('doctrine.orm.default_entity_manager')
-                ->getRepository(\PlanningBundle\Entity\Customer\Item::class)
-                ->findlastid();
-
-            $items = $this
-                ->getContainer()
-                ->get('doctrine.orm.customer_entity_manager')
-                ->getRepository(Item::class)
-                ->findtest($testplanning['id']);
-
-            $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
-            $output->writeln([
-                '        ',
-                '========',
-                'ready go item',
-                '========'
-            ]);
-            $progress = new ProgressBar($output, count($items));
-// starts and displays the progress bar
-            $progress->start();
-            $batchSize = 20;
-            foreach ($items as $key => $safe ) {
-                $itemPlanning = $em->getRepository(ItemPlanning::class)->find($safe['id']);
-                if($itemPlanning == null) {
-
-                    $item = new \PlanningBundle\Entity\Customer\Item();
-                    $item->setId($safe['id']);
-                    $item->setCaption($safe['caption']);
-                    $item->setDesComm($safe['descom']);
-                    $em->persist($item);
-                    $addItem++;
-                }else{
-                    dump('deja dans la base');
-                }
-                $progress->advance();
-                if (($key % $batchSize) === 0) {
-
-                    dump('   add='.$addItem);
-
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
-            }
-            $em->flush();
-            $em->clear();
-            $progress->finish();
-//----------------------------------------------------
-//----------------------------------------------------
-//----------------------------------------------------
-//----------------------------------------------------
-            $testplanning = $this
-                ->getContainer()
-                ->get('doctrine.orm.default_entity_manager')
-                ->getRepository(\PlanningBundle\Entity\Customer\SaleDocumentLine::class)
-                ->findlastid();
-
-            $test = $this
-                ->getContainer()
-                ->get('doctrine.orm.customer_entity_manager')
-                ->getRepository(Saledocumentline::class)
-                ->findtest($testplanning['id']);
-            $em = $this->getContainer()->get('doctrine.orm.default_entity_manager');
-//        die("ok");
-            $output->writeln([
-                '        ',
-                '========',
-                'ready go saledomentline',
-                '========'
-            ]);
-            $progress = new ProgressBar($output, count($test));
-            $progress->setFormat(' %current%/%max% [%bar%] %percent:3s%% || écoulé: %elapsed:6s%  tmp estimé: %estimated:-6s%  reste: %remaining%   ');
-// starts and displays the progress bar
-            $progress->start();
-            $batchSize = 20;
-            foreach ($test as $key => $safe ) {
-
-                $safedocumentlinePlanning = $em->getRepository(SaleDocumentLinePlanning::class)->find($safe['id']);
-
-                if($safedocumentlinePlanning == null) {
-
-                    $safedocument = $em->getRepository(\PlanningBundle\Entity\Customer\SaleDocument::class)
-                        ->find($safe['documentid']);
-                    if ($safe['itemid'] != null) {
-                        $item = $em->getRepository(\PlanningBundle\Entity\Customer\Item::class)
-                            ->find($safe['itemid']);
-                    }
-                    else {
-                        $item = null;
-                    }
-                    if ($safedocument != null) {
-                        $safedocumentline = new \PlanningBundle\Entity\Customer\SaleDocumentLine();
-                        $safedocumentline->setId($safe['id']);
-                        $safedocumentline->setSaleDocument($safedocument);
-                        $safedocumentline->setDocumentid($safe['documentid']);
-                        $safedocumentline->setItem($item);
-                        $safedocumentline->setDescription($safe['descriptionclear']);
-                        $safedocumentline->setQuantity($safe['quantity']);
-                        $em->persist($safedocumentline);
-                        $addSaleDocumentLine++;
-                    }
-
-                }else{
-                    dump('deja dans la base');
-                }
-                $progress->advance();
-                if (($key % $batchSize) === 0) {
-//                dump($safedocumentline);
-                    dump('  add='.$addSaleDocumentLine);
-//                die;
-                    $em->flush();
-                    $em->clear(); // Detaches all objects from Doctrine!
-                }
-            }
-            $em->flush();
-            $em->clear();
-            $progress->finish();
-            file_put_contents("logs/".$dateLog.".txt","SaleDocument Add: ".$addSaleDocument." || \nItem Add: ".$addItem." || \nSaleDocumentLine Add: ".$addSaleDocumentLine);
         }
 
     }

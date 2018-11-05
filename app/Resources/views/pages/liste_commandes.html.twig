@@ -1,0 +1,89 @@
+{% extends "themes_admin_2.html.twig" %}
+{% block body %}
+ 
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Tables</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+            <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    DataTables Advanced Tables
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                            <thead>
+                                <tr>
+                                    <th>Commande (n°CAT)</th>
+                                    <th>Client</th>
+                                    <th>Statut</th>
+                                    <th>Enregistré le</th>
+                                    <th>Date départ atelier souhaiter</th>
+                                    <th>Date de fin de fabrication planifiée</th>
+                                    <th>Date de fin de fabrication réelle</th>
+                                </tr>
+                            </thead>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for commande in commandes %}
+
+                            <tr>
+                                <td>
+                                    {{ commande.documentNumber }}
+                                    <a href="{{ path('details-commandes', {'id': commande.id }) }}">
+                                        <img class="edit-img" src="{{ asset('img/logo-edit.png') }}" alt="">
+                                    </a>
+                                </td>
+                                <td>
+                                    {% if commande.statusBis is not null %}
+                                        {{ commande.customerName }} <img style="width: 6%; display: block;margin: 0 auto;" class="delete-img" src="{{ asset('img/hourglass_blue.png') }}" alt="">
+                                    {% else %}
+                                        {{ commande.customerName }}
+                                    {% endif %}
+                                </td>
+                                <td>{{ commande.status }}</td>
+                                <td>{{ commande.documentDate|date('d/m/y') }}</td>
+                                <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
+                                <td>
+                                    {% if commande.endDate is not null %}
+                                        {{ commande.endDate|date('d/m/y') }}
+                                    {% else %}
+                                        Non-défini
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if commande.documentEndDateFabric is not null %}
+                                        {{ commande.documentEndDateFabric|date('d/m/y') }}
+                                    {% else %}
+                                        Non-défini
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %} 
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>DataTables Usage Information</h4>
+                        <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
+                        <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+{% endblock %}

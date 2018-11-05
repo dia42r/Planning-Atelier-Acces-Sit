@@ -2,8 +2,8 @@
 
 namespace PlanningBundle\Controller;
 
-use PlanningBundle\Entity\Customer\SaleDocument;
-use PlanningBundle\Entity\Customer\SaleDocumentLine;
+use PlanningBundle\Entity\EBP\SaleDocument;
+use PlanningBundle\Entity\EBP\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Planification;
 use PlanningBundle\Entity\Main\SousPlanification;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

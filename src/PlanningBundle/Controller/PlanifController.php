@@ -3,8 +3,8 @@
 namespace PlanningBundle\Controller;
 
 use function PHPSTORM_META\type;
-use PlanningBundle\Entity\Customer\SaleDocument;
-use PlanningBundle\Entity\Customer\SaleDocumentLine;
+use PlanningBundle\Entity\EBP\SaleDocument;
+use PlanningBundle\Entity\EBP\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Actor;
 use PlanningBundle\Entity\Main\Competence;
 use PlanningBundle\Entity\Main\Planification;
@@ -17,6 +17,33 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PlanifController extends Controller
 {
+
+    
+        /**
+     * @Route("/liste_commandes", name="liste-commandes")
+     * @param Request $request
+     * @return Response
+     */
+
+    public function listeCommandesAction(Request $request)
+    {
+        $commandes = $this->getDoctrine()
+            ->getRepository(SaleDocument::class)
+            ->findAll();
+
+        $paginator = $this->get('knp_paginator');
+
+        $pagination = $paginator->paginate(
+            $commandes,
+            $request->query->getInt('page', 1),
+            30
+        );
+
+        return $this->render('pages/liste_commandes.html.twig', [
+            'commandes' => $commandes,
+            'pagination'=> $pagination
+        ]);
+    }
 
     /**
      * @Route("/planification", name="planifier-une-commande")
