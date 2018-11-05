@@ -6,19 +6,13 @@ namespace PlanningBundle\Entity\Main;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Competence
+ * Task
  *
- * @ORM\Table(name="competence")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\CompetenceRepository")
+ * @ORM\Table(name="task")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\TaskRepository")
  */
-class Competence
+class Task
 {
-
-    public function __construct()
-    {
-        $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
     /**
      * @var int
      *
@@ -36,17 +30,29 @@ class Competence
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", mappedBy="competence",)
-     * @ORM\JoinTable(name="competence_actor")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Actor", mappedBy="task",)
+     * @ORM\JoinTable(name="task_actor")
      */
     private $actor;
 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\Planning",mappedBy="task")
+     */
+    private $plannings;
+    
     /**
      * @ORM\Column(type="integer",unique=true, nullable=false )
      */
     private $position;
 
 
+    
+    public function __construct()
+    {
+        $this->actor = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->plannings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -63,7 +69,7 @@ class Competence
      *
      * @param string $name
      *
-     * @return Competence
+     * @return Task
      */
     public function setName($name)
     {
@@ -86,7 +92,7 @@ class Competence
      *
      * @param \PlanningBundle\Entity\Main\Actor $actor
      *
-     * @return Competence
+     * @return Actor
      */
     public function addActor(\PlanningBundle\Entity\Main\Actor $actor)
     {
@@ -136,5 +142,14 @@ class Competence
     {
         $this->position = $position;
         return $this;
+    }
+    
+
+    public function addPlanning(\PlanningBundle\Entity\Main\Planning $planning) {
+        return $this->planning[] = $planning;
+    }
+    
+    public function removePlanning($planning) {
+        return $this->planning->remove($planning);
     }
 }

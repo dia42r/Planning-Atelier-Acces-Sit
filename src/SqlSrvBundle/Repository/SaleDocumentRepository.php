@@ -19,12 +19,14 @@ class SaleDocumentRepository extends EntityRepository
 
         //Query Builder
         $q = $this->createQueryBuilder("s")
-            ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix, s.customerid') // Données selectionnés dont on a besoin
+            ->select('s.id,s.deliverydate,s.documentdate,s.documentnumber,s.customername,s.numberprefix, s.customerid, s.deliverystate ') // Données selectionnés dont on a besoin
             ->where("s.numberprefix = :prefix") // I: premier param a checké  @Param prefix
             ->andWhere('s.documentdate > :limitdate') // II: deuxieme param a checké @Param limitedate
+            ->andWhere("s.deliverystate = :etat")
             ->setParameter('prefix', 'CAT') // Set Param I
-            // ->setMaxResults(10)
             ->setParameter('limitdate', $limitdate->format('d-m-y')) // Set Param II
+            ->setParameter('etat', 0)
+            ->setMaxResults(50)
             ->getQuery();
 
         return $q->getResult();

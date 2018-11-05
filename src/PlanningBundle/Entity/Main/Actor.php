@@ -12,10 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Actor
 {
-    public function __construct()
-    {
-        $this->competence = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
     /**
      * @var int
      *
@@ -39,16 +36,31 @@ class Actor
     private $enabled;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Competence",inversedBy="actor")
-     * @ORM\JoinTable(name="competence_actor")
+     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\Task",inversedBy="actor")
+     * @ORM\JoinTable(name="task_actor")
      */
-    private $competence;
+    private $task;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PlanningBundle\Entity\Main\SousPlanification",mappedBy="actor")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\Planning",mappedBy="actor")
      */
-    private $souplanif;
+    private $planning;
 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\Disponibilite", mappedBy="actor")
+     * 
+     */
+    private $disponibilites;
+    
+    
+    public function __construct()
+    {
+        $this->task = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->disponibilites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
     /**
      * Get id.
      * @return int
@@ -109,75 +121,49 @@ class Actor
     }
 
     /**
-     * Add competence.
+     * Add Task.
      *
-     * @param \PlanningBundle\Entity\Main\Competence $competence
+     * @param \PlanningBundle\Entity\Main\Task $task
      *
      * @return Actor
      */
-    public function addCompetence(\PlanningBundle\Entity\Main\Competence $competence)
+    public function addTask(\PlanningBundle\Entity\Main\Task $task)
     {
-        $this->competence[] = $competence;
+        $this->task[] = $task;
 
         return $this;
     }
 
     /**
-     * Remove competence.
+     * Remove Task.
      *
-     * @param \PlanningBundle\Entity\Main\Competence $competence
+     * @param \PlanningBundle\Entity\Main\Task $task
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeCompetence(\PlanningBundle\Entity\Main\Competence $competence)
+    public function removeTask(\PlanningBundle\Entity\Main\Task $task)
     {
-        return $this->competence->removeElement($competence);
+        return $this->task->removeElement($task);
     }
 
     /**
-     * Get competence.
+     * Get Task.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCompetence()
+    public function getTask()
     {
-        return $this->competence;
+        return $this->task;
     }
 
-    /**
-     * Add souplanif.
-     *
-     * @param \PlanningBundle\Entity\Main\SousPlanification $souplanif
-     *
-     * @return Actor
-     */
-    public function addSouplanif(\PlanningBundle\Entity\Main\SousPlanification $souplanif)
+    public function getPlanning()
     {
-        $this->souplanif[] = $souplanif;
-
+        return $this->planning;
+    }
+    
+    public function setPlanning(\PlanningBundle\Entity\Main\Planning $planning) {
+        $this->planning = $planning;
         return $this;
-    }
-
-    /**
-     * Remove souplanif.
-     *
-     * @param \PlanningBundle\Entity\Main\SousPlanification $souplanif
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeSouplanif(\PlanningBundle\Entity\Main\SousPlanification $souplanif)
-    {
-        return $this->souplanif->removeElement($souplanif);
-    }
-
-    /**
-     * Get souplanif.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSouplanif()
-    {
-        return $this->souplanif;
     }
 
     public function __toString()

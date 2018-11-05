@@ -36,7 +36,7 @@ class SaleDocument
 
     /**
      * One SaleDocument has many SaleDocumentLines
-     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saledocument", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="SaleDocumentLine", mappedBy="saleDocument", cascade={"persist"}, fetch="EAGER")
      */
         private $saleDocumentLines;
 
@@ -60,30 +60,11 @@ class SaleDocument
 
 
     /**
-     *
-     * @ORM\Column(name="total_time", type="time", nullable=true)
-     */
-    private $totalTime;
-
-    /**
-     *
-     * @ORM\Column(name="catEnd", type="boolean", nullable=false)
-     */
-    private $catEnd = false;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=40, nullable=true)
      */
-    private $status = 'Non planifié';
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="status_bis", type="string", length=30, nullable=true)
-     */
-    private $statusBis;
+    private $status = 'NON_PLANIFIE';
 
     /**
      * @var string
@@ -94,58 +75,16 @@ class SaleDocument
 
 
     /**
-     * @ORM\Column(name="total_prev", type="string", type="time", nullable=true)
+     * @ORM\Column(name="cumul_duration", type="string", type="integer", nullable=true)
      */
-    private $totalPrev;
+    private $cumulDuration;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="documentEndDateFabric", type="date", nullable=true)
+     * @ORM\Column(name="end_date_estimated", type="datetime", nullable=true)
      */
-    private $documentEndDateFabric;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="starting_date", type="datetime", nullable=true)
-     */
-    private $startingDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="end_date", type="datetime", nullable=true)
-     */
-    private $endDate;
-
-
-
-    /**
-     * @return string
-     */
-    public function getDocumentValidDate()
-    {
-        return $this->documentValidDate;
-    }
-
-    /**
-     * @param string $documentValidDate
-     * @return SaleDocument
-     */
-    public function setDocumentValidDate($documentValidDate)
-    {
-        $this->documentValidDate = $documentValidDate;
-        return $this;
-    }
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="documentValidDate", type="date", nullable=true)
-     */
-    private $documentValidDate;
+    private $endDateEstimated;
 
     /**
      * @return string
@@ -182,24 +121,6 @@ class SaleDocument
         $this->status = $status;
         return $this;
     }
-
-    /**
-     * @return null|string
-     */
-    public function getStatusBis()
-    {
-        return $this->statusBis;
-    }
-
-    /**
-     * @param null|string $statusBis
-     */
-    public function setStatusBis( $statusBis)
-    {
-        $this->statusBis = $statusBis;
-        return $this;
-    }
-
 
 
     /**
@@ -346,74 +267,22 @@ class SaleDocument
     }
 
     /**
-     * Set totalTime.
-     *
-     * @param \DateTime $totalTime
-     *
-     * @return SaleDocument
-     */
-    public function setTotalTime($totalTime)
-    {
-        $this->totalTime = $totalTime;
-
-        return $this;
-    }
-
-    /**
-     * Get totalTime.
-     *
-     * @return \DateTime
-     */
-    public function getTotalTime()
-    {
-        return $this->totalTime;
-    }
-
-
-
-    /**
      * @return string
      */
-    public function getDocumentEndDateFabric()
+    public function getEndDateEstimated()
     {
-        return $this->documentEndDateFabric;
+        return $this->endDateEstimated;
     }
 
     /**
-     * @param string $documentEndDateFabric
+     * @param string $endEstimatedDate
      * @return SaleDocument
      */
-    public function setDocumentEndDateFabric( $documentEndDateFabric)
+    public function setEndDateEstimated($date)
     {
-        $this->documentEndDateFabric = $documentEndDateFabric;
+        $this->endDateEstimated = $date;
         return $this;
     }
-
-    /**
-     * Set catEnd.
-     *
-     * @param bool $catEnd
-     *
-     * @return SaleDocument
-     */
-    public function setCatEnd($catEnd)
-    {
-        $this->catEnd = $catEnd;
-
-        return $this;
-    }
-
-    /**
-     * Get catEnd.
-     *
-     * @return bool
-     */
-    public function getCatEnd()
-    {
-        return $this->catEnd;
-    }
-
-
 
     /**
      * @return mixed
@@ -454,18 +323,18 @@ class SaleDocument
     /**
      * @return mixed
      */
-    public function getTotalPrev()
+    public function getCumulDuration()
     {
-        return $this->totalPrev;
+        return $this->cumulDuration;
     }
 
     /**
-     * @param mixed $totalPrev
+     * @param mixed $cumulDuration
      * @return SaleDocument
      */
-    public function setTotalPrev($totalPrev)
+    public function setCumulDuration($duration)
     {
-        $this->totalPrev = $totalPrev;
+        $this->cumulDuration = $duration;
         return $this;
     }
 

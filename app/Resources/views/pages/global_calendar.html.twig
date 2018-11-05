@@ -1,0 +1,62 @@
+{% extends "theme_admin_2.html.twig" %}
+{% block stylesheets %}
+    {{ parent()}}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+{% endblock %}
+{% block body %}
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="col-lg-12">
+                    <h1 class="page-header">Calendrier Global </h1>
+            </div>
+            <div class="row">
+                {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js') }}"></script>
+ <script type="text/javascript">
+$(function () {
+    $('#calendar-holder').fullCalendar({
+        locale: 'fr',
+        header: {
+            left: 'prev, next, today',
+            center: 'title',
+            right: 'month, agendaWeek, agendaDay'
+        },
+        businessHours: {
+            start: '09:00',
+            end: '18:00',
+            dow: [1, 2, 3, 4, 5]
+        },
+        defaultView: 'agendaWeek',
+        lazyFetching: true,
+        navLinks: true,
+        selectable: true,
+        editable: true,
+        eventDurationEditable: true,
+        eventSources: [
+            {
+                url: '/app_dev.php/fc-load-events',
+                type: 'POST',
+                data: {
+                    filters: {}
+                },
+                error: function () {
+                    // alert('There was an error while fetching FullCalendar!');
+                }
+            }
+        ]
+    });
+});
+ </script>
+{% endblock %}

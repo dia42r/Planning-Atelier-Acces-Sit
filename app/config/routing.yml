@@ -1,3 +1,11 @@
+planning_planning:
+    resource: "@PlanningBundle/Controller/Main/PlanningController.php"
+    type:     annotation
+
+planning_planning:
+    resource: "@PlanningBundle/Controller/Main/PlanningController.php"
+    type:     annotation
+
 sql_srv:
     resource: "@SqlSrvBundle/Controller/"
     type:     annotation
@@ -8,9 +16,9 @@ planning:
     type:     annotation
     prefix:   /
 
-ancarebeca_fullcalendar:
-    resource: "@FullCalendarBundle/Resources/config/routing.yml"
-
+toiba_fullcalendar:
+    resource: "@FullCalendarBundle/Resources/config/routing.yaml"
+    
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/AdminController.php"
     type:     annotation

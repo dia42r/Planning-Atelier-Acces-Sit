@@ -1,42 +1,65 @@
-{% extends "base.html.twig" %}
+{% extends "theme_admin_2.html.twig" %}
+{% block stylesheets %}
+    {{ parent()}}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+{% endblock %}
 {% block body %}
-    <main id="mainselected">
-        <section class="planif-button-h2">
+    <div id="wrapper">
+        <div id="page-wrapper">
+
             <h2>Consulter le planning par acteurs : </h2>
-            <select name="" id="selectActor" title="">
+            <div class="form-group">
+              <select class="form-control" id="selectActor">
+                  <option value="">-- Selectionner un acteur --</option>
                 {% for actor in actors  %}
                     {% if actor.enabled == 1 %}
                         <option value="{{ actor.id }}">{{ actor.name }}</option>
                     {% endif %}
                 {% endfor %}
-            </select>
-        </section>
-    </main>
-
-    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
-
-
+              </select>
+            </div>
+            <div class="row">
+                {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/screen.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
-{% endblock %}
-
 
     {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/planning/js/fullcalendar.default-settings.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale/fr.js') }}"></script>
         <script type="text/javascript">
             $(function () {
-                var $$selectActor = document.getElementById('selectActor');
-                var actor = $$selectActor.value;
+                
+                $('#calendar-holder').fullCalendar({
+                locale: 'fr',
+                header: {
+                    left: 'prev, next, today',
+                    center: 'title',
+                    right: 'month, agendaWeek, agendaDay'
+                },
+                businessHours: {
+                    start: '09:00',
+                    end: '18:00',
+                    dow: [1, 2, 3, 4, 5]
+                },
+                defaultView: 'agendaWeek',
+                lazyFetching: true,
+                navLinks: true,
+                selectable: true,
+                editable: true,
+                eventDurationEditable: true
+            });
 
-                $$calendarHolder.fullCalendar('addEventSource',
+                var selectActor = document.getElementById('selectActor');
+                var actor = selectActor.value;
+                
+                $('#calendar-holder').fullCalendar('addEventSource',
                     {
-                        url: '/load-planning',
+                        url: '/app_dev.php/v2/load-planning',
                         type: 'GET',
                         data: {planning:'ACTOR',actor:actor},
                         error: function () {
@@ -44,12 +67,12 @@
                     }
                 );
 
-                $$selectActor.addEventListener('change', function () {
+                selectActor.addEventListener('change', function () {
                     let actor = this.value;
-                    $$calendarHolder.fullCalendar( 'removeEventSources' );
-                    $$calendarHolder.fullCalendar( 'addEventSource' ,
+                    $('#calendar-holder').fullCalendar( 'removeEventSources' );
+                    $('#calendar-holder').fullCalendar( 'addEventSource' ,
                         {
-                            url: '/load-planning',
+                            url: '/app_dev.php/v2/load-planning',
                             type: 'GET',
                             data: {planning:'ACTOR',actor:actor},
                             error: function () {}
@@ -58,7 +81,7 @@
                     console.log(this.value);
                     // debugger
 
-                })
+                });
             });
         </script>
     {% endblock %}

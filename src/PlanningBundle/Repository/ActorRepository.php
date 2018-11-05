@@ -23,4 +23,9 @@ class ActorRepository extends \Doctrine\ORM\EntityRepository
 
         return $q->getResult();
     }
+    
+    public function findByPlanning($param) 
+    {
+        
+    }
 }

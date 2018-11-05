@@ -1,0 +1,33 @@
+{% extends 'theme_admin_2.html.twig' %}
+
+{% block body %}
+<body>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">  
+                    {% if errors %} 
+                        <div class="alert alert-danger">
+                            <strong>Erreur : </strong> 
+                            {{ errors }}
+                        </div>
+                    {% endif%}
+                    {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <input class="btn btn-primary"  type="submit" value="Planifier " />
+                    {{ form_end(form) }}
+
+                    <br/>
+                    <br/>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="{{ path('detail_commande', {'id' : s_document_id }) }}"><button type="button" class="btn btn-primary">Retour à la commande </button></a>
+                        </li>
+                    </ul>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

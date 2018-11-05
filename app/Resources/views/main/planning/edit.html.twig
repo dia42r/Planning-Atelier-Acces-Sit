@@ -1,0 +1,37 @@
+{% extends 'theme_admin_2.html.twig' %}
+
+{% block body %}
+<body>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>Planning</h1>
+                    {% if errors %} 
+                        <div class="alert alert-danger">
+                            <strong>Erreur : </strong> 
+                            {{ errors }}
+                        </div>
+                    {% endif%}
+                {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+                    <input class="btn btn-primary" type="submit" value="Modifier" />
+                {{ form_end(edit_form) }}
+
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ path('detail_commande', {'id' : s_document_id }) }}"><button type="button" class="btn btn-primary">Retour à la commande </button></a>
+
+                    </li>
+                    <li>
+                        {{ form_start(delete_form) }}
+                            <input class="btn btn-danger"  type="submit" value="Supprimer">
+                        {{ form_end(delete_form) }}
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

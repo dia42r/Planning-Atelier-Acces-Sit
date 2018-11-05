@@ -92,4 +92,54 @@ class SaleDocumentLineRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $d->getSingleResult();
     }
+    
+    
+    public function findSaleDocumentEndDate($id) 
+    {
+        $q = $this->createQueryBuilder("p")
+        ->select(' max(p.endDateEstimated) as endDateEstimated ')
+        ->where('p.saleDocument = :id')
+        ->setParameter(':id', $id)
+        ->getQuery();
+        
+        try {
+            return $q->getSingleScalarResult();
+        } catch (\Doctrine\ORM\NoResultException $ex) {
+            return null;
+        }
+        
+    }
+    
+    public function findSaleDocumentCumulDuration($id) 
+    {
+        $q = $this->createQueryBuilder("p")
+        ->where('p.saleDocument =  :id')
+        ->setParameter(':id', $id)
+        ->select(' sum(p.cumulDuration) as sumTask ')
+        ->getQuery();
+        
+        try {
+            return $q->getSingleScalarResult();
+        } catch (\Doctrine\ORM\NoResultException $ex) {
+            return null;
+        }
+        
+    }
+    
+    
+    public function findScheduledSaleDocumentLine($id) {
+        
+        $q = $this->createQueryBuilder("s")
+                ->where('s.saleDocument = :id')
+                ->andWhere('s.status != :status')
+                ->setParameter(':id', $id)
+                ->setParameter(':status', 'NON_PLANIFIE')
+                ->getQuery();
+                
+        try {
+            return $q->getScalarResult();
+        } catch (\Doctrine\ORM\NoResultException $ex) {
+            return null;
+        }
+    }
 }

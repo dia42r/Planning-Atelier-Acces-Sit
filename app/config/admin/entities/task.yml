@@ -1,10 +1,10 @@
 easy_admin:
     entities:
-        Competence:
-            class: PlanningBundle\Entity\Main\Competence
+        Task:
+            class: PlanningBundle\Entity\Main\Task
             form_theme: 'vertical'
             list:
-                title: "List of Competence"
+                title: "List of Task"
                 fields:
                     - name
                     - actor
@@ -17,17 +17,17 @@ easy_admin:
                     - position
 
             new:
-                title:  'Ajouter une nouvelle Compétence'
-                form_options: { validation_groups: ['Default', 'Competence'] }
+                title:  'Ajouter une nouvelle tâche'
+                form_options: { validation_groups: ['Default', 'Task'] }
 
             edit:
-                title:  "Modifier la Compétence"
+                title:  "Modifier la tâche"
                 fileds:
                     - position
-                form_options: { validation_groups: ['Default', 'Competence'] }
+                form_options: { validation_groups: ['Default', 'Task'] }
 
             show:
-                title: "Compétence"
+                title: "tâche"
                 fields:
                     - position
                     - actor

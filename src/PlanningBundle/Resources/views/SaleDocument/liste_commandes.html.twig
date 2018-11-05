@@ -1,0 +1,92 @@
+{% extends "theme_admin_2.html.twig" %}
+{% set status = ['PLANIFIE','EN_COURS','TERMINE','BLOQUE']%}
+{% set status_color = {'PLANIFIE' : 'info','EN_COURS' : 'warning','TERMINE' : 'success','BLOQUE' : 'danger','':'default', 'NON_PLANIFIE':'default' }%}
+
+{% block body %}
+<body>
+
+    <div id="wrapper">
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">{{ title }}</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                        <div class="panel panel-default">
+            <div class="panel-heading">
+                DataTables Advanced Tables
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>Commande (n°CAT)</th>
+                            <th>Client</th>
+                            <th>Statut</th>
+                            <th>Enregistré le</th>
+                            <th>Date départ atelier souhaiter</th>
+                            <th>Temps de fabrication (heures)</th>
+                            <th>Date de fin estimée</th>
+                            <th>Date de fin réelle </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for commande in saleDocuments %}
+                            
+                            <tr>
+                                <td>
+                                    {{ commande.documentNumber }}
+                                    <a href="{{ path('details-commandes', {'id': commande.id }) }}">
+                                        
+                                    </a>
+                                </td>
+                                <td> {{ commande.customerName }} </td>
+                                <td><span class='label label-{{ status_color[commande.status] }}'> {{ commande.status }} </span></td>
+                                <td>{{ commande.documentDate|date('d/m/y') }}</td>
+                                <td>{{ commande.documentWishDate|date('d/m/y') }}</td>
+                                <td>{% if commande.cumulDuration is not null  %}{{ commande.cumulDuration}} {%endif %}</td>
+                                <td><b>{%if commande.endDateEstimated is not null %}{{ commande.endDateEstimated | date('d/m/y H:i:s') }} {%endif%}</b></td>
+                                <td></td>
+                                <td><a href="{{ path('detail_commande', {'id' : commande.documentNumber})}}"><i  data-toggle="collapse" data-target="#{{ commande.documentNumber }}" class="accordion-toggle fa fa-edit fa-fw" ></i></a></td>
+                            </tr>
+                        {% endfor %} 
+  
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+       $('#dataTables-example').DataTable({
+           responsive: true
+       });
+   });
+   
+   $('.accordian-body').on('show.bs.collapse', function () {
+    $(this).closest("table")
+        .find(".collapse.in")
+        .not(this)
+        .collapse('toggle')
+})
+    </script>
+{% endblock %}  

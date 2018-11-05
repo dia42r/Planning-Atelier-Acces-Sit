@@ -1,0 +1,64 @@
+{% extends 'theme_admin_2.html.twig' %}
+
+{% block body %}
+<body>
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+    <h1>Plannings list</h1>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Commande Number</th>
+                <th> Ligne de commande </th>
+                <th>Startdate</th>
+                <th>Duration</th>
+                <th>Enddate</th>
+                <th>Comment</th>
+                <th>Task</th>
+                <th>Actor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planning in plannings %}
+            <tr>
+                <td><a href="{{ path('planning_show', { 'id': planning.id }) }}">{{ planning.id }}</a></td>
+                <td>{{ planning.saleDocumentLine }}</td>
+                <td>{{ planning.saleDocumentLine.item }}</td>
+                <td>{% if planning.startDate %}{{ planning.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ planning.duration }}</td>
+                <td>{% if planning.endDate %}{{ planning.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ planning.comment }}</td>
+                <td>{{ planning.task }}</td>
+                
+                <td> {{ planning.actor }} </td>
+                <td>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="{{ path('planning_show', { 'id': planning.id }) }}"><button type="button" class="btn btn-primary"> Afficher</button></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('planning_edit', { 'id': planning.id }) }}"><button type="button" class="btn btn-primary"> Modifier </button></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <!-- <a href="">Create a new planning</a> -->
+        </li>
+    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>            
+{% endblock %}

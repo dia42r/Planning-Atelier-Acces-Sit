@@ -2,6 +2,10 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
+    planning.status.planifie: 'PLANIFIE'
+    planning.status.en_cours: 'EN_COURS'
+    planning.status.termine: 'TERMINE'
+    planning.status.non_planifie: 'NON_PLANIFIE'
 
 services:
     # default configuration for services in *this* file
@@ -49,12 +53,16 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+#
+#    planning.entity.calendar_event:
+#        class: PlanningBundle\Listener\LoadDataListener
+#        tags:
+#                - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: 'loadData' }
 
-    planning.entity.calendar_event:
-        class: PlanningBundle\Listener\LoadDataListener
+    PlanningBundle\EventListener\FullCalendarListener:
         tags:
-                - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: 'loadData' }
-
+            - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
+            
     app.security.login_form_authenticator:
         class: PlanningBundle\Security\LoginFormAuthenticator
         autowire: true

@@ -147,6 +147,10 @@ class Item
         return $this->note;
     }
 
+    public function __toString() {
+        return $this->getCaption();
+        
+    }
 
 
 }

@@ -1,0 +1,204 @@
+{% extends "::theme_admin_2.html.twig" %}
+{% set status = ['PLANIFIE','EN_COURS','TERMINE','BLOQUE']%}
+{% set status_color = {'PLANIFIE' : 'info','EN_COURS' : 'warning','TERMINE' : 'success','BLOQUE' : 'danger', 'NON_PLANIFIE':'default' }%}
+{% block title %}PlanningBundle:SaleDocument:showDetail{% endblock %}
+
+{% block body %}
+<body>
+    <div id="wrapper">
+
+        <div id="page-wrapper">
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Plannification de la commande :  {{ saleDocument.documentNumber }}
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table width="100%" class="table table-bordered table-hover" id="dataTables-example">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Commande (n°CAT)</th>
+                            <th>Client</th>
+                            <th>Statut</th>
+                            <th>Enregistré le</th>
+                            <th>Date départ atelier souhaiter</th>
+                            <th>Cumul Heure </th>
+                            <th>Date de fin de fabrication Estimée </th>
+                            <th>Date de fin de fabrication réelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>
+                                    {{ saleDocument.documentNumber }}
+                                    <a href="{{ path('details-commandes', {'id': saleDocument.id }) }}">
+                                        
+                                    </a>
+                                </td>
+                                <td>{{ saleDocument.customerName }}</td>
+                                <td><span class='label label-{{ status_color[saleDocument.status] }}'> {{ saleDocument.status }} </span></td>
+                                <td>{{ saleDocument.documentDate|date('d/m/y') }}</td>
+                                <td>{{ saleDocument.documentWishDate|date('d/m/y') }}</td>
+                                <td>  {% if saleDocument.cumulDuration is not null  %}{{ saleDocument.cumulDuration}} {%endif %}</td>
+                                <td><b>{%if saleDocument.endDateEstimated is not null %}{{ saleDocument.endDateEstimated | date('d/m/y H:i:s') }} {%endif%}</b></td>
+                                <td></td>
+                            </tr>
+                            <!-- Ligne de commande -->
+
+                            <tr class="table table-bordered table-hover " id="{{ saleDocument.documentNumber }}">
+                                <td class="child" colspan="8">
+                                    <table width="100%" class="table table-bordered table-hover" >
+                                    <thead>
+                                        <tr>
+                                            <th> Article </th>
+                                            <th> Description </th>
+                                            <th> Qté </th>
+                                            <th> Unité </th>
+                                            <th> Status </th>
+                                            <th> Cumul Duree </th>
+                                            <th> Date Fin Estimée . </th>
+                                            <th> Actions </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       {% set saleDocumentLines = saleDocument.saleDocumentLines.getValues %}
+                                      
+                                        {% for saleDocumentLine in saleDocumentLines %}       
+                                            {% set plannings = saleDocumentLine.plannings.getValues %}
+                                            {% set cumulDuration = 0 %}
+                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{saleDocumentLine.id}}" >
+                                                <td>{{ saleDocumentLine.item ? saleDocumentLine.item.id : '' }}</td>
+                                                <td>{{ saleDocumentLine.description }}</td>
+                                                <td>{{ saleDocumentLine.quantity > 0 ? saleDocumentLine.quantity  :'' }}</td>
+                                                <td> {{ saleDocumentLine.unitId }} </td>
+                                                <td> {% if saleDocumentLine.quantity > 0 %} <span class='label label-{{ status_color[saleDocumentLine.status] }}'> {{ saleDocumentLine.status }} </span> {%endif %}</td>
+                                                <td> {% if saleDocumentLine.quantity > 0 %} {{ saleDocumentLine.cumulDuration}}{%endif%}</td>
+                                                <td>{% if saleDocumentLine.quantity > 0 and saleDocumentLine.endDateEstimated is not null %}<b>{{ saleDocumentLine.endDateEstimated | date('d/m/y H:i:s') }}</b>{%endif%}</td>
+                                                <td>
+                                                    {% if saleDocumentLine.quantity > 0 %}
+                                                    <ul class="list-inline">
+                                                        <li>
+                                                            <a href="{{ path('planning_new', {'id' : saleDocumentLine.id }) }}"><button type="button" class="btn btn-primary"><i class="fa fa-clock-o" ></i> Ajouter une tâche </button></a>
+                                                        </li>
+                                                    </ul>  
+                                                    {% endif %}    
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Ligne de plannification  -->
+                                           
+                                            {% if  plannings  %}
+                                                
+                                            <tr id="{{ saleDocumentLine.id }}" class="accordion-toggle collapse">
+                                            
+                                                <td class="child" colspan="8">
+                                                    <table width="100%" class="table table-bordered table-hover" >
+                                                        <thead>
+                                                            <tr>
+                                                                <th> Tache </th>
+                                                                <th> Acteur </th>
+                                                                <th> Date de debut </th>
+                                                                <th> Durée </th>                                                                
+                                                                <th> Date fin Prev. </th>
+                                                                <th> Date fin Réel </th>
+                                                                <th> Statut </th>
+                                                                <th> Actions </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for planning in plannings |sort('startDate') %}
+                                                            <tr class="warning">
+                                                                <td>{{ planning.task }}</td>
+                                                                <td>{{ planning.actor }}</td>
+                                                                <td>{{ planning.startDate|date('d/m/y H:i:s') }}</td>
+                                                                <td>{{ planning.duration }}</td>
+                                                                <td>{{ planning.endDate|date('d/m/y H:i:s') }}</td>
+                                                                <td></td>
+                                                                <td><span class="label label-{{ status_color[planning.status] }}"> {{ planning.status }} </span></td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li>
+                                                                            <a href="{{ path('planning_edit', {'id' : planning.id }) }}"><button type="button" class="btn btn-primary"><i class="fa fa-edit" ></i> Modifier </button></a>
+                                                                        </li>
+                                                                    {% if planning.status ==  constant('PLANIFIE', planning) %}        
+                                                                        <li>
+                                                                            <a href="{{ path('planning_status', {'id' : planning.id, 'status' : constant('EN_COURS', planning) }) }}"><button type="button" class="btn btn-primary"><i class="fa fa-clock-o" ></i> Demarrer </button></a>
+                                                                        </li>
+                                                                    {% elseif planning.status ==  constant('EN_COURS', planning) %}
+                                                                        <li>
+                                                                            <a href="{{ path('planning_status', {'id' : planning.id, 'status' : constant('TERMINE', planning) }) }}"><button type="button" class="btn btn-primary"><i class="fa fa-clock-o" ></i> Terminer </button></a>
+                                                                        </li>
+                                                                    {% endif %}
+                                                                        
+                                                                    </ul>
+                                                                </td>
+                                                            </tr>
+                                                                {%endfor%}   
+                                                        </tbody>
+                                                    </table>    
+                                                </td>
+                                            
+                                            </tr>
+                                                
+                                            {% endif %}
+                                            <!-- Fin ligne plannification -->
+                                        {% endfor%}
+                                    </tbody>
+                                </table>
+                                    
+                                </td>
+                                
+                            </tr>
+                          
+                        <!-- Fin ligne de commande -->  
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- End Tables -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Listes des commandes</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+                                        
+
+{% endblock %}

@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new PlanningBundle\PlanningBundle(),
-            new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new SqlSrvBundle\SqlSrvBundle(),
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),

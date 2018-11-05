@@ -38,7 +38,7 @@ class SaleDocumentLine
     /**
      * @var int
      *
-     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     * @ORM\Column(name="quantity", type="float", nullable=false)
      */
     private $quantity;
 
@@ -75,19 +75,13 @@ class SaleDocumentLine
      *
      * @ORM\Column(name="status", type="string", length=30, nullable=true)
      */
-    private $status = "Non-planifié";
+    private $status = "NON_PLANIFIE";
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="status_bis", type="string", length=30, nullable=true)
-     */
-    private $statusBis;
 
     /**
      * @var \PlanningBundle\Entity\EBP\Item
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\Item", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\EBP\Item", mappedBy="SaleDocumentLine")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="item_id", referencedColumnName="id")
      * })
@@ -97,7 +91,7 @@ class SaleDocumentLine
     /**
      * @var \PlanningBundle\Entity\EBP\SaleDocument
      *
-     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocument",inversedBy="saleDocumentLines"))
+     * @ORM\ManyToOne(targetEntity="PlanningBundle\Entity\EBP\SaleDocument",inversedBy="saleDocumentLines",cascade={"persist"})))
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="saleDocument_id", referencedColumnName="id")
      * })
@@ -105,17 +99,22 @@ class SaleDocumentLine
     private $saleDocument;
 
     /**
-     * @ORM\OneToOne(targetEntity="PlanningBundle\Entity\Main\Planification",mappedBy="saleDocumentLine")
-     * @ORM\JoinColumn(name="Planification_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\OneToMany(targetEntity="PlanningBundle\Entity\Main\Planning",mappedBy="saleDocumentLine")
      */
-    private $planif;
+    private $plannings;
 
 
     /**
      *
-     * @ORM\Column(name="total_time", type="time", nullable=true)
+     * @ORM\Column(name="cumul_duration", type="integer", nullable=true)
      */
-    private $totalTime;
+    private $cumulDuration;
+    
+    /**
+     *
+     * @ORM\Column(name="end_date_estimated", type="datetime", nullable=true)
+     */
+    private $endDateEstimated;
 
 
     /**
@@ -130,7 +129,23 @@ class SaleDocumentLine
      * @ORM\Column(name="documentWishDate", type="date", nullable=true)
      */
     private $documentWishDate;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="unitId", type="string", nullable=true)
+     */
+    private $unitId;
 
+    
+    
+    public function __construct() {
+        $this->plannings = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    public function getPlannings() {
+        return $this->plannings;
+    }
     /**
      * Get id.
      *
@@ -350,7 +365,7 @@ class SaleDocumentLine
      *
      * @param \PlanningBundle\Entity\EBP\Item|null $item
      *
-     * @return SaleDocumentLine
+     * @return Item
      */
     public function setItem(\PlanningBundle\Entity\EBP\Item $item = null)
     {
@@ -376,7 +391,7 @@ class SaleDocumentLine
      *
      * @return SaleDocumentLine
      */
-    public function setSaleDocument($saleDocument)
+    public function setSaleDocument(\PlanningBundle\Entity\EBP\SaleDocument $saleDocument)
     {
         $this->saleDocument = $saleDocument;
 
@@ -417,42 +432,6 @@ class SaleDocumentLine
         return $this->planif;
     }
 
-    /**
-     * Set totalTime.
-     *
-     * @param \DateTime|null $totalTime
-     *
-     * @return SaleDocumentLine
-     */
-    public function setTotalTime($totalTime = null)
-    {
-        $this->totalTime = $totalTime;
-
-        return $this;
-    }
-
-    /**
-     * Get totalTime.
-     *
-     * @return \DateTime|null
-     */
-    public function getTotalTime()
-    {
-        return $this->totalTime;
-    }
-
-    public function getTotalPrev()
-    {
-        return $this->totalPrev;
-    }
-
-
-    public function setTotalPrev($totalPrev)
-    {
-        $this->totalPrev = $totalPrev;
-        return $this;
-    }
-
 
     /**
      * @return string
@@ -472,24 +451,84 @@ class SaleDocumentLine
         $this->documentWishDate = $documentWishDate;
         return $this;
     }
-
+    
     /**
-     * @return null|string
+     * 
+     * @return string
      */
-    public function getStatusBis()
-    {
-        return $this->statusBis;
+    public function getUnitId() {
+        return $this->unitId;
     }
-
+    
+    
     /**
-     * @param null|string $statusBis
-     * @return SaleDocumentLine
+     * 
+     * @param type $unitId
+     * @return $this
      */
-    public function setStatusBis( $statusBis)
-    {
-        $this->statusBis = $statusBis;
+    public function setUnitId($unitId) {
+        $this->unitId = $unitId;
         return $this;
     }
 
+   
+    /**
+     * 
+     * @param type $unitId
+     * @return $this
+     */
+    public function getDocumentNumber() {
+        return $this->saleDocumentNumber;
+    }
+    
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getCumulDuration() 
+    {
+        return $this->cumulDuration;
+        
+    }
+    
+    
+
+    /**
+     * 
+     * @param type $duration
+     * @return $this
+     */
+    public function setCumulDuration($duration) 
+    {
+        $this->cumulDuration = $duration;
+        return $this;
+    }
+    
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getEndDateEstimated() 
+    {
+        return $this->endDateEstimated;
+    }
+    
+    
+    /**
+     * 
+     * @param type $date
+     * @return $this
+     */
+    public function setEndDateEstimated($date) 
+    {
+        $this->endDateEstimated = $date;
+        return $this;
+    }
+    
+    public function __toString() {
+        return $this->saleDocumentNumber;
+    }
 
 }

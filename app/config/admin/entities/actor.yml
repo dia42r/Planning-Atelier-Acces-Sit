@@ -7,7 +7,7 @@ easy_admin:
                 fields:
                     - enabled
                     - name
-                    - competence
+                    - task
 
             form:
                 fields:
@@ -16,12 +16,12 @@ easy_admin:
                     - name
                     - enabled
                     - { type: 'group', label: 'Tasks', css_class: 'col-sm-6', icon: 'tasks' }
-                    - competence
+                    - task
 
             new:
                 title:  'Ajouter un nouvel acteur'
                 fileds:
-                    - competence
+                    - task
                 form_options: { validation_groups: ['Default', 'Actor'] }
 
 
@@ -32,7 +32,7 @@ easy_admin:
             show:
                 title:  "Acteur"
                 fileds:
-                    - competence
+                    - task
                 form_options: { validation_groups: ['Default', 'Actor'] }
 
 

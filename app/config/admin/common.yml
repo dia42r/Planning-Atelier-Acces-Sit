@@ -8,7 +8,7 @@ easy_admin:
 
         menu:
             - { label: 'Users', entity: 'User', icon: 'users' }
-            - { label: 'Competence', entity: 'Competence', icon: 'tasks' }
+            - { label: 'Tâche', entity: 'Task', icon: 'tasks' }
             - { label: 'Actor', entity: 'Actor', icon: 'user-plus' }
         brand_color: '#c9046b'
         color_scheme: 'light'

@@ -12,6 +12,52 @@ use Doctrine\ORM\EntityRepository;
  */
 class SaleDocumentRepository extends EntityRepository
 {
+    
+    public function findByDocumentNumber($sale_document_id) 
+    {
+        $q = $this->createQueryBuilder("p")
+             ->where("p.documentNumber = :sale_document_id")
+             ->setParameter(':sale_document_id', $sale_document_id)
+             ->getQuery();
+        
+        
+        return $q->getSingleResult();
+    }
+    
+    
+    
+    /**
+     * 
+     * @param type $param
+     * @return type
+     */
+    public function findScheduledOrder() {
+        $q = $this->createQueryBuilder("s")
+                ->orderBy('s.documentDate', 'DESC')
+                ->where('s.status != :status')
+                ->setParameter(':status', 'NON_PLANIFIE')
+                ->getQuery();
+        
+        return $q->getResult();
+    }
+    
+
+    /**
+     * 
+     * @param type $param
+     * @return type
+     */
+    public function findNotScheduledOrder() {
+        $q = $this->createQueryBuilder("s")
+                ->orderBy('s.documentDate', 'DESC')
+                ->where('s.status = :status')
+                ->setParameter(':status', 'NON_PLANIFIE')
+                ->getQuery();
+        
+        return $q->getResult();
+    }
+    
+    
     public function findSaleSearch($val)
     {
         // Création d'une requete personnalisé Query Builder

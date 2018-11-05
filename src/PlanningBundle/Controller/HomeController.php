@@ -17,6 +17,22 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
+    
+    
+    /**
+     * @Route("/v2/", name="Index")
+     */
+    public function homeAction() {
+        
+        $commandes = $this->getDoctrine()
+        ->getRepository(SaleDocument::class)
+        ->findAll();
+        
+        return $this->render('pages/home.html.twig', [
+            'commandes' => $commandes
+        ]);
+    }
+    
     /**
      * @Route("/", name="premiere-page")
      */
@@ -24,6 +40,7 @@ class HomeController extends Controller
     {
         return $this->render('pages/page-accueil.html.twig');
     }
+    
 
 
 
