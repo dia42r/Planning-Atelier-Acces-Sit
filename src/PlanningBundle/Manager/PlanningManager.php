@@ -61,19 +61,14 @@ class PlanningManager {
             
             $jour = new DateTime($planning->getStartDate()->format('Y-m-d'));
             $chargeJour = $this->em->getRepository(Planning::class)->findSumTaskByActor($planning->getActor(), $jour->format('Y-m-d'));
-            dump($chargeJour);
             $nbHeureDispoJour = $planning::NB_HEURE_JOUR - $chargeJour;
-            dump($nbHeureDispoJour);
+            
             $chargeJourTache = ($duree > $nbHeureDispoJour) ? $nbHeureDispoJour : $duree;
-          
-            dump($chargeJourTache);
             $planning->setDuration($chargeJourTache);
             $planning->setStatus($planning::PLANIFIE);
             $planning->setEndDate(new DateTime($planning->getStartDate()->format('Y-m-d H:i:s')));
             $planning->getEndDate()->add(new DateInterval('PT' . $chargeJourTache . 'H'));
             
-            
-            dump($planning);
 
             while ($this->isThisDayAWeekend($planning->getEndDate()->format('Y-m-d H:i:s'))) {
                 $planning->getEndDate()->add(new DateInterval('P1D'));
