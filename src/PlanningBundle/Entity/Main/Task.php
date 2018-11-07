@@ -149,7 +149,15 @@ class Task
         return $this->planning[] = $planning;
     }
     
-    public function removePlanning($planning) {
+    
+    
+    /**
+     * 
+     * @param \PlanningBundle\Entity\Main\Planning $planning
+     * @return type
+     */
+    public function removePlanning(Planning $planning) {
         return $this->planning->remove($planning);
     }
+    
 }

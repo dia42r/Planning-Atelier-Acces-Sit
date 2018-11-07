@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use PlanningBundle\Entity\EBP\SaleDocumentLine;
 use PlanningBundle\Entity\Main\Planning;
-use function dump;
 
 /**
  * Description of PlanningManager
@@ -32,49 +31,62 @@ class PlanningManager {
      * @param Planning $planning
      * @return type
      */
-    public function calculateTaskEndDate(Planning $planning, SaleDocumentLine $saleDocumentLine) 
+    public function calculateTaskEndDate(Planning $planning) 
     {
         
         $duree = $planning->getDuration();
         $actor = $planning->getActor();
         $task = $planning->getTask();
+        $saleDocumentLine  = $planning->getSaleDocumentLine();
         
+
         while ($duree > 0) {
+            
+            if ($planning->getParentPlanning()) {
+                $startDate = $planning->getParentPlanning()->getEndDate();
+                $planning->setStartDate($startDate);
+            } else { 
+                $startDate = $this->getTaskStartDate($planning);
+                    if (is_null($startDate)) {
+                        $planning->getStartDate()->add(new \DateInterval(Planning::T7H));
+                    } else {
+                        $planning->setStartDate(new \DateTime($startDate));
+                } 
+            }
             
             while ($this->isThisDayAWeekend($planning->getStartDate()->format('Y-m-d H:i:s'))) {
             $planning->getStartDate()->add(new DateInterval('P1D'));
             }
             
-            $startDate = $this->getTaskStartDate($planning);
-            
-
-            if (is_null($startDate)) {
-                $planning->getStartDate()->add(new \DateInterval(Planning::T7H));
-            } else {
-                $planning->setStartDate(new \DateTime($startDate));
-            }        
             
             $jour = new DateTime($planning->getStartDate()->format('Y-m-d'));
             $chargeJour = $this->em->getRepository(Planning::class)->findSumTaskByActor($planning->getActor(), $jour->format('Y-m-d'));
-            
-            
+            dump($chargeJour);
             $nbHeureDispoJour = $planning::NB_HEURE_JOUR - $chargeJour;
-            
-            $chargeJourTache = $duree > $nbHeureDispoJour ? $nbHeureDispoJour : $duree;
+            dump($nbHeureDispoJour);
+            $chargeJourTache = ($duree > $nbHeureDispoJour) ? $nbHeureDispoJour : $duree;
           
+            dump($chargeJourTache);
             $planning->setDuration($chargeJourTache);
             $planning->setStatus($planning::PLANIFIE);
             $planning->setEndDate(new DateTime($planning->getStartDate()->format('Y-m-d H:i:s')));
             $planning->getEndDate()->add(new DateInterval('PT' . $chargeJourTache . 'H'));
             
+            
+            dump($planning);
+
             while ($this->isThisDayAWeekend($planning->getEndDate()->format('Y-m-d H:i:s'))) {
                 $planning->getEndDate()->add(new DateInterval('P1D'));
             }
             
-            $this->em->persist($planning);
+            if ($this->isNew($planning)) {
+                $this->em->persist($planning);
+            } else {
+                $this->em->merge($planning);
+            }
+            
             $this->em->flush();
             
-            dump($planning);
             $duree = $duree - $nbHeureDispoJour;
             if ($duree > 0) {
                 $planning = new Planning();
@@ -88,9 +100,12 @@ class PlanningManager {
         
     }
 
-    public function validate($planning) {
+    public function validate(Planning $planning) {
 
         $errors = array();
+        if ($planning->getParentPlanning()) {
+            $planning->setStartDate($planning->getParentPlanning()->getEndDate());
+        }
         if (!$this->isAvailable($planning->getActor()->getId(), $planning->getStartDate()->format('Y-m-d'))) {
             return $errors['message'] = " L'acteur " . $planning->getActor() . ' n`\est pas disponible à cette date ';
         }
@@ -154,9 +169,9 @@ class PlanningManager {
      * @param type $planning_id
      * @return type
      */
-    public function getStartDate($planning_id) 
+    public function getStartDateById($planning_id) 
     {
-        return $this->em->getRepository(Planning::class)->findById($planning_id);
+        return $this->em->getRepository(Planning::class)->findStartDateById($planning_id);
     }
 
     
@@ -232,12 +247,43 @@ class PlanningManager {
     }
     
     
-    public function consolidateScheduling(array $plannings) 
+    /**
+     * Suite à une modification ou une suppression de planification 
+     * @param array $plannings
+     */
+    public function consolidateScheduling($sale_document_line_id) 
     {
+        // @TODO : Recuperer la liste de toutes planification de la ligne de commande 
+        $plannings = $this->em->getRepository(Planning::class)->findSchedulingBySaleDocumentLine($sale_document_line_id);
+        dump($plannings);
         foreach ($plannings as $planning) {
-            $this->calculateTaskEndDate($planning);
-            $this->em->merge($planning);
-            $this->em->flush();
+            $this->preUpdate($planning);
+            $plannings_c[] = $planning;
         }
+        
+        dump($plannings_c);
+
+        foreach ($plannings_c as $planning) {
+            $this->calculateTaskEndDate($planning);
+        }
+    }
+    
+    /**
+     * Lors de la mise à jour reinitialise a dueé rt les dates de debut et de fin de la tâche
+     * @param Planning $planning
+     */
+    public function preUpdate(Planning $planning) 
+    {
+        $duree = $planning->getDuration();
+        $startDate = $planning->getStartDate();
+        $planning->setStartDate(null);
+        $planning->setEndDate(null);
+        $planning->setDuration(null);
+        
+        $this->em->merge($planning);
+        $this->em->flush();
+        
+        $planning->setDuration($duree);
+        $planning->setStartDate($startDate);
     }
 }

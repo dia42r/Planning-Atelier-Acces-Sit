@@ -528,7 +528,7 @@ class SaleDocumentLine
     }
     
     public function __toString() {
-        return $this->saleDocumentNumber;
+        return $this->saleDocumentNumber .' '. $this->description ;
     }
 
 }

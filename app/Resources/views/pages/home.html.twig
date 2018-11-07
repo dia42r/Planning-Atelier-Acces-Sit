@@ -19,9 +19,8 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">{{ commandes|length }}</div>
                                     <div>Commande importées </div>
-                                    <div>Date du dernier Import :  </div>
                                 </div>
                             </div>
                         </div>
@@ -42,8 +41,14 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Tâches Planifiées !</div>
+                                    {% set nbPlannifie = 0 %}
+                                    {% for commande in commandes %} 
+                                        {% if commande.status == 'PLANIFIE' %}
+                                            {% set nbPlannifie = nbPlannifie + 1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="huge">{{ nbPlannifie }}</div>
+                                    <div>Commandes Planifiées </div>
                                 </div>
                             </div>
                         </div>
@@ -78,6 +83,9 @@
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <h3>Date import export : <strong>{{ lastImportDate|date('d-m-y h:i:s') }} </strong></h3>
             </div>
         </div>
         <!-- /#page-wrapper -->

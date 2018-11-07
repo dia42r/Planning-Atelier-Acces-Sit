@@ -72,7 +72,7 @@ class CalendarController extends Controller
                 $calendar_datas = [];
 
                 foreach ($schedules_all as $schedule ) {
-                    $calendar_data['title'] = $schedule->getDocumentNumber();
+                    $calendar_data['title'] = $schedule->getDocumentNumber() . ' - '. $schedule->getActor() . ' - '. $schedule->getDuration();
                     $calendar_data['start'] = $schedule->getStartingDate();
                     $calendar_data['end'] = $schedule->getEndDate();
                     

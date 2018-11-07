@@ -26,7 +26,6 @@ class SaleDocumentController extends Controller
         
         $saleDocument = $this->getDoctrine()->getRepository(\PlanningBundle\Entity\EBP\SaleDocument::class)
                 ->findByDocumentNumber($id);
-        dump($saleDocument);
         
         return $this->render('PlanningBundle:SaleDocument:show_detail.html.twig', array(
             'saleDocument' => $saleDocument

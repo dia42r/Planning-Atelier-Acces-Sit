@@ -74,8 +74,8 @@ class PlanningController extends Controller {
 
         $planning = new Planning();
         $planning->setSaleDocumentLine($saleDocumentLine);
-
-        $form = $this->createForm('PlanningBundle\Form\Main\PlanningType', $planning);
+        
+        $form = $this->createForm('PlanningBundle\Form\Main\PlanningType', $planning, array('sale_document' => $saleDocumentLine->getDocumentNumber()));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -132,27 +132,18 @@ class PlanningController extends Controller {
      */
     public function editAction(Request $request, Planning $planning) {
 
+        $sale_document_line_id = $planning->getSaleDocumentLine()->getId();
+        $saleDocumentLine = $planning->getSaleDocumentLine();
         $deleteForm = $this->createDeleteForm($planning);
-        $editForm = $this->createForm('PlanningBundle\Form\Main\PlanningType', $planning);
+        $editForm = $this->createForm('PlanningBundle\Form\Main\PlanningType', $planning, ['sale_document' => $saleDocumentLine->getDocumentNumber()]);
         $editForm->handleRequest($request);
+        
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             
-            if (!empty($this->errors)) {
-                return $this->render('main/planning/edit.html.twig', ['planning' => $planning,
-                    's_document_id' => $planning->getSaleDocumentLine()->getDocumentNumber(),
-                    'errors' => $this->errors,
-                    'edit_form' => $editForm->createView(),
-                    'delete_form' => $deleteForm->createView(),
-                    
-                    ]);
-            }
+            $this->planningManager->preUpdate($planning);
+            $this->planningManager->calculateTaskEndDate($planning);
             
-            // $this->planningManager->calculateTaskEndDate($planning);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-
             $event = new SaleDocumentLinePlannedEvent($planning->getSaleDocumentLine(), $this->planningManager);
             $this->get('event_dispatcher')
                     ->dispatch(SaleDocumentLinePlannedEvent::PLANNED, $event);

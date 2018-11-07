@@ -20,7 +20,7 @@ class HomeController extends Controller
     
     
     /**
-     * @Route("/v2/", name="Index")
+     * @Route("/", name="Index")
      */
     public function homeAction() {
         
@@ -28,8 +28,13 @@ class HomeController extends Controller
         ->getRepository(SaleDocument::class)
         ->findAll();
         
+        $lastImportDate =  $this->getDoctrine()
+        ->getRepository(SaleDocument::class)
+        ->findLastImportDate();
+        
         return $this->render('pages/home.html.twig', [
-            'commandes' => $commandes
+            'commandes' => $commandes, 
+            'lastImportDate' => $lastImportDate
         ]);
     }
     

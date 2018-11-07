@@ -88,11 +88,26 @@ class Planning
      *
      * @ORM\Column(name="status", type="string", length=30, nullable=true)
      */
-    private $status = "Non-planifié";
+    private $status;
+    
+    /**
+     * One Planning has Many Plannings.
+     * @ORM\OneToMany(targetEntity="Planning", mappedBy="parentPlanning")
+     */
+    private $linkedPlannings;
 
+    /**
+     * Many Plannings have One Planning.
+     * @ORM\ManyToOne(targetEntity="Planning", inversedBy="linkedPlannings")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    private $parentPlanning;
+    
+    private $info;
     
     
     public function __construct() {
+        $this->linkedPlannings = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     
@@ -211,34 +226,120 @@ class Planning
     }
     
     
+    /**
+     * 
+     * @param type SaleDocumentLine
+     * @return $this
+     */
     public function setSaleDocumentLine( $saleDocumentLine) {
         
         $this->saleDocumentLine = $saleDocumentLine;
         return $this;
     }
     
+    /**
+     * 
+     * @return type
+     */
     public function getSaleDocumentLine() {
         return $this->saleDocumentLine;
     }
     
     
+    /**
+     * 
+     * @param type $task
+     * @return $this
+     */
     public function setTask($task) {
         $this->task = $task;
         return $this;
     }
     
+    /**
+     * 
+     * @return type
+     */
     public function getTask() {
         return $this->task;
     }
     
+    /**
+     * 
+     * @param \PlanningBundle\Entity\Main\String $status
+     * @return $this
+     */
     public function setStatus(String $status) {
         $this->status = $status;
         return $this;
     }
     
+    /**
+     * 
+     * @return type
+     */
     public function getStatus() {
         return $this->status;
         
     }
     
+    /**
+     * 
+     */
+    public function getLinkedPlannings() 
+    {    
+        return $this->linkedPlannings;
+    }
+    
+    
+    /**
+     * 
+     * @param \PlanningBundle\Entity\Main\Planning $planning
+     * @return $this
+     */
+    public function addLinkedPlannings(Planning $planning) 
+    {
+        $this->linkedPlannings[] = $planning;
+        return $this;
+    }
+    
+     /**
+     * 
+     * @param \PlanningBundle\Entity\Main\Planning $planning
+     * @return $this
+     */
+    public function setLinkedPlannings( $plannings) 
+    {
+        $this->linkedPlannings = $plannings;
+        return $this;
+    }
+    
+    
+    
+    
+    
+    public function setParentPlanning(Planning $planning) 
+    {
+        $this->parentPlanning = $planning;
+        return $this;
+    }
+    
+    
+    public function getParentPlanning() 
+    {
+        return $this->parentPlanning;
+        
+    }
+    
+    public function __toString() {
+        return $this->task->getName() .' : '. $this->startDate->format('d-m-y H:i:s') .' => '.$this->endDate->format('d-m-y H:i:s') ;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getInfo() {
+        return $this->task->getName() .' : '. $this->startDate->format('d-m-y H:i:s') .' => '.$this->endDate->format('d-m-y H:i:s') . ' Acteur : ' . $this->getActor();
+    }
 }

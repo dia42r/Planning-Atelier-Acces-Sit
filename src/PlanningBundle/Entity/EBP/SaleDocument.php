@@ -85,6 +85,15 @@ class SaleDocument
      * @ORM\Column(name="end_date_estimated", type="datetime", nullable=true)
      */
     private $endDateEstimated;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="last_import_date", type="datetime", nullable=true)
+     */
+    private $lastImportDate;
+    
+    
 
     /**
      * @return string
@@ -371,6 +380,25 @@ class SaleDocument
         $this->endDate = $endDate;
         return $this;
     }
+    
+    /**
+     * 
+     * @return datetime
+     */
+    public function getLastImportDate() 
+    {
+        return $this->lastImportDate;
+    }
 
+    /**
+     * 
+     * @param datetime $date
+     * @return $this
+     */
+    public function setLastImportDate($date) 
+    {
+        $this->lastImportDate = $date;
+        return $this;
+    }
 
 }

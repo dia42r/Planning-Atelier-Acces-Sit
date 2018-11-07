@@ -208,6 +208,7 @@ class BatchCommand extends ContainerAwareCommand
         $progress->start();
 
         $countSaleDocument = 0;
+        $date = new \DateTime("now");
         foreach ($saleDocuments as $document => $attribut) {
 
             $saleDoc = $em->getRepository(\PlanningBundle\Entity\EBP\SaleDocument::class)
@@ -225,6 +226,7 @@ class BatchCommand extends ContainerAwareCommand
 
                 $saleDocument->setSaleDocumentLines($this->getSaleDocumentLines($saleDocument));
                 $saleDocument->setCustomer($this->getSaleDocumentCustomer($attribut['customerid']));
+                $saleDocument->setLastImportDate($date);
                 $em->persist($saleDocument);
             } else {
                 
@@ -236,6 +238,7 @@ class BatchCommand extends ContainerAwareCommand
 
                 $saleDoc->setSaleDocumentLines($this->getSaleDocumentLines($saleDoc));
                 $saleDoc->setCustomer($this->getSaleDocumentCustomer($attribut['customerid']));
+                $saleDoc->setLastImportDate($date);
             }
         $countSaleDocument++;    
         $progress->advance();    

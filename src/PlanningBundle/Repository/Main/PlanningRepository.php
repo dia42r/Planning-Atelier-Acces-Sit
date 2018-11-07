@@ -114,4 +114,36 @@ class PlanningRepository extends EntityRepository
             return null;
         } 
     }
+    
+    
+    /**
+     * 
+     * @param type $sale_document_id
+     * @return type
+     */
+    public function findSchedulingBySaleDocumentLine($sale_document_id)
+    {
+        $q = $this->createQueryBuilder("p")
+                ->where('p.saleDocumentLine =  :id')
+                ->setParameter(':id', $sale_document_id)
+                ->orderBy('p.startDate', 'ASC')
+                ->getQuery();
+            return $q->getResult();
+    }
+    
+    
+    public function findStartDateById($id) {
+        
+        $q = $this->createQueryBuilder("p")
+                ->where("p.id = :id")
+                ->select("p.startDate")
+                ->setParameter(":id", $id)
+                ->getQuery();
+        
+        try {
+            return $q->getSingleScalarResult();
+        } catch (\Doctrine\ORM\NoResultException $ex) {
+            return null;
+        }                 
+    }
 }
