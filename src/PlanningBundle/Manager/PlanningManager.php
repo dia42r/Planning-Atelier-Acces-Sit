@@ -123,9 +123,7 @@ class PlanningManager {
      */
     private function isThisDayAWeekend($date) 
     {
-
         $timestamp = strtotime($date);
-
         $weekday = date("l", $timestamp);
 
         if ($weekday == "Saturday" OR $weekday == "Sunday") {
@@ -235,7 +233,9 @@ class PlanningManager {
      */
     public function saleDocumentScheduled($saledocument_id) 
     {
-        $scheduledLine = $this->em->getRepository(SaleDocumentLine::class)->findScheduledSaleDocumentLine($saledocument_id);
+        $scheduledLine = $this->em
+                ->getRepository(SaleDocumentLine::class)
+                ->findScheduledSaleDocumentLine($saledocument_id);
         dump($scheduledLine);
         
         return $scheduledLine;

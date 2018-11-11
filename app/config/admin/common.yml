@@ -1,5 +1,5 @@
 easy_admin:
-    site_name: '<img src="../img/logo-vecto-clestophe.png" /><em style="font-size: 80%;">E.D.S</em>'
+    site_name: '<em style="font-size: 80%;">Planning Atelier </em>'
     design:
         assets:
             css:
@@ -10,9 +10,7 @@ easy_admin:
             - { label: 'Users', entity: 'User', icon: 'users' }
             - { label: 'Tâche', entity: 'Task', icon: 'tasks' }
             - { label: 'Actor', entity: 'Actor', icon: 'user-plus' }
-        brand_color: '#c9046b'
-        color_scheme: 'light'
-        form_theme: 'vertical'
+
 
 
     list:

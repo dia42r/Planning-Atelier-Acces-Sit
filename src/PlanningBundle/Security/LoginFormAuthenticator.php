@@ -89,7 +89,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getLoginUrl()
     {
-        return $this->router->generate('connexion_securisée');
+        return $this->router->generate('connexion');
     }
 
     public function checkCredentials($credentials, UserInterface $user)
@@ -107,9 +107,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         $targetPath = $this->getTargetPath($request->getSession(), $providerKey);
+        dump($request);
 
         if (!$targetPath) {
-            $targetPath = $this->router->generate("planifier-une-commande");
+            $targetPath = $this->router->generate("detail_commande");
         }
 
         return new RedirectResponse($targetPath);

@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/connexion", name="connexion_securisée")
+     * @Route("/connexion", name="connexion")
      * @param AuthenticationUtils $authenticalUtils
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -36,7 +36,7 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/deconnexion", name="security_logout")
+     * @Route("/deconnexion", name="deconnexion")
      * @throws \Exception
      */
     public function logoutAction()

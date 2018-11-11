@@ -49,9 +49,7 @@ class PlanningType extends AbstractType
                     'choice_label' => 'info'
                          
                     
-                ))
-                            
-                            
+                ))               
                 ->add('task', EntityType::class, [
                     'label' => 'Tâche',
                     'class'  => 'PlanningBundle\Entity\Main\Task',
@@ -62,6 +60,10 @@ class PlanningType extends AbstractType
                 ->add('actor', EntityType::class, [
                     'label' => 'Acteur',
                     'class' => 'PlanningBundle\Entity\Main\Actor',
+                    'query_builder' => function (EntityRepository $er ) {
+                        return $er->createQueryBuilder('a')
+                                ->where('a.enabled = 1 ');
+                    },
                     'placeholder' => '-- Selectionner un acteur --',
                     'required' => true
                     ])
