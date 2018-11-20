@@ -409,31 +409,6 @@ class SaleDocumentLine
     }
 
     /**
-     * Set planif.
-     *
-     * @param \PlanningBundle\Entity\Main\Planification|null $planif
-     *
-     * @return SaleDocumentLine
-     */
-    public function setPlanif(\PlanningBundle\Entity\Main\Planification $planif = null)
-    {
-        $this->planif = $planif;
-
-        return $this;
-    }
-
-    /**
-     * Get planif.
-     *
-     * @return \PlanningBundle\Entity\Main\Planification|null
-     */
-    public function getPlanif()
-    {
-        return $this->planif;
-    }
-
-
-    /**
      * @return string
      */
     public function getDocumentWishDate(): string

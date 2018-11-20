@@ -72,7 +72,7 @@ class CalendarController extends Controller
                 $calendar_datas = [];
 
                 foreach ($schedules_all as $schedule ) {
-                    $calendar_data['title'] = $schedule->getDocumentNumber() . ' - '. $schedule->getActor() . ' - '. $schedule->getDuration();
+                    $calendar_data['title'] = $schedule->getDocumentNumber() .' - '. $schedule->getTask() .  ' - '. $schedule->getActor() . ' - '. $schedule->getDuration();
                     $calendar_data['start'] = $schedule->getStartingDate();
                     $calendar_data['end'] = $schedule->getEndDate();
                     
@@ -91,11 +91,13 @@ class CalendarController extends Controller
 
                 foreach ($schedules_actor as $schedule_actor ) {
                     
-                    $schedules_actor_tab['title'] = $schedule_actor->getSaleDocumentLine()->getDocumentNumber();
+                    dump($schedule_actor);
+                    
+                    $schedules_actor_tab['title'] = $schedule_actor->getSaleDocumentLine()->getDocumentNumber() . ' - '. $schedule_actor->getTask() .  ' - '. $schedule_actor->getActor() . ' - '. $schedule_actor->getDuration();
                     
                     $schedules_actor_tab['start'] = $schedule_actor->getStartDate();
                     $schedules_actor_tab['end'] = $schedule_actor->getEndDate();
-                    $schedules_actor_tab['backgroundColor'] = 'red';
+                    // $schedules_actor_tab['backgroundColor'] = 'red';
                     array_push($schedules_actor_tabs, $schedules_actor_tab);
                 }
 

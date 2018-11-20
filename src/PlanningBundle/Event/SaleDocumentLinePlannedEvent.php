@@ -54,5 +54,4 @@ class SaleDocumentLinePlannedEvent extends Event {
     {
         return $this->planningManager;
     }
-   
 }

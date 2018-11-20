@@ -14,7 +14,6 @@ use PlanningBundle\Entity\Main\Planning;
 use PlanningBundle\Event\SaleDocumentLinePlannedEvent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use function dump;
 
 
 /**
@@ -22,29 +21,28 @@ use function dump;
  *
  * @author XQJM798
  */
-class SaleDocumentLineSubscriber  implements EventSubscriberInterface{
-   
-   
-
+class SaleDocumentLineSubscriber  implements EventSubscriberInterface
+{
     private $em;
     private $container;
     
-    public function __construct(EntityManagerInterface $em, ContainerInterface $container) {
+    public function __construct(EntityManagerInterface $em, ContainerInterface $container) 
+    {
         $this->em = $em;
         $this->container = $container;
     }
     
-    public static function getSubscribedEvents(): array {
+    public static function getSubscribedEvents(): array 
+    {
         return [
             SaleDocumentLinePlannedEvent::PLANNED => array('onSaleDocumentLinePlanned'),
             SaleDocumentLinePlannedEvent::STATUS => array('onPlanningStatusChanged'),
             SaleDocumentLinePlannedEvent::DELETED => array('onPlanningDeleted')
         ];
-        
     }
     
-    public function onSaleDocumentLinePlanned(SaleDocumentLinePlannedEvent $event) {
-        
+    public function onSaleDocumentLinePlanned(SaleDocumentLinePlannedEvent $event) 
+    {    
         $saleDocumentLine = $event->getSaleDocumentLine();
         $planningManager  = $event->getPlanningManager();
         $saleDocumentLineId = $saleDocumentLine->getId();
