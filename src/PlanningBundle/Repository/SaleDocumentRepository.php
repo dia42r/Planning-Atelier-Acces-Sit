@@ -75,6 +75,7 @@ class SaleDocumentRepository extends EntityRepository
     {
         $q = $this->createQueryBuilder("s") 
         ->select("s.lastImportDate")
+        ->orderBy('s.lastImportDate', 'DESC')
         ->setMaxResults(1) 
         ->getQuery();
 

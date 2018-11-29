@@ -42,19 +42,38 @@ class PlanningRepository extends EntityRepository
                 ->where('p.endDate LIKE :date')
                 ->andWhere('p.actor = :actor ')
                 ->orderBy('p.endDate','DESC')
-                ->setParameter(':date', $date .'%')
+                ->setParameter(':date',  $date .'%')
                 ->setParameter(':actor', $actor)
                 ->select('p.endDate as endDate')
                 ->setMaxResults(1)
-                ->getQuery();
-        
+                ->getQuery(); 
         try {
             return $q->getSingleScalarResult();
         } catch (\Doctrine\ORM\NoResultException $ex) {
             return null;
         }       
     }
-    
+
+    /**
+     * 
+     * @param type $actor_id
+     * @param type $date
+     * @return type
+     */
+    public function findActorOccupedRangeDate($actor, $date) 
+    {
+        $q = $this->createQueryBuilder('p')
+                ->where('p.startDate LIKE :date')
+                ->andWhere('p.endDate LIKE :date')
+                ->andWhere('p.actor = :actor')
+                
+                ->setParameter(':date', $date. '%')
+                ->setParameter(':actor', $actor)
+                ->orderBy('p.startDate', 'ASC')
+                ->select(' p.startDate as startDate, p.endDate as endDate, p.duration as duration ')
+                ->getQuery();
+        return $q->getResult(); 
+    }
     
     /**
      * Retourne la somme des heures d'un acteur sur une journee 
@@ -78,7 +97,7 @@ class PlanningRepository extends EntityRepository
             return 0;
         } 
     }
-    
+   
     
     /**
      * Retourne la date de fin de fabrication estimé d'une ligne de commande
@@ -132,8 +151,8 @@ class PlanningRepository extends EntityRepository
     }
     
     
-    public function findStartDateById($id) {
-        
+    public function findStartDateById($id) 
+    {    
         $q = $this->createQueryBuilder("p")
                 ->where("p.id = :id")
                 ->select("p.startDate")
@@ -145,5 +164,20 @@ class PlanningRepository extends EntityRepository
         } catch (\Doctrine\ORM\NoResultException $ex) {
             return null;
         }                 
+    }
+    
+
+
+    public function findActorAvaibiliteForAnHour($actor_id, $date) 
+    {
+        $q = $this->createQueryBuilder("p")
+                ->where('p.actor =  :actor')
+                ->andWhere(' :date BETWEEN p.startDate AND p.endDate ')
+                ->setParameter(':actor', $actor_id)
+                ->setParameter(':date', $date)
+                ->orderBy('p.startDate', 'ASC')
+                ->getQuery();
+        dump($q);
+        return $q->getResult();
     }
 }

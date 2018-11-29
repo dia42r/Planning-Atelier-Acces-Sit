@@ -76,21 +76,21 @@ class SaleDocumentLineSubscriber  implements EventSubscriberInterface
     {
         if (!empty($plannings)) {
 
-        foreach ($plannings as $planning) {
+            foreach ($plannings as $planning) {
 
-            switch ($planning->getStatus()) {
-            case 'EN_COURS':
-                $saleDocumentLine->setStatus($this->container->getParameter('planning.status.en_cours'));
-                break;
-            case 'TERMINE':
-                $saleDocumentLine->setStatus($this->container->getParameter('planning.status.termine'));
-                break;
-            case 'PLANIFIE':
-                $saleDocumentLine->setStatus($this->container->getParameter('planning.status.planifie'));
-                break;
+                switch ($planning->getStatus()) {
+                case 'EN_COURS':
+                    $saleDocumentLine->setStatus($this->container->getParameter('planning.status.en_cours'));
+                    break;
+                case 'TERMINE':
+                    $saleDocumentLine->setStatus($this->container->getParameter('planning.status.termine'));
+                    break;
+                case 'PLANIFIE':
+                    $saleDocumentLine->setStatus($this->container->getParameter('planning.status.planifie'));
+                    break;
+                }
             }
         }
-    }
         
     }
     /**
@@ -116,7 +116,10 @@ class SaleDocumentLineSubscriber  implements EventSubscriberInterface
         }
     }
     
-    
+    /**
+     * 
+     * @param SaleDocumentLinePlannedEvent $event
+     */
     public function onPlanningDeleted (SaleDocumentLinePlannedEvent $event) 
     {
         $saleDocumentLine = $event->getSaleDocumentLine();
@@ -132,16 +135,15 @@ class SaleDocumentLineSubscriber  implements EventSubscriberInterface
             $saleDocumentLine->setCumulDuration(null);
             $this->em->merge($saleDocumentLine);
             $this->em->flush();
-            
         }  
 
         if (empty($planningManager->saleDocumentScheduled($saleDocument->getId()))) {
             $saleDocument->setStatus($this->container->getParameter('planning.status.non_planifie'));
             $saleDocument->setEndDateEstimated(null);
             $saleDocument->setCumulDuration(null);
-            $this->em->merge($saleDocument); 
+            $this->em->merge($saleDocument);
+            $this->em->flush();   
         }
-        $this->em->flush();   
     }
 
 }

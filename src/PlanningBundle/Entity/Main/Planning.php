@@ -22,7 +22,7 @@ class Planning
     const BLOQUE = 'BLOQUE';
     const NB_HEURE_JOUR = 8;
     const J_START_HOUR = '07:00:00';
-    const T7H = 'PT7H';
+    const DAY_START_HOUR_INTERVAL = 'PT7H';
                 
     /**
      * @var int

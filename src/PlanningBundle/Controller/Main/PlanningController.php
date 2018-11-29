@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 
 /**
  * Planning controller.
@@ -141,6 +142,7 @@ class PlanningController extends Controller {
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             
+            $this->errors = $this->planningManager->validate($planning);
             $this->planningManager->preUpdate($planning);
             $this->planningManager->calculateTaskEndDate($planning);
             
@@ -168,17 +170,35 @@ class PlanningController extends Controller {
      */
     public function deleteAction(Request $request, Planning $planning) 
     {
+        $saleDocumentLine = $planning->getSaleDocumentLine();
+        
         $form = $this->createDeleteForm($planning);
+        $editForm = $this->createForm('PlanningBundle\Form\Main\PlanningType', $planning, ['sale_document' => $saleDocumentLine->getDocumentNumber()]);
+        
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($planning);
-            $em->flush();
+            try {
+                $em->remove($planning);
+                $em->flush();
+            } catch (ForeignKeyConstraintViolationException $ex) {
+                return $this->render('main/planning/edit.html.twig', [
+                    'planning' => $planning,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $form->createView(),
+                    's_document_id' => $saleDocumentLine->getDocumentNumber(),
+                    'errors' => 'Cette tâche est lié à une ou plusieurs tâche et ne peut etre supprimé, veillez d\'abord supprimer les tâches qui lui sont liées ',
+                    
+                    
+                    ]);
+                
+            }
             
             $event = new SaleDocumentLinePlannedEvent($planning->getSaleDocumentLine(), $this->planningManager);
             $this->get('event_dispatcher')
                     ->dispatch(SaleDocumentLinePlannedEvent::DELETED, $event);
+            
             return $this->redirectToRoute('detail_commande', array('id' => $planning->getSaleDocumentLine()->getDocumentNumber()));
         }
         return $this->redirectToRoute('detail_commande', array('id' => $planning->getSaleDocumentLine()->getDocumentNumber()));
