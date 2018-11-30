@@ -12,24 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class CalendarController extends Controller
 {
-    
-    
-    /**
-     * @Route("/calendar_data", name="global_calendar_data")
-     */
-    public function getGlobalCalendarData(Request $request) {
-        
-        $date = new \DateTime('NOW');
-        $datas = array(
-        'title' => 'Event 1',
-        'start' => $date,
-        'end'   =>  $date->modify('+ 3 hour')
-        );
-        return new Response(serialize($datas)); 
-    }
-    
-    
-    
     /**
      * @Route("/calendar", name="global_calendar")
      */
@@ -93,7 +75,7 @@ class CalendarController extends Controller
                     
                     dump($schedule_actor);
                     
-                    $schedules_actor_tab['title'] = $schedule_actor->getSaleDocumentLine()->getDocumentNumber() . ' - '. $schedule_actor->getTask() .  ' - '. $schedule_actor->getActor() . ' - '. $schedule_actor->getDuration();
+                    $schedules_actor_tab['title'] = $schedule_actor->getInfo();
                     
                     $schedules_actor_tab['start'] = $schedule_actor->getStartDate();
                     $schedules_actor_tab['end'] = $schedule_actor->getEndDate();

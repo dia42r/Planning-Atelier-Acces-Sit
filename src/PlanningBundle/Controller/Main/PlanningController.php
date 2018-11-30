@@ -199,6 +199,9 @@ class PlanningController extends Controller {
             $this->get('event_dispatcher')
                     ->dispatch(SaleDocumentLinePlannedEvent::DELETED, $event);
             
+            $this->get('event_dispatcher')
+                    ->dispatch(SaleDocumentLinePlannedEvent::PLANNED, $event);
+            
             return $this->redirectToRoute('detail_commande', array('id' => $planning->getSaleDocumentLine()->getDocumentNumber()));
         }
         return $this->redirectToRoute('detail_commande', array('id' => $planning->getSaleDocumentLine()->getDocumentNumber()));

@@ -142,7 +142,7 @@ class PlanningManager {
 
         if (!empty($actorOccupeidRange)) {
             $start_date = new DateTime($planning->getStartDate()->format('Y-m-d'));
-            $start_date->add(new DateInterval('PT' . self::DAY_START_HOUR . 'H'));
+            $start_date->add(new DateInterval(Planning::DAY_START_HOUR_INTERVAL));
             
             foreach ($actorOccupeidRange as $range) {
                 if ($start_date != $range['startDate'] && PlanningDateHelper::isOfficeHour($start_date)) {

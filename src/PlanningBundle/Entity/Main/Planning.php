@@ -340,6 +340,11 @@ class Planning
      * @return type
      */
     public function getInfo() {
-        return $this->task->getName() .' : '. $this->startDate->format('d-m-y H:i:s') .' => '.$this->endDate->format('d-m-y H:i:s') . ' Acteur : ' . $this->getActor();
+        return $this->getSaleDocumentLine()->getDocumentNumber() .
+                ' - '. $this->getSaleDocumentLine()->getDescription() .
+                ' - '. $this->getSaleDocumentLine()->getQuantity() . 
+                ' - '. $this->getTask() . 
+                ' - '. $this->getActor()->getName() .
+                ' - '. $this->getDuration() .' Heure(s)';
     }
 }

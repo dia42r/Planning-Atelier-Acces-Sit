@@ -34,7 +34,7 @@ class FullCalendarListener
 
         
         foreach ($plannings as $planning) {
-            $title = $planning->getSaleDocumentLine()->getDocumentNumber() . ' - ' . $planning->getTask() .' - '. $planning->getActor()->getName() .' - '. $planning->getDuration() .' Heure(s)';
+            $title = $planning->getInfo();
             $calendar->addEvent(new Event(
                 $title,    
                 $planning->getStartDate(),
